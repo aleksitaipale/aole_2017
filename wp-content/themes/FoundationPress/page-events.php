@@ -87,36 +87,36 @@ get_header(); ?>
 		<section>
 			<h2>Past events</h2>
 			<ul>
-				<?php 
-				foreach ($past_events as &$post) {
-					?>
-					<span><?php echo $post->custom_fields["event_date"]?></span>
-					<span><?php echo $post->custom_fields["event_time"]?></span>
-					<span><?php echo $post->custom_fields["location"]?></span>
-					<span><?php foreach($post->custom_fields["pilot_or_public"] as $key=>$label){ echo $label; }?></span>
-					<ul>
-						<?php foreach($post->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
-					</ul>
-					
-					<ul>
-						
-					</ul>
-					<h3><?php $post->post_title ?></h3>
-					
+				<li>
+					<?php 
+					foreach ($past_events as &$post) {
+						?>
+						<span><?php 
+							$date = date_create($post->custom_fields["event_date"]);
 
-					<?php
-					//echo "<pre>".print_r($post, true)."</pre>";
+							echo date_format($date, "D d F");
 
-					echo "<li>".$post->post_title."</li>";
-				}
-				?>
-			</ul>
+							?></span>
+							<span><?php echo $post->custom_fields["event_time"]?></span>
+							<span><?php echo $post->custom_fields["location"]?></span>
+							<span><?php foreach($post->custom_fields["pilot_or_public"] as $key=>$label){ echo $label; }?></span>
+							<ul>
+								<?php foreach($post->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
+							</ul>
 
-		</section>
+							<ul>
 
-		<?php do_action( 'foundationpress_after_content' ); ?>
-		<?php get_sidebar(); ?>
+							</ul>
+							<h3><?php echo $post->post_title; ?></h3>
+							<hr>
+							<?php } ?>
+						</ul>
 
-	</div>
+					</section>
 
-	<?php get_footer();
+					<?php do_action( 'foundationpress_after_content' ); ?>
+					<?php get_sidebar(); ?>
+
+				</div>
+
+				<?php get_footer();
