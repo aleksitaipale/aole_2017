@@ -62,6 +62,7 @@ get_header(); ?>
 			if ( ! empty( $categories ) ) {
 				$post_info->post_category=$categories[0]->name;   
 			}
+			$post_info->the_permalink = get_permalink();
 
 			$post_info->custom_fields = CFS()->get(); //Add all the fields from CFS to the post info object
 			// Check if event was a past event or a future event and add info to the according array
@@ -74,22 +75,12 @@ get_header(); ?>
 		}
 
 		?>
-		<section>
+		<section class="upcoming-events">
 			<h2>Upcoming events</h2>
-			<ul>
-				<?php 
-				foreach ($future_events as &$post) {
-					echo "<li>".$post->post_title."</li>";
-				}
-				?>
-			</ul>
-		</section>
-		<section>
-			<h2>Past events</h2>
 			<ul>
 				<li>
 					<?php 
-					foreach ($past_events as &$post) {
+					foreach ($future_events as &$post) {
 						?>
 						<span><?php 
 							$date = date_create($post->custom_fields["event_date"]);
@@ -104,19 +95,54 @@ get_header(); ?>
 								<?php foreach($post->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
 							</ul>
 
-							<ul>
-
-							</ul>
+							<?php
+							if ( has_post_thumbnail() ) { 
+								the_post_thumbnail( 'full' );
+							}
+							?>
 							<h3><?php echo $post->post_title; ?></h3>
 							<hr>
 							<?php } ?>
 						</ul>
 
 					</section>
+					<section class="past-events">
+						<h2>Past events</h2>
+						<ul>
+							<li>
+								<?php 
+								foreach ($past_events as &$post) {
+									?>
+									<span><?php 
+										$date = date_create($post->custom_fields["event_date"]);
 
-					<?php do_action( 'foundationpress_after_content' ); ?>
-					<?php get_sidebar(); ?>
+										echo date_format($date, "D d F");
 
-				</div>
+										?></span>
+										<span><?php echo $post->custom_fields["event_time"]?></span>
+										<span><?php echo $post->custom_fields["location"]?></span>
+										<span><?php foreach($post->custom_fields["pilot_or_public"] as $key=>$label){ echo $label; }?></span>
+										<ul>
+											<?php foreach($post->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
+										</ul>
 
-				<?php get_footer();
+										<?php
+										if ( has_post_thumbnail() ) { 
+											the_post_thumbnail( 'full' );
+										}
+										//echo "<pre>".print_r($post)."</pre>";
+										?>
+										
+										<h3><a href="<?php echo $post->the_permalink;?>"><?php echo $post->post_title; ?></a></h3>
+										<hr>
+										<?php } ?>
+									</ul>
+
+								</section>
+
+								<?php do_action( 'foundationpress_after_content' ); ?>
+								<?php get_sidebar(); ?>
+
+							</div>
+
+							<?php get_footer();
