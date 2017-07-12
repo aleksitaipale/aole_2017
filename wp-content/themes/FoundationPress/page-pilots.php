@@ -57,7 +57,7 @@ get_header(); ?>
 				<?php foreach ($theme_groups[$idx]["pilots"] as $pilot){
 					echo "<div class='pilot-listing-item'>";
 					echo "<img src='".get_the_post_thumbnail_url($pilot->ID, 'medium')."'></img>";
-					echo "<h4>".$pilot->post_title."</h4>";
+					echo "<a href='" . get_the_permalink($pilot->ID) . "'><h4>" . $pilot->post_title."</h4></a>";
 					echo "</div>";
 				} ?>
 			</section>
