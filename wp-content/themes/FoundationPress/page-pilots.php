@@ -54,8 +54,23 @@ get_header(); ?>
 			<section class="theme-group-section">
 				<h2><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h2>
 				<p><?php echo $theme_groups[$idx]["theme_group_info"]->description; ?></p>
+				<div class="themequote">
+					<?php 
+					foreach($theme_groups[$idx]["quotes"] as $quote){
+						$custom_fields = CFS()->get(false, $quote->ID);
+						?>
+						<i><?php echo $custom_fields["quote"]; ?></i>
+						<span><?php echo $custom_fields["author"]; ?></span>
+						<span><?php echo $custom_fields["author_info"]; ?></span>
+						<hr>
+						<?php
+					} 
+					?>
 
-				<?php foreach ($theme_groups[$idx]["pilots"] as $pilot){
+				</div>
+
+				<?php 
+				foreach ($theme_groups[$idx]["pilots"] as $pilot){
 					echo "<div class='pilot-listing-item'>";
 					echo "<img src='".get_the_post_thumbnail_url($pilot->ID, 'medium')."'></img>";
 					echo "<a href='" . get_the_permalink($pilot->ID) . "'><h4>" . $pilot->post_title."</h4></a>";

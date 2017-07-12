@@ -26,6 +26,9 @@ get_header(); ?>
 			<div class="entry-content">
 				<?php the_content(); ?>
 				<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+				<div class="event-calendar">
+				<?php echo do_shortcode("[events_calendar full=1 month=".date('n')."]"); ?>
+				</div>
 			</div>
 			<footer>
 				<?php
@@ -51,7 +54,7 @@ get_header(); ?>
 		function create_event_array($em_events){
 			$events_array = [];
 			$event_information = [];
-			
+
 			foreach ($em_events as $idx=>$event){
 				$post_id = $event->post_id;
 				$post_info = get_post($post_id);

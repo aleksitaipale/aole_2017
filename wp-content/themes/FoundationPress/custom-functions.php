@@ -39,19 +39,33 @@ function get_all_theme_groups_and_pilots(){
 	foreach ( $theme_group_informations as $idx=>$theme_group ){
 
 		$pilots_array = get_posts(
-				array( 'showposts' => -1,
-					'post_type' => 'pilot',
-					'tax_query' => array(
-						array(
-							'taxonomy' => 'theme_group',
-							'field' => 'term_id',
-							'terms' => $theme_group->term_id,
-							)
+			array( 'showposts' => -1,
+				'post_type' => 'pilot',
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'theme_group',
+						'field' => 'term_id',
+						'terms' => $theme_group->term_id,
 						)
 					)
-				);
+				)
+			);
+
+		$quotes_array = get_posts(
+			array( 'showposts' => -1,
+				'post_type' => 'quotes',
+				'tax_query' => array(
+					array(
+						'taxonomy' => 'theme_group',
+						'field' => 'term_id',
+						'terms' => $theme_group->term_id,
+						)
+					)
+				)
+			);
 
 		$theme_groups[$theme_group_informations[$idx]->term_id]["theme_group_info"] = $theme_group_informations[$idx];
+		$theme_groups[$theme_group_informations[$idx]->term_id]["quotes"] = $quotes_array;
 		$theme_groups[$theme_group_informations[$idx]->term_id]["pilots"] = $pilots_array;
 	}
 
