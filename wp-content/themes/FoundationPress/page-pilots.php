@@ -53,6 +53,7 @@ get_header(); ?>
 			?>
 			<section class="theme-group-section">
 				<h2><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h2>
+				<p><?php echo $theme_groups[$idx]["theme_group_info"]->description; ?></p>
 
 				<?php foreach ($theme_groups[$idx]["pilots"] as $pilot){
 					echo "<div class='pilot-listing-item'>";
