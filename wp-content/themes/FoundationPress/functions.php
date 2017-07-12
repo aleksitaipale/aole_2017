@@ -15,6 +15,9 @@
  */
 
 /** Various clean up functions */
+
+$fullWPpath = '/Users/taipala2/Documents/OneDrive - Aalto-yliopisto/Web Projects/htdocs/wordpress';
+
 require_once( 'library/cleanup.php' );
 
 /** Required for Foundation to work properly */
@@ -51,8 +54,33 @@ require_once( 'library/sticky-posts.php' );
 /** Configure responsive image sizes */
 require_once( 'library/responsive-images.php' );
 
+/* Write to log */
+
+if (!function_exists('write_log')) {
+    function write_log ( $log )  {
+        if ( true === WP_DEBUG ) {
+            if ( is_array( $log ) || is_object( $log ) ) {
+                error_log( print_r( $log, true ) );
+            } else {
+                error_log( $log );
+            }
+        }
+    }
+}
+
+
+//add_filter('tribe_events_meta_box_template', 'change_event_mb_tpl');
+ 
+/*function change_event_mb_tpl($tpl) {
+        return (false !== strpos($tpl, 'events-meta-box.php'))
+                ? '/Users/taipala2/Documents/OneDrive - Aalto-yliopisto/Web Projects/htdocs/wordpress/wp-content/themes/FoundationPress/tribe-events/custom-meta-box.php' //TODO CHANGE PATH
+                : $tpl;
+}*/
+
 /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );
+
+
 
 
 // from https://gist.github.com/brenna/7377802

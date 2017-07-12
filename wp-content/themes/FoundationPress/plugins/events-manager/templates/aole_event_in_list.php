@@ -1,0 +1,1 @@
+[events_list]#_EVENTNAME KBDKO[/events_list]

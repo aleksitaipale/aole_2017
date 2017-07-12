@@ -8,6 +8,7 @@
  * @since FoundationPress 1.0.0
  */
 
+require_once("custom-functions.php"); // For logic needed on multiple pages (e.g. fetching posts of a certain category / taxonomy)
 ?>
 <!doctype html>
 <html class="no-js" <?php language_attributes(); ?> >
@@ -54,8 +55,9 @@
 		<section class="container">
 			<?php do_action( 'foundationpress_after_header' );
 
-			// prevent access to "theme group pages", since we're not going to have those
-			if( is_single() && 'theme_group' == get_post_type()	) {
+			//  the only single pages to access, at the moment, are event and pilot pages. Others should lead to 404.
+			//if( is_single() && !('pilot' == get_post_type() || 'single-event' == get_post_type())) 
+			if( is_single() && !is_singular(array("pilot", "event", "tribe_events"))) {
 				global $wp_query;
 				$wp_query->set_404();
 				status_header( 404 );

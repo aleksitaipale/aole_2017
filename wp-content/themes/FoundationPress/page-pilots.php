@@ -47,79 +47,21 @@ get_header(); ?>
 
 		////////////// Get theme group information for each theme group as well as pilot information for each pilot under those theme groups //////////////
 
-		/* Modified from https://wordpress.stackexchange.com/questions/165610/get-posts-under-custom-taxonomy/165613#165613 */
-		$taxonomies = array( 
-			'theme_group',
-			);
+		$theme_groups = get_all_theme_groups_and_pilots();
 
-		$args = array(
-			'orderby'           => 'name', 
-			'order'             => 'ASC',
-			'hide_empty'        => true, 
-			'exclude'           => array(), 
-			'exclude_tree'      => array(), 
-			'include'           => array(),
-			'number'            => '', 
-			'fields'            => 'all', 
-			'slug'              => '', 
-			'parent'            => '',
-			'hierarchical'      => true, 
-			'child_of'          => 0, 
-			'get'               => '', 
-			'name__like'        => '',
-			'description__like' => '',
-			'pad_counts'        => false, 
-			'offset'            => '', 
-			'search'            => '', 
-			'cache_domain'      => 'core'
-			); 
-
-		$terms = get_terms( $taxonomies, $args );
-		//print_r($terms);
-		foreach ( $terms as $term ) {
-
-
-			// here's my code for getting the posts for custom post type
-
-			$posts_array = get_posts(
-				array( 'showposts' => -1,
-					'post_type' => 'pilot',
-					'tax_query' => array(
-						array(
-							'taxonomy' => 'theme_group',
-							'field' => 'term_id',
-							'terms' => $term->term_id,
-							)
-						)
-					)
-				);
-
-				?>
-
-				<section class="theme-group-section">
-					<h2><?php echo $term->name?></h2>
-					<?php
-		////////////// Print theme group informatio  //////////////
-
-					foreach ( $posts_array as $pilot ){
-						echo "<div class='pilot-listing-item'>";
-						echo "<img src='".get_the_post_thumbnail_url($pilot->ID, 'medium')."'></img>";
-						echo "<h4>".$pilot->post_title."</h4>";
-						echo "</div>";
-
-					}
-					?>
-
-					<?php do_action( 'foundationpress_after_content' ); ?>
-					<?php get_sidebar(); ?>
-				</section>
-
-				<?php
-
-				//print_r( $posts_array ); 
-			} //end foreach ($terms)
-
+		foreach ($theme_groups as $idx=>$theme_group){
 			?>
+			<section class="theme-group-section">
+				<h2><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h2>
+
+				<?php foreach ($theme_groups[$idx]["pilots"] as $pilot){
+					echo "<div class='pilot-listing-item'>";
+					echo "<img src='".get_the_post_thumbnail_url($pilot->ID, 'medium')."'></img>";
+					echo "<h4>".$pilot->post_title."</h4>";
+					echo "</div>";
+				} ?>
+			</section>
+			<?php } // this ends the theme groups foreach ?> 
 
 
 
