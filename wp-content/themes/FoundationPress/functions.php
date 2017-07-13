@@ -139,3 +139,13 @@ function update_custom_terms($post_id) {
 
 //run the update function whenever a post is created or edited
 add_action('save_post', 'update_custom_terms');
+
+
+/* Remove the regular WYSIWYG editor from the front page, which is handled by CFS. */
+add_action( 'admin_head', 'hide_editor' );
+function hide_editor() {
+    $template_file = basename( get_page_template() );
+    if($template_file == 'page-home.php'){ // template
+        remove_post_type_support('page', 'editor');
+    }
+}
