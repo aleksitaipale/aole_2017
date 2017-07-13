@@ -14,7 +14,8 @@ print_r($fields);
 ?>
 
 <section class="vrbox">
-	VR BOX
+	<blockquote data-width="100%" data-height="600px" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="https://theta360.com/s/jFtMPIK0W44acnaWi1y0nrwrg" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
+	<script async src="https://theta360.com/widgets.js" charset="utf-8"></script>
 </section>
 <section class="aole-info front-section">
 	<div class="what-is-aole front-section">
