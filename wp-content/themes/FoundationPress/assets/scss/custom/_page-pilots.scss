@@ -1,0 +1,43 @@
+.main-wrap.pilots-page{
+	@include grid-row();
+
+	.pilots-description-container{
+		@if ($debug) {background-color:red;}
+		@include breakpoint(small) {  @include grid-column(12); }
+		@include breakpoint(medium) {  @include grid-column(6); }
+		.pilots-description{		
+			@include grid-row();
+
+			.pilots-description-content {
+				@include grid-column-position(center);
+				@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center); }
+				@include breakpoint(medium) {  @include grid-column(12); @include grid-column-position(center); }
+				@include breakpoint(large) {  @include grid-column(12); }
+				@include breakpoint(xlarge) {  @include grid-column(12); }
+			}
+
+		}
+
+	}
+
+	.pilots-image-container{
+		@if ($debug) {background-color:blue;}
+		@include breakpoint(small) {  @include grid-column(12); }
+		@include breakpoint(medium) {  @include grid-column(6); }
+		.pilots-image{
+			@include grid-row();
+			div{
+
+				@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center);  }
+				@include breakpoint(medium) {  @include grid-column(12); @include grid-column-position(center); }
+				@include breakpoint(large) {  @include grid-column(12); @include grid-column-position(center); }
+				@include breakpoint(xlarge) {  @include grid-column(12); @include grid-column-position(center); }
+			}
+
+		}
+	}
+
+
+}
+
+

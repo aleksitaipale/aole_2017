@@ -75,9 +75,12 @@
 */
 
 // Custom
+$debug: true;
 
-
-@import "custom/home";
+@import "custom/page-home";
+@import "custom/page-pilots";
+@import "custom/page-events";
+@import "custom/page-about";
 
 // Modules
 @import "modules/navigation";
