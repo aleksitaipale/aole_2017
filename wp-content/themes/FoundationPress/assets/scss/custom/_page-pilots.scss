@@ -38,6 +38,29 @@
 	}
 
 
+	.theme-group-section{
+		@include grid-column(12);
+		@if ($debug){
+			background-color:yellow;
+			border:2px solid red;
+		}
+
+		.theme-group-box{
+			@include grid-row();
+
+			.theme-group-info{
+				@include breakpoint(small) {  @include grid-column(12); }
+				@include breakpoint(medium) {  @include grid-column(6); }
+			}
+
+			.theme-quote{
+				@include breakpoint(small) {  @include grid-column(12); }
+				@include breakpoint(medium) {  @include grid-column(6); }
+			}
+		}
+
+	}
+
 }
 
 

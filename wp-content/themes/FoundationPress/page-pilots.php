@@ -63,21 +63,25 @@ get_header(); ?>
 		foreach ($theme_groups as $idx=>$theme_group){
 			?>
 			<section class="theme-group-section">
-				<h2><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h2>
-				<p><?php echo $theme_groups[$idx]["theme_group_info"]->description; ?></p>
-				<div class="themequote">
-					<?php 
-					foreach($theme_groups[$idx]["quotes"] as $quote){
-						$custom_fields = CFS()->get(false, $quote->ID);
+				<div class="theme-group-box">
+					<div class="theme-group-info">
+						<h2><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h2>
+						<p><?php echo $theme_groups[$idx]["theme_group_info"]->description; ?></p>
+					</div>
+					<div class="themequote">
+						<?php 
+
+					// Select a random quote from the quotes associated with this theme group to be shown.
+						$theme_quote = $theme_groups[$idx]["quotes"][array_rand($theme_groups[$idx]["quotes"])];
+					//print_r($theme_quote);
+						$custom_fields = CFS()->get(false, $theme_quote->ID);
 						?>
 						<i><?php echo $custom_fields["quote"]; ?></i>
 						<span><?php echo $custom_fields["author"]; ?></span>
 						<span><?php echo $custom_fields["author_info"]; ?></span>
 						<hr>
-						<?php
-					} 
-					?>
 
+					</div>
 				</div>
 
 				<?php 
