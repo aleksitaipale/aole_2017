@@ -74,6 +74,11 @@
   Add your scss files below to structure your project styles
 */
 
+// Custom
+
+
+@import "custom/home";
+
 // Modules
 @import "modules/navigation";
 @import "modules/content";

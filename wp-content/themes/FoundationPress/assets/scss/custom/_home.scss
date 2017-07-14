@@ -1,0 +1,146 @@
+.main-wrap.front-page{
+	@include grid-row();
+}
+
+.aole-info-container{
+	background-color:red;
+	@include breakpoint(small) {  @include grid-column(12); }
+	@include breakpoint(medium) {  @include grid-column(7); }
+	.aole-info{		
+		@include grid-row();
+		.aole-description {
+			@include grid-column-position(center);
+			@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center); }
+			@include breakpoint(medium) {  @include grid-column(10); @include grid-column-position(center); }
+			@include breakpoint(large) {  @include grid-column(8); }
+			@include breakpoint(xlarge) {  @include grid-column(6); }
+		}
+
+		.aole-staff {
+
+
+		}
+
+	}
+	
+}
+
+.teaching-container{
+	background-color:blue;
+	@include breakpoint(small) {  @include grid-column(12); }
+	@include breakpoint(medium) {  @include grid-column(5); }
+	.teaching{
+		@include grid-row();
+		div{
+			
+			@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center);  }
+			@include breakpoint(medium) {  @include grid-column(10); @include grid-column-position(center); }
+			@include breakpoint(large) {  @include grid-column(8); @include grid-column-position(center); }
+			@include breakpoint(xlarge) {  @include grid-column(6); @include grid-column-position(center); }
+		}
+
+	}
+}
+
+.next-event-container{
+	background-color:pink;
+	@include breakpoint(small) {  @include grid-column(12); }
+	@include breakpoint(medium) {  @include grid-column(6); }
+	.next-event{
+		@include grid-row();
+		div{
+			
+			@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center);  }
+			@include breakpoint(medium) {  @include grid-column(10); @include grid-column-position(center); }
+			@include breakpoint(large) {  @include grid-column(8); @include grid-column-position(center); }
+			@include breakpoint(xlarge) {  @include grid-column(6); @include grid-column-position(center); }
+		}
+
+	}
+}
+
+.aole-feed-container{
+	background-color:green;
+	@include grid-row();
+
+	.aole-feed{
+		background-color:orange;
+
+		@include breakpoint(small) {  @include grid-column(12); }
+		@include breakpoint(medium) {  @include grid-column(6);}
+		@include breakpoint(large) {  @include grid-column(6);  }
+		@include breakpoint(xlarge) {  @include grid-column(6); }
+	}
+
+	.next-event{
+		background-color:blue;
+		@include breakpoint(small) {  @include grid-column(12); }
+		@include breakpoint(medium) {  @include grid-column(6); }
+		@include breakpoint(large) {  @include grid-column(6); }
+		@include breakpoint(xlarge) {  @include grid-column(6); }
+
+	}
+}
+
+.why-online-container{
+	background-color:green;
+	@include breakpoint(small) {  @include grid-column(12); }
+	@include breakpoint(medium) {  @include grid-column(12); }
+
+	.why-online{
+		@include grid-row();
+
+		.content{
+			background-color:blue;
+			
+			@include breakpoint(small) {  @include grid-column(12);  }
+			@include breakpoint(medium) {  @include grid-column(6); }
+			@include breakpoint(large) {  @include grid-column(6);  }
+			@include breakpoint(xlarge) {  @include grid-column(6); }
+		}
+
+		.image{
+			background-color:orange;
+			@include breakpoint(small) {  @include grid-column(12); }
+			@include breakpoint(medium) {  @include grid-column(6); }
+			@include breakpoint(large) {  @include grid-column(6); }
+			@include breakpoint(xlarge) {  @include grid-column(6); }
+
+		}
+
+	}
+}
+
+.why-aole-container{
+	background-color:green;
+	@include breakpoint(small) {  @include grid-column(12); }
+	@include breakpoint(medium) {  @include grid-column(12); }
+
+	.why-aole{
+		@include grid-row();
+		.content{
+			background-color:orange;
+			
+			@include breakpoint(small) {  @include grid-column(12); }
+			@include breakpoint(medium) {  @include grid-column(6);}
+			@include breakpoint(large) {  @include grid-column(6);  }
+			@include breakpoint(xlarge) {  @include grid-column(6); }
+		}
+
+		.image{
+			background-color:blue;
+			@include breakpoint(small) {  @include grid-column(12); }
+			@include breakpoint(medium) {  @include grid-column(6); }
+			@include breakpoint(large) {  @include grid-column(6); }
+			@include breakpoint(xlarge) {  @include grid-column(6); }
+
+		}
+
+	}
+}
+
+.main-wrap.front-page{
+	background-color:yellow;
+	width:100%;
+	max-width:none;
+}
