@@ -45,25 +45,31 @@
 
 .aole-feed-container{
 	@if ($debug) {background-color:green;}
-	@include grid-row();
+	@include breakpoint(small) {  @include grid-column(12); }
+	@include breakpoint(medium) {  @include grid-column(12); }
 
-	.aole-feed{
-		@if ($debug) {background-color:orange;}
+	.aole-feeds{
+		@include grid-row();
+		.aole-feed{
+			@if ($debug) {background-color:orange;}
 
-		@include breakpoint(small) {  @include grid-column(12); }
-		@include breakpoint(medium) {  @include grid-column(6);}
-		@include breakpoint(large) {  @include grid-column(6);  }
-		@include breakpoint(xlarge) {  @include grid-column(6); }
+			@include breakpoint(small) {  @include grid-column(12); }
+			@include breakpoint(medium) {  @include grid-column(6);}
+			@include breakpoint(large) {  @include grid-column(6);  }
+			@include breakpoint(xlarge) {  @include grid-column(6); }
+		}
+
+		.next-event{
+			@if ($debug) {background-color:blue;}
+			@include breakpoint(small) {  @include grid-column(12); }
+			@include breakpoint(medium) {  @include grid-column(6); }
+			@include breakpoint(large) {  @include grid-column(6); }
+			@include breakpoint(xlarge) {  @include grid-column(6); }
+
+		}
 	}
 
-	.next-event{
-		@if ($debug) {background-color:blue;}
-		@include breakpoint(small) {  @include grid-column(12); }
-		@include breakpoint(medium) {  @include grid-column(6); }
-		@include breakpoint(large) {  @include grid-column(6); }
-		@include breakpoint(xlarge) {  @include grid-column(6); }
 
-	}
 }
 
 .why-online-container{

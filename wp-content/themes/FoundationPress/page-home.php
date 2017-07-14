@@ -31,16 +31,18 @@ $fields = CFS()->get();
 		</div>
 	</section>
 	<div class="aole-feed-container">
-		<div class="aole-feed matched-height2">
-			<div>
+		<div class="aole-feeds">
+			<div class="aole-feed matched-height2">
+
 				<h2><?php echo $fields["news_title"]; ?></h2>
 				<p>selityksiä.</p>
-			</div> 
-		</div>
-		<div class="next-event matched-height2">
-			<div>
+
+			</div>
+			<div class="next-event matched-height2">
+
 				<h2>Next event</h2>
 				<p>Tapahtumapuheita.</p>
+
 			</div>
 		</div>
 	</div>
