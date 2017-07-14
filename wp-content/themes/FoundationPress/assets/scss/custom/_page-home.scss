@@ -1,7 +1,3 @@
-.main-wrap.front-page{
-	@include grid-row();
-}
-
 .aole-info-container{
 	@if ($debug) { background-color:red; }
 	@include breakpoint(small) {  @include grid-column(12); }
@@ -129,8 +125,3 @@
 	}
 }
 
-.main-wrap.front-page{
-	@if ($debug) {background-color:yellow;}
-	width:100%;
-	max-width:none;
-}

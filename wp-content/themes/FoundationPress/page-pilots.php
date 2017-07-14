@@ -14,11 +14,11 @@ get_header(); ?>
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 
-<div class="main-wrap pilots-page" role="main">	
+<div class="main-wrap pilots-page full-width" role="main">	
 
 	<?php do_action( 'foundationpress_before_content' ); ?>
 	<?php while ( have_posts() ) : the_post(); ?>
-		<article <?php post_class('main-content pilots-description-container matched-height') ?> id="post-<?php the_ID(); ?>">
+		<article <?php post_class('pilots-description-container matched-height') ?> id="post-<?php the_ID(); ?>">
 			<div class="pilots-description">
 				<div class="pilots-description-content">
 					<header>
@@ -82,15 +82,19 @@ get_header(); ?>
 						<hr>
 
 					</div>
+
+					<div class="pilots-listing">
+						<?php 
+						foreach ($theme_groups[$idx]["pilots"] as $pilot){
+							echo "<div class='pilot-listing-item'>";
+							echo "<img src='".get_the_post_thumbnail_url($pilot->ID, 'medium')."'></img>";
+							echo "<a href='" . get_the_permalink($pilot->ID) . "'><h4>" . $pilot->post_title."</h4></a>";
+							echo "</div>";
+						} ?>
+					</div>
 				</div>
 
-				<?php 
-				foreach ($theme_groups[$idx]["pilots"] as $pilot){
-					echo "<div class='pilot-listing-item'>";
-					echo "<img src='".get_the_post_thumbnail_url($pilot->ID, 'medium')."'></img>";
-					echo "<a href='" . get_the_permalink($pilot->ID) . "'><h4>" . $pilot->post_title."</h4></a>";
-					echo "</div>";
-				} ?>
+
 			</section>
 			<?php } // this ends the theme groups foreach ?> 
 

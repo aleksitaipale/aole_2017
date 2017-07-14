@@ -1,5 +1,4 @@
 .main-wrap.pilots-page{
-	@include grid-row();
 
 	.pilots-description-container{
 		@if ($debug) {background-color:red;}
@@ -56,6 +55,11 @@
 			.theme-quote{
 				@include breakpoint(small) {  @include grid-column(12); }
 				@include breakpoint(medium) {  @include grid-column(6); }
+			}
+			
+			.pilots-listing{
+				@include grid-layout(4, '.pilot-listing-item', $grid-column-gutter);
+				@include grid-column(12);
 			}
 		}
 

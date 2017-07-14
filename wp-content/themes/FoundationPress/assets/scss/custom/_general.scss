@@ -1,0 +1,6 @@
+.main-wrap.full-width{
+	@if ($debug) {background-color:yellow;}
+	@include grid-row();
+	width:100%;
+	max-width:none;
+}
