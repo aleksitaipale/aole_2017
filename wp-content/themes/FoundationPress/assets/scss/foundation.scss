@@ -95,6 +95,7 @@
 
 // Custom
 $debug: true;
+$grid-column-align-edge: false;
 
 @import "custom/colors";
 @import "custom/general";
@@ -102,3 +103,4 @@ $debug: true;
 @import "custom/page-pilots";
 @import "custom/page-events";
 @import "custom/page-about";
+@import "custom/single-pilot";
