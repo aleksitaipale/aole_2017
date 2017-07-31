@@ -70,14 +70,14 @@ if (!function_exists('write_log')) {
 
 
 //add_filter('tribe_events_meta_box_template', 'change_event_mb_tpl');
- 
+
 /*function change_event_mb_tpl($tpl) {
         return (false !== strpos($tpl, 'events-meta-box.php'))
                 ? '/Users/taipala2/Documents/OneDrive - Aalto-yliopisto/Web Projects/htdocs/wordpress/wp-content/themes/FoundationPress/tribe-events/custom-meta-box.php' //TODO CHANGE PATH
                 : $tpl;
-}*/
+            }*/
 
-/** If your site requires protocol relative url's for theme assets, uncomment the line below */
+            /** If your site requires protocol relative url's for theme assets, uncomment the line below */
 // require_once( 'library/class-foundationpress-protocol-relative-theme-assets.php' );
 
 
@@ -86,17 +86,17 @@ if (!function_exists('write_log')) {
 // from https://gist.github.com/brenna/7377802
 // Idea being: whenever a new Theme Group post is added, it also adds it to the Theme Group taxonomy (so that they'll stay in sync)
 
-function update_custom_terms($post_id) {
+            function update_custom_terms($post_id) {
 
     // only update terms if it's a theme group post
-	if ( 'theme_group' != get_post_type($post_id)) {
-		return;
-	}
+             if ( 'theme_group' != get_post_type($post_id)) {
+              return;
+          }
 
     // don't create or update terms for system generated posts
-	if (get_post_status($post_id) == 'auto-draft') {
-		return;
-	}
+          if (get_post_status($post_id) == 'auto-draft') {
+              return;
+          }
 
     /*
     * Grab the post title and slug to use as the new 
@@ -151,5 +151,47 @@ function hide_editor() {
 }
 
 add_image_size( 'square-large', 300, 300, true); // name, width, height, crop 
-    
+
+//custom gallery shortcode
+function about_gallery( $attr ) {
+
+    $post = get_post();
+    if ( ! empty( $attr['ids'] ) ) {
+        $attr['include'] = $attr['ids'];
+    }
+
+    extract( shortcode_atts( array(
+        'order'      => 'ASC',
+        'orderby'    => 'post__in',
+        'id'         => $post->ID,
+        'columns'    => 1,
+        'size'       => 'large',
+        'include'    => '',
+        ), $attr));
+
+    $id = (int) $id;
+    $columns = (int) $columns;
+
+    if ( 'RAND' == $order ) {
+        $orderby = 'none';
+    }
+
+    if ( ! empty( $include ) ) {
+        $_attachments = get_posts( array( 'include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby ) );
+        $attachments = array();
+        foreach ( $_attachments as $key => $val ) {
+            $attachments[$val->ID] = $_attachments[$key];
+        }
+    }
+
+    if ( empty( $attachments ) ) {
+        return '';
+    }
+
+    $output = '<div class="about-gallery-item"><ul>';
+
+}
+
+add_shortcode( 'gallery', 'about_gallery' );
+
 

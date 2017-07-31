@@ -14,8 +14,8 @@
 
 			.pilot-description-content {
 				@include grid-column-position(center);
-				@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center); }
-				@include breakpoint(medium) {  @include grid-column(12); @include grid-column-position(center); }
+				@include breakpoint(small) {  @include grid-column(12); }
+				@include breakpoint(medium) {  @include grid-column(12);  }
 				@include breakpoint(large) {  @include grid-column(12); }
 				@include breakpoint(xlarge) {  @include grid-column(12); }
 			}
@@ -36,10 +36,10 @@
 			@include grid-row();
 			div{
 
-				@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center);  }
-				@include breakpoint(medium) {  @include grid-column(12); @include grid-column-position(center); }
-				@include breakpoint(large) {  @include grid-column(12); @include grid-column-position(center); }
-				@include breakpoint(xlarge) {  @include grid-column(12); @include grid-column-position(center); }
+				@include breakpoint(small) {  @include grid-column(12);   }
+				@include breakpoint(medium) {  @include grid-column(12); }
+				@include breakpoint(large) {  @include grid-column(12);  }
+				@include breakpoint(xlarge) {  @include grid-column(12);  }
 			}
 
 		}
