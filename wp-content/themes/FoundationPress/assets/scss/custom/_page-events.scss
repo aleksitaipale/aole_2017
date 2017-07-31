@@ -71,8 +71,9 @@
 		@include grid-row();
 		@if ($debug) {background-color:red;}	
 		h2{
-			@include grid-column(10);
-			@include grid-column-position(center);
+			@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center);  }
+			@include breakpoint(medium) {  @include grid-column(12); @include grid-column-position(center); }
+			@include breakpoint(large) {  @include grid-column(10); @include grid-column-position(center); }
 		}
 	}
 	.past-events {
@@ -80,32 +81,42 @@
 		@if ($debug) {background-color:blue;}
 
 		h2{
-			@include grid-column(10);
-			@include grid-column-position(center);
+			
+			@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center);  }
+			@include breakpoint(medium) {  @include grid-column(12); @include grid-column-position(center); }
+			@include breakpoint(large) {  @include grid-column(10); @include grid-column-position(center); }
 		}
 
 		ul li {
 			list-style-type: none;
 			color:yellow;
-			@include grid-column(10);
-			@include grid-column-position(center);
+			
+			@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center);  }
+			@include breakpoint(medium) {  @include grid-column(12); @include grid-column-position(center); }
+			@include breakpoint(large) {  @include grid-column(10); @include grid-column-position(center); }
 
 			.past-event{
 				@include grid-row();
 
 				.event-left-container{
-					@include grid-column(4);
-					text-align:right;
+					@include breakpoint(small) {  @include grid-column(6); @include grid-column-position(6); text-align:left;  }
+					@include breakpoint(medium) {  @include grid-column(4);@include grid-column-position(0); text-align:right; }
+					@include breakpoint(large) {  @include grid-column(4); text-align:right; }
+					
 
 				}
 
 				.event-center-container{
-					@include grid-column(3);
+					@include breakpoint(small) {  @include grid-column(6); @include grid-column-position(-6);  }
+					@include breakpoint(medium) {  @include grid-column(3); @include grid-column-position(0);}
+					@include breakpoint(large) {  @include grid-column(3);  }
 
 				}
 
 				.event-right-container{
-					@include grid-column(5);
+					@include breakpoint(small) {  @include grid-column(12);   }
+					@include breakpoint(medium) {  @include grid-column(5); }
+					@include breakpoint(large) {  @include grid-column(5);  }
 					text-align:left;
 
 				}

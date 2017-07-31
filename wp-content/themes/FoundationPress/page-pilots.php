@@ -64,10 +64,6 @@ get_header(); ?>
 			?>
 			<section class="theme-group-section">
 				<div class="theme-group-box">
-					<div class="theme-group-info">
-						<h2><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h2>
-						<p><?php echo $theme_groups[$idx]["theme_group_info"]->description; ?></p>
-					</div>
 					<div class="theme-quote">
 						<?php 
 
@@ -82,12 +78,17 @@ get_header(); ?>
 						<hr>
 
 					</div>
+					<div class="theme-group-info">
+						<h2><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h2>
+						<p><?php echo $theme_groups[$idx]["theme_group_info"]->description; ?></p>
+					</div>
+					
 
 					<div class="pilots-listing">
 						<?php 
 						foreach ($theme_groups[$idx]["pilots"] as $pilot){
 							echo "<div class='pilot-listing-item'>";
-							echo "<img src='".get_the_post_thumbnail_url($pilot->ID, 'medium')."'></img>";
+							echo "<a href='" . get_the_permalink($pilot->ID) . "'><h4>"."<img src='".get_the_post_thumbnail_url($pilot->ID, 'medium')."'></img></a>";
 							echo "<a href='" . get_the_permalink($pilot->ID) . "'><h4>" . $pilot->post_title."</h4></a>";
 							echo "</div>";
 						} ?>

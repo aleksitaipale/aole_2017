@@ -2,7 +2,8 @@
 	background-color: $dark-bg;
 	@if ($debug) { background-color:red; }
 	@include breakpoint(small) {  @include grid-column(12); }
-	@include breakpoint(medium) {  @include grid-column(7); }
+	@include breakpoint(medium) {  @include grid-column(12); }
+	@include breakpoint(large) {  @include grid-column(7); }
 	.aole-info{		
 		@include grid-row();
 		.aole-description {
@@ -26,7 +27,8 @@
 	background-color: $light-bg;
 	@if ($debug) {background-color:blue;}
 	@include breakpoint(small) {  @include grid-column(12); }
-	@include breakpoint(medium) {  @include grid-column(5); }
+	@include breakpoint(medium) {  @include grid-column(12); }
+		@include breakpoint(large) {  @include grid-column(5); }
 	.teaching{
 		@include grid-row();
 		div{

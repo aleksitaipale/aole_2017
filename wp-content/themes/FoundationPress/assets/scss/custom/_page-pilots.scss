@@ -42,6 +42,8 @@
 	.theme-group-section{
 		@include grid-column(12);
 
+
+
 		background-color: $light-bg;
 		@if ($debug){
 			background-color:yellow;
@@ -52,14 +54,18 @@
 			@include grid-row();
 
 			.theme-group-info{
+				display:inline-block;
+				vertical-align:middle;
 				@include breakpoint(small) {  @include grid-column(12); }
-				@include breakpoint(medium) {  @include grid-column(6); }
+				@include breakpoint(medium) {  @include grid-column(6);@include grid-column-position(-6); }
 			}
 
 			.theme-quote{
+				display:inline-block;
+				vertical-align:middle;
 				@if ($debug) {background-color:green;}
 				@include breakpoint(small) {  @include grid-column(12); }
-				@include breakpoint(medium) {  @include grid-column(6); }
+				@include breakpoint(medium) {  @include grid-column(6); @include grid-column-position(6);}
 			}
 			
 			.pilots-listing{
