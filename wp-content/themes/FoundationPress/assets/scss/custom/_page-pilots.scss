@@ -57,6 +57,7 @@
 			}
 
 			.theme-quote{
+				@if ($debug) {background-color:green;}
 				@include breakpoint(small) {  @include grid-column(12); }
 				@include breakpoint(medium) {  @include grid-column(6); }
 			}

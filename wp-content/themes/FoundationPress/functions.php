@@ -149,3 +149,7 @@ function hide_editor() {
         remove_post_type_support('page', 'editor');
     }
 }
+
+add_image_size( 'square-large', 300, 300, true); // name, width, height, crop 
+    
+

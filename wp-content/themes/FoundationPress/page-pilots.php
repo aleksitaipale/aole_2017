@@ -68,7 +68,7 @@ get_header(); ?>
 						<h2><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h2>
 						<p><?php echo $theme_groups[$idx]["theme_group_info"]->description; ?></p>
 					</div>
-					<div class="themequote">
+					<div class="theme-quote">
 						<?php 
 
 					// Select a random quote from the quotes associated with this theme group to be shown.
