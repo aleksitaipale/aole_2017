@@ -1,4 +1,5 @@
 .aole-info-container{
+	background-color: $dark-bg;
 	@if ($debug) { background-color:red; }
 	@include breakpoint(small) {  @include grid-column(12); }
 	@include breakpoint(medium) {  @include grid-column(7); }
@@ -22,6 +23,7 @@
 }
 
 .teaching-container{
+	background-color: $light-bg;
 	@if ($debug) {background-color:blue;}
 	@include breakpoint(small) {  @include grid-column(12); }
 	@include breakpoint(medium) {  @include grid-column(5); }
@@ -40,6 +42,7 @@
 
 
 .aole-feed-container{
+	background-color: $light-bg;
 	@if ($debug) {background-color:green;}
 	@include breakpoint(small) {  @include grid-column(12); }
 	@include breakpoint(medium) {  @include grid-column(12); }
@@ -47,6 +50,7 @@
 	.aole-feeds{
 		@include grid-row();
 		.aole-feed{
+			background-color: $light-bg;
 			@if ($debug) {background-color:orange;}
 
 			@include breakpoint(small) {  @include grid-column(12); }
@@ -56,6 +60,7 @@
 		}
 
 		.next-event{
+			background-color: $light-bg;
 			@if ($debug) {background-color:blue;}
 			@include breakpoint(small) {  @include grid-column(12); }
 			@include breakpoint(medium) {  @include grid-column(6); }
@@ -69,6 +74,7 @@
 }
 
 .why-online-container{
+	background-color: $light-bg;
 	@if ($debug) {background-color:green;}
 	@include breakpoint(small) {  @include grid-column(12); }
 	@include breakpoint(medium) {  @include grid-column(12); }
@@ -77,6 +83,7 @@
 		@include grid-row();
 
 		.content{
+			background-color: $light-bg;
 			@if ($debug) {background-color:blue;}
 			
 			@include breakpoint(small) {  @include grid-column(12);  }
@@ -86,6 +93,7 @@
 		}
 
 		.image{
+			background-color: $dark-bg;
 			@if ($debug) {background-color:orange;}
 			@include breakpoint(small) {  @include grid-column(12); }
 			@include breakpoint(medium) {  @include grid-column(6); }
@@ -98,6 +106,7 @@
 }
 
 .why-aole-container{
+	background-color: $light-bg;
 	@if ($debug) {background-color:green;}
 	@include breakpoint(small) {  @include grid-column(12); }
 	@include breakpoint(medium) {  @include grid-column(12); }
@@ -105,6 +114,7 @@
 	.why-aole{
 		@include grid-row();
 		.content{
+			background-color: $light-bg;
 			@if ($debug) {background-color:orange;}
 			
 			@include breakpoint(small) {  @include grid-column(12); }
@@ -114,6 +124,7 @@
 		}
 
 		.image{
+			background-color: $light-bg;
 			@if ($debug) {background-color:blue;}
 			@include breakpoint(small) {  @include grid-column(12); }
 			@include breakpoint(medium) {  @include grid-column(6); }

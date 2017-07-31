@@ -1,6 +1,7 @@
 .main-wrap.pilots-page{
 
 	.pilots-description-container{
+		background-color: $dark-bg;
 		@if ($debug) {background-color:red;}
 		@include breakpoint(small) {  @include grid-column(12); }
 		@include breakpoint(medium) {  @include grid-column(6); }
@@ -20,6 +21,7 @@
 	}
 
 	.pilots-image-container{
+		background-color: $light-bg;
 		@if ($debug) {background-color:blue;}
 		@include breakpoint(small) {  @include grid-column(12); }
 		@include breakpoint(medium) {  @include grid-column(6); }
@@ -39,6 +41,8 @@
 
 	.theme-group-section{
 		@include grid-column(12);
+
+		background-color: $light-bg;
 		@if ($debug){
 			background-color:yellow;
 			border:2px solid red;

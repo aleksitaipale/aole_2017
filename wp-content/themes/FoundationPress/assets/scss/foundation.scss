@@ -69,19 +69,7 @@
 @include motion-ui-transitions;
 @include motion-ui-animations;
 
-/*
-  My custom styles:
-  Add your scss files below to structure your project styles
-*/
 
-// Custom
-$debug: true;
-
-@import "custom/general";
-@import "custom/page-home";
-@import "custom/page-pilots";
-@import "custom/page-events";
-@import "custom/page-about";
 
 // Modules
 @import "modules/navigation";
@@ -99,3 +87,18 @@ $debug: true;
 // Templates
 @import "templates/front";
 @import "templates/kitchen-sink";
+
+/*
+  My custom styles:
+  Add your scss files below to structure your project styles
+*/
+
+// Custom
+$debug: true;
+
+@import "custom/colors";
+@import "custom/general";
+@import "custom/page-home";
+@import "custom/page-pilots";
+@import "custom/page-events";
+@import "custom/page-about";
