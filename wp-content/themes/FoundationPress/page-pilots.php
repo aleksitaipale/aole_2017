@@ -12,8 +12,6 @@
 
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/featured-image' ); ?>
-
 <div class="main-wrap pilots-page full-width" role="main">	
 
 	<?php do_action( 'foundationpress_before_content' ); ?>
@@ -49,7 +47,7 @@ get_header(); ?>
 			<div class="pilots-image-container">
 				<div class="pilots-image matched-height">
 					<div>
-						kuva
+						<?php the_post_thumbnail(); ?>
 					</div>
 				</div>
 			</div>

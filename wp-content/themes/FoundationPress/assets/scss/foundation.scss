@@ -97,8 +97,11 @@
 $debug: true;
 $grid-column-align-edge: false;
 
+
 @import "custom/colors";
 @import "custom/general";
+
+@import "custom/footer";
 @import "custom/page-home";
 @import "custom/page-pilots";
 @import "custom/page-events";

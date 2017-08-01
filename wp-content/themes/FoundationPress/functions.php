@@ -152,46 +152,5 @@ function hide_editor() {
 
 add_image_size( 'square-large', 300, 300, true); // name, width, height, crop 
 
-//custom gallery shortcode
-function about_gallery( $attr ) {
-
-    $post = get_post();
-    if ( ! empty( $attr['ids'] ) ) {
-        $attr['include'] = $attr['ids'];
-    }
-
-    extract( shortcode_atts( array(
-        'order'      => 'ASC',
-        'orderby'    => 'post__in',
-        'id'         => $post->ID,
-        'columns'    => 1,
-        'size'       => 'large',
-        'include'    => '',
-        ), $attr));
-
-    $id = (int) $id;
-    $columns = (int) $columns;
-
-    if ( 'RAND' == $order ) {
-        $orderby = 'none';
-    }
-
-    if ( ! empty( $include ) ) {
-        $_attachments = get_posts( array( 'include' => $include, 'post_status' => 'inherit', 'post_type' => 'attachment', 'post_mime_type' => 'image', 'order' => $order, 'orderby' => $orderby ) );
-        $attachments = array();
-        foreach ( $_attachments as $key => $val ) {
-            $attachments[$val->ID] = $_attachments[$key];
-        }
-    }
-
-    if ( empty( $attachments ) ) {
-        return '';
-    }
-
-    $output = '<div class="about-gallery-item"><ul>';
-
-}
-
-add_shortcode( 'gallery', 'about_gallery' );
 
 
