@@ -19,7 +19,33 @@ $fields = CFS()->get();
 			<div class="aole-description">
 				<h2><?php echo $fields["what_is_aole_title"]; ?></h2>
 				<p><?php echo $fields["what_is_aole_content"]; ?></p>
+				<ul class="featured-team-members">
+					<?php 
+					$fields = CFS()->get();
+					$team_members = [];
+
+					$team_members[0]->post_info = get_post( $fields["featured_core_team_members"][0] );
+					$team_members[0]->custom_fields = CFS()->get(false, $fields["featured_core_team_members"][0] );
+					$team_members[1]->post_info = get_post( $fields["featured_core_team_members"][1] );
+					$team_members[1]->custom_fields = CFS()->get(false, $fields["featured_core_team_members"][1] );
+					echo "<pre style='font-size:9px;'>";
+					echo "</pre>";
+				//print_r($fields["featured_core_team_members"]);
+					?>
+
+					<?php foreach ($team_members as $team_member) {?>
+
+					<li class="team-member">
+						<img src="<?php echo get_the_post_thumbnail_url($team_member->post_info->ID, 'thumbnail');?>"></img>
+						<div class="team-member-name"><?php echo $team_member->custom_fields["name"]; ?></div>
+						<div class="team-member-title"><?php echo $team_member->custom_fields["title"]; ?></div>
+						<div class="team-member-contact"><?php echo $team_member->custom_fields["contact_info"]; ?></div>
+						<div class="team-member-social-media"><a href="<?php echo $team_member->custom_fields["social_media"]["url"];?>"><?php echo $team_member->custom_fields["social_media"]["text"]; ?></a></div>
+					</li>
+					<?php } ?>
+				</ul>
 			</div>
+
 		</div>
 	</section>
 	<section class="teaching-container matched-height">
