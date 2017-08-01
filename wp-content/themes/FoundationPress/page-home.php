@@ -68,8 +68,8 @@ $fields = CFS()->get();
 			<div class="aole-feed-container">
 				<div class="aole-feeds">
 					<div class="aole-feed matched-height2">
-
-						<a href="<?php echo get_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
+						<h2>Feed</h2>
+						<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
 						<p><?php
 						// If the writer has specified a "More" tag, show the content, otherwise use the (custom made) excerpt.
 							if( strpos( $post->post_content, '<!--more-->' ) ) {
@@ -86,8 +86,8 @@ $fields = CFS()->get();
 				wp_reset_postdata();
 			}?>
 			<div class="next-event matched-height2">
-
 				<h2>Next event</h2>
+				<h3>Event title</h3>
 				<p>Tapahtumapuheita.</p>
 
 			</div>
