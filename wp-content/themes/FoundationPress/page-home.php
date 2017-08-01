@@ -61,7 +61,7 @@ $fields = CFS()->get();
 				<p><?php echo $fields["why_online_content"]; ?></p>
 			</div>
 			<div class="image matched-height3">
-				KUVA
+				<img src="<?php echo $fields["featured_image_for_why_online_learning_section"]; ?>"></img>
 			</div>
 		</div>
 	</section>
@@ -72,7 +72,7 @@ $fields = CFS()->get();
 				<p><?php echo $fields["why_aole_content"]; ?></p>
 			</div>
 			<div class="image matched-height4">
-				KUVA
+				<img src="<?php echo $fields["featured_image_for_why_aole_section"]; ?>"></img>
 			</div>
 		</div>
 	</section>
