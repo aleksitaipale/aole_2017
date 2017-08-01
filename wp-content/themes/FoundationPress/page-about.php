@@ -50,33 +50,33 @@ get_header(); ?>
 		<section class="team-members-container matched-height">
 			<div class="team-members">
 				<h2>Core team</h2>
-				<ul>
-					<?php
+				
+				<?php
 
 			//Get all team members
-					$team_members_array = get_posts(
-						array( 'showposts' => -1,
-							'post_type' => 'team_members'
-							)
-						);
+				$team_members_array = get_posts(
+					array( 'showposts' => -1,
+						'post_type' => 'team_members'
+						)
+					);
 
 			//Display all team members
-					foreach ($team_members_array as $team_member){
-						$custom_fields = CFS()->get(false, $team_member->ID);
+				foreach ($team_members_array as $team_member){
+					$custom_fields = CFS()->get(false, $team_member->ID);
 
-						?>
-						<li class="team-member">
-							<img src="<?php echo get_the_post_thumbnail_url($team_member->ID, 'thumbnail');?>"></img>
-							<div class="team-member-name"><?php echo $custom_fields["name"]; ?></div>
-							<div class="team-member-title"><?php echo $custom_fields["title"]; ?></div>
-							<div class="team-member-contact"><?php echo $custom_fields["contact_info"]; ?></div>
-							<div class="team-member-social-media"><a href="<?php echo $custom_fields["social_media"]["url"];?>"><?php echo $custom_fields["social_media"]["text"]; ?></a></div>
-						</li>
-
-						<?php 
-					}
 					?>
-				</ul>
+					<div class="team-member">
+						<img src="<?php echo get_the_post_thumbnail_url($team_member->ID, 'thumbnail');?>"></img>
+						<div class="team-member-name"><?php echo $custom_fields["name"]; ?></div>
+						<div class="team-member-title"><?php echo $custom_fields["title"]; ?></div>
+						<div class="team-member-contact"><?php echo $custom_fields["contact_info"]; ?></div>
+						<div class="team-member-social-media"><a href="<?php echo $custom_fields["social_media"]["url"];?>"><?php echo $custom_fields["social_media"]["text"]; ?></a></div>
+					</div>
+
+					<?php 
+				}
+				?>
+				
 			</div>
 		</section>
 		<div class="aole-article-container">
