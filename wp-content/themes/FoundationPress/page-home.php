@@ -71,10 +71,19 @@ $fields = CFS()->get();
 	</div>
 
 
-<!--	<section class="pilots-showcase front-section">
-		<h2><?php echo $fields["pilots_showcase_title"]; ?></h2>
-		<div class="pilots-carousel"></div>
-	</section> -->
+	<section class="pilots-showcase-container front-section">
+		<div class="aole-pilots-showcase">
+			<h2><?php echo $fields["aole_pilots_showcase_title"]; ?></h2>
+			<div class="pilots-carousel">
+				<div class="single-carousel-pilot"><img src="http://via.placeholder.com/350x150"></img></div>
+				<div class="single-carousel-pilot"><img src="http://via.placeholder.com/350x150"></img></div>
+				<div class="single-carousel-pilot"><img src="http://via.placeholder.com/350x150"></img></div>
+				<div class="single-carousel-pilot"><img src="http://via.placeholder.com/350x150"></img></div>
+				<div class="single-carousel-pilot"><img src="http://via.placeholder.com/350x150"></img></div>
+				<div class="single-carousel-pilot"><img src="http://via.placeholder.com/350x150"></img></div>
+			</div>
+		</div>
+	</section>
 
 
 	<section class="why-online-container">

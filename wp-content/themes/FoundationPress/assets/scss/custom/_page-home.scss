@@ -1,3 +1,5 @@
+// "What is Aalto Online Learning?" section, i.e. explaining shortly what A!OLE is as well as showcasing some core team members (most likely founders of A!OLE)
+
 .aole-info-container{
 	background-color: $dark-bg;
 	@if ($debug) { background-color:red; }
@@ -29,6 +31,7 @@
 	
 }
 
+// "Teaching at Aalto?" section, i.e. gathering emails for the call for idea proposals
 .teaching-container{
 	background-color: $light-bg;
 	@if ($debug) {background-color:blue;}
@@ -47,6 +50,8 @@
 	}
 }
 
+
+// "Blog & Events" section, i.e. news section and showcase of next event
 
 .aole-feed-container{
 	background-color: $light-bg;
@@ -80,6 +85,34 @@
 
 }
 
+// "Pilots showcase" section, i.e. showcasing some of the most interesting pilots
+
+
+.pilots-showcase-container{
+	@include breakpoint(small) {  @include grid-column(12); }
+	@include breakpoint(medium) {  @include grid-column(12); }
+	padding:4%;
+	.aole-pilots-showcase{
+		@include grid-row();
+
+		.aole-pilots-listing{
+			@include breakpoint(small) {  @include grid-column(12); }
+			@include breakpoint(medium) {  @include grid-column(12); }
+
+			.pilots-carousel{
+
+			}
+
+		}
+	}
+}
+
+.slick-prev:before, .slick-next:before{
+	color:blue !important;
+}
+
+// "Why online learning?" section, i.e. explaining why online learning is needed
+
 .why-online-container{
 	background-color: $light-bg;
 	@if ($debug) {background-color:green;}
@@ -111,6 +144,8 @@
 
 	}
 }
+
+// "Why online learning?" section, i.e. explaining why online learning is best done in the A!OLE context
 
 .why-aole-container{
 	background-color: $light-bg;

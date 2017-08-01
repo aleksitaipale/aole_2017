@@ -152,5 +152,15 @@ function hide_editor() {
 
 add_image_size( 'square-large', 300, 300, true); // name, width, height, crop 
 
+function register_custom_scripts(){
+
+    //wp_enqueue_script( 'slickjs', get_stylesheet_directory_uri() . '/js/slick.min.js', array( 'jquery' ), '1.6.0' true );
+    wp_enqueue_script( 'slickjs-init', get_stylesheet_directory_uri(). '/js/slick-init.js', array( 'slickjs' ), '1.6.0', true );
+   // wp_enqueue_style( 'slickcss', get_stylesheet_directory_uri() . '/css/slick.css', '1.6.0', 'all');
+   //wp_enqueue_style( 'slickcsstheme', get_stylesheet_directory_uri(). '/css/slick-theme.css', '1.6.0', 'all');
+}
+
+register_custom_scripts();
+
 
 

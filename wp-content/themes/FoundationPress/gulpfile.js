@@ -65,7 +65,8 @@ var PATHS = {
     'assets/components/motion-ui/motion-ui.js',
 
     // Include your own custom scripts (located in the custom folder)
-    'assets/javascript/custom/*.js',
+    'assets/javascript/custom/slick/slick.min.js',
+    'assets/javascript/custom/slick/slick-init.js'
   ],
   phpcs: [
     '**/*.php',

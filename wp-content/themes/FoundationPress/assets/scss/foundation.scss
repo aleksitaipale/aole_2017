@@ -97,6 +97,8 @@
 $debug: true;
 $grid-column-align-edge: false;
 
+@import "slick/slick";
+@import "slick/slick-theme";
 
 @import "custom/colors";
 @import "custom/general";
@@ -107,3 +109,5 @@ $grid-column-align-edge: false;
 @import "custom/page-events";
 @import "custom/page-about";
 @import "custom/single-pilot";
+
+
