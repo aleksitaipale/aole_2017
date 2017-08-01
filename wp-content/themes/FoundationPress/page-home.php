@@ -53,14 +53,38 @@ $fields = CFS()->get();
 			</div>
 		</div>
 	</section>
-	<div class="aole-feed-container">
-		<div class="aole-feeds">
-			<div class="aole-feed matched-height2">
+	<?php
+	$args = array(
+    'posts_per_page' => 1, // we need only the latest post, so get that post only
+    'category_name' => 'news',
+    );
+	$newsQuery = new WP_Query( $args);
 
-				<h2><?php echo $fields["news_title"]; ?></h2>
-				<p>selityksiä.</p>
+	if ( $newsQuery->have_posts() ) {
+		while ( $newsQuery->have_posts() ) {
+			$newsQuery->the_post();        
+			
+			?>
+			<div class="aole-feed-container">
+				<div class="aole-feeds">
+					<div class="aole-feed matched-height2">
 
-			</div>
+						<a href="<?php echo get_permalink(); ?>"><h2><?php the_title(); ?></h2></a>
+						<p><?php
+						// If the writer has specified a "More" tag, show the content, otherwise use the (custom made) excerpt.
+							if( strpos( $post->post_content, '<!--more-->' ) ) {
+								the_content("Read more...");
+							}
+							else {
+								the_excerpt();
+							}?>
+						</p>
+
+					</div>
+					<?php
+				}
+				wp_reset_postdata();
+			}?>
 			<div class="next-event matched-height2">
 
 				<h2>Next event</h2>
