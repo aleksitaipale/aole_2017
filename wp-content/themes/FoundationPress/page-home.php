@@ -87,9 +87,20 @@ $fields = CFS()->get();
 			}?>
 			<div class="next-event matched-height2">
 				<h2>Next event</h2>
-				<h3>Event title</h3>
-				<p>Tapahtumapuheita.</p>
+				<?php
+				$next_event = EM_Events::get(array("scope"=>"future", "limit"=>1, "orderby" => "event_start_date"))[0];
 
+				?>
+				<a href="<?php echo get_permalink($next_event->post_id)?>"><h3><?php echo $next_event->event_name; ?></h3></a>
+				<p><?php 
+					if( strpos( $next_event->post_content, '<!--more-->' ) ) {
+						echo get_the_content_by_id($next_event->post_id);
+						echo "<a class='read-more-link' href='".get_the_permalink($next_event->post_id)."'>Read more...</a>";
+					}
+					else {
+						echo get_the_excerpt_by_id($next_event->post_id);
+					}?>
+				</p>
 			</div>
 		</div>
 	</div>

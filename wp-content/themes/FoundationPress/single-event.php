@@ -12,15 +12,15 @@
 
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/featured-image' ); ?>
 
 <?php
 $event_info = "pöö";
-$future_events = EM_Events::get();
+$this_event = EM_Events::get();
 
-print_r($future_events);
+print_r($this_event);
 ?>
 <div class="main-wrap" role="main">
+	<?php do_shortcode("[event]#_EVENTNAME[/event]"); ?>
 
 	<?php do_action( 'foundationpress_before_content' ); ?>
 	<?php while ( have_posts() ) : the_post(); ?>

@@ -149,7 +149,7 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
             $wpse_excerpt = strip_shortcodes( $wpse_excerpt );
             $wpse_excerpt = apply_filters('the_content', $wpse_excerpt);
             $wpse_excerpt = str_replace(']]>', ']]&gt;', $wpse_excerpt);
-            $wpse_excerpt = strip_tags($wpse_excerpt, wpse_allowedtags()); /*IF you need to allow just certain tags. Delete if all tags are allowed */
+            //$wpse_excerpt = strip_tags($wpse_excerpt, wpse_allowedtags()); /*IF you need to allow just certain tags. Delete if all tags are allowed */
 
             //Set the excerpt word count and only break after sentence is complete.
             $excerpt_word_count = 75;
@@ -200,6 +200,20 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
     remove_filter('get_the_excerpt', 'wp_trim_excerpt');
     add_filter('get_the_excerpt', 'wpse_custom_wp_trim_excerpt');
 
-//////////////////////////////////////////////////////////////////////////////////////////
 
+//Get the excerpt with ID:
+//Source: https://wordpress.stackexchange.com/a/12503
+    function get_the_excerpt_by_id($post_id) {
+      global $post;  
+      $save_post = $post;
+      $post = get_post($post_id);
+      $output = get_the_excerpt();
+      $post = $save_post;
+      return $output;
+  }
 
+  function get_the_content_by_id($post_id) {
+      $post = get_post($post_id);
+      $content_arr = get_extended($post->post_content);
+      return apply_filters('the_content', $content_arr['main']);
+  }
