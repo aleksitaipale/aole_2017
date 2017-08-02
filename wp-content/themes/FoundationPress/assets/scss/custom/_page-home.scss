@@ -23,15 +23,11 @@
 			@include breakpoint(large) {  @include grid-column(7);}
 			@include grid-layout(2, '.team-member', $grid-column-gutter);
 			
-			.team-member { 
-				.social-media-link{
-					display:block;
-				}
-			}
 		}
 	}
 	
 }
+
 
 // "Teaching at Aalto?" section, i.e. gathering emails for the call for idea proposals
 .teaching-container{

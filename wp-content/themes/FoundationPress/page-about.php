@@ -12,8 +12,6 @@
 
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/featured-image' ); ?>
-
 <div class="main-wrap about-page full-width" role="main">
 
 	<div class="about-description-container matched-height">
@@ -62,15 +60,25 @@ get_header(); ?>
 
 			//Display all team members
 				foreach ($team_members_array as $team_member){
-					$custom_fields = CFS()->get(false, $team_member->ID);
-
+					$custom_fields = get_fields($team_member->ID);
 					?>
 					<div class="team-member">
 						<img src="<?php echo get_the_post_thumbnail_url($team_member->ID, 'thumbnail');?>"></img>
 						<div class="team-member-name"><?php echo $custom_fields["name"]; ?></div>
 						<div class="team-member-title"><?php echo $custom_fields["title"]; ?></div>
 						<div class="team-member-contact"><?php echo $custom_fields["contact_info"]; ?></div>
-						<div class="team-member-social-media"><a href="<?php echo $custom_fields["social_media"]["url"];?>"><?php echo $custom_fields["social_media"]["text"]; ?></a></div>
+						<?php if( have_rows('social_media', $team_member->ID) ): ?>
+							<?php 
+							while( have_rows('social_media', $team_member->ID) ): the_row(); 
+							$link = get_sub_field('social_media_link');
+							?>
+							<?php if( $link ): ?>
+								<a class="social-media-link" href="<?php echo $link["url"]; ?>"><?php echo $link["title"]?></a>
+							<?php endif; ?>
+							<?php 
+							endwhile;
+							?>
+						<?php endif; ?>
 					</div>
 
 					<?php 
@@ -94,15 +102,27 @@ foreach($custom_posts as $post) {
 			<h2><?php the_title(); ?></h2>
 			<p><?php the_content(); ?></p>
 		</article>
-		<div class="aole-article-image">
-			<?php the_post_thumbnail(); ?>
+		<?php 
+		$post_gallery = get_field("post_gallery"); 
+		if( $post_gallery ):
+			?>
+		<div class="aole-article-images">
+			<?php foreach( $post_gallery as $image ): ?>
+				<div class="aole-article-image">
+					<img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>"></img>
+				</div>
+			<?php endforeach; ?>
 		</div>
-	</div>
+	<?php endif; ?>
 
-	<?php } // end foreach ?>
 
-	<?php do_action( 'foundationpress_after_content' ); ?>
-	<?php get_sidebar(); ?>
+
+</div>
+
+<?php } // end foreach ?>
+
+<?php do_action( 'foundationpress_after_content' ); ?>
+<?php get_sidebar(); ?>
 
 </div>
 </div>

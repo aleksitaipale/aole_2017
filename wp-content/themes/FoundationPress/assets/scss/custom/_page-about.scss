@@ -47,12 +47,16 @@
 
 			}
 
-			.aole-article-image{
-				padding-top:30%;
+			.aole-article-images{
+				padding-top:3%;
 				background-color:red;
 				@include breakpoint(small) {  @include grid-column(12);	}
 				@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center); }
 				@include breakpoint(large) {  @include grid-column(4); }
+
+				img{
+					padding:4%;
+				}
 			}
 		}
 	}
