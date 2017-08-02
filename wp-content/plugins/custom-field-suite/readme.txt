@@ -1,8 +1,8 @@
 === Custom Field Suite ===
 Contributors: mgibbs189
-Tags: custom fields, fields, forms, meta, postmeta, metabox, wysiwyg, relationship, repeater, upload
+Tags: custom fields, fields, postmeta, relationship, repeater, file upload
 Requires at least: 4.4
-Tested up to: 4.7.4
+Tested up to: 4.8
 Stable tag: trunk
 License: GPLv2
 
@@ -55,6 +55,10 @@ This plugin is a free, lightweight alternative to Advanced Custom Fields.
 4. The Tools area for migrating field groups
 
 == Changelog ==
+
+= 2.5.10 =
+* Improved: notes field is now multi-line
+* Fix: ensure that $rules and $extras are arrays
 
 = 2.5.9 =
 * Ensured WP 4.7.4 compat

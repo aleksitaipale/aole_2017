@@ -75,14 +75,14 @@ if (!function_exists('write_log')) {
 function update_custom_terms($post_id) {
 
     // only update terms if it's a theme group post
-   if ( 'theme_group' != get_post_type($post_id)) {
-      return;
-  }
+ if ( 'theme_group' != get_post_type($post_id)) {
+  return;
+}
 
     // don't create or update terms for system generated posts
-  if (get_post_status($post_id) == 'auto-draft') {
-      return;
-  }
+if (get_post_status($post_id) == 'auto-draft') {
+  return;
+}
 
     /*
     * Grab the post title and slug to use as the new 
@@ -203,6 +203,7 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
 
 //Get the excerpt with ID:
 //Source: https://wordpress.stackexchange.com/a/12503
+    
     function get_the_excerpt_by_id($post_id) {
       global $post;  
       $save_post = $post;
@@ -217,3 +218,4 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
       $content_arr = get_extended($post->post_content);
       return apply_filters('the_content', $content_arr['main']);
   }
+  

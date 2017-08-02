@@ -67,16 +67,8 @@
 	}
 
 
-	.upcoming-events {
-		@include grid-row();
-		@if ($debug) {background-color:red;}	
-		h2{
-			@include breakpoint(small) {  @include grid-column(12);  }
-			@include breakpoint(medium) {  @include grid-column(12); @include grid-column-unposition; }
-			@include breakpoint(large) {  @include grid-column(10); @include grid-column-position(center); }
-		}
-	}
-	.past-events {
+
+	.events {
 		@include grid-row();	
 		@if ($debug) {background-color:blue;}
 
@@ -95,7 +87,7 @@
 			@include breakpoint(medium) {  @include grid-column(12); @include grid-column-unposition; }
 			@include breakpoint(large) {  @include grid-column(10); @include grid-column-position(center); }
 
-			.past-event{
+			.event{
 				@include grid-row();
 
 				.event-left-container{
