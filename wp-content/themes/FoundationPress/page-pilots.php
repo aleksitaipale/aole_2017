@@ -67,8 +67,9 @@ get_header(); ?>
 
 					// Select a random quote from the quotes associated with this theme group to be shown.
 						$theme_quote = $theme_groups[$idx]["quotes"][array_rand($theme_groups[$idx]["quotes"])];
-					//print_r($theme_quote);
-						$custom_fields = CFS()->get(false, $theme_quote->ID);
+						
+						$custom_fields = get_fields($theme_quote->ID);
+
 						?>
 						<i><?php echo $custom_fields["quote"]; ?></i>
 						<span><?php echo $custom_fields["author"]; ?></span>
