@@ -65,13 +65,7 @@ var PATHS = {
     'assets/components/motion-ui/motion-ui.js',
 
     // Include your own custom scripts (located in the custom folder)
-    'assets/javascript/custom/slick/slick.min.js',
-    'assets/javascript/custom/slick/slick-init.js'
-  ],
-  phpcs: [
-    '**/*.php',
-    '!wpcs',
-    '!wpcs/**',
+    'assets/javascript/custom/*.js',
   ],
   pkg: [
     '**/*',
@@ -193,29 +187,6 @@ gulp.task('build', ['clean'], function(done) {
   sequence('copy',
           ['sass', 'javascript', 'lint'],
           done);
-});
-
-// PHP Code Sniffer task
-gulp.task('phpcs', function() {
-  return gulp.src(PATHS.phpcs)
-    .pipe($.phpcs({
-      bin: 'wpcs/vendor/bin/phpcs',
-      standard: './codesniffer.ruleset.xml',
-      showSniffCode: true,
-    }))
-    .pipe($.phpcs.reporter('log'));
-});
-
-// PHP Code Beautifier task
-gulp.task('phpcbf', function () {
-  return gulp.src(PATHS.phpcs)
-  .pipe($.phpcbf({
-    bin: 'wpcs/vendor/bin/phpcbf',
-    standard: './codesniffer.ruleset.xml',
-    warningSeverity: 0
-  }))
-  .on('error', $.util.log)
-  .pipe(gulp.dest('.'));
 });
 
 // Clean task

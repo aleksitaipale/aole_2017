@@ -75,14 +75,14 @@ if (!function_exists('write_log')) {
 function update_custom_terms($post_id) {
 
     // only update terms if it's a theme group post
- if ( 'theme_group' != get_post_type($post_id)) {
-  return;
-}
+   if ( 'theme_group' != get_post_type($post_id)) {
+      return;
+  }
 
     // don't create or update terms for system generated posts
-if (get_post_status($post_id) == 'auto-draft') {
-  return;
-}
+  if (get_post_status($post_id) == 'auto-draft') {
+      return;
+  }
 
     /*
     * Grab the post title and slug to use as the new 
@@ -219,3 +219,19 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
       return apply_filters('the_content', $content_arr['main']);
   }
   
+  function get_all_event_info($em_event) {
+    $event_information = [];
+    $post_id = $em_event->post_id;
+    $post_info = get_post($post_id);
+    $em_event->the_permalink = get_permalink($post_id);
+    $em_event->custom_fields = get_fields($post_id); //Add all the fields from ACF to the post info object
+    $em_event->location = em_get_location($em_event->location_id);
+    $em_event->event_categories = wp_get_post_terms( $em_event->post_id, "event-categories");
+
+    // The $event_information variable is divided into two objects, "post" and "event". The former contains the post information (that
+    // has been fetched with get_post) and the latter contains the event information (gotten with EM_Events::get())
+    $event_information["post"]=$post_info;
+    $event_information["event"]=$em_event;
+
+    return $event_information;
+}
