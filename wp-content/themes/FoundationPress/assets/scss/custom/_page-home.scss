@@ -89,6 +89,7 @@
 
 .pilots-showcase-container{
 	@if ($debug) { background-color:pink; }
+	background-color: $dark-bg;
 	@include breakpoint(small) {  @include grid-column(12); }
 	@include breakpoint(medium) {  @include grid-column(12); }
 	padding:4%;

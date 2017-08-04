@@ -95,7 +95,7 @@
 
 // Custom
 
-$debug: true;
+$debug: false;
 $grid-column-align-edge: false;
 
 @import "slick/slick";
@@ -103,6 +103,7 @@ $grid-column-align-edge: false;
 
 @import "custom/colors";  // OK
 @import "custom/general"; // OK
+@import "custom/fonts";
 
 @import "custom/footer"; // OK
 @import "custom/page-home"; // OK

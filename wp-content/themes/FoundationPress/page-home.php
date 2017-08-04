@@ -69,6 +69,9 @@ $call_for_idea_proposals_section = get_field('call_for_idea_proposals_section');
 	</div>
 </section>
 <?php
+
+$blog_news_title = get_field("blog_news_title"); // this field has to be retrieved before the "loop inside a loop" to be able to be shown
+
 $args = array(
     'posts_per_page' => 1, // we need only the latest post, so get that post only
     'category_name' => 'news',
@@ -83,7 +86,7 @@ if ( $newsQuery->have_posts() ) {
 		<div class="aole-feed-container">
 			<div class="aole-feeds">
 				<div class="aole-feed matched-height2">
-					<h2><?php get_field('blog_news_title'); ?></h2>
+					<h2><?php echo $blog_news_title; ?></h2>
 					<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
 					<p><?php
 						// If the writer has specified a "More" tag, show the content, otherwise use the (custom made) excerpt.
@@ -162,9 +165,8 @@ if ( $newsQuery->have_posts() ) {
 
 	</div>
 
+</div>
 
-
-	
 </div>
 
 <?php $pilots_showcase_section = get_field("pilots_showcase_section"); ?>
