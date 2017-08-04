@@ -13,6 +13,24 @@ section{
 // "What is Aalto Online Learning?" section, i.e. explaining shortly what A!OLE is as well as showcasing some core team members (most likely founders of A!OLE)
 
 .aole-info-container{
+	h2{
+		color: $light-primary-heading;
+	}
+	color: $light-body-text;
+
+	a{
+		color: $light-body-text;
+		text-decoration: underline;
+		&:before {
+			content: "\f08e"; // link icon
+			font-size:10px;
+			font-family:FontAwesome;
+			text-decoration: none;
+			display:inline-block;
+			padding-right:3px;
+		}
+	}
+
 	background-color: $dark-bg;
 	@if ($debug) { background-color:red; }
 	@include breakpoint(small) {  @include grid-column(12); }
@@ -107,6 +125,10 @@ section{
 	padding:4%;
 	.aole-pilots-showcase{
 		@include grid-row();
+
+		h2{
+			color: $light-primary-heading;
+		}
 
 		.aole-pilots-listing{
 			@include breakpoint(small) {  @include grid-column(12); }
