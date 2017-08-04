@@ -1,0 +1,70 @@
+.main-wrap.single-pilot-page{
+	background-color:yellow;
+
+	.pilot-description-container{
+		background-color: $dark-bg;
+		@if ($debug) {background-color:red;}
+		@include breakpoint(small) {  @include grid-column(12); }
+		@include breakpoint(medium) {  
+			@include grid-column(6);
+			@include grid-column-position(-6);
+		}
+		.pilot-description{		
+			@include grid-row();
+
+			.pilot-description-content {
+				@include grid-column-position(center);
+				@include breakpoint(small) {  @include grid-column(12); }
+				@include breakpoint(medium) {  @include grid-column(12);  }
+				@include breakpoint(large) {  @include grid-column(12); }
+				@include breakpoint(xlarge) {  @include grid-column(12); }
+			}
+
+		}
+
+	}
+
+	.pilot-image-container{
+		background-color: $light-bg;
+		@if ($debug) {background-color:blue;}
+		@include breakpoint(small) {  @include grid-column(12); }
+		@include breakpoint(medium) {  
+			@include grid-column(6);
+			@include grid-column-position(6);
+		}
+		.pilot-image{
+			@include grid-row();
+			div{
+
+				@include breakpoint(small) {  @include grid-column(12);   }
+				@include breakpoint(medium) {  @include grid-column(12); }
+				@include breakpoint(large) {  @include grid-column(12);  }
+				@include breakpoint(xlarge) {  @include grid-column(12);  }
+			}
+
+		}
+	}
+	.content-container{
+		@if ($debug) {background-color:pink;}
+		@include breakpoint(small) {  @include grid-column(12);  }
+
+		.entry-content{
+			@include grid-row();
+
+			.pilot-info{
+				@if ($debug) {background-color:yellow;}
+				@include breakpoint(small) {  @include grid-column(12);  }
+				@include breakpoint(medium) {  @include grid-column(6);}
+				@include breakpoint(large) {  @include grid-column(6);}
+				@include breakpoint(xlarge) {  @include grid-column(4);@include grid-column-offset(2);}
+			}
+			.pilot-reflection{
+				@if ($debug) {background-color:green;}
+				@include breakpoint(small) {  @include grid-column(12); }
+				@include breakpoint(medium) {  @include grid-column(6);}
+				@include breakpoint(large) {  @include grid-column(6);}
+				@include breakpoint(xlarge ) {  @include grid-column(4);}
+			}
+		}
+	}
+}

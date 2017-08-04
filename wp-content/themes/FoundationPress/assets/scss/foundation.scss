@@ -101,14 +101,14 @@ $grid-column-align-edge: false;
 @import "slick/slick";
 @import "slick/slick-theme";
 
-@import "custom/colors";
-@import "custom/general";
+@import "custom/colors";  // OK
+@import "custom/general"; // OK
 
-@import "custom/footer";
-@import "custom/page-home";
-@import "custom/page-pilots";
-@import "custom/page-events";
-@import "custom/page-about";
-@import "custom/single-pilot";
+@import "custom/footer"; // OK
+@import "custom/page-home"; // OK
+@import "custom/page-pilots"; // OK
+@import "custom/page-events"; // OK
+@import "custom/page-about"; // OK
+@import "custom/single-pilot"; // OK
 
 
