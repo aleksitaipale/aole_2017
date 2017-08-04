@@ -85,7 +85,7 @@ get_header(); ?>
 					<div class="event upcoming-event">
 						<div class="event-left-container matched-height2">
 							<!-- Date -->
-							<span><?php 
+							<span class="event-date"><?php 
 								$start_date = date_create($event["event"]->event_start_date);
 								$end_date = date_create($event["event"]->event_end_date);
 								if ($event->event_start_date != $event->event_end_date){

@@ -113,7 +113,7 @@ if ( $newsQuery->have_posts() ) {
 					?>
 					<div class="event-left-container matched-heightA">
 						<!-- Date -->
-						<span>
+						<span class="event-date">
 							<?php 
 							$start_date = date_create($event["event"]->event_start_date);
 							$end_date = date_create($event["event"]->event_end_date);

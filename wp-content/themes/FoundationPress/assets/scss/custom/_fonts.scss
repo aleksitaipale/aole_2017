@@ -1,6 +1,17 @@
+/*
+The fonts are defined here. Also, each of them has a default color, but those are mostly overridden in the respective SCSS files for each page.
+*/
+
 h2 {
 	font-family:"Nimbus Sans Bold", "Arial", sans-serif;
 	font-weight:700;
+	color: $dark-primary-heading; 
+}
+
+h3{
+	font-family:"Nimbus Sans Bold", "Arial", sans-serif;
+	font-weight:700;
+	color: $dark-secondary-heading;
 }
 
 body {

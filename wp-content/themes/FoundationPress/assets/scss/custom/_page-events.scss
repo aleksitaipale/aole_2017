@@ -127,9 +127,14 @@
 
 	}
 
-	.event-time{}
-	.event-location{}
-	.event-for-pilots{}
+	.event-date{
+		font-weight:700; 
+	}
+	.event-time{
+
+	}
+	.event-location{ font-style: italic; }
+	.event-for-pilots{ color: $colored-primary-heading; font-weight:700; }
 	.event-thumbnail{
 		width:250px;
 		max-width:100%;
@@ -137,19 +142,29 @@
 	.event-category-list{
 		list-style-type:none;
 		padding:0;margin:0;
-		ul li{
+		li{
+			font-weight:700;
+			font-size:0.9em;
+			color: $colored-primary-heading;
 			padding-left:0; margin-left:0;
 			list-style-type: none;
 		}
 	}
-	.event-facilitator-list{
+	ul.event-facilitator-list{
 		list-style-type:none;
 		padding-left:0; margin-left:0;
+		padding-bottom:0; margin-bottom:0;
 		li{
-			padding-left:0; margin-left:0;
+			padding-left:0; margin-left:0; padding-bottom:0;
 			list-style-type: none;
+			
+			font-weight:500;
 		}
 	}
-	.event-title{}
+	.event-title{
+		h3 {
+			color: $dark-secondary-heading;
+		}
+	}
 }
 
