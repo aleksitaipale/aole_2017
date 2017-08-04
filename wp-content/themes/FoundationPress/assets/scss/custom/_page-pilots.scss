@@ -1,12 +1,20 @@
 .main-wrap.pilots-page{
 
 	.pilots-description-container{
+		padding-top:3%;
 		background-color: $dark-bg;
+
+		color: $light-body-text;
+		h2{
+			color: $light-body-text;
+		}
 		@if ($debug) {background-color:red;}
 		@include breakpoint(small) {  @include grid-column(12); }
-		@include breakpoint(medium) {  @include grid-column(6); }
+		@include breakpoint(medium) {  @include grid-column(12); }
+		@include breakpoint(large) {  @include grid-column(6); }
 		.pilots-description{		
 			@include grid-row();
+
 
 			.pilots-description-content {
 				@include grid-column-position(center);
@@ -14,6 +22,7 @@
 				@include breakpoint(medium) {  @include grid-column(12); @include grid-column-position(center); }
 				@include breakpoint(large) {  @include grid-column(12); }
 				@include breakpoint(xlarge) {  @include grid-column(12); }
+				border-bottom: 2px solid $dark-bg;
 			}
 
 		}
@@ -24,15 +33,22 @@
 		background-color: $light-bg;
 		@if ($debug) {background-color:blue;}
 		@include breakpoint(small) {  @include grid-column(12); }
-		@include breakpoint(medium) {  @include grid-column(6); }
+		@include breakpoint(medium) {  @include grid-column(12); }
+		@include breakpoint(large) {  @include grid-column(6); }
+		border-bottom: 2px solid $dark-bg;
+		border-top: 2px solid $dark-bg;
 		.pilots-image{
 			@include grid-row();
-			div{
+			padding-top:5%;
+			padding-bottom:5%;
 
-				@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center);  }
-				@include breakpoint(medium) {  @include grid-column(12); @include grid-column-position(center); }
-				@include breakpoint(large) {  @include grid-column(12); @include grid-column-position(center); }
-				@include breakpoint(xlarge) {  @include grid-column(12); @include grid-column-position(center); }
+			div{
+				text-align:center;
+				@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center); padding-bottom:0; }
+				@include breakpoint(medium) {  @include grid-column(12); @include grid-column-position(center); padding-bottom:0;}
+				@include breakpoint(large) {  @include grid-column(9); @include grid-column-position(center); }
+				@include breakpoint(xlarge) {  @include grid-column(8); @include grid-column-position(center); }
+
 			}
 
 		}
@@ -42,7 +58,11 @@
 	.theme-group-section{
 		@include grid-column(12);
 
+		border-bottom:1px solid $dark-bg;
 
+		&:last-child{
+			border-bottom:0;
+		}
 
 		background-color: $light-bg;
 		@if ($debug){

@@ -20,7 +20,7 @@ get_header(); ?>
 			<div class="pilots-description">
 				<div class="pilots-description-content">
 					<header>
-						<h1 class="entry-title"><?php the_title(); ?></h1>
+						<h2 class="entry-title"><?php the_title(); ?></h2>
 					</header>
 					<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 					<div class="entry-content">
