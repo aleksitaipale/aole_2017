@@ -235,3 +235,16 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
 
     return $event_information;
 }
+
+function get_event_image_url($event_id, $image_size){
+// use default picture if event doesn't have a featured image
+    $thumb_url = "";
+    if (has_post_thumbnail($event_id)){
+        $thumb_url = get_the_post_thumbnail_url($event_id, $image_size);
+    } else {
+        $thumb_url = get_template_directory_uri()."/assets/images/default_event.png";
+    }
+
+    return $thumb_url;
+
+}

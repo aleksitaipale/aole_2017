@@ -5,8 +5,10 @@
 
 		td{
 			font-size:10px;
-			width:100px;
-			max-width:100px;
+			width:50px;
+			height:50px;
+			max-height:50px;
+			max-width:50px;
 			vertical-align:top;
 			border:1px solid $dark-bg;
 			&.eventless{
@@ -32,7 +34,8 @@
 		background-color: $dark-bg;
 		@if ($debug) {background-color:red;}
 		@include breakpoint(small) {  @include grid-column(12); }
-		@include breakpoint(medium) {  @include grid-column(6); }
+		@include breakpoint(medium) {  @include grid-column(12); }
+		@include breakpoint(large) {  @include grid-column(6); }
 		.events-description{		
 			@include grid-row();
 
@@ -52,7 +55,8 @@
 		background-color: $light-bg;
 		@if ($debug) {background-color:blue;}
 		@include breakpoint(small) {  @include grid-column(12); }
-		@include breakpoint(medium) {  @include grid-column(6); }
+		@include breakpoint(medium) {  @include grid-column(12); }
+		@include breakpoint(large) {  @include grid-column(6); }
 		.events-image{
 			@include grid-row();
 			div{
