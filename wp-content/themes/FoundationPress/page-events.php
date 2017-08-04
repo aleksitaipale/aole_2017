@@ -49,142 +49,149 @@ get_header(); ?>
 					</div>
 				</div>
 			</article>
-			<div class="events-image-container">
-				<div class="events-image matched-height">
+			<div class="featured-image-container">
+				<div class="featured-image matched-height">
 					<div>
 						<?php the_post_thumbnail(); ?>
 					</div>
 				</div>
 			</div>
-		<?php endwhile;?>
-		<?php
+		</div>
+	<?php endwhile;?>
+	<?php
 		// Fetch all the A!OLE events
-		$future_events = EM_Events::get(array("scope"=>"future"));
-		$past_events = EM_Events::get(array("scope"=>"past"));
+	$future_events = EM_Events::get(array("scope"=>"future"));
+	$past_events = EM_Events::get(array("scope"=>"past"));
 
-		function create_event_array($em_events){
-			$events_array = [];
-			$event_information = [];
+	function create_event_array($em_events){
+		$events_array = [];
+		$event_information = [];
 
-			foreach ($em_events as $idx=>$event){
-				$events_array[] = get_all_event_info($event);
-			}	
-			return $events_array;
-		}
-		$upcoming_events = create_event_array($future_events);
-		$past_events = create_event_array($past_events);
-		?>
-		<section class="events upcoming-events">
-			<h2>Upcoming events</h2>
+		foreach ($em_events as $idx=>$event){
+			$events_array[] = get_all_event_info($event);
+		}	
+		return $events_array;
+	}
+	$upcoming_events = create_event_array($future_events);
+	$past_events = create_event_array($past_events);
+	?>
+	<section class="events upcoming-events">
+		<div class="event-section-title">
+			<div>
+				<h2>Upcoming events</h2>
+			</div>
+		</div>
 
 
-			<?php 
-			foreach ($upcoming_events as &$event) {
-				?>
-				<div class="event-container">
-					<div class="event upcoming-event">
-						<div class="event-left-container matched-height2">
-							<!-- Date -->
-							<span class="event-date"><?php 
-								$start_date = date_create($event["event"]->event_start_date);
-								$end_date = date_create($event["event"]->event_end_date);
-								if ($event->event_start_date != $event->event_end_date){
-									echo date_format($start_date, "D d F")."-".date_format($end_date, "D d F");
-								} else {
-									echo date_format($start_date, "D d F");
-								}
-								?></span>
-								<!-- Time -->
-								<div class="event-time"><?php echo $event["event"]->event_start_time."-".$event["event"]->event_end_time; ?></div>
-								<!-- Location -->
-								<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
-								<!-- Only for pilots? -->
-								<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
-								<!-- Export event to iCal -->
-								<div class="export-event-to-ical">
-									<a href="<?php echo do_shortcode("[event post_id='".$event["post"]->ID."']#_EVENTICALURL[/event]");?>">Export to iCal</a>
-								</div>
-							</div>
-							<!-- Picture -->
-							<div class="event-center-container matched-height2">
-								<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'square-large'); ?>"></img>
-							</div>
-							<!-- Event categories -->
-							<div class="event-right-container matched-height2">
-								<ul class="event-category-list">
-									<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
-								</ul>
-								<!-- Facilitator(s) -->
-								<ul class="event-facilitator-list">
-									<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
-								</ul>
-								<!-- Event title -->
-								<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
+		<?php 
+		foreach ($upcoming_events as &$event) {
+			?>
+			<div class="event-container">
+				<div class="event upcoming-event">
+					<div class="event-left-container matched-height2">
+						<!-- Date -->
+						<span class="event-date"><?php 
+							$start_date = date_create($event["event"]->event_start_date);
+							$end_date = date_create($event["event"]->event_end_date);
+							if ($event->event_start_date != $event->event_end_date){
+								echo date_format($start_date, "D d F")."-".date_format($end_date, "D d F");
+							} else {
+								echo date_format($start_date, "D d F");
+							}
+							?></span>
+							<!-- Time -->
+							<div class="event-time"><?php echo $event["event"]->event_start_time."-".$event["event"]->event_end_time; ?></div>
+							<!-- Location -->
+							<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
+							<!-- Only for pilots? -->
+							<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
+							<!-- Export event to iCal -->
+							<div class="export-event-to-ical">
+								<a href="<?php echo do_shortcode("[event post_id='".$event["post"]->ID."']#_EVENTICALURL[/event]");?>">Export to iCal</a>
 							</div>
 						</div>
-						<hr>
+						<!-- Picture -->
+						<div class="event-center-container matched-height2">
+							<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'square-large'); ?>"></img>
+						</div>
+						<!-- Event categories -->
+						<div class="event-right-container matched-height2">
+							<ul class="event-category-list">
+								<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
+							</ul>
+							<!-- Facilitator(s) -->
+							<ul class="event-facilitator-list">
+								<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
+							</ul>
+							<!-- Event title -->
+							<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
+						</div>
 					</div>
+				</div>
 
-					<?php } ?>
+				<?php } ?>
 
 
 
-				</section>
-				<section class="events past-events">
-					<h2>Past events</h2>
+			</section>
+			<section class="events past-events">
+				<div class="events-section-title">
+					<div>
+						<h2>Past events</h2>
+					</div>
+				</div>
 
-					<?php 
-					foreach ($past_events as &$event) {
-						?>
-						<div class="event-container">
-							<div class="event past-event">
-								<div class="event-left-container matched-height2">
-									<!-- Date -->
-									<span><?php 
-										$start_date = date_create($event["event"]->event_start_date);
-										$end_date = date_create($event["event"]->event_end_date);
-										if ($event->event_start_date != $event->event_end_date){
-											echo date_format($start_date, "D d F")."-".date_format($end_date, "D d F");
-										} else {
-											echo date_format($start_date, "D d F");
-										}	
-										?></span>
-										<!-- Time -->
-										<div class="event-time"><?php echo $event["event"]->event_start_time."-".$event["event"]->event_end_time; ?></div>
-										<!-- Location -->
-										<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
-										<!-- Only for pilots? -->
-										<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
-									</div>
-									<!-- Picture -->
+				<?php 
+				foreach ($past_events as &$event) {
+					?>
+					<div class="event-container">
+						<div class="event past-event">
+							<div class="event-left-container matched-height2">
+								<!-- Date -->
+								<span><?php 
+									$start_date = date_create($event["event"]->event_start_date);
+									$end_date = date_create($event["event"]->event_end_date);
+									if ($event->event_start_date != $event->event_end_date){
+										echo date_format($start_date, "D d F")."-".date_format($end_date, "D d F");
+									} else {
+										echo date_format($start_date, "D d F");
+									}	
+									?></span>
+									<!-- Time -->
+									<div class="event-time"><?php echo $event["event"]->event_start_time."-".$event["event"]->event_end_time; ?></div>
+									<!-- Location -->
+									<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
+									<!-- Only for pilots? -->
+									<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
+								</div>
+								<!-- Picture -->
 
-									<div class="event-center-container matched-height2">
-										<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'square-large'); ?>"></img>
-									</div>
-									<!-- Event categories -->
-									<div class="event-right-container matched-height2">
-										<ul class="event-category-list">
-											<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
-										</ul>
-										<!-- Facilitator(s) -->
-										<ul class="event-facilitator-list">
-											<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
-										</ul>
-										<!-- Event title -->
-										<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
-									</div>
-									<hr>
+								<div class="event-center-container matched-height2">
+									<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'square-large'); ?>"></img>
+								</div>
+								<!-- Event categories -->
+								<div class="event-right-container matched-height2">
+									<ul class="event-category-list">
+										<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
+									</ul>
+									<!-- Facilitator(s) -->
+									<ul class="event-facilitator-list">
+										<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
+									</ul>
+									<!-- Event title -->
+									<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
 								</div>
 							</div>
-							<?php } ?>
+						</div>
+						<?php } ?>
 
 
 
-						</section>
+					</section>
 
-						<?php do_action( 'foundationpress_after_content' ); ?>
-						<?php get_sidebar(); ?>
+					<?php do_action( 'foundationpress_after_content' ); ?>
+					<?php get_sidebar(); ?>
 
-					</div>
+				</div>
 
-					<?php get_footer();
+				<?php get_footer();

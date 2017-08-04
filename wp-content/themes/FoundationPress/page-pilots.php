@@ -44,8 +44,8 @@ get_header(); ?>
 					</div>
 				</div>
 			</article>
-			<div class="pilots-image-container">
-				<div class="pilots-image matched-height">
+			<div class="featured-image-container">
+				<div class="featured-image matched-height">
 					<div>
 						<?php the_post_thumbnail(); ?>
 					</div>
