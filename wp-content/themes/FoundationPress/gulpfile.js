@@ -14,29 +14,29 @@ var cleanCSS    = require('gulp-clean-css');
 
 // Enter URL of your local server here
 // Example: 'http://localwebsite.dev'
-var URL = '';
+var URL = 'http://localhost:8888/wordpress';
 
 // Check for --production flag
 var isProduction = !!(argv.production);
 
 // Browsers to target when prefixing CSS.
 var COMPATIBILITY = [
-  'last 2 versions',
-  'ie >= 9',
-  'Android >= 2.3'
+'last 2 versions',
+'ie >= 9',
+'Android >= 2.3'
 ];
 
 // File paths to various assets are defined here.
 var PATHS = {
   sass: [
-    'assets/components/foundation-sites/scss',
-    'assets/components/motion-ui/src',
-    'assets/components/fontawesome/scss',
+  'assets/components/foundation-sites/scss',
+  'assets/components/motion-ui/src',
+  'assets/components/fontawesome/scss',
   ],
   javascript: [
-    'assets/components/what-input/what-input.js',
-    'assets/components/foundation-sites/js/foundation.core.js',
-    'assets/components/foundation-sites/js/foundation.util.*.js',
+  'assets/components/what-input/what-input.js',
+  'assets/components/foundation-sites/js/foundation.core.js',
+  'assets/components/foundation-sites/js/foundation.util.*.js',
 
     // Paths to individual JS components defined below
     'assets/components/foundation-sites/js/foundation.abide.js',
@@ -68,8 +68,8 @@ var PATHS = {
     'assets/javascript/custom/*.js',
     'assets/javascript/custom/slick/slick.min.js',
     'assets/javascript/custom/slick/slick-init.js',
-  ],
-  pkg: [
+    ],
+    pkg: [
     '**/*',
     '!**/node_modules/**',
     '!**/components/**',
@@ -81,16 +81,16 @@ var PATHS = {
     '!**/composer.lock',
     '!**/codesniffer.ruleset.xml',
     '!**/packaged/*',
-  ]
-};
+    ]
+  };
 
 // Browsersync task
 gulp.task('browser-sync', ['build'], function() {
 
   var files = [
-            '**/*.php',
-            'assets/images/**/*.{png,jpg,gif}',
-          ];
+  '**/*.php',
+  'assets/images/**/*.{png,jpg,gif}',
+  ];
 
   browserSync.init(files, {
     // Proxy address
@@ -105,68 +105,68 @@ gulp.task('browser-sync', ['build'], function() {
 // In production, the CSS is compressed
 gulp.task('sass', function() {
   return gulp.src('assets/scss/foundation.scss')
-    .pipe($.sourcemaps.init())
-    .pipe($.sass({
-      includePaths: PATHS.sass
-    }))
-    .on('error', $.notify.onError({
-        message: "<%= error.message %>",
-        title: "Sass Error"
-    }))
-    .pipe($.autoprefixer({
-      browsers: COMPATIBILITY
-    }))
+  .pipe($.sourcemaps.init())
+  .pipe($.sass({
+    includePaths: PATHS.sass
+  }))
+  .on('error', $.notify.onError({
+    message: "<%= error.message %>",
+    title: "Sass Error"
+  }))
+  .pipe($.autoprefixer({
+    browsers: COMPATIBILITY
+  }))
     // Minify CSS if run with --production flag
     .pipe($.if(isProduction, cleanCSS()))
     .pipe($.if(!isProduction, $.sourcemaps.write('.')))
     .pipe(gulp.dest('assets/stylesheets'))
     .pipe(browserSync.stream({match: '**/*.css'}));
-});
+  });
 
 // Lint all JS files in custom directory
 gulp.task('lint', function() {
   return gulp.src('assets/javascript/custom/*.js')
-    .pipe($.jshint())
-    .pipe($.notify(function (file) {
-      if (file.jshint.success) {
-        return false;
-      }
+  .pipe($.jshint())
+  .pipe($.notify(function (file) {
+    if (file.jshint.success) {
+      return false;
+    }
 
-      var errors = file.jshint.results.map(function (data) {
-        if (data.error) {
-          return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
-        }
-      }).join("\n");
-      return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors;
-    }));
+    var errors = file.jshint.results.map(function (data) {
+      if (data.error) {
+        return "(" + data.error.line + ':' + data.error.character + ') ' + data.error.reason;
+      }
+    }).join("\n");
+    return file.relative + " (" + file.jshint.results.length + " errors)\n" + errors;
+  }));
 });
 
 // Combine JavaScript into one file
 // In production, the file is minified
 gulp.task('javascript', function() {
   var uglify = $.uglify()
-    .on('error', $.notify.onError({
-      message: "<%= error.message %>",
-      title: "Uglify JS Error"
-    }));
+  .on('error', $.notify.onError({
+    message: "<%= error.message %>",
+    title: "Uglify JS Error"
+  }));
 
   return gulp.src(PATHS.javascript)
-    .pipe($.sourcemaps.init())
-    .pipe($.babel())
-    .pipe($.concat('foundation.js', {
-      newLine:'\n;'
-    }))
-    .pipe($.if(isProduction, uglify))
-    .pipe($.if(!isProduction, $.sourcemaps.write()))
-    .pipe(gulp.dest('assets/javascript'))
-    .pipe(browserSync.stream());
+  .pipe($.sourcemaps.init())
+  .pipe($.babel())
+  .pipe($.concat('foundation.js', {
+    newLine:'\n;'
+  }))
+  .pipe($.if(isProduction, uglify))
+  .pipe($.if(!isProduction, $.sourcemaps.write()))
+  .pipe(gulp.dest('assets/javascript'))
+  .pipe(browserSync.stream());
 });
 
 // Copy task
 gulp.task('copy', function() {
   // Font Awesome
   var fontAwesome = gulp.src('assets/components/fontawesome/fonts/**/*.*')
-      .pipe(gulp.dest('assets/fonts'));
+  .pipe(gulp.dest('assets/fonts'));
 
   return merge(fontAwesome);
 });
@@ -179,36 +179,36 @@ gulp.task('package', ['build'], function() {
   var title = pkg.name + '_' + time + '.zip';
 
   return gulp.src(PATHS.pkg)
-    .pipe($.zip(title))
-    .pipe(gulp.dest('packaged'));
+  .pipe($.zip(title))
+  .pipe(gulp.dest('packaged'));
 });
 
 // Build task
 // Runs copy then runs sass & javascript in parallel
 gulp.task('build', ['clean'], function(done) {
   sequence('copy',
-          ['sass', 'javascript', 'lint'],
-          done);
+    ['sass', 'javascript', 'lint'],
+    done);
 });
 
 // Clean task
 gulp.task('clean', function(done) {
   sequence(['clean:javascript', 'clean:css'],
-            done);
+    done);
 });
 
 // Clean JS
 gulp.task('clean:javascript', function() {
   return del([
-      'assets/javascript/foundation.js'
+    'assets/javascript/foundation.js'
     ]);
 });
 
 // Clean CSS
 gulp.task('clean:css', function() {
   return del([
-      'assets/stylesheets/foundation.css',
-      'assets/stylesheets/foundation.css.map'
+    'assets/stylesheets/foundation.css',
+    'assets/stylesheets/foundation.css.map'
     ]);
 });
 
@@ -223,13 +223,13 @@ gulp.task('default', ['build', 'browser-sync'], function() {
 
   // Sass Watch
   gulp.watch(['assets/scss/**/*.scss'], ['clean:css', 'sass'])
-    .on('change', function(event) {
-      logFileChange(event);
-    });
+  .on('change', function(event) {
+    logFileChange(event);
+  });
 
   // JS Watch
   gulp.watch(['assets/javascript/custom/**/*.js'], ['clean:javascript', 'javascript', 'lint'])
-    .on('change', function(event) {
-      logFileChange(event);
-    });
+  .on('change', function(event) {
+    logFileChange(event);
+  });
 });

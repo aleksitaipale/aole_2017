@@ -83,7 +83,7 @@ if ( $newsQuery->have_posts() ) {
 		$newsQuery->the_post();        
 
 		?>
-		<div class="aole-feed-container">
+		<section class="aole-feed-container">
 			<div class="aole-feeds">
 				<div class="aole-feed matched-height2">
 					<h2><?php echo $blog_news_title; ?></h2>
@@ -188,7 +188,7 @@ if ( $newsQuery->have_posts() ) {
 			<h2><?php echo $why_online_section["why_online_title"]; ?></h2>
 			<p><?php echo $why_online_section["why_online_content"]; ?></p>
 		</div>
-		<div class="image matched-height3">
+		<div class="home-image matched-height3">
 			<img src="<?php echo $why_online_section["why_online_featured_image"]; ?>"></img>
 		</div>
 	</div>
@@ -200,7 +200,7 @@ if ( $newsQuery->have_posts() ) {
 			<h2><?php echo $why_aole_section["why_aole_title"]; ?></h2>
 			<p><?php echo $why_aole_section["why_aole_content"]; ?></p>
 		</div>
-		<div class="image matched-height4">
+		<div class="home-image matched-height4">
 			<img src="<?php echo $why_aole_section["why_aole_featured_image"]; ?>"></img>
 		</div>
 	</div>
