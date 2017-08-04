@@ -24,8 +24,10 @@ get_header(); ?>
 					</header>
 					<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 					<div class="entry-content">
+						<a href=<?php echo site_url( "/events.ics", $scheme ); ?>>iCal - all events</a>
 						<?php the_content(); ?>
 						<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+
 						<div class="event-calendar">
 							<?php echo do_shortcode("[events_calendar full=1 month=".date('n')."]"); ?>
 						</div>
@@ -98,6 +100,10 @@ get_header(); ?>
 								<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
 								<!-- Only for pilots? -->
 								<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
+								<!-- Export event to iCal -->
+								<div class="export-event-to-ical">
+									<a href="<?php echo do_shortcode("[event post_id='".$event["post"]->ID."']#_EVENTICALURL[/event]");?>">Export to iCal</a>
+								</div>
 							</div>
 							<!-- Picture -->
 							<div class="event-center-container matched-height2">
