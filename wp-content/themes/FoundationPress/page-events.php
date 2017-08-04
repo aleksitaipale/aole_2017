@@ -50,7 +50,7 @@ get_header(); ?>
 			<div class="events-image-container">
 				<div class="events-image matched-height">
 					<div>
-						kuva
+						<?php the_post_thumbnail(); ?>
 					</div>
 				</div>
 			</div>

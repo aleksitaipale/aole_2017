@@ -69,7 +69,10 @@
 			}
 			
 			.pilots-listing{
-				@include grid-layout(4, '.pilot-listing-item', $grid-column-gutter);
+				@include breakpoint(small) {   @include grid-layout(2, '.pilot-listing-item', $grid-column-gutter);  }
+				@include breakpoint(medium) {   @include grid-layout(3, '.pilot-listing-item', $grid-column-gutter);  }
+				@include breakpoint(large) {  @include grid-layout(4, '.pilot-listing-item', $grid-column-gutter); }
+				
 				@include grid-column(12);
 			}
 		}
