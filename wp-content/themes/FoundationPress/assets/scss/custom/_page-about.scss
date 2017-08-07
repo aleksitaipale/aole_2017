@@ -1,6 +1,6 @@
 .main-wrap.about-page{
 
-
+	// Container for the description of "About A!OLE"
 	.about-description-container{
 		background-color: $dark-bg;
 		@if ($debug) {background-color:red;}
@@ -22,6 +22,7 @@
 
 	}
 
+	// Container for the team members box, which lists core team members
 	.team-members-container{
 		background-color: $light-bg;
 		@if ($debug) {background-color:blue;}
@@ -35,6 +36,8 @@
 		}
 	}
 
+	// Container for the general About article, which are listed on this page when published
+	
 	.aole-article-container{
 		@include grid-column(12);
 		.aole-article{

@@ -1,6 +1,8 @@
 .main-wrap.single-pilot-page{
 	background-color:yellow;
 
+	// Description for a single pilot
+
 	.pilot-description-container{
 		background-color: $dark-bg;
 		@if ($debug) {background-color:red;}
@@ -24,6 +26,7 @@
 
 	}
 
+	// Featured image for a single pilot
 	.pilot-image-container{
 		background-color: $light-bg;
 		@if ($debug) {background-color:blue;}
@@ -44,6 +47,9 @@
 
 		}
 	}
+
+	// Content for a single pilot (reflection, materials, etc).
+	
 	.content-container{
 		@if ($debug) {background-color:pink;}
 		@include breakpoint(small) {  @include grid-column(12);  }

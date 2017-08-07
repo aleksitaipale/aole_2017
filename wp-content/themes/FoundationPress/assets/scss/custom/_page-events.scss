@@ -1,5 +1,7 @@
 .main-wrap.events-page{
 
+	// The calendar produced by the Events Manager plugin
+
 	.event-calendar{
 		@include grid-column(12);
 
@@ -30,6 +32,9 @@
 
 		
 	}
+
+
+	// The container with the description and the calendar, on the top of the page
 	.events-description-container{
 		background-color: $dark-bg;
 		@if ($debug) {background-color:red;}
@@ -45,11 +50,24 @@
 				@include breakpoint(medium) {  @include grid-column(12); }
 				@include breakpoint(large) {  @include grid-column(12); }
 				@include breakpoint(xlarge) {  @include grid-column(12); }
+
+				a {
+					&:before {
+						content: "\f08e"; // link icon
+						font-size:10px;
+						font-family:FontAwesome;
+						text-decoration: none;
+						display:inline-block;
+						padding-right:3px;
+					}
+				}
 			}
 
 		}
 
 	}
+
+	// The container with the featured image, on the top of the page
 
 	.events-image-container{
 		background-color: $light-bg;
@@ -72,6 +90,8 @@
 
 
 
+	// A list of events
+	
 	.events {
 		@include grid-row();	
 		@if ($debug) {background-color:blue;}
@@ -88,9 +108,9 @@
 					@include breakpoint(small) {  @include grid-column(12);   }
 				}
 			}
-			
+
 		}
-		
+
 
 		.event-container {
 			list-style-type: none;			
@@ -106,6 +126,8 @@
 	}
 }
 
+
+// A single event
 
 .event{
 	@include grid-row();

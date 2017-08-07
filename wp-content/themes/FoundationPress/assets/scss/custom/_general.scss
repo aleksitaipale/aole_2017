@@ -1,3 +1,4 @@
+// Many elements need to be full width, which is why we set the whole .main-wrap full width
 
 .main-wrap.full-width{
 	@if ($debug) {background-color:yellow;}
@@ -11,7 +12,7 @@
 }
 
 
-/// TEAM MEMBER STYLING
+// Team member styling
 
 .team-member { 
 	.social-media-link{
