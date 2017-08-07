@@ -1,18 +1,52 @@
 .main-wrap.events-page{
 
+	h2 {
+		color: $light-primary-heading;
+	}
 	// The calendar produced by the Events Manager plugin
 
+
 	.event-calendar{
-		@include grid-column(12);
+		h3{color: $light-body-text;}
+		color:$dark-body-text;
+		@include breakpoint(small)  { @include grid-column(12);@include grid-column-unposition;}
+		@include breakpoint(medium)  { @include grid-column(10); @include grid-column-position(center); }
+		@include breakpoint(large) { @include grid-column(8); @include grid-column-position(center); }
+		@include breakpoint(xlarge)  { @include grid-column(6); @include grid-column-unposition;}
+		table, thead, tbody, tr, td{
+			background-color:$dark-bg;
+			color:$light-body-text;
+		}
+
+		table.em-calendar{
+			max-height:100%;
+			height: 100%;
+		}
+
+		tr.days-names{
+			td{
+				background-color:$light-bg;
+				color:$dark-body-text;
+			}
+
+			background-color:$light-bg;
+		}
 
 		td{
-			font-size:10px;
+			//font-size:10px;
 			width:50px;
 			height:50px;
-			max-height:50px;
-			max-width:50px;
-			vertical-align:top;
-			border:1px solid $dark-bg;
+			//max-height:50px;
+			//max-width:50px;
+			//vertical-align:top;
+			//border:1px solid $dark-bg;
+
+			.em-calnav{
+				color:$light-body-text;
+			}
+
+
+
 			&.eventless{
 
 			}
@@ -33,10 +67,19 @@
 		
 	}
 
+	#day-event-list{
+		@include breakpoint(small only)  { @include grid-column(12);@include grid-column-unposition;}
+		@include breakpoint(medium only)  { @include grid-column(10); @include grid-column-position(center); }
+		@include breakpoint(large only) { @include grid-column(8); @include grid-column-position(center); }
+		@include breakpoint(xlarge only)  { @include grid-column(6); @include grid-column-unposition;}
+	}
 
 	// The container with the description and the calendar, on the top of the page
 	.events-description-container{
 		background-color: $dark-bg;
+
+		color: $light-body-text;
+
 		@if ($debug) {background-color:red;}
 		@include breakpoint(small) {  @include grid-column(12); }
 		@include breakpoint(medium) {  @include grid-column(12); }
@@ -51,7 +94,9 @@
 				@include breakpoint(large) {  @include grid-column(12); }
 				@include breakpoint(xlarge) {  @include grid-column(12); }
 
-				a {
+				a.ical-all-events-link {
+					color: $light-body-text;
+					text-decoration:underline;
 					&:before {
 						content: "\f08e"; // link icon
 						font-size:10px;
@@ -59,6 +104,9 @@
 						text-decoration: none;
 						display:inline-block;
 						padding-right:3px;
+					}
+					&:hover {
+						color: darken($light-body-text,20%);
 					}
 				}
 			}

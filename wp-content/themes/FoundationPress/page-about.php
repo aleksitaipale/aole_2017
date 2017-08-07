@@ -13,80 +13,81 @@
 get_header(); ?>
 
 <div class="main-wrap about-page full-width" role="main">
+	<div data-equalizer>
+		<div class="about-description-container" data-equalizer-watch>
+			<?php do_action( 'foundationpress_before_content' ); ?>
+			<?php while ( have_posts() ) : the_post(); ?>
+				<article <?php post_class('main-content about-description-content') ?> id="post-<?php the_ID(); ?>">
+					<header>
+						<h1 class="entry-title"><?php the_title(); ?></h1>
+					</header>
+					<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+					<div class="entry-content">
+						<?php the_content(); ?>
+						<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+					</div>
+					<footer>
+						<?php
+						wp_link_pages(
+							array(
+								'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
+								'after'  => '</p></nav>',
+								)
+							);
+							?>
+							<p><?php the_tags(); ?></p>
+						</footer>
+						<?php do_action( 'foundationpress_page_before_comments' ); ?>
+						<?php comments_template(); ?>
+						<?php do_action( 'foundationpress_page_after_comments' ); ?>
 
-	<div class="about-description-container matched-height">
-		<?php do_action( 'foundationpress_before_content' ); ?>
-		<?php while ( have_posts() ) : the_post(); ?>
-			<article <?php post_class('main-content about-description-content') ?> id="post-<?php the_ID(); ?>">
-				<header>
-					<h1 class="entry-title"><?php the_title(); ?></h1>
-				</header>
-				<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-				<div class="entry-content">
-					<?php the_content(); ?>
-					<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+					</article>
 				</div>
-				<footer>
+			<?php endwhile;?>
+
+			<section class="team-members-container" data-equalizer-watch>
+				<div class="team-members">
+					<h2>Core team</h2>
+
 					<?php
-					wp_link_pages(
-						array(
-							'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
-							'after'  => '</p></nav>',
-							)
-						);
-						?>
-						<p><?php the_tags(); ?></p>
-					</footer>
-					<?php do_action( 'foundationpress_page_before_comments' ); ?>
-					<?php comments_template(); ?>
-					<?php do_action( 'foundationpress_page_after_comments' ); ?>
-
-				</article>
-			</div>
-		<?php endwhile;?>
-
-		<section class="team-members-container matched-height">
-			<div class="team-members">
-				<h2>Core team</h2>
-				
-				<?php
 
 			//Get all team members
-				$team_members_array = get_posts(
-					array( 'showposts' => -1,
-						'post_type' => 'team_members'
-						)
-					);
+					$team_members_array = get_posts(
+						array( 'showposts' => -1,
+							'post_type' => 'team_members'
+							)
+						);
 
 			//Display all team members
-				foreach ($team_members_array as $team_member){
-					$custom_fields = get_fields($team_member->ID);
-					?>
-					<div class="team-member">
-						<img src="<?php echo get_the_post_thumbnail_url($team_member->ID, 'thumbnail');?>"></img>
-						<div class="team-member-name"><?php echo $custom_fields["name"]; ?></div>
-						<div class="team-member-title"><?php echo $custom_fields["title"]; ?></div>
-						<div class="team-member-contact"><?php echo $custom_fields["contact_info"]; ?></div>
-						<?php if( have_rows('social_media', $team_member->ID) ): ?>
-							<?php 
-							while( have_rows('social_media', $team_member->ID) ): the_row(); 
-							$link = get_sub_field('social_media_link');
-							?>
-							<?php if( $link ): ?>
-								<a class="social-media-link" href="<?php echo $link["url"]; ?>"><?php echo $link["title"]?></a>
+					foreach ($team_members_array as $team_member){
+						$custom_fields = get_fields($team_member->ID);
+						?>
+						<div class="team-member">
+							<img src="<?php echo get_the_post_thumbnail_url($team_member->ID, 'thumbnail');?>"></img>
+							<div class="team-member-name"><?php echo $custom_fields["name"]; ?></div>
+							<div class="team-member-title"><?php echo $custom_fields["title"]; ?></div>
+							<div class="team-member-contact"><?php echo $custom_fields["contact_info"]; ?></div>
+							<?php if( have_rows('social_media', $team_member->ID) ): ?>
+								<?php 
+								while( have_rows('social_media', $team_member->ID) ): the_row(); 
+								$link = get_sub_field('social_media_link');
+								?>
+								<?php if( $link ): ?>
+									<a class="social-media-link" href="<?php echo $link["url"]; ?>"><?php echo $link["title"]?></a>
+								<?php endif; ?>
+								<?php 
+								endwhile;
+								?>
 							<?php endif; ?>
-							<?php 
-							endwhile;
-							?>
-						<?php endif; ?>
-					</div>
+						</div>
 
-					<?php 
-				}
-				?>
-				
-			</div>
-		</section>
+						<?php 
+					}
+					?>
+
+				</div>
+			</section>
+		</div>
 		<div class="aole-article-container">
 			<?php 
 global $post; // required

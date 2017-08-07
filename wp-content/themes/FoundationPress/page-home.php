@@ -14,60 +14,62 @@ $what_is_aole_section = get_field('what_is_aole_section');
 		<blockquote data-width="100%" data-height="600px" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="https://theta360.com/s/jFtMPIK0W44acnaWi1y0nrwrg" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
 		<script async src="https://theta360.com/widgets.js" charset="utf-8"></script>
 	</section>-->
-	<section class="aole-info-container matched-height">
-		<div class="aole-info">
-			<div class="aole-description">
-				<h2><?php echo $what_is_aole_section["what_is_aole_title"]; ?></h2>
-				<p><?php echo $what_is_aole_section["what_is_aole_content"]; ?></p>
-			</div>
-			
-			<div class="featured-team-members">
-				<?php 
+	<div data-equalizer>
+		<section class="aole-info-container" data-equalizer-watch>
+			<div class="aole-info">
+				<div class="aole-description">
+					<h2><?php echo $what_is_aole_section["what_is_aole_title"]; ?></h2>
+					<p><?php echo $what_is_aole_section["what_is_aole_content"]; ?></p>
+				</div>
 
-				$team_members = get_field('featured_core_team_members');
+				<div class="featured-team-members">
+					<?php 
 
-				if( $team_members ): ?>
-				<?php foreach( $team_members as $post): // variable must be called $post (IMPORTANT) ?>
-					<?php setup_postdata($post); ?>
-					<div class="front-team-member team-member">
-						<img src="<?php echo get_the_post_thumbnail_url(null, "thumbnail"); ?>"></img>
-						<div class="team-member-name"><?php the_field('name'); ?></div>
-						<div class="team-member-title"><?php the_field('title'); ?></div>
-						<?php if( get_field('contact_info') ): ?>
-							<div class="team-member-contact"><?php the_field('contact_info'); ?></div>
-						<?php endif; ?>
-						<?php if( have_rows('social_media') ): ?>
-							<?php 
-							while( have_rows('social_media') ): the_row(); 
-							$link = get_sub_field('social_media_link');
-							?>
-							<?php if( $link ): ?>
-								<a class="social-media-link" href="<?php echo $link["url"]; ?>"><?php echo $link["title"]?></a>
+					$team_members = get_field('featured_core_team_members');
+
+					if( $team_members ): ?>
+					<?php foreach( $team_members as $post): // variable must be called $post (IMPORTANT) ?>
+						<?php setup_postdata($post); ?>
+						<div class="front-team-member team-member">
+							<img src="<?php echo get_the_post_thumbnail_url(null, "thumbnail"); ?>"></img>
+							<div class="team-member-name"><?php the_field('name'); ?></div>
+							<div class="team-member-title"><?php the_field('title'); ?></div>
+							<?php if( get_field('contact_info') ): ?>
+								<div class="team-member-contact"><?php the_field('contact_info'); ?></div>
 							<?php endif; ?>
-							<?php 
-							endwhile;
-							?>
-						<?php endif; ?>
-						
+							<?php if( have_rows('social_media') ): ?>
+								<?php 
+								while( have_rows('social_media') ): the_row(); 
+								$link = get_sub_field('social_media_link');
+								?>
+								<?php if( $link ): ?>
+									<a class="social-media-link" href="<?php echo $link["url"]; ?>"><?php echo $link["title"]?></a>
+								<?php endif; ?>
+								<?php 
+								endwhile;
+								?>
+							<?php endif; ?>
 
-					</div>
-				<?php endforeach; ?>
-				<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
-			<?php endif; ?>
+
+						</div>
+					<?php endforeach; ?>
+					<?php wp_reset_postdata(); // IMPORTANT - reset the $post object so the rest of the page works correctly ?>
+				<?php endif; ?>
+			</div>
 		</div>
-	</div>
-</section>
-<?php
-$call_for_idea_proposals_section = get_field('call_for_idea_proposals_section');
-?>
-<section class="teaching-container matched-height">
-	<div class="teaching">
-		<div>
-			<h2><?php echo $call_for_idea_proposals_section["call_for_ideas_title"]; ?></h2>
-			<p><?php echo $call_for_idea_proposals_section["call_for_ideas_content"]; ?></p>
+	</section>
+	<?php
+	$call_for_idea_proposals_section = get_field('call_for_idea_proposals_section');
+	?>
+	<section class="teaching-container" data-equalizer-watch>
+		<div class="teaching">
+			<div>
+				<h2><?php echo $call_for_idea_proposals_section["call_for_ideas_title"]; ?></h2>
+				<p><?php echo $call_for_idea_proposals_section["call_for_ideas_content"]; ?></p>
+			</div>
 		</div>
-	</div>
-</section>
+	</section>
+</div>
 <?php
 
 $blog_news_title = get_field("blog_news_title"); // this field has to be retrieved before the "loop inside a loop" to be able to be shown
@@ -83,71 +85,72 @@ if ( $newsQuery->have_posts() ) {
 		$newsQuery->the_post();        
 
 		?>
-		<section class="aole-feed-container">
-			<div class="aole-feeds">
-				<div class="aole-feed matched-height2">
-					<h2><?php echo $blog_news_title; ?></h2>
-					<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
-					<p><?php
+		<div data-equalizer>
+			<section class="aole-feed-container">
+				<div class="aole-feeds">
+					<div class="aole-feed" data-equalizer-watch>
+						<h2><?php echo $blog_news_title; ?></h2>
+						<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
+						<p><?php
 						// If the writer has specified a "More" tag, show the content, otherwise use the (custom made) excerpt.
-						if( strpos( $post->post_content, '<!--more-->' ) ) {
-							the_content("Read more...");
-						}
-						else {
-							the_excerpt();
-						}?>
-					</p>
-
-				</div>
-				<?php
-			}
-			wp_reset_postdata();
-		}?>
-		<div class="next-event events matched-height2">
-			<div class="event-container">
-				<div class="event front-event">
-					<h2>Next event</h2>
-					<?php
-					$next_event = EM_Events::get(array("scope"=>"future", "limit"=>1, "orderby" => "event_start_date"))[0];
-					$event = get_all_event_info($next_event);
-					?>
-					<div class="event-left-container matched-heightA">
-						<!-- Date -->
-						<span class="event-date">
-							<?php 
-							$start_date = date_create($event["event"]->event_start_date);
-							$end_date = date_create($event["event"]->event_end_date);
-							if ($event->event_start_date != $event->event_end_date){
-								echo date_format($start_date, "D d F")."-".date_format($end_date, "D d F");
-							} else {
-								echo date_format($start_date, "D d F");
+							if( strpos( $post->post_content, '<!--more-->' ) ) {
+								the_content("Read more...");
 							}
-							?>
+							else {
+								the_excerpt();
+							}?>
+						</p>
 
-						</span>
-						<!-- Time -->
-						<div class="event-time"><?php echo $event["event"]->event_start_time."-".$event["event"]->event_end_time; ?></div>
-						<!-- Location -->
-						<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
-						<!-- Only for pilots? -->
-						<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
 					</div>
-					<!-- Picture -->
-					<div class="event-center-container matched-heightA">
-						<img class="event-thumbnail" src="<?php echo get_the_post_thumbnail_url($event["event"]->post_id, 'square-large'); ?>"></img>
-					</div>
-					<!-- Event categories -->
-					<div class="event-right-container matched-heightA">
-						<ul class="event-category-list">
-							<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
-						</ul>
-						<!-- Facilitator(s) -->
-						<ul class="event-facilitator-list">
-							<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
-						</ul>
-						<!-- Event title -->
-						<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
-					</div>
+					<?php
+				}
+				wp_reset_postdata();
+			}?>
+			<div class="next-event events" data-equalizer-watch>
+				<div class="event-container">
+					<div class="event front-event" data-equalizer>
+						<h2>Next event</h2>
+						<?php
+						$next_event = EM_Events::get(array("scope"=>"future", "limit"=>1, "orderby" => "event_start_date"))[0];
+						$event = get_all_event_info($next_event);
+						?>
+						<div class="event-left-container" data-equalizer-watch>
+							<!-- Date -->
+							<span class="event-date">
+								<?php 
+								$start_date = date_create($event["event"]->event_start_date);
+								$end_date = date_create($event["event"]->event_end_date);
+								if ($event->event_start_date != $event->event_end_date){
+									echo date_format($start_date, "D d F")."-".date_format($end_date, "D d F");
+								} else {
+									echo date_format($start_date, "D d F");
+								}
+								?>
+
+							</span>
+							<!-- Time -->
+							<div class="event-time"><?php echo $event["event"]->event_start_time."-".$event["event"]->event_end_time; ?></div>
+							<!-- Location -->
+							<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
+							<!-- Only for pilots? -->
+							<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
+						</div>
+						<!-- Picture -->
+						<div class="event-center-container" data-equalizer-watch>
+							<img class="event-thumbnail" src="<?php echo get_the_post_thumbnail_url($event["event"]->post_id, 'square-large'); ?>"></img>
+						</div>
+						<!-- Event categories -->
+						<div class="event-right-container" data-equalizer-watch>
+							<ul class="event-category-list">
+								<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
+							</ul>
+							<!-- Facilitator(s) -->
+							<ul class="event-facilitator-list">
+								<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
+							</ul>
+							<!-- Event title -->
+							<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
+						</div>
 					<!--
 					<div class="event-description">
 						<?php if( strpos( $next_event->post_content, '<!--more-->' ) ) {
@@ -164,6 +167,7 @@ if ( $newsQuery->have_posts() ) {
 		</div>
 
 	</div>
+</div>
 
 </div>
 

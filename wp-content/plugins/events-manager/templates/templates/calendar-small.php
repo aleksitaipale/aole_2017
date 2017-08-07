@@ -35,7 +35,7 @@
 				?>
 				<td class="<?php echo esc_attr($class); ?>">
 					<?php if( !empty($cell_data['events']) && count($cell_data['events']) > 0 ): ?>
-					<a href="<?php echo esc_url($cell_data['link']); ?>" title="<?php echo esc_attr($cell_data['link_title']); ?>"><?php echo esc_html(date('j',$cell_data['date'])); ?></a>
+					<a href="<?php echo $cell_data['link']; ?>" title="<?php echo esc_attr($cell_data['link_title']); ?>"><?php echo esc_html(date('j',$cell_data['date'])); ?></a>
 					<?php else:?>
 					<?php echo esc_html(date('j',$cell_data['date'])); ?>
 					<?php endif; ?>
