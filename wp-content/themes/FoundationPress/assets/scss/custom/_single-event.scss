@@ -1,0 +1,18 @@
+.single-event-page{
+	@include grid-row();
+	.event-container {
+		list-style-type: none;			
+		@include breakpoint(small) {  @include grid-column(12);@include grid-column-unposition;   }
+		@include breakpoint(medium) {  @include grid-column(10);@include grid-column-position(center); }
+		@include breakpoint(large) {  @include grid-column(8); @include grid-column-position(center);}
+		padding-left:0;margin-left:0;
+	}
+
+	.event-description{
+		@include breakpoint(small) {  @include grid-column(12);}
+		
+		border-top: 1px solid $dark-bg;
+		padding-top:2%;
+		margin-top:2%;
+	}
+}

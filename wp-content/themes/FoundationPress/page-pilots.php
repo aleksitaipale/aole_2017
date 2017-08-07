@@ -48,7 +48,7 @@ get_header(); ?>
 				<div class="right-header-container" data-equalizer-watch>
 					<div class="right-header">
 						<div class="right-header-content">
-							<<?php the_post_thumbnail(); ?>
+							<?php the_post_thumbnail(); ?>
 						</div>
 					</div>
 				</div>

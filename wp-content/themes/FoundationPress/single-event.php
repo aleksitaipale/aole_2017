@@ -13,44 +13,77 @@
 get_header(); ?>
 
 
-<?php
-$event_info = "pöö";
-$this_event = EM_Events::get();
 
-//print_r($this_event);
-?>
-<div class="main-wrap" role="main">
+
+
+
+<div class="main-wrap single-event-page" role="main">
 	<?php do_action( 'foundationpress_before_content' ); ?>
 	<?php while ( have_posts() ) : the_post(); ?>
-		<article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
-			<header>
-				<h1 class="entry-title"><?php the_title(); ?></h1>
-			</header>
-			<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-			<div class="entry-content">
-				<?php the_content(); ?>
-				<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+		<?php
+		$this_event = EM_Events::get(array("scope"=>"all", "post_id"=>get_the_ID()))[0];
+
+		$event = get_all_event_info($this_event);
+
+		?>
+
+		<div class="event-container">
+			<div class="event upcoming-event" data-equalizer>
+				<?php do_action( 'foundationpress_before_content' ); ?>
+				<div class="event-left-container" data-equalizer-watch>
+					<!-- Date -->
+					<span class="event-date"><?php 
+						$start_date = date_create($event["event"]->event_start_date);
+						$end_date = date_create($event["event"]->event_end_date);
+						if ($event->event_start_date != $event->event_end_date){
+							echo date_format($start_date, "D d F")."-".date_format($end_date, "D d F");
+						} else {
+							echo date_format($start_date, "D d F");
+						}
+						?></span>
+						<!-- Time -->
+						<div class="event-time"><?php echo $event["event"]->event_start_time."-".$event["event"]->event_end_time; ?></div>
+						<!-- Location -->
+						<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
+						<!-- Only for pilots? -->
+						<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
+						<!-- Export event to iCal -->
+						<div class="export-event-to-ical">
+							<a href="<?php echo do_shortcode("[event post_id='".$event["post"]->ID."']#_EVENTICALURL[/event]");?>">Export to iCal</a>
+						</div>
+					</div>
+					<!-- Picture -->
+					<div class="event-center-container" data-equalizer-watch>
+						<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'square-large'); ?>"></img>
+					</div>
+					<!-- Event categories -->
+					<div class="event-right-container" data-equalizer-watch>
+						<ul class="event-category-list">
+							<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
+						</ul>
+						<!-- Facilitator(s) -->
+						<ul class="event-facilitator-list">
+							<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
+						</ul>
+						<!-- Event title -->
+						<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
+					</div>
+					<div class="event-description">
+						<?php the_content(); ?>
+						<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+					</div>
+				</div>
 			</div>
-			<footer>
-				<?php
-				wp_link_pages(
-					array(
-						'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
-						'after'  => '</p></nav>',
-						)
-					);
-					?>
-					<p><?php the_tags(); ?></p>
-				</footer>
-				<?php do_action( 'foundationpress_page_before_comments' ); ?>
-				<?php comments_template(); ?>
-				<?php do_action( 'foundationpress_page_after_comments' ); ?>
-			</article>
+
+
+
+			
 		<?php endwhile;?>
 
 		<?php do_action( 'foundationpress_after_content' ); ?>
 		<?php get_sidebar(); ?>
 
 	</div>
+
 
 	<?php get_footer();
