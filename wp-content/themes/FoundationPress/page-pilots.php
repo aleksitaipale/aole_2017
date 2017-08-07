@@ -71,9 +71,9 @@ get_header(); ?>
 						$custom_fields = get_fields($theme_quote->ID);
 
 						?>
-						<i><?php echo $custom_fields["quote"]; ?></i>
-						<span><?php echo $custom_fields["author"]; ?></span>
-						<span><?php echo $custom_fields["author_info"]; ?></span>
+						<span class="quote-content"><?php echo $custom_fields["quote"]; ?></span>
+						<span class="quote-author-name"><?php echo $custom_fields["author"]; ?></span>
+						<span class="quote-author-info"><?php echo $custom_fields["author_info"]; ?></span>
 						<hr>
 
 					</div>
@@ -83,17 +83,18 @@ get_header(); ?>
 					</div>
 					
 
-					<div class="pilots-listing">
-						<?php 
-						foreach ($theme_groups[$idx]["pilots"] as $pilot){
-							echo "<div class='pilot-listing-item'>";
-							echo "<a href='" . get_the_permalink($pilot->ID) . "'><h4>"."<img src='".get_the_post_thumbnail_url($pilot->ID, 'medium')."'></img></a>";
-							echo "<a href='" . get_the_permalink($pilot->ID) . "'><h4>" . $pilot->post_title."</h4></a>";
-							echo "</div>";
-						} ?>
-					</div>
+					
 				</div>
 
+				<div class="pilots-listing">
+					<?php 
+					foreach ($theme_groups[$idx]["pilots"] as $pilot){
+						echo "<div class='pilot-listing-item'>";
+						echo "<a href='" . get_the_permalink($pilot->ID) . "'><h4>"."<img src='".get_the_post_thumbnail_url($pilot->ID, 'medium')."'></img></a>";
+						echo "<a href='" . get_the_permalink($pilot->ID) . "'><h4>" . $pilot->post_title."</h4></a>";
+						echo "</div>";
+					} ?>
+				</div>
 
 			</section>
 			<?php } // this ends the theme groups foreach ?> 

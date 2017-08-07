@@ -52,26 +52,58 @@
 			.theme-group-info{
 				display:inline-block;
 				vertical-align:middle;
-				@include breakpoint(small) {  @include grid-column(12); }
-				@include breakpoint(medium) {  @include grid-column(6);@include grid-column-position(-6); }
+				@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition;}
+				@include breakpoint(medium) {  @include grid-column(12); @include grid-column-unposition;}
+				@include breakpoint(large) {  @include grid-column(6);@include grid-column-position(-6); }
 			}
 
 			.theme-quote{
 				display:inline-block;
 				vertical-align:middle;
+				font-size:1.2em;
+				color: $dark-secondary-heading;
+				.quote-content{
+					font-style: italic;
+					font-weight:bold;
+					font-size:1.2em;
+					color: $colored-primary-heading;
+					font-family: $body-font;
+				}
+
+				.quote-author-name {
+					font-weight:bold;
+				}
 				@if ($debug) {background-color:green;}
-				@include breakpoint(small) {  @include grid-column(12); }
-				@include breakpoint(medium) {  @include grid-column(6); @include grid-column-position(6);}
+				@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition;}
+				@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition;}
+				@include breakpoint(large) {  @include grid-column(5); @include grid-column-position(6); @include grid-column-offset(1);}
 			}
 			
-			.pilots-listing{
-				@include breakpoint(small) {   @include grid-layout(2, '.pilot-listing-item', $grid-column-gutter);  }
-				@include breakpoint(medium) {   @include grid-layout(3, '.pilot-listing-item', $grid-column-gutter);  }
-				@include breakpoint(large) {  @include grid-layout(4, '.pilot-listing-item', $grid-column-gutter); }
-				
-				@include grid-column(12);
+			
+
+		}
+
+		.pilots-listing{
+			@include breakpoint(small) {   @include grid-layout(2, '.pilot-listing-item', $grid-column-gutter);  }
+			@include breakpoint(medium) {   @include grid-layout(3, '.pilot-listing-item', $grid-column-gutter);  }
+			@include breakpoint(large) {  @include grid-layout(4, '.pilot-listing-item', $grid-column-gutter); }
+			@include breakpoint(xlarge) {  @include grid-layout(5, '.pilot-listing-item', $grid-column-gutter); }
+
+			img{
+				@include breakpoint(large) {
+					padding-left:5px;
+					border-left:45px solid $dark-bg;
+				}
+
+				@include breakpoint(xlarge) {
+					padding-left:5px;
+					border-left:55px solid $dark-bg;
+				}
 			}
 		}
+		
+
+
 
 	}
 
