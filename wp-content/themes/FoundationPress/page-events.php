@@ -12,52 +12,55 @@
 
 get_header(); ?>
 
-<div class="main-wrap events-page full-width" role="main">
+<div class="main-wrap events-page full-width" role="main" >
+	<div data-equalizer>
+		<?php do_action( 'foundationpress_before_content' ); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
+			<article <?php post_class('main-content events-description-container matched-height') ?> id="post-<?php the_ID(); ?>">
+				<div class="events-description" data-equalizer-watch>
+					<div class="events-description-content">
+						<header>
+							<h2 class="entry-title"><?php the_title(); ?></h2>
+						</header>
+						<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+						<div class="entry-content">
+							<a class="ical-all-events-link" href=<?php echo site_url( "/events.ics", $scheme ); ?>>iCal - export all events</a>
+							<?php the_content(); ?>
+							<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
 
-	<?php do_action( 'foundationpress_before_content' ); ?>
-	<?php while ( have_posts() ) : the_post(); ?>
-		<article <?php post_class('main-content events-description-container matched-height') ?> id="post-<?php the_ID(); ?>">
-			<div class="events-description">
-				<div class="events-description-content">
-					<header>
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-					</header>
-					<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-					<div class="entry-content">
-						<a href=<?php echo site_url( "/events.ics", $scheme ); ?>>iCal - all events</a>
-						<?php the_content(); ?>
-						<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
-
-						<div class="event-calendar">
-							<?php echo do_shortcode("[events_calendar full=1 month=".date('n')."]"); ?>
+							<div class="event-calendar">
+								<?php echo do_shortcode("[events_calendar full=0 month=".date('n')."]"); ?>
+							</div>
+							<div id="day-event-list">
+							</div>
+						</div>
+						<footer>
+							<?php
+							wp_link_pages(
+								array(
+									'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
+									'after'  => '</p></nav>',
+									)
+								);
+								?>
+								<p><?php the_tags(); ?></p>
+							</footer>
+							<?php do_action( 'foundationpress_page_before_comments' ); ?>
+							<?php comments_template(); ?>
+							<?php do_action( 'foundationpress_page_after_comments' ); ?>
 						</div>
 					</div>
-					<footer>
-						<?php
-						wp_link_pages(
-							array(
-								'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
-								'after'  => '</p></nav>',
-								)
-							);
-							?>
-							<p><?php the_tags(); ?></p>
-						</footer>
-						<?php do_action( 'foundationpress_page_before_comments' ); ?>
-						<?php comments_template(); ?>
-						<?php do_action( 'foundationpress_page_after_comments' ); ?>
-					</div>
-				</div>
-			</article>
-			<div class="featured-image-container">
-				<div class="featured-image matched-height">
-					<div>
-						<?php the_post_thumbnail(); ?>
+				</article>
+				<div class="featured-image-container" data-equalizer-watch>
+				<div class="featured-image">
+						<div>
+							<?php the_post_thumbnail(); ?>
+						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	<?php endwhile;?>
+		<?php endwhile;?>
+	</div>
 	<?php
 		// Fetch all the A!OLE events
 	$future_events = EM_Events::get(array("scope"=>"future"));
@@ -87,8 +90,8 @@ get_header(); ?>
 		foreach ($upcoming_events as &$event) {
 			?>
 			<div class="event-container">
-				<div class="event upcoming-event">
-					<div class="event-left-container matched-height2">
+				<div class="event upcoming-event" data-equalizer>
+					<div class="event-left-container" data-equalizer-watch>
 						<!-- Date -->
 						<span class="event-date"><?php 
 							$start_date = date_create($event["event"]->event_start_date);
@@ -111,11 +114,11 @@ get_header(); ?>
 							</div>
 						</div>
 						<!-- Picture -->
-						<div class="event-center-container matched-height2">
+						<div class="event-center-container" data-equalizer-watch>
 							<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'square-large'); ?>"></img>
 						</div>
 						<!-- Event categories -->
-						<div class="event-right-container matched-height2">
+						<div class="event-right-container" data-equalizer-watch>
 							<ul class="event-category-list">
 								<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
 							</ul>
@@ -137,7 +140,7 @@ get_header(); ?>
 			<section class="events past-events">
 				<div class="events-section-title-container">
 					<div class="events-section-title">
-					<h2>Past events</h2>
+						<h2>Past events</h2>
 					</div>
 				</div>
 
@@ -145,8 +148,8 @@ get_header(); ?>
 				foreach ($past_events as &$event) {
 					?>
 					<div class="event-container">
-						<div class="event past-event">
-							<div class="event-left-container matched-height2">
+						<div class="event past-event" data-equalizer>
+							<div class="event-left-container" data-equalizer-watch>
 								<!-- Date -->
 								<span><?php 
 									$start_date = date_create($event["event"]->event_start_date);
@@ -166,11 +169,11 @@ get_header(); ?>
 								</div>
 								<!-- Picture -->
 
-								<div class="event-center-container matched-height2">
+								<div class="event-center-container" data-equalizer-watch>
 									<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'square-large'); ?>"></img>
 								</div>
 								<!-- Event categories -->
-								<div class="event-right-container matched-height2">
+								<div class="event-right-container" data-equalizer-watch>
 									<ul class="event-category-list">
 										<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
 									</ul>

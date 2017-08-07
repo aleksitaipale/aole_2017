@@ -33,13 +33,9 @@
 		}
 
 		td{
-			//font-size:10px;
 			width:50px;
 			height:50px;
-			//max-height:50px;
-			//max-width:50px;
-			//vertical-align:top;
-			//border:1px solid $dark-bg;
+
 
 			.em-calnav{
 				color:$light-body-text;
@@ -68,10 +64,10 @@
 	}
 
 	#day-event-list{
-		@include breakpoint(small only)  { @include grid-column(12);@include grid-column-unposition;}
+		@include breakpoint(small)  { @include grid-column(12); }
 		@include breakpoint(medium only)  { @include grid-column(10); @include grid-column-position(center); }
-		@include breakpoint(large only) { @include grid-column(8); @include grid-column-position(center); }
-		@include breakpoint(xlarge only)  { @include grid-column(6); @include grid-column-unposition;}
+		@include breakpoint(large only) { @include grid-column(10);@include grid-column-position(center); }
+		@include breakpoint(xlarge)  { @include grid-column(6); }
 	}
 
 	// The container with the description and the calendar, on the top of the page
@@ -93,6 +89,10 @@
 				@include breakpoint(medium) {  @include grid-column(12); }
 				@include breakpoint(large) {  @include grid-column(12); }
 				@include breakpoint(xlarge) {  @include grid-column(12); }
+
+				.entry-content{
+					@include grid-row();
+				}
 
 				a.ical-all-events-link {
 					color: $light-body-text;
