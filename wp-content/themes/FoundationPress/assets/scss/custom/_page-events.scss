@@ -7,6 +7,10 @@
 
 
 	.event-calendar{
+
+		button {
+			margin-bottom:0;
+		}
 		h3{color: $light-body-text;}
 		color:$dark-body-text;
 		@include breakpoint(small)  { @include grid-column(12);@include grid-column-unposition;}
@@ -64,6 +68,18 @@
 	}
 
 	#day-event-list{
+		h3, a{
+			color: $light-body-text;
+		}
+
+		a {
+			text-decoration: underline;
+			font-size:1.4em;
+
+			&:hover{
+				color: darken($light-body-text, 20%);
+			}
+		}
 		@include breakpoint(small)  { @include grid-column(12); }
 		@include breakpoint(medium only)  { @include grid-column(10); @include grid-column-position(center); }
 		@include breakpoint(large only) { @include grid-column(10);@include grid-column-position(center); }
