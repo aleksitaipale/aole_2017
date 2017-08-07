@@ -20,9 +20,40 @@
 	}
 }
 
-//Container for page featured image
+// Description container (on top left of each page)
 
-.featured-image-container{
+.left-header-container{
+	padding-top:3%;
+	background-color: $dark-bg;
+
+	color: $light-body-text;
+	h2{
+		color: $light-body-text;
+	}
+	@if ($debug) {background-color:red;}
+	@include breakpoint(small) {  @include grid-column(12); }
+	@include breakpoint(medium) {  @include grid-column(12); }
+	@include breakpoint(large) {  @include grid-column(6); }
+	.left-header{		
+		@include grid-row();
+
+
+		.left-header-content {
+			@include grid-column-position(center);
+			@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center); }
+			@include breakpoint(medium) {  @include grid-column(12); @include grid-column-position(center); }
+			@include breakpoint(large) {  @include grid-column(12); }
+			@include breakpoint(xlarge) {  @include grid-column(12); }
+			border-bottom: 2px solid $dark-bg;
+		}
+
+	}
+
+}
+
+// Container for page featured image (on top right of each page)
+
+.right-header-container{
 	background-color: $light-bg;
 	@if ($debug) {background-color:blue;}
 	@include breakpoint(small) {  @include grid-column(12); }
@@ -30,12 +61,12 @@
 	@include breakpoint(large) {  @include grid-column(6); }
 	border-bottom: 2px solid $dark-bg;
 	border-top: 2px solid $dark-bg;
-	.featured-image{
+	.right-header{
 		@include grid-row();
 		padding-top:5%;
 		padding-bottom:5%;
 
-		div{
+		.right-header-content{
 			text-align:center;
 			@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center); padding-bottom:0; }
 			@include breakpoint(medium) {  @include grid-column(12); @include grid-column-position(center); padding-bottom:0;}
@@ -46,3 +77,19 @@
 
 	}
 }
+
+
+// Add fontawesome icon to site links (extend this class)
+
+.aole-link{
+	color: $light-body-text;
+	text-decoration: underline;
+	&:before {
+			content: "\f08e"; // link icon
+			font-size:10px;
+			font-family:FontAwesome;
+			text-decoration: none;
+			display:inline-block;
+			padding-right:3px;
+		}
+	}

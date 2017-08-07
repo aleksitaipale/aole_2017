@@ -16,9 +16,9 @@ get_header(); ?>
 	<div data-equalizer>
 		<?php do_action( 'foundationpress_before_content' ); ?>
 		<?php while ( have_posts() ) : the_post(); ?>
-			<article <?php post_class('main-content events-description-container matched-height') ?> id="post-<?php the_ID(); ?>">
-				<div class="events-description" data-equalizer-watch>
-					<div class="events-description-content">
+			<article <?php post_class('events-description-container left-header-container') ?> data-equalizer-watch id="post-<?php the_ID(); ?>">
+				<div class="left-header">
+					<div class="events-description-content left-header-content">
 						<header>
 							<h2 class="entry-title"><?php the_title(); ?></h2>
 						</header>
@@ -51,9 +51,9 @@ get_header(); ?>
 						</div>
 					</div>
 				</article>
-				<div class="featured-image-container" data-equalizer-watch>
-				<div class="featured-image">
-						<div>
+				<div class="right-header-container" data-equalizer-watch>
+					<div class="right-header">
+						<div class="right-header-content">
 							<?php the_post_thumbnail(); ?>
 						</div>
 					</div>

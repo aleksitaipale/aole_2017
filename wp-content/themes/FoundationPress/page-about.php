@@ -14,15 +14,16 @@ get_header(); ?>
 
 <div class="main-wrap about-page full-width" role="main">
 	<div data-equalizer>
-		<div class="about-description-container" data-equalizer-watch>
+		<div class="about-description-container left-header-container" data-equalizer-watch>
 			<?php do_action( 'foundationpress_before_content' ); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-				<article <?php post_class('main-content about-description-content') ?> id="post-<?php the_ID(); ?>">
-					<header>
-						<h1 class="entry-title"><?php the_title(); ?></h1>
-					</header>
+				<article <?php post_class('about-description-content left-header') ?> id="post-<?php the_ID(); ?>">
+					
 					<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-					<div class="entry-content">
+					<div class="entry-content left-header-content">
+						<header>
+							<h2 class="entry-title"><?php the_title(); ?></h2>
+						</header>
 						<?php the_content(); ?>
 						<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
 					</div>
@@ -45,45 +46,48 @@ get_header(); ?>
 				</div>
 			<?php endwhile;?>
 
-			<section class="team-members-container" data-equalizer-watch>
-				<div class="team-members">
-					<h2>Core team</h2>
+			<section class="team-members-container right-header-container" data-equalizer-watch>
+				<div class="right-header">
+					<div class="team-members right-header-content">
+						<h2>Core team</h2>
 
-					<?php
+						<?php
 
 			//Get all team members
-					$team_members_array = get_posts(
-						array( 'showposts' => -1,
-							'post_type' => 'team_members'
-							)
-						);
+						$team_members_array = get_posts(
+							array( 'showposts' => -1,
+								'post_type' => 'team_members'
+								)
+							);
 
 			//Display all team members
-					foreach ($team_members_array as $team_member){
-						$custom_fields = get_fields($team_member->ID);
-						?>
-						<div class="team-member">
-							<img src="<?php echo get_the_post_thumbnail_url($team_member->ID, 'thumbnail');?>"></img>
-							<div class="team-member-name"><?php echo $custom_fields["name"]; ?></div>
-							<div class="team-member-title"><?php echo $custom_fields["title"]; ?></div>
-							<div class="team-member-contact"><?php echo $custom_fields["contact_info"]; ?></div>
-							<?php if( have_rows('social_media', $team_member->ID) ): ?>
-								<?php 
-								while( have_rows('social_media', $team_member->ID) ): the_row(); 
-								$link = get_sub_field('social_media_link');
-								?>
-								<?php if( $link ): ?>
-									<a class="social-media-link" href="<?php echo $link["url"]; ?>"><?php echo $link["title"]?></a>
+						foreach ($team_members_array as $team_member){
+							$custom_fields = get_fields($team_member->ID);
+							?>
+							<div class="team-member">
+								<img src="<?php echo get_the_post_thumbnail_url($team_member->ID, 'thumbnail');?>"></img>
+								<div class="team-member-name"><?php echo $custom_fields["name"]; ?></div>
+								<div class="team-member-title"><?php echo $custom_fields["title"]; ?></div>
+								<div class="team-member-contact"><?php echo $custom_fields["contact_info"]; ?></div>
+								<?php if( have_rows('social_media', $team_member->ID) ): ?>
+									<?php 
+									while( have_rows('social_media', $team_member->ID) ): the_row(); 
+									$link = get_sub_field('social_media_link');
+									?>
+									<?php if( $link ): ?>
+										<a class="social-media-link" href="<?php echo $link["url"]; ?>"><?php echo $link["title"]?></a>
+									<?php endif; ?>
+									<?php 
+									endwhile;
+									?>
 								<?php endif; ?>
-								<?php 
-								endwhile;
-								?>
-							<?php endif; ?>
-						</div>
+							</div>
 
-						<?php 
-					}
-					?>
+
+							<?php 
+						}
+						?>
+					</div>
 
 				</div>
 			</section>

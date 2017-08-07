@@ -10,24 +10,25 @@ get_header(); ?>
 
 
 <div class="main-wrap single-pilot-page full-width" role="main">
-	<div class="pilot-image-container">
-		<div class="pilot-image matched-height">
-			<div><?php the_post_thumbnail();?></div>
+	<div data-equalizer>
+	<div class="pilot-image-container featured-image-container" data-equalizer-watch>
+			<div class="pilot-image featured-image">
+				<div><?php the_post_thumbnail();?></div>
+			</div>
 		</div>
-	</div>
-	<?php do_action( 'foundationpress_before_content' ); ?>
-	<?php while ( have_posts() ) : the_post(); ?>
-		<article <?php post_class('main-content pilot-description-container matched-height') ?> id="post-<?php the_ID(); ?>">
-			<header class="pilot-description">
-				<div class="pilot-description-content">
-					<h1 class="entry-title"><?php the_title(); ?></h1>
-					<h2>Description</h2>
-					<?php the_field( 'description' ); ?>
-					<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
-				</div>
-			</header>
-		</article>
-
+		<?php do_action( 'foundationpress_before_content' ); ?>
+		<?php while ( have_posts() ) : the_post(); ?>
+			<article data-equalizer-watch <?php post_class('main-content pilot-description-container') ?> id="post-<?php the_ID(); ?>">
+				<header class="pilot-description">
+					<div class="pilot-description-content">
+						<h1 class="entry-title"><?php the_title(); ?></h1>
+						<h2>Description</h2>
+						<?php the_field( 'description' ); ?>
+						<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+					</div>
+				</header>
+			</article>
+		</div>
 		<div class="content-container">
 			<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
 			<div class="entry-content">
@@ -50,7 +51,7 @@ get_header(); ?>
 					<p><?php the_field( 'reflection' ); ?></p>
 				</section>
 			</div>
-
+			<
 
 			<footer>
 				<?php

@@ -1,5 +1,5 @@
 .main-wrap.single-pilot-page{
-	background-color:yellow;
+	@if ($debug) { background-color:yellow; }
 
 	// Description for a single pilot
 

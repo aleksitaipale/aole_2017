@@ -23,16 +23,7 @@ section{
 	color: $light-body-text;
 
 	a{
-		color: $light-body-text;
-		text-decoration: underline;
-		&:before {
-			content: "\f08e"; // link icon
-			font-size:10px;
-			font-family:FontAwesome;
-			text-decoration: none;
-			display:inline-block;
-			padding-right:3px;
-		}
+		@extend .aole-link;
 	}
 
 	background-color: $dark-bg;
@@ -146,8 +137,19 @@ section{
 	}
 }
 
+.slick-prev, .slick-next{
+	z-index:9999;
+}
+.slick-prev:before{
+	content:"\f0a8";
+}
+
+.slick-next:before{
+	content:"\f0a9";
+}
 .slick-prev:before, .slick-next:before{
-	color:blue !important;
+	font-family:'FontAwesome';
+	color:$light-primary-heading !important;
 }
 
 //hack for adding padding... wish it could be done some other way, but hey: https://stackoverflow.com/questions/30999076/how-add-spaces-between-slick-carousel-item/31635875#31635875
