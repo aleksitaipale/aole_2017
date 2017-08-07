@@ -1,5 +1,8 @@
 // Many elements need to be full width, which is why we set the whole .main-wrap full width
 
+body {
+	word-wrap:break-word;
+}
 .main-wrap.full-width{
 	@if ($debug) {background-color:yellow;}
 	@include grid-row();
@@ -94,13 +97,13 @@
 		}
 	}
 
-section:not(.left-header-container):not(.right-header-container){
-	padding-top:3%;
-	padding-bottom:3%;
+	section:not(.left-header-container):not(.right-header-container){
+		padding-top:3%;
+		padding-bottom:3%;
 
-	&.container{
-		padding-top:0;
+		&.container{
+			padding-top:0;
+		}
+
 	}
-
-}
 

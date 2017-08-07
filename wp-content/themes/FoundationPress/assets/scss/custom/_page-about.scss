@@ -31,7 +31,12 @@
 		@include breakpoint(large) {  @include grid-column(6); }
 		.team-members{
 			.team-member{
+				text-align:left;
 				padding-top:5%;
+
+				.team-member-contact{
+					font-size:0.7em;
+				}
 			}
 			@include breakpoint(small) {   @include grid-layout(2, '.team-member', $grid-column-gutter); }
 			@include breakpoint(medium) {   @include grid-layout(2, '.team-member', $grid-column-gutter); }
