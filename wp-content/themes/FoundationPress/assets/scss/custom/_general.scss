@@ -23,7 +23,7 @@
 // Description container (on top left of each page)
 
 .left-header-container{
-	padding-top:3%;
+	padding-top:1%;
 	background-color: $dark-bg;
 
 	color: $light-body-text;
@@ -93,3 +93,14 @@
 			padding-right:3px;
 		}
 	}
+
+section:not(.left-header-container):not(.right-header-container){
+	padding-top:3%;
+	padding-bottom:3%;
+
+	&.container{
+		padding-top:0;
+	}
+
+}
+

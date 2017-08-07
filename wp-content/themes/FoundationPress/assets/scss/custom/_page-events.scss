@@ -115,7 +115,13 @@
 
 
 
+
 	}
+}
+
+.export-event-to-ical a{
+	@extend .aole-link;
+	color: $colored-primary-heading;
 }
 
 .events-section-title-container{
