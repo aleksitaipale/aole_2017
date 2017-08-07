@@ -96,27 +96,13 @@
 		@include grid-row();	
 		@if ($debug) {background-color:blue;}
 
-		.events-section-title {
-			@include breakpoint(small) {  @include grid-column(12);   }
-			@include breakpoint(medium) {  @include grid-column(12); }
-			@include breakpoint(large) {  @include grid-column(12);  }
-
-			div{
-				@include grid-row();
-
-				div{
-					@include breakpoint(small) {  @include grid-column(12);   }
-				}
-			}
-
-		}
 
 
 		.event-container {
 			list-style-type: none;			
 			@include breakpoint(small) {  @include grid-column(12);   }
-			@include breakpoint(medium) {  @include grid-column(12); @include grid-column-unposition; }
-			@include breakpoint(large) {  @include grid-column(12); @include grid-column-position(center); }
+			@include breakpoint(medium) {  @include grid-column(12); }
+			@include breakpoint(large) {  @include grid-column(12);  }
 			padding-left:0;margin-left:0;
 		}
 
@@ -124,6 +110,24 @@
 
 
 	}
+}
+
+.events-section-title-container{
+
+	@include breakpoint(small) {  @include grid-column(12);   }
+	@include breakpoint(medium) {  @include grid-column(12);  }
+	@include breakpoint(large) {  @include grid-column(12); }
+
+
+	.events-section-title{
+		@include grid-row();
+		border-bottom: 1px solid $dark-bg;
+		margin-bottom:2%;
+		h2 {
+			color: $colored-primary-heading;
+		}
+	}
+
 }
 
 

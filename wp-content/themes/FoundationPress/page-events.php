@@ -76,8 +76,8 @@ get_header(); ?>
 	$past_events = create_event_array($past_events);
 	?>
 	<section class="events upcoming-events">
-		<div class="event-section-title">
-			<div>
+		<div class="events-section-title-container">
+			<div class="events-section-title">
 				<h2>Upcoming events</h2>
 			</div>
 		</div>
@@ -135,9 +135,9 @@ get_header(); ?>
 
 			</section>
 			<section class="events past-events">
-				<div class="events-section-title">
-					<div>
-						<h2>Past events</h2>
+				<div class="events-section-title-container">
+					<div class="events-section-title">
+					<h2>Past events</h2>
 					</div>
 				</div>
 
