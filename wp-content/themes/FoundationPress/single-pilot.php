@@ -50,7 +50,6 @@ get_header(); ?>
 					<p><?php the_field( 'reflection' ); ?></p>
 				</section>
 			</div>
-			<
 
 			<footer>
 				<?php
