@@ -87,7 +87,7 @@ if ( $newsQuery->have_posts() ) {
 		?>
 		<div data-equalizer>
 			<section class="aole-feed-container">
-				<div class="aole-feeds">
+				<div class="aole-feeds" >
 					<div class="aole-feed" data-equalizer-watch>
 						<h2><?php echo $blog_news_title; ?></h2>
 						<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>

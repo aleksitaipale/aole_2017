@@ -70,12 +70,19 @@
 
 // "Blog & Events" section, i.e. news section and showcase of next event
 
-.aole-feed-container{
+.aole-feed-container{	
 	background-color: $light-bg;
 	@if ($debug) {background-color:green;}
 	@include breakpoint(small) {  @include grid-column(12); }
 	@include breakpoint(medium) {  @include grid-column(12); }
 
+	h2{
+		border-bottom:1px solid $dark-bg;
+	}
+
+	.event {
+		padding-top:0;
+	}
 	.aole-feeds{
 		@include grid-row();
 		.aole-feed{
@@ -94,7 +101,7 @@
 			@if ($debug) {background-color:blue;}
 			@include breakpoint(small only) {  @include grid-column(12); padding-top:4%;}
 			@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center); border-left:1px solid $dark-bg; }
-			@include breakpoint(large) {  @include grid-column(6); border-left:1px solid $dark-bg;}
+			@include breakpoint(large) {  @include grid-column(6); }
 			@include breakpoint(xlarge) {  @include grid-column(6); }
 
 		}
