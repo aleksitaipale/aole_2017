@@ -29,7 +29,7 @@ get_header(); ?>
 							<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
 
 							<div class="event-calendar">
-								<?php echo do_shortcode("[events_calendar full=0 month=".date('n')."]"); ?>
+								<?php echo do_shortcode("[events_calendar long_events=1 full=0 month=".date('n')."]"); ?>
 							</div>
 							<div id="day-event-list">
 							</div>
