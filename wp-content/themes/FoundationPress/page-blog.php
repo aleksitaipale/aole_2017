@@ -14,34 +14,38 @@ get_header(); ?>
 
 <?php get_template_part( 'template-parts/featured-image' ); ?>
 
-<div class="main-wrap" role="main">
+<div class="main-wrap page-blog" role="main">
 
 	<?php do_action( 'foundationpress_before_content' ); ?>
 	<?php while ( have_posts() ) : the_post(); ?>
-		<article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
-			<header>
-				<h2 class="entry-title"><?php the_title(); ?></h2>
-			</header>
-			<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-			<div class="entry-content">
-				<?php the_content(); ?>
-				<?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
-			</div>
+		<article <?php post_class('blog-article-container') ?> id="post-<?php the_ID(); ?>">
+			<div class="blog-article">
+				<div class="blog-article-content">
+					<header>
+						<h2 class="entry-title"><?php the_title(); ?></h2>
+					</header>
+					<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
+					<div class="entry-content">
+						<?php the_content(); ?>
+						<?php edit_post_link( __( '(Edit)', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+					</div>
 
-			<footer>
-				<?php
-				wp_link_pages(
-					array(
-						'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
-						'after'  => '</p></nav>',
-						)
-					);
-					?>
-					<p><?php the_tags(); ?></p>
-				</footer>
-				<?php do_action( 'foundationpress_page_before_comments' ); ?>
-				<?php comments_template(); ?>
-				<?php do_action( 'foundationpress_page_after_comments' ); ?>
+					<footer>
+						<?php
+						wp_link_pages(
+							array(
+								'before' => '<nav id="page-nav"><p>' . __( 'Pages:', 'foundationpress' ),
+								'after'  => '</p></nav>',
+								)
+							);
+							?>
+							<p><?php the_tags(); ?></p>
+						</footer>
+						<?php do_action( 'foundationpress_page_before_comments' ); ?>
+						<?php comments_template(); ?>
+						<?php do_action( 'foundationpress_page_after_comments' ); ?>
+					</div>
+				</div>
 			</article>
 			<?php 
 			$args = array( 'category_name' => 'blog,news,awards' );
@@ -51,18 +55,23 @@ get_header(); ?>
 			?>
 			<div class="blog-article-container">
 
-				
-				<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
-				<p><?php
+				<div class="blog-article">
+					<div class="blog-article-content">
+						<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
+						<p><?php
 						// If the writer has specified a "More" tag, show the content, otherwise use the (custom made) excerpt.
-					if( strpos( $post->post_content, '<!--more-->' ) ) {
-						the_content("Read more...");
-					}
-					else {
-						the_excerpt();
-						}?>
-				</p>
-
+							if( strpos( $post->post_content, '<!--more-->' ) ) {
+								the_content("Read more...");
+							}
+							else {
+								the_excerpt();
+							}?>
+						</p>
+					</div>
+					<div class="blog-article-image">
+						<?php the_post_thumbnail(); ?>
+					</div>
+				</div>
 
 			</div>
 

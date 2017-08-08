@@ -105,6 +105,13 @@
 			@include breakpoint(xlarge) {  @include grid-column(6); }
 
 		}
+
+		.see-more-events{
+			@include grid-row();
+			p {
+				@include grid-column(12);
+			}
+		}
 	}
 
 
@@ -151,12 +158,12 @@
 }
 
 .slick-prev {
-    left: 10px;
+	left: 10px;
    // background: red; /*to notice it, is white*/
 }
 .slick-next {
-    right: 10px;
-    
+	right: 10px;
+	
    // background: red; /*to notice it, is white*/
 }
 

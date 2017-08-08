@@ -99,7 +99,7 @@ if ( $newsQuery->have_posts() ) {
 							else {
 								the_excerpt();
 							}?>
-							<a href="<?php echo get_page_link( get_page_by_title( "Blog" )->ID );  ?>">See more blog posts</a>
+							<a href="<?php echo get_page_link( get_page_by_title( "Blog" )->ID );  ?>">See more blog posts...</a>
 						</p>
 
 					</div>
@@ -109,13 +109,13 @@ if ( $newsQuery->have_posts() ) {
 			}?>
 			<div class="next-event events" data-equalizer-watch>
 				<div class="event-container">
-					<div class="event front-event" data-equalizer>
+					<div class="event front-event">
 						<h2>Next event</h2>
 						<?php
 						$next_event = EM_Events::get(array("scope"=>"future", "limit"=>1, "orderby" => "event_start_date"))[0];
 						$event = get_all_event_info($next_event);
 						?>
-						<div class="event-left-container" data-equalizer-watch>
+						<div class="event-left-container">
 							<!-- Date -->
 							<span class="event-date">
 								<?php 
@@ -137,11 +137,11 @@ if ( $newsQuery->have_posts() ) {
 							<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
 						</div>
 						<!-- Picture -->
-						<div class="event-center-container" data-equalizer-watch>
+						<div class="event-center-container">
 							<img class="event-thumbnail" src="<?php echo get_the_post_thumbnail_url($event["event"]->post_id, 'square-large'); ?>"></img>
 						</div>
 						<!-- Event categories -->
-						<div class="event-right-container" data-equalizer-watch>
+						<div class="event-right-container">
 							<ul class="event-category-list">
 								<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
 							</ul>
@@ -151,6 +151,13 @@ if ( $newsQuery->have_posts() ) {
 							</ul>
 							<!-- Event title -->
 							<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
+						</div>
+						<div class="see-more-events">
+							<p>
+								<a href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
+									See more events...
+								</a>
+							</p>
 						</div>
 					<!--
 					<div class="event-description">
