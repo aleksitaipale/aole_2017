@@ -5,6 +5,14 @@ The fonts are defined here. Also, each of them has a default color, but those ar
 $heading-font: "Nimbus Sans Bold", "Arial", sans-serif;
 $body-font: "Sentinel", Georgia, serif;
 
+a.post-edit-link{
+	@extend .button;
+	background-color:white;
+	border: 1px solid red;
+	color: red;
+	
+}	
+
 h2 {
 	font-family:$heading-font;
 	font-weight:700;
