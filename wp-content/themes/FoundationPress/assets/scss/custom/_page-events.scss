@@ -73,13 +73,13 @@
 	}
 
 	#day-event-list{
-		h3, a{
+		h5, a{
 			color: $light-body-text;
 		}
 
 		a {
 			text-decoration: underline;
-			font-size:1.4em;
+			//font-size:1.4em;
 
 			&:hover{
 				color: darken($light-body-text, 20%);
