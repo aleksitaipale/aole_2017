@@ -147,7 +147,19 @@
 .slick-prev:before, .slick-next:before{
 	font-family:'FontAwesome';
 	color:$light-primary-heading !important;
+	opacity:1 !important;
 }
+
+.slick-prev {
+    left: 10px;
+   // background: red; /*to notice it, is white*/
+}
+.slick-next {
+    right: 10px;
+    
+   // background: red; /*to notice it, is white*/
+}
+
 
 //hack for adding padding... wish it could be done some other way, but hey: https://stackoverflow.com/questions/30999076/how-add-spaces-between-slick-carousel-item/31635875#31635875
 
