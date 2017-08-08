@@ -76,7 +76,7 @@ $blog_news_title = get_field("blog_news_title"); // this field has to be retriev
 
 $args = array(
     'posts_per_page' => 1, // we need only the latest post, so get that post only
-    'category_name' => 'news',
+    'category_name' => 'blog,news,awards',
     );
 $newsQuery = new WP_Query( $args);
 
@@ -99,6 +99,7 @@ if ( $newsQuery->have_posts() ) {
 							else {
 								the_excerpt();
 							}?>
+							<a href="<?php echo get_page_link( get_page_by_title( "Blog" )->ID );  ?>">See more blog posts</a>
 						</p>
 
 					</div>

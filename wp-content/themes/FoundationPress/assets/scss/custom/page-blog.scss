@@ -1,0 +1,6 @@
+.blog-article-container{
+	@include grid-column(12);
+
+	padding-bottom:2%;
+	border-bottom:1px solid $dark-bg;
+}
