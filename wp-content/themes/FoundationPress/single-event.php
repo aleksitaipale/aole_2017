@@ -75,7 +75,13 @@ get_header(); ?>
 					</div>
 					<div class="event-description">
 						<?php the_content(); ?>
+						<?php if ($event["event"]->custom_fields["registration_link"]): ?>
+							<div class="registration-link">
+								<a class="button" href="<?php echo $event["event"]->custom_fields["registration_link"]; ?>">Register here!</a>
+							</div>
+						<?php endif; ?>
 						<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+
 					</div>
 				</div>
 			</div>
