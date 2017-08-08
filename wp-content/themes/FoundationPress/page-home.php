@@ -99,7 +99,7 @@ if ( $newsQuery->have_posts() ) {
 							else {
 								the_excerpt();
 							}?>
-							<a href="<?php echo get_page_link( get_page_by_title( "Blog" )->ID );  ?>">See more blog posts...</a>
+							<a class="button" href="<?php echo get_page_link( get_page_by_title( "Blog" )->ID );  ?>">See more blog posts...</a>
 						</p>
 
 					</div>
@@ -154,7 +154,7 @@ if ( $newsQuery->have_posts() ) {
 						</div>
 						<div class="see-more-events">
 							<p>
-								<a href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
+								<a class="button" href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
 									See more events...
 								</a>
 							</p>
