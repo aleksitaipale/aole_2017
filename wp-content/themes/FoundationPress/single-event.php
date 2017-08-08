@@ -55,6 +55,11 @@ get_header(); ?>
 					<!-- Picture -->
 					<div class="event-center-container" data-equalizer-watch>
 						<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'square-large'); ?>"></img>
+						<?php if ($event["event"]->custom_fields["registration_link"]): ?>
+							<div class="registration-link">
+								<a class="button" href="<?php echo $event["event"]->custom_fields["registration_link"]; ?>">Register here</a>
+							</div>
+						<?php endif; ?>
 					</div>
 					<!-- Event categories -->
 					<div class="event-right-container" data-equalizer-watch>
