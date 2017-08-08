@@ -103,7 +103,7 @@ get_header(); ?>
 							}
 							?></span>
 							<!-- Time -->
-							<div class="event-time"><?php echo $event["event"]->event_start_time."-".$event["event"]->event_end_time; ?></div>
+							<div class="event-time"><?php echo substr($event["event"]->event_start_time, 0, -3)."-".substr($event["event"]->event_end_time, 0, -3); ?></div>
 							<!-- Location -->
 							<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
 							<!-- Only for pilots? -->

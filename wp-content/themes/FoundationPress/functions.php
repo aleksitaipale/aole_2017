@@ -233,6 +233,7 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
     $event_information["post"]=$post_info;
     $event_information["event"]=$em_event;
 
+
     return $event_information;
 }
 
