@@ -19,7 +19,7 @@ get_header(); ?>
 	<?php do_action( 'foundationpress_before_content' ); ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 		<article <?php post_class('blog-article-container') ?> id="post-<?php the_ID(); ?>">
-			<div class="blog-article">
+			<div class="blog-article blog-page-header">
 				<div class="blog-article-content">
 					<header>
 						<h2 class="entry-title"><?php the_title(); ?></h2>
@@ -57,6 +57,7 @@ get_header(); ?>
 
 				<div class="blog-article">
 					<div class="blog-article-content">
+						<span class="the-author"><?php the_author(); ?></span>
 						<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
 						<p><?php
 						// If the writer has specified a "More" tag, show the content, otherwise use the (custom made) excerpt.

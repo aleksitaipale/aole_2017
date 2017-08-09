@@ -14,11 +14,7 @@
 
 		.post-content{
 			padding-top:2%;
-			.the-author{
-				font-weight:700;
-				color: $colored-primary-heading;
-
-			}
+			
 			@include breakpoint(small) {  @include grid-column(12);   }
 			@include breakpoint(medium only) {  @include grid-column(8); @include grid-column-position(center); }
 			@include breakpoint(large) {  @include grid-column(5); @include grid-column-position(center);  }
@@ -42,6 +38,10 @@
 }
 
 
+.the-author{
+	font-weight:700;
+	color: $colored-primary-heading;
 
+}
 
 

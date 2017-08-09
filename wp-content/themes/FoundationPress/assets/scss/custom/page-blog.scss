@@ -1,6 +1,16 @@
 
 .page-blog{
 
+	.blog-page-header{
+		padding:3%;
+		border:100px solid;
+		-webkit-border-image: url("../images/patterns/horizontal-single-pattern.png") 80;
+		-o-border-image: url("../images/patterns/horizontal-single-pattern.png") 80;
+		border-image: url("../images/patterns/horizontal-single-pattern.png") 80;
+		border-image-repeat: repeat;
+
+	}
+
 	.blog-article-container{
 		@include grid-column(12);
 		padding-top:2%;

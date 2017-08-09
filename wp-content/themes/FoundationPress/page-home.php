@@ -99,7 +99,7 @@ if ( $newsQuery->have_posts() ) {
 							else {
 								the_excerpt();
 							}?>
-							<a class="button" href="<?php echo get_page_link( get_page_by_title( "Blog" )->ID );  ?>">See more blog posts...</a>
+							<a class="button" href="<?php echo get_page_link(252);  ?>">See more blog posts...</a>
 						</p>
 
 					</div>
