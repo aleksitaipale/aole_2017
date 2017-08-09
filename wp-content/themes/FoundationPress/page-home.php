@@ -89,19 +89,32 @@ if ( $newsQuery->have_posts() ) {
 			<section class="aole-feed-container">
 				<div class="aole-feeds" >
 					<div class="aole-feed" data-equalizer-watch>
-						<h2><?php echo $blog_news_title; ?></h2>
-						<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
-						<p><?php
-						// If the writer has specified a "More" tag, show the content, otherwise use the (custom made) excerpt.
-							if( strpos( $post->post_content, '<!--more-->' ) ) {
-								the_content("Read more...");
-							}
-							else {
-								the_excerpt();
-							}?>
-							<a class="button" href="<?php echo get_page_link(252);  ?>">See more blog posts...</a>
-						</p>
+						<div class="aole-feed-content-container">
+							<div class="aole-feed-title">
+								<h2><?php echo $blog_news_title; ?></h2>
+							</div>
+							<div class="aole-feed-content">
 
+								
+								<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
+								<p>
+									
+									<?php
+						// If the writer has specified a "More" tag, show the content, otherwise use the (custom made) excerpt.
+									if( strpos( $post->post_content, '<!--more-->' ) ) {
+										the_content("Read more...");
+									}
+									else {
+										the_excerpt();
+									}?>
+									<a class="button" href="<?php echo get_page_link(252);  ?>">See more blog posts...</a>
+								</p>
+							</div>
+
+							<div class="aole-feed-image">
+								<?php the_post_thumbnail(); ?>
+							</div>
+						</div>
 					</div>
 					<?php
 				}
