@@ -182,7 +182,7 @@ get_header(); ?>
 										<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
 									</ul>
 									<!-- Event title -->
-									<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
+									<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h5><?php echo $event["event"]->event_name; ?></h5></a>	
 								</div>
 							</div>
 						</div>
