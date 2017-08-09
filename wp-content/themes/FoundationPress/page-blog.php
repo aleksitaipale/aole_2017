@@ -63,13 +63,10 @@ get_header(); ?>
 					<span class="the-author"><?php the_author(); ?></span>
 					<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
 					<p><?php
-						// If the writer has specified a "More" tag, show the content, otherwise use the (custom made) excerpt.
-						if( strpos( $post->post_content, '<!--more-->' ) ) {
-							the_content("Read more...");
-						}
-						else {
+						if( has_excerpt() ) {
 							the_excerpt();
-						}?>
+						}
+						?>
 					</p>
 				</div>
 				<div class="blog-article-image">

@@ -100,9 +100,7 @@ if ( $newsQuery->have_posts() ) {
 								<p>
 									
 									<?php
-						// If the writer has specified a "More" tag, show the content, otherwise use the (custom made) excerpt.
 									if( has_excerpt() ) {
-									
 										the_excerpt();
 									}?>
 									<a class="button" href="<?php echo get_page_link(252);  ?>">See more blog posts...</a>
