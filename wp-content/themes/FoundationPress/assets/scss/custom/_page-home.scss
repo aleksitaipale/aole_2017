@@ -84,6 +84,10 @@
 		padding-top:0;
 	}
 	.aole-feeds{
+
+		.event{
+			border-bottom:0;
+		}
 		@include grid-row();
 		.aole-feed{
 			background-color: $light-bg;
@@ -110,7 +114,7 @@
 						@include grid-column-position(center);
 					}
 					@include breakpoint(large) {  @include grid-column(12); }
-					@include breakpoint(xlarge) {  @include grid-column(6); }
+					@include breakpoint(xlarge) {  @include grid-column(8); }
 				}
 
 				.aole-feed-image{
@@ -123,7 +127,7 @@
 					  @include grid-column-position(center);
 					}
 					@include breakpoint(large only) {  @include grid-column(9); @include grid-column-position(center); }
-					@include breakpoint(xlarge) {  @include grid-column(6); }
+					@include breakpoint(xlarge) {  @include grid-column(4); }
 				}
 			}
 		}

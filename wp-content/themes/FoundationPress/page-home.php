@@ -95,16 +95,14 @@ if ( $newsQuery->have_posts() ) {
 							</div>
 							<div class="aole-feed-content">
 
-								
+
 								<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
 								<p>
 									
 									<?php
 						// If the writer has specified a "More" tag, show the content, otherwise use the (custom made) excerpt.
-									if( strpos( $post->post_content, '<!--more-->' ) ) {
-										the_content("Read more...");
-									}
-									else {
+									if( has_excerpt() ) {
+									
 										the_excerpt();
 									}?>
 									<a class="button" href="<?php echo get_page_link(252);  ?>">See more blog posts...</a>
