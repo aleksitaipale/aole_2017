@@ -129,6 +129,8 @@ add_action('save_post', 'update_custom_terms');
 
 add_image_size( 'square-large', 300, 300, true); // name, width, height, crop 
 
+add_image_size( 'pilot-showcase', 430, 190, true); // name, width, height, crop 
+
 
 // Custom excerpt for feed posts on front page //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Source: https://stackoverflow.com/a/24160854

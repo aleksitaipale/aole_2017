@@ -196,7 +196,7 @@ if ( $newsQuery->have_posts() ) {
 		<h2><?php echo $pilots_showcase_section["title_for_aole_pilots_showcase_section"]; ?></h2>
 		<div class="pilots-carousel">
 			<?php foreach ($pilots_showcase_section["showcased_pilots"] as $showcase_pilot): ?>
-				<a href="<?php echo get_the_permalink($showcase_pilot->ID); ?>"><div class="single-carousel-pilot"><img src="<?php echo get_the_post_thumbnail_url($showcase_pilot->ID); ?>"></img></div></a>
+				<a href="<?php echo get_the_permalink($showcase_pilot->ID); ?>"><div class="single-carousel-pilot"><img src="<?php echo get_the_post_thumbnail_url($showcase_pilot->ID, 'pilot-showcase'); ?>"></img></div></a>
 			<?php endforeach; ?>
 		</div>
 
