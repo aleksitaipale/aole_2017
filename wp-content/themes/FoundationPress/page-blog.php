@@ -49,39 +49,40 @@ get_header(); ?>
 					</div>
 				</div>
 			</article>
-			<?php 
-			$args = array( 'category_name' => 'blog,news,awards' );
-			$posts = get_posts($args);
+		<?php endwhile;?>
+		<?php 
+		$args = array( 'category_name' => 'blog,news,awards' );
+		$posts = get_posts($args);
 
-			foreach ($posts as $post) : setup_postdata($post);
-			?>
-			<div class="blog-article-container">
+		foreach ($posts as $post) : setup_postdata($post);
+		?>
+		<div class="blog-article-container">
 
-				<div class="blog-article">
-					<div class="blog-article-content">
-						<span class="the-author"><?php the_author(); ?></span>
-						<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
-						<p><?php
+			<div class="blog-article">
+				<div class="blog-article-content">
+					<span class="the-author"><?php the_author(); ?></span>
+					<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
+					<p><?php
 						// If the writer has specified a "More" tag, show the content, otherwise use the (custom made) excerpt.
-							if( strpos( $post->post_content, '<!--more-->' ) ) {
-								the_content("Read more...");
-							}
-							else {
-								the_excerpt();
-							}?>
-						</p>
-					</div>
-					<div class="blog-article-image">
-						<?php the_post_thumbnail(); ?>
-					</div>
+						if( strpos( $post->post_content, '<!--more-->' ) ) {
+							the_content("Read more...");
+						}
+						else {
+							the_excerpt();
+						}?>
+					</p>
 				</div>
-
+				<div class="blog-article-image">
+					<?php the_post_thumbnail(); ?>
+				</div>
 			</div>
 
-		<?php endforeach; 
-		wp_reset_postdata();
-		?>
-	<?php endwhile;?>
+		</div>
+
+	<?php endforeach; 
+	wp_reset_postdata();
+	?>
+
 
 	<?php do_action( 'foundationpress_after_content' ); ?>
 	<?php get_sidebar(); ?>
