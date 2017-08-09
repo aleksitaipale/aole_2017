@@ -6,7 +6,7 @@
 		@if ($debug) {background-color:red;}
 		@include breakpoint(small) {  @include grid-column(12); }
 		@include breakpoint(medium) {  @include grid-column(12); }
-		@include breakpoint(large) {  @include grid-column(6); }
+		@include breakpoint(large) {  @include grid-column(3); }
 		.about-description{		
 			@include grid-row();
 
@@ -28,20 +28,35 @@
 		@if ($debug) {background-color:blue;}
 		@include breakpoint(small) {  @include grid-column(12); }
 		@include breakpoint(medium) {  @include grid-column(12); }
-		@include breakpoint(large) {  @include grid-column(6); }
+		@include breakpoint(large) {  @include grid-column(9); }
 		.team-members{
+			text-align:left;
 			.team-member{
-				text-align:left;
-				padding-top:5%;
+
+				img{
+					@include breakpoint(small) {padding:14%;}
+					@include breakpoint(medium) {padding:8%;}
+					@include breakpoint(large) {padding:14%;}
+					
+					background-image:url("../images/patterns/horizontal-single-pattern.png");
+					background-size:10em;
+					margin-bottom:2%;
+				}
 
 				.team-member-contact{
 					font-size:0.7em;
 				}
 			}
-			@include breakpoint(small) {   @include grid-layout(2, '.team-member', $grid-column-gutter); }
-			@include breakpoint(medium) {   @include grid-layout(2, '.team-member', $grid-column-gutter); }
-			@include breakpoint(large) {   @include grid-layout(2, '.team-member', $grid-column-gutter); }
-			@include breakpoint(xlarge) {   @include grid-layout(3, '.team-member', $grid-column-gutter); }
+			@include breakpoint(small) { 
+				@include grid-layout(2, '.team-member', $grid-column-gutter);
+				text-align:center;
+			}
+			@include breakpoint(medium) {  
+				@include grid-layout(2, '.team-member', $grid-column-gutter); 
+				text-align:center;
+			}
+			@include breakpoint(large) {   @include grid-layout(3, '.team-member', $grid-column-gutter); }
+			@include breakpoint(xlarge) {   @include grid-layout(4, '.team-member', $grid-column-gutter); }
 
 		}
 	}
