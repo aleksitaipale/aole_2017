@@ -56,7 +56,7 @@ require_once("custom-functions.php"); // For logic needed on multiple pages (e.g
 			<?php do_action( 'foundationpress_after_header' );
 
 
-			if( is_single() && !is_singular(array("pilot", "event")) && !(in_category(["news", "awards", "blog"], get_post()))) {
+			if( is_single() && !is_singular(array("pilot", "event", "jobs")) && !(in_category(["news", "awards", "blog"], get_post()))) {
 				global $wp_query;
 				$wp_query->set_404();
 				status_header( 404 );
