@@ -12,14 +12,13 @@
 
 get_header(); ?>
 
-<?php get_template_part( 'template-parts/featured-image' ); ?>
 
 <div class="main-wrap page-blog" role="main">
 
 	<?php do_action( 'foundationpress_before_content' ); ?>
 	<?php while ( have_posts() ) : the_post(); ?>
-		<article <?php post_class('blog-article-container') ?> id="post-<?php the_ID(); ?>">
-			<div class="blog-article blog-page-header">
+		<article <?php post_class('blog-article-container blog-page-header') ?> id="post-<?php the_ID(); ?>">
+			<div class="blog-article">
 				<div class="blog-article-content">
 					<header>
 						<h2 class="entry-title"><?php the_title(); ?></h2>
@@ -44,6 +43,9 @@ get_header(); ?>
 						<?php do_action( 'foundationpress_page_before_comments' ); ?>
 						<?php comments_template(); ?>
 						<?php do_action( 'foundationpress_page_after_comments' ); ?>
+					</div>
+					<div class="blog-article-image">
+						<?php the_post_thumbnail(); ?>
 					</div>
 				</div>
 			</article>
