@@ -253,7 +253,9 @@
 
 	img {
 		max-width:80%;
-		border-left:30px solid $dark-bg;
+		padding-left:10%;
+		background-image: url("../images/patterns/horizontal-single-pattern.png");	
+		background-size:12em;
 	}
 
 }
