@@ -238,8 +238,8 @@
 			@if ($debug) {background-color:blue;}
 			@include breakpoint(small only) {  @include grid-column(12); padding-top:4%;}
 			@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center); border-left:1px solid $dark-bg; }
-			@include breakpoint(large) {  @include grid-column(6); }
-			@include breakpoint(xlarge) {  @include grid-column(6); }
+			@include breakpoint(large) {  @include grid-column(12); }
+			@include breakpoint(xlarge) {  @include grid-column(12); }
 
 		}
 
@@ -248,6 +248,11 @@
 			p {
 				@include grid-column(12);
 			}
+		}
+
+		.twitter-feed{
+			@include breakpoint(small) { @include grid-column(12); }
+			@include breakpoint(large) { @include grid-column(6); }
 		}
 	}
 

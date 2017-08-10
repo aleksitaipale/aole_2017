@@ -31,7 +31,7 @@ $target_groups_section = get_field('target_groups_section');
 
 	<div class="target-group-container">
 		<div class="target-groups" data-equalizer>
-			<div class="teachers" >
+			<div class="teachers">
 				<div data-equalizer-watch>
 					<img src="<?php echo $target_groups_section["for_teachers_image"]; ?>"></img>
 					<h3><?php echo $target_groups_section["for_teachers_title"]; ?></h3>
@@ -124,36 +124,6 @@ if ( $newsQuery->have_posts() ) {
 
 		?>
 		<div data-equalizer>
-			<section class="aole-feed-container">
-				<div class="aole-feeds" >
-					<div class="aole-feed" data-equalizer-watch>
-						<div class="aole-feed-content-container">
-							<div class="aole-feed-title">
-								<h2><?php echo $blog_news_title; ?></h2>
-							</div>
-							<div class="aole-feed-content">
-
-
-								<a href="<?php echo get_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
-								<p>
-									
-									<?php
-									if( has_excerpt() ) {
-										the_excerpt();
-									}?>
-									<a class="button" href="<?php echo get_page_link(252);  ?>">See more blog posts...</a>
-								</p>
-							</div>
-
-							<div class="aole-feed-image">
-								<?php the_post_thumbnail(); ?>
-							</div>
-						</div>
-					</div>
-					<?php
-				}
-				wp_reset_postdata();
-			}?>
 			<div class="next-event events" data-equalizer-watch>
 				<div class="event-container">
 					<div class="event front-event">
@@ -219,6 +189,40 @@ if ( $newsQuery->have_posts() ) {
 					</div>
 				-->
 			</div>
+			<section class="aole-feed-container">
+				<div class="aole-feeds">
+					<div class="aole-feed" data-equalizer-watch>
+						<div class="aole-feed-content-container">
+							<div class="aole-feed-title">
+								<h2><?php echo $blog_news_title; ?></h2>
+							</div>
+							<div class="aole-feed-content">
+
+
+								<a href="<?php echo get_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
+								<p>
+									
+									<?php
+									if( has_excerpt() ) {
+										the_excerpt();
+									}?>
+									<a class="button" href="<?php echo get_page_link(252);  ?>">See more blog posts...</a>
+								</p>
+							</div>
+
+							<div class="aole-feed-image">
+								<?php the_post_thumbnail(); ?>
+							</div>
+						</div>
+					</div>
+					<?php
+				}
+				wp_reset_postdata();
+			}?>
+			<div class="twitter-feed" data-equalizer-watch>
+				<?php echo do_shortcode("[twitter_profile screen_name='aaltoole' height='400']"); ?>
+			</div>
+			
 		</div>
 
 	</div>
