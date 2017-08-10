@@ -7,6 +7,7 @@ get_header(); ?>
 do_action( 'foundationpress_before_content' ); 
 
 $what_is_aole_section = get_field('what_is_aole_section');
+$target_groups_section = get_field('target_groups_section');
 
 ?>
 <div class="main-wrap front-page full-width" role="main">
@@ -28,15 +29,27 @@ $what_is_aole_section = get_field('what_is_aole_section');
 	</div>
 
 	<div class="target-group-container">
-		<div class="target-groups">
-			<div class="teachers">
-				<p>hello</p>
+		<div class="target-groups" data-equalizer>
+			<div class="teachers" >
+				<div data-equalizer-watch>
+					<img src="<?php echo $target_groups_section["for_teachers_image"]; ?>"></img>
+					<h3><?php echo $target_groups_section["for_teachers_title"]; ?></h3>
+					<?php echo $target_groups_section["for_teachers_content"]; ?>
+				</div>
 			</div>
-			<div class="students">
-				<p>hello2</p>
+			<div class="students" >
+				<div data-equalizer-watch>
+					<img src="<?php echo $target_groups_section["for_students_image"]; ?>"></img>
+					<h3><?php echo $target_groups_section["for_students_title"]; ?></h3>
+					<?php echo $target_groups_section["for_students_content"]; ?>
+				</div>
 			</div>
-			<div class="others">
-				<p>hello3</p>
+			<div class="others" >
+				<div data-equalizer-watch>
+					<img src="<?php echo $target_groups_section["for_others_image"]; ?>"></img>
+					<h3><?php echo $target_groups_section["for_others_title"]; ?></h3>
+					<?php echo $target_groups_section["for_others_content"]; ?>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -120,7 +133,7 @@ if ( $newsQuery->have_posts() ) {
 							<div class="aole-feed-content">
 
 
-								<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
+								<a href="<?php echo get_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
 								<p>
 									
 									<?php
@@ -228,24 +241,24 @@ if ( $newsQuery->have_posts() ) {
 </section>
 <?php $why_online_section = get_field("why_online_section"); ?>
 <section class="why-online-container">
-	<div class="why-online">
-		<div class="content matched-height3">
+	<div class="why-online" data-equalizer>
+		<div class="content" data-equalizer-watch>
 			<h2><?php echo $why_online_section["why_online_title"]; ?></h2>
 			<p><?php echo $why_online_section["why_online_content"]; ?></p>
 		</div>
-		<div class="home-image matched-height3">
+		<div class="home-image" data-equalizer-watch>
 			<img src="<?php echo $why_online_section["why_online_featured_image"]; ?>"></img>
 		</div>
 	</div>
 </section>
 <?php $why_aole_section = get_field("why_aole_section"); ?>
-<section class="why-aole-container">
-	<div class="why-aole">
-		<div class="content matched-height4">
+<section class="why-aole-container" >
+	<div class="why-aole" data-equalizer>
+		<div class="content" data-equalizer-watch>
 			<h2><?php echo $why_aole_section["why_aole_title"]; ?></h2>
 			<p><?php echo $why_aole_section["why_aole_content"]; ?></p>
 		</div>
-		<div class="home-image matched-height4">
+		<div class="home-image" data-equalizer-watch>
 			<img src="<?php echo $why_aole_section["why_aole_featured_image"]; ?>"></img>
 		</div>
 	</div>

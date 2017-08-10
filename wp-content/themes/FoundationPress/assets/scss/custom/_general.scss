@@ -1,3 +1,16 @@
+// Vertical align hack
+
+.valign-parent{
+	display:table;
+
+}
+
+.valign-child{
+	display:table-cell;
+	vertical-align:middle;
+}
+
+
 // Many elements need to be full width, which is why we set the whole .main-wrap full width
 
 body {
@@ -11,6 +24,7 @@ body {
 	h3{
 		//font-size:1.8em;
 	}
+
 }
 .main-wrap.full-width{
 	@if ($debug) {background-color:yellow;}
@@ -79,12 +93,11 @@ body {
 	@include breakpoint(large) {  @include grid-column(6); }
 	border-bottom: 2px solid $dark-bg;
 	border-top: 2px solid $dark-bg;
-	display:table;
+	@extend .valign-parent;
 	.right-header{
 		@include grid-row();
 
-		display:table-cell;
-		vertical-align:middle;
+		@extend .valign-child;
 		text-align:center;
 
 		.right-header-content{
