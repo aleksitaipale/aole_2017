@@ -30,7 +30,7 @@ get_header(); ?>
 		</div>
 		<div class="content-container">
 			<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
-			<div class="entry-content">
+			<article class="entry-content">
 				<section class="pilot-info matched-height2">
 					<div>
 						<h2>People</h2>
@@ -49,7 +49,7 @@ get_header(); ?>
 					<h2>Reflection</h2>
 					<p><?php the_field( 'reflection' ); ?></p>
 				</section>
-			</div>
+			</article>
 
 			<footer>
 				<?php

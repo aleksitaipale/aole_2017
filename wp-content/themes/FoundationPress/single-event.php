@@ -73,7 +73,7 @@ get_header(); ?>
 						<!-- Event title -->
 						<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
 					</div>
-					<div class="event-description">
+					<article class="event-description">
 						<?php the_content(); ?>
 						<?php if ($event["event"]->custom_fields["registration_link"]): ?>
 							<div class="registration-link">
@@ -82,7 +82,7 @@ get_header(); ?>
 						<?php endif; ?>
 						<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
 
-					</div>
+					</article>
 				</div>
 			</div>
 

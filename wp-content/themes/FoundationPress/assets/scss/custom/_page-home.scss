@@ -5,7 +5,7 @@
 
 
 .front-top-header-container{
-	@include breakpoint(small) { @include grid-column(12); }
+	@include grid-column(12);
 
 	
 	.front-top-header{
@@ -36,6 +36,27 @@
 	}
 	
 }
+
+.target-group-container{
+	@include grid-column(12);
+
+	.target-groups{
+		@include grid-row();
+		p {text-align:center;}
+
+		.teachers{
+			@include grid-column(4);
+		}
+		.students{
+			@include grid-column(4);
+		}
+		.others{
+			@include grid-column(4);
+		}
+	}
+}
+
+
 
 .aole-info-container{
 	
@@ -76,6 +97,7 @@
 	}
 	
 }
+
 
 
 // "Teaching at Aalto?" section, i.e. gathering emails for the call for idea proposals
@@ -124,7 +146,7 @@
 		}
 		@include grid-row();
 		.aole-feed{
-			background-color: $light-bg;
+			background-color: $dark-bg;
 			@if ($debug) {background-color:orange;}
 
 			@include breakpoint(small only) {  @include grid-column(12); @include grid-column-position(center);  }

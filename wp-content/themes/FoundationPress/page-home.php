@@ -14,10 +14,10 @@ $what_is_aole_section = get_field('what_is_aole_section');
 		<div class="front-top-header" data-equalizer>
 			<div class="left-box-container" data-equalizer-watch>
 				<div class="left-box">
-					<div class="left-box-content">
+					<article class="left-box-content">
 						<h2><?php echo $what_is_aole_section["what_is_aole_title"]; ?></h2>
 						<p><?php echo $what_is_aole_section["what_is_aole_content"]; ?></p>
-					</div>
+					</article>
 				</div>
 			</div>
 			<div class="vr-box" data-equalizer-watch>
@@ -26,10 +26,25 @@ $what_is_aole_section = get_field('what_is_aole_section');
 			</div>
 		</div>
 	</div>
-	<div data-equalizer>
+
+	<div class="target-group-container">
+		<div class="target-groups">
+			<div class="teachers">
+				<p>hello</p>
+			</div>
+			<div class="students">
+				<p>hello2</p>
+			</div>
+			<div class="others">
+				<p>hello3</p>
+			</div>
+		</div>
+	</div>
+
+	<!--<div data-equalizer>
 		<section class="aole-info-container" data-equalizer-watch>
 			<div class="aole-info">
-				
+
 
 				<div class="featured-team-members">
 					<?php 
@@ -78,7 +93,7 @@ $what_is_aole_section = get_field('what_is_aole_section');
 			</div>
 		</div>
 	</section>
-</div>
+</div>-->
 <?php
 
 $blog_news_title = get_field("blog_news_title"); // this field has to be retrieved before the "loop inside a loop" to be able to be shown

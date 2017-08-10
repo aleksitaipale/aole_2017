@@ -24,10 +24,10 @@ get_header(); ?>
 							<h2 class="entry-title"><?php the_title(); ?></h2>
 						</header>
 						<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-						<div class="entry-content">
+						<article class="entry-content">
 							<?php the_content(); ?>
 							<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
-						</div>
+						</article>
 						<footer>
 							<?php
 							wp_link_pages(
@@ -79,10 +79,10 @@ get_header(); ?>
 						<hr>
 
 					</div>
-					<div class="theme-group-info">
+					<article class="theme-group-info">
 						<h2><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h2>
 						<p><?php echo $theme_groups[$idx]["theme_group_info"]->description; ?></p>
-					</div>
+					</article>
 					
 
 					

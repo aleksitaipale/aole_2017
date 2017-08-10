@@ -41,8 +41,11 @@ h5{
 body {
 	font-family: $body-font;
 
-	p {
+	article p {
 		text-align: justify;
+		
+	}
+	p {
 		text-justify: inter-word;	
 	}
 }
