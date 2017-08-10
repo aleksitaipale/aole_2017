@@ -16,8 +16,9 @@ $target_groups_section = get_field('target_groups_section');
 			<div class="left-box-container" data-equalizer-watch>
 				<div class="left-box">
 					<article class="left-box-content">
-						<h2><?php echo $what_is_aole_section["what_is_aole_title"]; ?></h2>
-						<p><?php echo $what_is_aole_section["what_is_aole_content"]; ?></p>
+						<img class="aole-logo" src="<?php echo get_template_directory_uri()."/assets/images/aole_logo.png"; ?>"></img>
+						<!--<h2><?php echo $what_is_aole_section["what_is_aole_title"]; ?></h2>-->
+						<?php echo $what_is_aole_section["what_is_aole_content"]; ?>
 					</article>
 				</div>
 			</div>

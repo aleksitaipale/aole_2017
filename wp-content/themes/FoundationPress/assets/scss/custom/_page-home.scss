@@ -20,8 +20,14 @@
 			.left-box{
 				@include grid-row();
 				@extend .valign-child;
+			
 
+				.aole-logo{
+					max-height:300px;
+			
+				}
 				.left-box-content{
+					text-align:center;
 					@include breakpoint(small) { @include grid-column(12); }
 				}
 			}
