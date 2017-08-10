@@ -10,17 +10,26 @@ $what_is_aole_section = get_field('what_is_aole_section');
 
 ?>
 <div class="main-wrap front-page full-width" role="main">
-	<div class="vrbox">
-		<blockquote data-width="100%" data-height="600px" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="https://theta360.com/s/jFtMPIK0W44acnaWi1y0nrwrg" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
-		<script async src="https://theta360.com/widgets.js" charset="utf-8"></script>
+	<div class="front-top-header-container">
+		<div class="front-top-header" data-equalizer>
+			<div class="left-box-container" data-equalizer-watch>
+				<div class="left-box">
+					<div class="left-box-content">
+						<h2><?php echo $what_is_aole_section["what_is_aole_title"]; ?></h2>
+						<p><?php echo $what_is_aole_section["what_is_aole_content"]; ?></p>
+					</div>
+				</div>
+			</div>
+			<div class="vr-box" data-equalizer-watch>
+				<blockquote data-width="100%" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="https://theta360.com/s/jFtMPIK0W44acnaWi1y0nrwrg" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
+				<script async src="https://theta360.com/widgets.js" charset="utf-8"></script>
+			</div>
+		</div>
 	</div>
 	<div data-equalizer>
 		<section class="aole-info-container" data-equalizer-watch>
 			<div class="aole-info">
-				<div class="aole-description">
-					<h2><?php echo $what_is_aole_section["what_is_aole_title"]; ?></h2>
-					<p><?php echo $what_is_aole_section["what_is_aole_content"]; ?></p>
-				</div>
+				
 
 				<div class="featured-team-members">
 					<?php 

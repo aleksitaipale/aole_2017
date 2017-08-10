@@ -46,9 +46,12 @@ body {
 	@include breakpoint(small) {  @include grid-column(12); }
 	@include breakpoint(medium) {  @include grid-column(12); }
 	@include breakpoint(large) {  @include grid-column(6); }
+	display:table;
 	
 	.left-header{		
 		@include grid-row();
+		display:table-cell;
+		vertical-align:middle;
 		
 		
 
