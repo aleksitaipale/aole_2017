@@ -20,11 +20,11 @@
 			.left-box{
 				@include grid-row();
 				@extend .valign-child;
-			
+
 
 				.aole-logo{
 					max-height:300px;
-			
+
 				}
 				.left-box-content{
 					text-align:center;
@@ -232,23 +232,6 @@
 			}
 		}
 
-		.next-event{
-
-			background-color: $light-bg;
-			@if ($debug) {background-color:blue;}
-			@include breakpoint(small only) {  @include grid-column(12); padding-top:4%;}
-			@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center); border-left:1px solid $dark-bg; }
-			@include breakpoint(large) {  @include grid-column(12); }
-			@include breakpoint(xlarge) {  @include grid-column(12); }
-
-		}
-
-		.see-more-events{
-			@include grid-row();
-			p {
-				@include grid-column(12);
-			}
-		}
 
 		.twitter-feed{
 			@include breakpoint(small) { @include grid-column(12); }
@@ -256,6 +239,72 @@
 		}
 	}
 
+
+}
+
+
+.next-event.front-event{
+
+	background-color: $light-bg;
+	@if ($debug) {background-color:blue;}
+	@include breakpoint(small only) {  @include grid-column(12); padding-top:4%;}
+	@include breakpoint(medium only) { 
+		@include grid-column(10);
+		@include grid-column-position(center);
+		border-left:1px solid $dark-bg;
+	}
+	@include breakpoint(large) {  @include grid-column(12); }
+	@include breakpoint(xlarge) {  @include grid-column(12); }
+
+	.next-event-heading{
+		margin-top:3%;
+		h2{
+			color:$colored-primary-heading;
+			font-family:$body-font;
+			font-style:italic;
+		}
+		@include breakpoint(small) {
+			@include grid-column(12); @include grid-column-unposition;
+		}
+		@include breakpoint(large) {
+			@include grid-column(4); @include grid-column-position(center);
+		}
+	}
+
+	.event-information-container{
+		@include breakpoint(small) {  @include grid-column(6); text-align:left; @include grid-column-unposition;   }
+		@include breakpoint(medium) {  @include grid-column(4); text-align:right; @include grid-column-position(-5); }
+		@include breakpoint(large) {  @include grid-column(4); text-align:right; }
+
+
+	}
+
+	.event-image-container{
+		@include breakpoint(small) {  @include grid-column(6); @include grid-column-unposition;  }
+		@include breakpoint(medium) {  @include grid-column(3); @include grid-column-position(-5);}
+		@include breakpoint(large) {  @include grid-column(3); }
+
+	}
+
+	.event-title-container{
+		@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition; }
+		@include breakpoint(medium) {  @include grid-column(5);  @include grid-column-position(7);}
+		@include breakpoint(large) {  @include grid-column(5); }
+		text-align:left;
+	}
+
+	.see-more-events{
+		@include grid-row();
+
+		p {
+			@include grid-column(4); @include grid-column-position(center);
+
+			a {
+				margin-top:3%;
+			}
+
+		}
+	}
 
 }
 

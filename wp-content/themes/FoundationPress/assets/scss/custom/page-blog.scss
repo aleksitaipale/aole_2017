@@ -1,41 +1,41 @@
 
-.page-blog{
+.page-feed{
 
 
 
-	.blog-article-container{
+	.feed-article-container{
 		@include grid-column(12);
 		padding-top:2%;
 		padding-bottom:2%;
 		border-bottom:1px solid $dark-bg;
 
-		.blog-article{
+		.feed-article{
 			@include grid-row();
 
 
-			.blog-article-content{
+			.feed-article-content{
 				@include breakpoint(small) { @include grid-column(12);}
 				@include breakpoint(medium) { @include grid-column(8); }
 			}
 
-			.blog-article-image{
+			.feed-article-image{
 				@include breakpoint(small) { @include grid-column(12);}
 				@include breakpoint(medium) { @include grid-column(4);}
 			}
 		}
 	}
 
-	.blog-page-header{
+	.feed-page-header{
 		
 		background-color:blue;
 		padding:5%;
 		background-image: url("../images/patterns/horizontal-single-pattern.png");	
-		.blog-article {
+		.feed-article {
 			background-color:white;
 
 
 			padding:1%;
-			.blog-article-content{
+			.feed-article-content{
 			}
 		}
 

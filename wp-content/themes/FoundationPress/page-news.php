@@ -13,13 +13,13 @@
 get_header(); ?>
 
 
-<div class="main-wrap page-blog" role="main">
+<div class="main-wrap page-feed" role="main">
 
 	<?php do_action( 'foundationpress_before_content' ); ?>
 	<?php while ( have_posts() ) : the_post(); ?>
-		<article <?php post_class('blog-article-container blog-page-header') ?> id="post-<?php the_ID(); ?>">
-			<div class="blog-article">
-				<div class="blog-article-content">
+		<article <?php post_class('feed-article-container feed-page-header') ?> id="post-<?php the_ID(); ?>">
+			<div class="feed-article">
+				<div class="feed-article-content">
 					<header>
 						<h2 class="entry-title"><?php the_title(); ?></h2>
 					</header>
@@ -44,22 +44,22 @@ get_header(); ?>
 						<?php comments_template(); ?>
 						<?php do_action( 'foundationpress_page_after_comments' ); ?>
 					</div>
-					<div class="blog-article-image">
+					<div class="feed-article-image">
 						<?php the_post_thumbnail(); ?>
 					</div>
 				</div>
 			</article>
 		<?php endwhile;?>
 		<?php 
-		$args = array( 'category_name' => 'blog,news,awards' );
+		$args = array( 'category_name' => 'feed,news,awards' );
 		$posts = get_posts($args);
 
 		foreach ($posts as $post) : setup_postdata($post);
 		?>
-		<div class="blog-article-container">
+		<div class="feed-article-container">
 
-			<div class="blog-article">
-				<div class="blog-article-content">
+			<div class="feed-article">
+				<div class="feed-article-content">
 					<span class="the-author"><?php the_author(); ?></span>
 					<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
 					<p><?php
@@ -69,7 +69,7 @@ get_header(); ?>
 						?>
 					</p>
 				</div>
-				<div class="blog-article-image">
+				<div class="feed-article-image">
 					<?php the_post_thumbnail(); ?>
 				</div>
 			</div>

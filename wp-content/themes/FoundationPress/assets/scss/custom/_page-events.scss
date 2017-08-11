@@ -156,25 +156,26 @@
 	padding-bottom:2%;
 	padding-top:2%;
 
-	.event-left-container{
-		@include breakpoint(small) {  @include grid-column(6); @include grid-column-position(6); text-align:left;  }
-		@include breakpoint(medium) {  @include grid-column(4); @include grid-column-unposition; text-align:right; }
+
+	.event-information-container{
+		@include breakpoint(small) {  @include grid-column(6); text-align:left; @include grid-column-unposition;   }
+		@include breakpoint(medium) {  @include grid-column(4); text-align:right; @include grid-column-position(-5); }
 		@include breakpoint(large) {  @include grid-column(4); text-align:right; }
 
 
 	}
 
-	.event-center-container{
-		@include breakpoint(small) {  @include grid-column(6); @include grid-column-position(-6);  }
-		@include breakpoint(medium) {  @include grid-column(3); @include grid-column-unposition;}
-		@include breakpoint(large) {  @include grid-column(3);  }
+	.event-image-container{
+		@include breakpoint(small) {  @include grid-column(6); @include grid-column-unposition;  }
+		@include breakpoint(medium) {  @include grid-column(3); @include grid-column-position(-5);}
+		@include breakpoint(large) {  @include grid-column(3); }
 
 	}
 
-	.event-right-container{
-		@include breakpoint(small) {  @include grid-column(12);   }
-		@include breakpoint(medium) {  @include grid-column(5); }
-		@include breakpoint(large) {  @include grid-column(5);  }
+	.event-title-container{
+		@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition; }
+		@include breakpoint(medium) {  @include grid-column(5);  @include grid-column-position(7);}
+		@include breakpoint(large) {  @include grid-column(5); }
 		text-align:left;
 	}
 

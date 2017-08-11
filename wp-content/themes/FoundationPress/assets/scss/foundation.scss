@@ -108,9 +108,10 @@ $grid-column-align-edge: false;
 
 @import "custom/navbar";
 @import "custom/footer"; // OK
+@import "custom/page-events"; // OK
 @import "custom/page-home"; // OK
 @import "custom/page-pilots"; // OK
-@import "custom/page-events"; // OK
+
 @import "custom/page-about"; // OK
 @import "custom/page-jobs"; // OK
 @import "custom/single-pilot"; // OK

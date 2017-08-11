@@ -91,7 +91,19 @@ get_header(); ?>
 			?>
 			<div class="event-container">
 				<div class="event upcoming-event" data-equalizer>
-					<div class="event-left-container" data-equalizer-watch>
+					<!-- Event categories -->
+					<div class="event-title-container" data-equalizer-watch>
+						<ul class="event-category-list">
+							<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
+						</ul>
+						<!-- Facilitator(s) -->
+						<ul class="event-facilitator-list">
+							<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
+						</ul>
+						<!-- Event title -->
+						<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
+					</div>
+					<div class="event-information-container" data-equalizer-watch>
 						<!-- Date -->
 						<span class="event-date"><?php 
 							$start_date = date_create($event["event"]->event_start_date);
@@ -114,21 +126,10 @@ get_header(); ?>
 							</div>
 						</div>
 						<!-- Picture -->
-						<div class="event-center-container" data-equalizer-watch>
+						<div class="event-image-container" data-equalizer-watch>
 							<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'square-large'); ?>"></img>
 						</div>
-						<!-- Event categories -->
-						<div class="event-right-container" data-equalizer-watch>
-							<ul class="event-category-list">
-								<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
-							</ul>
-							<!-- Facilitator(s) -->
-							<ul class="event-facilitator-list">
-								<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
-							</ul>
-							<!-- Event title -->
-							<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
-						</div>
+						
 					</div>
 				</div>
 
