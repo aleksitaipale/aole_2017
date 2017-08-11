@@ -67,7 +67,7 @@
 			.pilot-description{
 				@include breakpoint(small) {  @include grid-column(12);  }
 				@include breakpoint(medium) {  @include grid-column(12);  }
-				@include breakpoint(large) {  @inc∑lude grid-column(8) @include grid-column-position(center); }
+				@include breakpoint(large) {  @include grid-column(8) @include grid-column-position(center); }
 
 
 			}
