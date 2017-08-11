@@ -4,7 +4,7 @@
 	// Description for a single pilot
 
 	
-	.pilot-description-container{
+	.pilot-header-container{
 		padding:2%;
 		background-color:$dark-bg;
 		color: $light-body-text;
@@ -15,16 +15,18 @@
 		@if ($debug) {background-color:red;}
 		@include breakpoint(small) {  @include grid-column(12); }
 		@include breakpoint(large) {  @include grid-column(6); @include grid-column-position(-6); }
-		
-		.pilot-description{		
+		@extend .valign-parent;
+		.pilot-header{		
 			@include grid-row();
+			@extend .valign-child;
 
-			.pilot-description-content {
+			.pilot-header-content {
 				@include grid-column-position(center);
 				@include breakpoint(small) {  @include grid-column(12); }
 				@include breakpoint(medium) {  @include grid-column(12);  }
 				@include breakpoint(large) {  @include grid-column(12); }
 				@include breakpoint(xlarge) {  @include grid-column(12); }
+
 			}
 
 		}
@@ -61,6 +63,14 @@
 
 		.entry-content{
 			@include grid-row();
+
+			.pilot-description{
+				@include breakpoint(small) {  @include grid-column(12);  }
+				@include breakpoint(medium) {  @include grid-column(12);  }
+				@include breakpoint(large) {  @inc∑lude grid-column(8) @include grid-column-position(center); }
+
+
+			}
 
 			.pilot-info{
 				@if ($debug) {background-color:yellow;}

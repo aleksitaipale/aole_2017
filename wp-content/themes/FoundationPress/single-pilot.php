@@ -18,11 +18,11 @@ get_header(); ?>
 		</div>
 		<?php do_action( 'foundationpress_before_content' ); ?>
 		<?php while ( have_posts() ) : the_post(); ?>
-			<article data-equalizer-watch <?php post_class('pilot-description-container') ?> id="post-<?php the_ID(); ?>">
-				<div class="pilot-description">
-					<div class="pilot-description-content">
+			<article data-equalizer-watch <?php post_class('pilot-header-container') ?> id="post-<?php the_ID(); ?>">
+				<div class="pilot-header">
+					<div class="pilot-header-content">
 						<h2 class="entry-title"><?php the_title(); ?></h2>
-						<?php the_field( 'description' ); ?>
+						<?php the_field( 'subtitle' ); ?>
 						<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
 					</div>
 				</div>
@@ -31,7 +31,11 @@ get_header(); ?>
 		<div class="content-container">
 			<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
 			<article class="entry-content">
-				<section class="pilot-info matched-height2">
+				<section class="pilot-description">
+					<h2>Description</h2>
+					<?php the_field("description"); ?>
+				</section>
+				<section class="pilot-info">
 					<div>
 						<h2>People</h2>
 						<p><?php the_field( 'people' ); ?></p>
