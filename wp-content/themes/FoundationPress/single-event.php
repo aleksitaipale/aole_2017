@@ -30,7 +30,20 @@ get_header(); ?>
 		<div class="event-container">
 			<div class="event upcoming-event" data-equalizer>
 				<?php do_action( 'foundationpress_before_content' ); ?>
-				<div class="event-left-container" data-equalizer-watch>
+				<!-- Event categories -->
+				<!-- Event categories -->
+				<div class="event-title-container" data-equalizer-watch>
+					<ul class="event-category-list">
+						<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
+					</ul>
+					<!-- Facilitator(s) -->
+					<ul class="event-facilitator-list">
+						<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
+					</ul>
+					<!-- Event title -->
+					<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
+				</div>
+				<div class="event-information-container" data-equalizer-watch>
 					<!-- Date -->
 					<span class="event-date"><?php 
 						$start_date = date_create($event["event"]->event_start_date);
@@ -53,26 +66,13 @@ get_header(); ?>
 						</div>
 					</div>
 					<!-- Picture -->
-					<div class="event-center-container" data-equalizer-watch>
+					<div class="event-image-container" data-equalizer-watch>
 						<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'square-large'); ?>"></img>
-						<?php if ($event["event"]->custom_fields["registration_link"]): ?>
-							<div class="registration-link">
-								<a class="button" href="<?php echo $event["event"]->custom_fields["registration_link"]; ?>">Register here</a>
-							</div>
-						<?php endif; ?>
+						<div class="registration-link">
+							<a class="button" href="<?php echo $event["event"]->custom_fields["registration_link"]; ?>">Register here</a>
+						</div>
 					</div>
-					<!-- Event categories -->
-					<div class="event-right-container" data-equalizer-watch>
-						<ul class="event-category-list">
-							<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
-						</ul>
-						<!-- Facilitator(s) -->
-						<ul class="event-facilitator-list">
-							<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
-						</ul>
-						<!-- Event title -->
-						<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
-					</div>
+
 					<article class="event-description">
 						<?php the_content(); ?>
 						<?php if ($event["event"]->custom_fields["registration_link"]): ?>
