@@ -1,3 +1,24 @@
+//custom section divider
+
+.patterned-divider-container{
+
+	@include grid-column(12);
+	margin-top:2%;
+	.patterned-divider{
+
+		@include grid-row();
+		height:100px;
+		
+		&.pattern1 {
+			background-image:url("../images/patterns/horizontal-single-pattern.png");
+		}
+		&.pattern2 {
+			background-image:url("../images/patterns/vertical-single-pattern.png");
+		}
+	}
+
+}
+
 // Vertical align hack
 
 .valign-parent{

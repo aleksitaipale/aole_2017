@@ -245,6 +245,8 @@
 
 .next-event.front-event{
 
+	.event{border-bottom:0;}
+
 	background-color: $light-bg;
 	@if ($debug) {background-color:blue;}
 	@include breakpoint(small only) {  @include grid-column(12); padding-top:4%;}

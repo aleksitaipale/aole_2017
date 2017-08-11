@@ -55,6 +55,7 @@ $target_groups_section = get_field('target_groups_section');
 		</div>
 	</div>
 
+	<div class="patterned-divider-container"><div class="patterned-divider pattern1"></div></div>
 	<!--<div data-equalizer>
 		<section class="aole-info-container" data-equalizer-watch>
 			<div class="aole-info">
@@ -108,6 +109,8 @@ $target_groups_section = get_field('target_groups_section');
 		</div>
 	</section>
 </div>-->
+
+
 <?php
 
 $blog_news_title = get_field("blog_news_title"); // this field has to be retrieved before the "loop inside a loop" to be able to be shown
@@ -171,7 +174,7 @@ if ( $newsQuery->have_posts() ) {
 						<div class="event-image-container">
 							<img class="event-thumbnail" src="<?php echo get_the_post_thumbnail_url($event["event"]->post_id, 'square-large'); ?>"></img>
 						</div>
-		
+
 						<div class="see-more-events">
 							<p>
 								<a class="button" href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
@@ -192,6 +195,10 @@ if ( $newsQuery->have_posts() ) {
 					</div>
 				-->
 			</div>
+
+			<div class="patterned-divider-container"><div class="patterned-divider pattern2"></div></div>
+
+			
 			<section class="aole-feed-container">
 				<div class="aole-feeds">
 					<div class="aole-feed" data-equalizer-watch>

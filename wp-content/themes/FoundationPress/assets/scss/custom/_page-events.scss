@@ -173,10 +173,18 @@
 	}
 
 	.event-title-container{
-		@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition; }
+		@include breakpoint(small) { 
+			@include grid-column(12); @include grid-column-unposition; 
+			h3{
+				font-size:2em;	 	
+			}
+
+		}
 		@include breakpoint(medium) {  @include grid-column(5);  @include grid-column-position(7);}
 		@include breakpoint(large) {  @include grid-column(5); }
 		text-align:left;
+
+
 	}
 
 	.event-date{
