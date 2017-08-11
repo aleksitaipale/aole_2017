@@ -193,15 +193,14 @@
 			@include breakpoint(xlarge) {  @include grid-column(6); }
 
 			.aole-feed-content-container{
-				border:1px solid $dark-bg;
 				@include grid-row();
 				.aole-feed-title{
 					h2 {
 						padding:1% 2% 1% 2%;
-						color:$light-primary-heading;
+						color:$dark-primary-heading;
 					}
 					margin-bottom:2%;
-					background-color:$dark-bg;
+					background-color:$light-bg;
 					@include grid-column(12, 0);
 				}
 				.aole-feed-content{
@@ -236,6 +235,21 @@
 		.twitter-feed{
 			@include breakpoint(small) { @include grid-column(12); }
 			@include breakpoint(large) { @include grid-column(6); }
+
+			.twitter-feed-content-container{
+				@include grid-row();
+
+				.twitter-feed-title{
+					@include grid-column(12,0);
+					margin-bottom:2%;
+					h2{padding:1% 2% 1% 2%;}
+				}
+
+				.twitter-feed-content{
+					@include grid-column(12);
+				
+				}
+			}
 		}
 	}
 

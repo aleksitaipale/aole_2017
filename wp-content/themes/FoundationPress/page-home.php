@@ -230,7 +230,14 @@ if ( $newsQuery->have_posts() ) {
 				wp_reset_postdata();
 			}?>
 			<div class="twitter-feed" data-equalizer-watch>
-				<?php echo do_shortcode("[twitter_profile screen_name='aaltoole' height='400']"); ?>
+				<div class="twitter-feed-content-container">
+					<div class="twitter-feed-title">
+						<h2>Twitter</h2>
+					</div>
+					<div class="twitter-feed-content">
+						<?php echo do_shortcode("[twitter_profile screen_name='aaltoole' height='400']"); ?>
+					</div>
+				</div>
 			</div>
 			
 		</div>
