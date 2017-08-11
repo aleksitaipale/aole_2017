@@ -150,6 +150,32 @@
 
 // A single event
 
+@mixin event-box-sizes($infoSize, $imageSize, $titleSize) {
+
+	.event-information-container{
+		@include breakpoint(small) {  @include grid-column(6); text-align:left; @include grid-column-unposition;   }
+		@include breakpoint(medium) {  @include grid-column($infoSize); text-align:right; @include grid-column-position(-1 * $titleSize); }
+		@include breakpoint(large) {  @include grid-column($infoSize); text-align:right; }
+
+	}
+
+	.event-image-container{
+		@include breakpoint(small) {  @include grid-column(6); @include grid-column-unposition;  }
+		@include breakpoint(medium) {  @include grid-column($imageSize); @include grid-column-position(-1 * $titleSize);}
+		@include breakpoint(large) {  @include grid-column($imageSize); }
+
+	}
+
+
+	.event-title-container{
+		@include breakpoint(small) { @include grid-column(12); @include grid-column-unposition; }
+		@include breakpoint(medium) {  @include grid-column($titleSize);  @include grid-column-position($infoSize + $imageSize);}
+		@include breakpoint(large) {  @include grid-column($titleSize); }
+		text-align:left;
+	}
+
+}
+
 .event{
 	@include grid-row();
 	border-bottom:1px solid $grey-border;
@@ -157,32 +183,14 @@
 	padding-top:2%;
 
 
-	.event-information-container{
-		@include breakpoint(small) {  @include grid-column(6); text-align:left; @include grid-column-unposition;   }
-		@include breakpoint(medium) {  @include grid-column(4); text-align:right; @include grid-column-position(-5); }
-		@include breakpoint(large) {  @include grid-column(4); text-align:right; }
-
-
-	}
-
-	.event-image-container{
-		@include breakpoint(small) {  @include grid-column(6); @include grid-column-unposition;  }
-		@include breakpoint(medium) {  @include grid-column(3); @include grid-column-position(-5);}
-		@include breakpoint(large) {  @include grid-column(3); }
-
-	}
+	@include event-box-sizes(4,3,5);
 
 	.event-title-container{
 		@include breakpoint(small) { 
-			@include grid-column(12); @include grid-column-unposition; 
 			h3{
 				font-size:2em;	 	
 			}
-
 		}
-		@include breakpoint(medium) {  @include grid-column(5);  @include grid-column-position(7);}
-		@include breakpoint(large) {  @include grid-column(5); }
-		text-align:left;
 
 
 	}
@@ -230,11 +238,10 @@
 
 .past-event {
 
-	.event-center-container{
-		@include breakpoint(small) {  @include grid-column(6); @include grid-column-position(-6);  }
-		@include breakpoint(medium) {  @include grid-column(1); @include grid-column-unposition;}
-		@include breakpoint(large) {  @include grid-column(1);  }
+		@include event-box-sizes(4,1,7);
 
-	}
+
+	
+
 }
 
