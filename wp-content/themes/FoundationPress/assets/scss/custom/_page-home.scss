@@ -54,7 +54,7 @@
 		h3{
 			text-align:center;
 
-			font-family: $body-font;
+			font-family: $serif-heading;
 			font-style:italic;
 		}
 		text-align:center;
@@ -170,7 +170,7 @@
 
 	h3{
 		border-bottom:1px solid $dark-bg;
-		font-family: $body-font;
+		font-family: $serif-heading;
 		font-style:italic;
 	}
 
@@ -410,7 +410,7 @@
 			margin-top:3%;
 			h2{
 				color:$colored-primary-heading;
-				font-family:$body-font;
+				font-family:$serif-heading;
 				font-style:italic;
 			}
 			@include breakpoint(small) {
@@ -472,6 +472,8 @@
 
 		h2{
 			color: $light-primary-heading;
+			font-family:$serif-heading;
+			font-style:italic;
 		}
 
 		.aole-pilots-listing{

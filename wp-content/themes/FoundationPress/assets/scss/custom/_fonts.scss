@@ -2,8 +2,9 @@
 The fonts are defined here. Also, each of them has a default color, but those are mostly overridden in the respective SCSS files for each page.
 */
 
-$heading-font: "Nimbus Sans Bold", "Arial", sans-serif;
-$body-font: "Sentinel", Georgia, serif;
+$serif-body: "Sentinel", Georgia, serif;
+$serif-heading: "Sentinel", Georgia, serif;
+$sans-heading: "Nimbus Sans Bold", "Arial", sans-serif;
 
 a.post-edit-link{
 	@extend .button;
@@ -14,32 +15,32 @@ a.post-edit-link{
 }	
 
 h2 {
-	font-family:$heading-font;
+	font-family:$sans-heading;
 	font-weight:700;
 	color: $dark-primary-heading; 
 }
 
 h3{
-	font-family:$heading-font;
+	font-family:$sans-heading;
 	font-weight:700;
 	color: $dark-secondary-heading;
 }
 
 h4{
-	font-family:$heading-font;
+	font-family:$sans-heading;
 	font-weight:700;
 	color: $dark-secondary-heading;
 }
 
 h5{
-	font-family:$heading-font;
+	font-family:$sans-heading;
 	font-weight:700;
 	color: $dark-secondary-heading;
 }
 
 
 body {
-	font-family: $body-font;
+	font-family: $serif-body;
 
 	article p {
 		text-align: justify;
