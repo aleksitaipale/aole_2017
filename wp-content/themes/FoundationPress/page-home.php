@@ -23,7 +23,7 @@ $target_groups_section = get_field('target_groups_section');
 				</div>
 			</div>
 			<div class="vr-box" data-equalizer-watch>
-				<blockquote data-width="100%" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="https://theta360.com/s/jFtMPIK0W44acnaWi1y0nrwrg" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
+				<blockquote data-width="100%" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="<?php echo get_field('theta_360_image_url'); ?>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
 				<script async src="https://theta360.com/widgets.js" charset="utf-8"></script>
 			</div>
 		</div>
