@@ -76,12 +76,10 @@
 			img{
 				@include breakpoint(large) {
 					padding-left:5px;
-					border-left:45px solid $dark-bg;
 				}
 
 				@include breakpoint(xlarge) {
 					padding-left:5px;
-					border-left:55px solid $dark-bg;
 				}
 			}
 

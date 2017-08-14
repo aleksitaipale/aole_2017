@@ -1,9 +1,19 @@
 	.jobs-page{
+		.right-header-container{
+
+
+		background-image:url("../images/patterns/horizontal-single-pattern.png");
+	img {
+		padding:5%;
+	}
+		}
 		.jobs-article-container{
 			@include grid-column(12);
 			padding-top:2%;
 			padding-bottom:2%;
 			border-bottom:1px solid $dark-bg;
+
+
 
 			.jobs-article{
 				@include grid-row();

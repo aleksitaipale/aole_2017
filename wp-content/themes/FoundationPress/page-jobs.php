@@ -50,7 +50,7 @@ get_header(); ?>
 				<div class="right-header">
 					<div class="right-header-content">
 						
-						
+						<?php the_post_thumbnail(); ?>
 
 					</div>
 
