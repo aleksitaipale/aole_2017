@@ -135,6 +135,9 @@ body {
 	}
 }
 
+a:hover{
+	opacity:0.8;
+}
 
 // Add fontawesome icon to site links (extend this class)
 
@@ -151,6 +154,7 @@ body {
 		}
 	}
 
+
 	section:not(.left-header-container):not(.right-header-container){
 		padding-top:3%;
 		padding-bottom:3%;
@@ -160,4 +164,6 @@ body {
 		}
 
 	}
+
+
 

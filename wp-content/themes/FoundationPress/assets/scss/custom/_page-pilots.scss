@@ -1,30 +1,30 @@
 .main-wrap.pilots-page{
 
 
-.right-header-container {
+	.right-header-container {
 
 		background-image:url("../images/patterns/horizontal-single-pattern.png");
 	}
 
 // Section for a theme group
 
-	.theme-group-section{
-		@include grid-column(12);
+.theme-group-section{
+	@include grid-column(12);
 
-		border-bottom:1px solid $dark-bg;
+	border-bottom:1px solid $dark-bg;
 
-		&:last-child{
-			border-bottom:0;
-		}
+	&:last-child{
+		border-bottom:0;
+	}
 
-		background-color: $light-bg;
-		@if ($debug){
-			background-color:yellow;
-			border:2px solid red;
-		}
+	background-color: $light-bg;
+	@if ($debug){
+		background-color:yellow;
+		border:2px solid red;
+	}
 
-		.theme-group-box{
-			@include grid-row();
+	.theme-group-box{
+		@include grid-row();
 
 			// The text description of a theme group
 
@@ -82,6 +82,18 @@
 				@include breakpoint(xlarge) {
 					padding-left:5px;
 					border-left:55px solid $dark-bg;
+				}
+			}
+
+			.pilot-listing-item{
+				h4 {
+					font-family:$body-font;
+					margin-top:10px;
+					font-size:1.2em;
+
+					@include breakpoint(small) {
+						font-size:1em;
+					}
 				}
 			}
 		}

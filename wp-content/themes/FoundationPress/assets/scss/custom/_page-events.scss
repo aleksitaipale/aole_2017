@@ -176,7 +176,7 @@
 
 }
 
-.events-page .event{
+.events-page .event, .single-event .event{
 	@include event-box-sizes(4,3,5);
 }
 .event{

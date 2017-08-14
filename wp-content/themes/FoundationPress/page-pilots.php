@@ -90,19 +90,30 @@ get_header(); ?>
 
 				<div class="pilots-listing">
 					<?php 
-					foreach ($theme_groups[$idx]["pilots"] as $pilot){
-						echo "<div class='pilot-listing-item'>";
-						echo "<a href='" . get_the_permalink($pilot->ID) . "'><h4>"."<img src='".get_the_post_thumbnail_url($pilot->ID, 'medium')."'></img></a>";
-						echo "<a href='" . get_the_permalink($pilot->ID) . "'><h4>" . $pilot->post_title."</h4></a>";
-						echo "</div>";
-					} ?>
-				</div>
+					foreach ($theme_groups[$idx]["pilots"] as $pilot):
+						?>
+					<div class='pilot-listing-item'>
+						
+						<a href="<?php echo get_the_permalink($pilot->ID);?>">
+							<img src="<?php echo get_the_post_thumbnail_url($pilot->ID, 'medium'); ?>" />
+						</a>
+						<h4>
+							<a href="<?php echo get_the_permalink($pilot->ID); ?>">
+								<?php echo $pilot->post_title; ?>
+								
+							</a>
+						</h4>
+						
+					</div>
+					
+				<?php endforeach; ?>
+			</div>
 
-			</section>
-			<?php } // this ends the theme groups foreach ?> 
+		</section>
+		<?php } // this ends the theme groups foreach ?> 
 
 
 
-		</div>
+	</div>
 
-		<?php get_footer();
+	<?php get_footer();

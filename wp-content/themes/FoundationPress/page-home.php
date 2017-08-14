@@ -59,7 +59,7 @@ $target_groups_section = get_field('target_groups_section');
 
 
 	<section class="aole-feed-container">
-		<div class="aole-feeds">
+		<div class="aole-feeds" data-equalizer>
 			<?php
 
 					$blog_news_title = get_field("blog_news_title"); // this field has to be retrieved before the "loop inside a loop" to be able to be shown
@@ -81,7 +81,7 @@ $target_groups_section = get_field('target_groups_section');
 										<h3><?php echo $blog_news_title; ?></h3>
 									</div>
 									<div class="aole-news-content">
-										<a href="<?php echo get_permalink(); ?>"><h4><?php the_title(); ?></h4></a>
+										<h4><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>
 										<p>
 
 											<?php
@@ -125,9 +125,12 @@ $target_groups_section = get_field('target_groups_section');
 										<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
 									</ul>
 									<!-- Event title -->
-									<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
+									<h4><a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><?php echo $event["event"]->event_name; ?></a>	</h4>
 								</div>
-
+								<!-- Picture -->
+								<div class="event-image-container">
+									<img class="event-thumbnail" src="<?php echo get_the_post_thumbnail_url($event["event"]->post_id, 'square-large'); ?>" />
+								</div>
 								<div class="event-information-container">
 									<!-- Date -->
 									<span class="event-date">
@@ -149,10 +152,7 @@ $target_groups_section = get_field('target_groups_section');
 									<!-- Only for pilots? -->
 									<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
 								</div>
-								<!-- Picture -->
-								<div class="event-image-container">
-									<img class="event-thumbnail" src="<?php echo get_the_post_thumbnail_url($event["event"]->post_id, 'square-large'); ?>" />
-								</div>
+								
 
 								<div class="see-more-events">
 									<p>
@@ -170,6 +170,7 @@ $target_groups_section = get_field('target_groups_section');
 					<div class="aole-feed twitter-feed" data-equalizer-watch>
 						<div class="aole-feed-content-container">
 							<div class="twitter-feed-content">
+								<i class="fa fa-2x fa-twitter" aria-hidden="true"></i>
 								<?php echo do_shortcode("[twitter_profile screen_name='aaltoole' height='400']"); ?>
 							</div>
 						</div>
@@ -224,7 +225,7 @@ $target_groups_section = get_field('target_groups_section');
 
 		<?php do_action( 'foundationpress_after_content' ); ?>
 
-		
+
 
 
 

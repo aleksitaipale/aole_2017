@@ -53,7 +53,7 @@
 		
 		h3{
 			text-align:center;
-			color:$colored-primary-heading;
+
 			font-family: $body-font;
 			font-style:italic;
 		}
@@ -174,9 +174,7 @@
 		font-style:italic;
 	}
 
-	.event {
-		padding-top:0;
-	}
+
 	.aole-feeds{
 
 		.event-container{
@@ -216,14 +214,19 @@
 					@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center);}
 					@include breakpoint(large) {  @include grid-column(3); }
 					@include breakpoint(xlarge) {  @include grid-column(3); }
-
+					background-color: $dark-bg;
+					border-radius:5px;
 					.aole-feed-content-container {
-						background-color: $dark-bg;
+						
 						border-radius:5px;
 
 					}
 
 					.twitter-feed-content{
+						.fa {
+							color:white;
+							padding:2%;
+						}
 						@include breakpoint(small) {
 							@include grid-column(12);
 						}
@@ -233,7 +236,7 @@
 
 						padding:5%;
 
-						border-radius:5px;
+						
 					}
 
 
@@ -296,6 +299,84 @@
 					@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center);}
 					@include breakpoint(large) {  @include grid-column(5); }
 					@include breakpoint(xlarge) {  @include grid-column(5); }
+
+					.see-more-events{
+						margin-top:10px;
+					}
+
+					.event {
+
+
+						padding-top:0;
+						border-bottom:0;
+
+						.event-information-container{
+							@include grid-column(6);
+						}
+
+						.event-title-container{
+							@include grid-column(12);
+						}
+
+						.event-image-container{
+							@include grid-column(6);
+						}
+
+						.see-more-events{
+							@include grid-column(12);
+						}
+
+						.event-title-container{
+							@include breakpoint(small) { 
+								h4{
+									font-size:2em;	 	
+								}
+							}
+
+
+						}
+
+						.event-date{
+							font-weight:700; 
+						}
+						.event-time{
+
+						}
+						.event-location{ font-style: italic; }
+						.event-for-pilots{ color: $colored-primary-heading; font-weight:700; }
+						.event-thumbnail{
+							width:250px;
+							max-width:100%;
+						}
+						.event-category-list{
+							list-style-type:none;
+							padding:0;margin:0;
+							li{
+								font-weight:700;
+								font-size:0.9em;
+								color: $colored-primary-heading;
+								padding-left:0; margin-left:0;
+								list-style-type: none;
+							}
+						}
+						ul.event-facilitator-list{
+							list-style-type:none;
+							padding-left:0; margin-left:0;
+							padding-bottom:0; margin-bottom:0;
+							li{
+								padding-left:0; margin-left:0; padding-bottom:0;
+								list-style-type: none;
+
+								font-weight:500;
+							}
+						}
+						.event-title{
+							h4 {
+								color: $colored-primary-heading;
+							}
+						}
+
+					}
 
 				}
 
