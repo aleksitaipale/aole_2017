@@ -168,8 +168,10 @@
 	@include breakpoint(small) {  @include grid-column(12); }
 	@include breakpoint(medium) {  @include grid-column(12); }
 
-	h2{
+	h3{
 		border-bottom:1px solid $dark-bg;
+		font-family: $body-font;
+		font-style:italic;
 	}
 
 	.event {
@@ -177,8 +179,11 @@
 	}
 	.aole-feeds{
 
-		.event{
-			border-bottom:0;
+		.event-container{
+			@include breakpoint(small only) {  @include grid-column(12); @include grid-column-position(center);  }
+			@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center);}
+			@include breakpoint(large) {  @include grid-column(5); }
+			@include breakpoint(xlarge) {  @include grid-column(5); }
 		}
 		@include grid-row();
 		.aole-feed{
@@ -187,142 +192,190 @@
 			background-color: $light-bg;
 			@if ($debug) {background-color:orange;}
 
-			@include breakpoint(small only) {  @include grid-column(12); @include grid-column-position(center);  }
-			@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center);}
-			@include breakpoint(large) {  @include grid-column(6); }
-			@include breakpoint(xlarge) {  @include grid-column(6); }
-
 			.aole-feed-content-container{
 				@include grid-row();
-				.aole-feed-title{
-					h2 {
-						padding:1% 2% 1% 2%;
-						color:$dark-primary-heading;
-					}
-					margin-bottom:2%;
-					background-color:$light-bg;
-					@include grid-column(12, 0);
+			}
+
+			.aole-feed-title{
+				h3 {
+					margin-top:0;
+					padding:7px 14px 0 0;
+					color:$dark-primary-heading;
 				}
-				.aole-feed-content{
-					@include breakpoint(small only) {  
-						@include grid-column(12,0); 
-						@include grid-column-position(center); 
+				margin-bottom:2%;
+				background-color:$light-bg;
+				@include grid-column(12, 0);
+			}
+
+
+				////////////// TWITTER FEED STYLING //////////////
+
+				&.twitter-feed{
+
+					@include breakpoint(small only) {  @include grid-column(12); @include grid-column-position(center);  }
+					@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center);}
+					@include breakpoint(large) {  @include grid-column(3); }
+					@include breakpoint(xlarge) {  @include grid-column(3); }
+
+					.aole-feed-content-container {
+						background-color: $dark-bg;
+						border-radius:5px;
+
 					}
-					@include breakpoint(medium only) {  
-						@include grid-column(12,0); 
-						@include grid-column-position(center);
+
+					.twitter-feed-content{
+						@include breakpoint(small) {
+							@include grid-column(12);
+						}
+						@include breakpoint(large) {	
+							@include grid-column(12); @include grid-column-position(center);	
+						}
+
+						padding:5%;
+
+						border-radius:5px;
 					}
-					@include breakpoint(large) {  @include grid-column(12); }
-					@include breakpoint(xlarge) {  @include grid-column(8); }
+
+
+
+
 				}
 
-				.aole-feed-image{
-					@include breakpoint(small only) {  
-						@include grid-column(8); 
-						@include grid-column-position(center); 
-					}
-					@include breakpoint(medium only) { 
-						@include grid-column(12);
-						@include grid-column-position(center);
-					}
-					@include breakpoint(large only) {  @include grid-column(9); @include grid-column-position(center); }
+
+				////////////// NEWS FEED STYLING //////////////
+
+				&.news-feed{
+					@include breakpoint(small only) {  @include grid-column(12); @include grid-column-position(center);  }
+					@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center);}
+					@include breakpoint(large) {  @include grid-column(4); }
 					@include breakpoint(xlarge) {  @include grid-column(4); }
+
+
+
+					.aole-news-content{
+						@include breakpoint(small only) {  
+							@include grid-column(12,0); 
+							@include grid-column-position(center); 
+						}
+						@include breakpoint(medium only) {  
+							@include grid-column(12,0); 
+							@include grid-column-position(center);
+						}
+						@include breakpoint(large) {  @include grid-column(12); }
+						@include breakpoint(xlarge) {  @include grid-column(12); }
+
+						h4 {
+							font-size:20px;
+						}
+					}
+
+					.aole-news-image{
+						@include breakpoint(small only) {  
+							@include grid-column(8); 
+							@include grid-column-position(center); 
+						}
+						@include breakpoint(medium only) { 
+							@include grid-column(12);
+							@include grid-column-position(center);
+						}
+						@include breakpoint(large only) {  @include grid-column(12); @include grid-column-position(center); }
+						@include breakpoint(xlarge) {  @include grid-column(12); }
+					}
+
+					.aole-news-button{
+						@include grid-column(12);
+						margin-top:10px;
+					}
 				}
-			}
-		}
 
+				////////////// NEXT EVENT FEED STYLING //////////////
 
-		.twitter-feed{
-			@include breakpoint(small) { @include grid-column(12); }
-			@include breakpoint(large) { @include grid-column(6); }
+				&.next-event-feed{
 
-			.twitter-feed-content-container{
-				@include grid-row();
+					@include breakpoint(small only) {  @include grid-column(12); @include grid-column-position(center);  }
+					@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center);}
+					@include breakpoint(large) {  @include grid-column(5); }
+					@include breakpoint(xlarge) {  @include grid-column(5); }
 
-				.twitter-feed-title{
-					@include grid-column(12,0);
-					margin-bottom:2%;
-					h2{padding:1% 2% 1% 2%;}
 				}
 
-				.twitter-feed-content{
-					@include grid-column(12);
 				
+			}
+
+
+
+		}
+
+
+	}
+
+
+	.next-event.front-event{
+
+		.event{border-bottom:0;}
+
+		background-color: $light-bg;
+		@if ($debug) {background-color:blue;}
+		@include breakpoint(small only) {  @include grid-column(12); padding-top:4%;}
+		@include breakpoint(medium only) { 
+			@include grid-column(10);
+			@include grid-column-position(center);
+			border-left:1px solid $dark-bg;
+		}
+		@include breakpoint(large) {  @include grid-column(12); }
+		@include breakpoint(xlarge) {  @include grid-column(12); }
+
+		.next-event-heading{
+			margin-top:3%;
+			h2{
+				color:$colored-primary-heading;
+				font-family:$body-font;
+				font-style:italic;
+			}
+			@include breakpoint(small) {
+				@include grid-column(12); @include grid-column-unposition;
+			}
+			@include breakpoint(large) {
+				@include grid-column(12);
+			}
+		}
+
+		.event-information-container{
+			@include breakpoint(small) {  @include grid-column(6); text-align:left; @include grid-column-unposition;   }
+			@include breakpoint(medium) {  @include grid-column(6); text-align:right;  }
+			@include breakpoint(large) {  @include grid-column(6); text-align:right; }
+
+
+		}
+
+		.event-image-container{
+			@include breakpoint(small) {  @include grid-column(6); @include grid-column-unposition;  }
+			@include breakpoint(medium) {  @include grid-column(6);}
+			@include breakpoint(large) {  @include grid-column(6); }
+
+		}
+
+		.event-title-container{
+			@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition; }
+			@include breakpoint(medium) {  @include grid-column(12); }
+			@include breakpoint(large) {  @include grid-column(12); }
+			text-align:left;
+		}
+
+		.see-more-events{
+			@include grid-row();
+
+			p {
+				@include grid-column(4); @include grid-column-position(center);
+
+				a {
+					margin-top:3%;
 				}
+
 			}
 		}
-	}
-
-
-}
-
-
-.next-event.front-event{
-
-	.event{border-bottom:0;}
-
-	background-color: $light-bg;
-	@if ($debug) {background-color:blue;}
-	@include breakpoint(small only) {  @include grid-column(12); padding-top:4%;}
-	@include breakpoint(medium only) { 
-		@include grid-column(10);
-		@include grid-column-position(center);
-		border-left:1px solid $dark-bg;
-	}
-	@include breakpoint(large) {  @include grid-column(12); }
-	@include breakpoint(xlarge) {  @include grid-column(12); }
-
-	.next-event-heading{
-		margin-top:3%;
-		h2{
-			color:$colored-primary-heading;
-			font-family:$body-font;
-			font-style:italic;
-		}
-		@include breakpoint(small) {
-			@include grid-column(12); @include grid-column-unposition;
-		}
-		@include breakpoint(large) {
-			@include grid-column(4); @include grid-column-position(center);
-		}
-	}
-
-	.event-information-container{
-		@include breakpoint(small) {  @include grid-column(6); text-align:left; @include grid-column-unposition;   }
-		@include breakpoint(medium) {  @include grid-column(4); text-align:right; @include grid-column-position(-5); }
-		@include breakpoint(large) {  @include grid-column(4); text-align:right; }
-
 
 	}
-
-	.event-image-container{
-		@include breakpoint(small) {  @include grid-column(6); @include grid-column-unposition;  }
-		@include breakpoint(medium) {  @include grid-column(3); @include grid-column-position(-5);}
-		@include breakpoint(large) {  @include grid-column(3); }
-
-	}
-
-	.event-title-container{
-		@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition; }
-		@include breakpoint(medium) {  @include grid-column(5);  @include grid-column-position(7);}
-		@include breakpoint(large) {  @include grid-column(5); }
-		text-align:left;
-	}
-
-	.see-more-events{
-		@include grid-row();
-
-		p {
-			@include grid-column(4); @include grid-column-position(center);
-
-			a {
-				margin-top:3%;
-			}
-
-		}
-	}
-
-}
 
 // "Pilots showcase" section, i.e. showcasing some of the most interesting pilots
 
@@ -469,7 +522,5 @@
 	}
 
 }
-
-
 
 
