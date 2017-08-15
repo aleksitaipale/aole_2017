@@ -1,13 +1,57 @@
+
+
 .top-bar {
+	.aole-logo{
+		max-height:58px;
+	}
+	
+	@include breakpoint(large) {
+		li a{ 
+			line-height:58px;
+		}
+	}
+
 	@include breakpoint(medium) {
-		padding: 2rem;
+		padding:2rem;
+
 		background-color:$white;
 
 		ul{
 			background-color:$white;
+			
 
 		}
 
 		border-bottom:1px solid $dark-bg;
+
+
 	}
+
+	@include breakpoint(medium only) {
+		.top-bar-right{
+			padding-top:10px;
+			display:block;
+			clear:both;
+			float:none;
+			margin:0 auto;
+			text-align:center;
+		}
+
+		.top-bar-left{
+			padding-left:15px;
+		}
+	}
+
+
+	
+
+
+}
+
+.top-bar-left{
+	@include breakpoint(medium only) { display:block; margin:0 auto;}
+}
+
+.top-bar-title, .site-mobile-title.title-bar-title{
+	font-family:$sans-heading;
 }

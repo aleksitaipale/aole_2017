@@ -85,7 +85,7 @@ get_header(); ?>
 
 				<div class="jobs-article-images">
 					<div class="jobs-article-image">
-
+						<?php the_post_thumbnail(); ?>
 					</div>
 
 				</div>

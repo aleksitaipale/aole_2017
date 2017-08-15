@@ -100,10 +100,20 @@
 				
 				img{
 					margin-top:10%;
-					border-left:40px solid $dark-bg;
-					padding-left:4%;
-
+					padding-left:10%;
+					background-color:$light-bg;
 					
+				}
+
+				.aole-article-image{
+					&:nth-child(even) img {
+						background-image:url("../images/patterns/horizontal-single-pattern.png");
+						
+					}
+					&:nth-child(odd) img {
+						background-image:url("../images/patterns/vertical-single-pattern.png");
+						
+					}
 				}
 			}
 		}

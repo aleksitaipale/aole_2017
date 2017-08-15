@@ -31,14 +31,15 @@ require_once("custom-functions.php"); // For logic needed on multiple pages (e.g
 			<div class="site-title-bar title-bar" <?php foundationpress_title_bar_responsive_toggle() ?>>
 				<div class="title-bar-left">
 					<button class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
-					<span class="site-mobile-title title-bar-title">
+					<span class="site-mobile-title title-bar-title">	
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					</span>
 				</div>
 			</div>
 			<nav class="site-navigation top-bar" role="navigation">
-				<div class="top-bar-left">
+				<div class="top-bar-left">					
 					<div class="site-desktop-title top-bar-title">
+						<img class="aole-logo" src="<?php echo get_template_directory_uri()."/assets/images/aole_logo_notext.png"; ?>" />
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					</div>
 				</div>
