@@ -55,7 +55,7 @@ $target_groups_section = get_field('target_groups_section');
 		</div>
 	</div>
 
-	<div class="patterned-divider-container"><div class="patterned-divider pattern1"></div></div>
+	<div class="patterned-divider-container"><div class="patterned-divider <?php echo get_custom_pattern_class(); ?>"></div>
 
 
 	<section class="aole-feed-container">

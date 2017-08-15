@@ -72,4 +72,12 @@ function get_all_theme_groups_and_pilots(){
 	return $theme_groups;
 }
 
+
+function get_custom_pattern_class(){
+
+	$patterns = ["pattern1", "pattern2", "pattern3", "pattern4"];
+
+	return $patterns[array_rand($patterns)];
+}
 ?>
+

@@ -11,7 +11,7 @@
 .theme-group-section{
 	@include grid-column(12);
 
-	border-bottom:1px solid $dark-bg;
+
 
 	&:last-child{
 		border-bottom:0;
@@ -39,9 +39,13 @@
 			// The quote associated with a theme group
 
 			.theme-quote{
+				background-color:lighten($dark-bg,45%);
+				border:1px solid $dark-bg;
+				padding:10px;
+				border-radius:5px;
 				display:inline-block;
 				vertical-align:middle;
-				font-size:1.2em;
+				font-size:0.8em;
 				color: $dark-secondary-heading;
 				.quote-content{
 					font-style: italic;

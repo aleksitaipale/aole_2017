@@ -76,8 +76,6 @@ get_header(); ?>
 						<span class="quote-content"><?php echo $custom_fields["quote"]; ?></span>
 						<span class="quote-author-name"><?php echo $custom_fields["author"]; ?></span>
 						<span class="quote-author-info"><?php echo $custom_fields["author_info"]; ?></span>
-						<hr>
-
 					</div>
 					<article class="theme-group-info">
 						<h2><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h2>
@@ -110,6 +108,7 @@ get_header(); ?>
 			</div>
 
 		</section>
+		<div class="patterned-divider-container"><div class="patterned-divider <?php echo get_custom_pattern_class(); ?>"></div></div>
 		<?php } // this ends the theme groups foreach ?> 
 
 
