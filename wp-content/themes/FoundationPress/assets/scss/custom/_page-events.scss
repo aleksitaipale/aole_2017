@@ -26,15 +26,15 @@
 		button {
 			margin-bottom:0;
 		}
-		h3{color: $light-body-text;}
+		h3{color: $dark-body-text;}
 		color:$dark-body-text;
 		@include breakpoint(small)  { @include grid-column(12);@include grid-column-unposition;}
 		@include breakpoint(medium)  { @include grid-column(10); @include grid-column-position(center); }
 		@include breakpoint(large) { @include grid-column(8); @include grid-column-position(center); }
 		@include breakpoint(xlarge)  { @include grid-column(6); @include grid-column-unposition;}
 		table, thead, tbody, tr, td{
-			background-color:$dark-bg;
-			color:$light-body-text;
+			background-color:$light-bg;
+			color:$dark-body-text;
 		}
 
 		table.em-calendar{
@@ -46,18 +46,25 @@
 			td{
 				background-color:$light-bg;
 				color:$dark-body-text;
+				font-weight:bold;
 			}
 
 			background-color:$light-bg;
 		}
 
 		td{
-			width:50px;
-			height:50px;
+			width:50px;height:50px;
+			max-width:50px;
+			max-height:50px;
+			button {
+				width:100%;
+				height:100%;
+				padding:0;
+			}
 
 
 			.em-calnav{
-				color:$light-body-text;
+				color:$dark-body-text;
 			}
 
 
