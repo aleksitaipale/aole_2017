@@ -32,7 +32,7 @@ get_header(); ?>
 								<?php echo do_shortcode("[events_calendar long_events=1 full=0 month=".date('n')."]"); ?>
 							</div>
 							<div id="day-event-list">
-								
+
 								<b>Click</b> on a day in the calendar to see that day's events!
 							</div>
 						</div>
@@ -159,7 +159,7 @@ get_header(); ?>
 									</ul>
 									<!-- Facilitator(s) -->
 									<ul class="event-facilitator-list">
-										<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."ß</li>"; } ?>
+										<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
 									</ul>
 									<!-- Event title -->
 									<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h5><?php echo $event["event"]->event_name; ?></h5></a>	
