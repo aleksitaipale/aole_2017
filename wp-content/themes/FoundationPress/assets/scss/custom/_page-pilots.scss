@@ -3,7 +3,7 @@
 
 	.right-header-container {
 
-		background-image:url("../images/patterns/horizontal-single-pattern.png");
+		img { background-image:url("../images/patterns/horizontal-single-pattern-white.png"); }
 	}
 
 // Section for a theme group
@@ -73,15 +73,7 @@
 			@include breakpoint(large) {  @include grid-layout(4, '.pilot-listing-item', $grid-column-gutter); }
 			@include breakpoint(xlarge) {  @include grid-layout(5, '.pilot-listing-item', $grid-column-gutter); }
 
-			img{
-				@include breakpoint(large) {
-					padding-left:5px;
-				}
-
-				@include breakpoint(xlarge) {
-					padding-left:5px;
-				}
-			}
+	
 
 			.pilot-listing-item{
 				h4 {

@@ -17,10 +17,10 @@ get_header(); ?>
 		<div class="about-description-container left-header-container" data-equalizer-watch>
 			<?php do_action( 'foundationpress_before_content' ); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-				<article <?php post_class('about-description-content left-header') ?> id="post-<?php the_ID(); ?>">
+				<article <?php post_class('about-description left-header') ?> id="post-<?php the_ID(); ?>">
 					
 					<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
-					<div class="entry-content left-header-content">
+					<div class="entry-content about-description-content left-header-content">
 						<header>
 							<h2 class="entry-title"><?php the_title(); ?></h2>
 						</header>

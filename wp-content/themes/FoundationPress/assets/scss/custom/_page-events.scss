@@ -2,7 +2,7 @@
 
 	.right-header-container {
 
-		background-image:url("../images/patterns/horizontal-single-pattern.png");
+		img { background-image:url("../images/patterns/vertical-single-pattern-white.png"); }
 	}
 
 	h2 {
@@ -13,6 +13,11 @@
 	.left-header-content{
 		.ical-all-events-link{
 			@extend .aole-link;
+		}
+
+		hr {
+			margin-top:0;
+			border-bottom:1px solid white;
 		}
 	}
 
@@ -176,7 +181,7 @@
 
 }
 
-.events-page .event, .single-event .event{
+.events-page .upcoming-event, .single-event .event{
 	@include event-box-sizes(4,3,5);
 }
 .event{
@@ -239,11 +244,9 @@
 	}
 }
 
-.past-event {
+.events-page .past-event {
 
 	@include event-box-sizes(4,1,7);
-
-
 	
 
 }

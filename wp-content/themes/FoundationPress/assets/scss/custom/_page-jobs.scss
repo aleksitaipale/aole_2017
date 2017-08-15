@@ -2,10 +2,10 @@
 		.right-header-container{
 
 
-		background-image:url("../images/patterns/horizontal-single-pattern.png");
-	img {
-		padding:5%;
-	}
+
+			img {
+				background-image:url("../images/patterns/horizontal-single-pattern-white.png");
+			}
 		}
 		.jobs-article-container{
 			@include grid-column(12);

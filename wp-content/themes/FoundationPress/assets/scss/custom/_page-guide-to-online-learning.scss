@@ -1,0 +1,22 @@
+.guide-page{
+
+	//background-color:blue;
+
+	.left-header-container {
+		.left-header {
+			.left-header-content{
+				@include breakpoint(large) { @include grid-column(7); @include grid-column-position(center); }	
+			}
+			
+		}
+
+	}
+
+	.right-header-container{
+		border:none;
+
+		img {
+			background-image:url("../images/patterns/horizontal-single-pattern.png");
+		}
+	}
+}

@@ -27,11 +27,13 @@ get_header(); ?>
 							<a class="ical-all-events-link" href=<?php echo site_url( "/events.ics", $scheme ); ?>>iCal - export all events</a>
 							<?php the_content(); ?>
 							<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
-
+							<hr>
 							<div class="event-calendar">
 								<?php echo do_shortcode("[events_calendar long_events=1 full=0 month=".date('n')."]"); ?>
 							</div>
 							<div id="day-event-list">
+								
+								<b>Click</b> on a day in the calendar to see that day's events!
 							</div>
 						</div>
 						<footer>
