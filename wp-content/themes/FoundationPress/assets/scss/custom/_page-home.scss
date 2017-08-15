@@ -7,15 +7,16 @@
 .front-top-header-container{
 	@include grid-column(12);
 	background-image: url("../images/patterns/horizontal-single-pattern.png");	
-	
+	border-bottom:1px solid $dark-bg;
 	.front-top-header{
 		@include grid-row();
-		background-color:white;
+		background-color:$light-bg;
+
 
 		.left-box-container{
 
 			@include breakpoint(small) { @include grid-column(12); }
-			@include breakpoint(medium) { @include grid-column(6); }
+			@include breakpoint(medium) { @include grid-column(12); }
 			@extend .valign-parent;
 			.left-box{
 				@include grid-row();
@@ -34,22 +35,47 @@
 
 		}
 		.vr-box{
-			padding:3%;
 			max-height:50%;
 			@include breakpoint(small only) { @include grid-column(12); @include grid-column-position(center); }
-			@include breakpoint(medium) { @include grid-column(6); }
+			@include breakpoint(medium) { @include grid-column(12); }
 		}
 
 	}
 	
 }
 
+.headline-container{
+	@include grid-column(12);
+
+	.headline{
+		@include grid-row();
+
+		.headline-content{
+			@include breakpoint(small) { @include grid-column(11); @include grid-column-position(center); }
+			@include breakpoint(medium) { @include grid-column(10); @include grid-column-position(center); }
+			@include breakpoint(large) { @include grid-column(7); @include grid-column-position(center); }
+			text-align:center;
+			h3 {
+				font-family: $serif-heading;
+				color: $colored-primary-heading;
+				font-style:italic;
+				font-weight:normal;
+				background-color:$light-bg;
+				padding:3%;
+
+			}
+			
+			
+		}
+	}
+
+}
 .target-group-container{
 	@include grid-column(12);
 
 	.target-groups{
 		@include grid-row();
-		padding-top:5%;
+		
 		
 		h3{
 			text-align:center;

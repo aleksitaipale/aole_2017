@@ -13,18 +13,25 @@ $target_groups_section = get_field('target_groups_section');
 <div class="main-wrap front-page full-width" role="main">
 	<div class="front-top-header-container">
 		<div class="front-top-header" data-equalizer>
-			<div class="left-box-container" data-equalizer-watch>
-				<div class="left-box">
-					<article class="left-box-content">
-						<img class="aole-logo" src="<?php echo get_template_directory_uri()."/assets/images/aole_logo.png"; ?>" />
-						<!--<h2><?php echo $what_is_aole_section["what_is_aole_title"]; ?></h2>-->
-						<?php echo $what_is_aole_section["what_is_aole_content"]; ?>
-					</article>
-				</div>
-			</div>
 			<div class="vr-box" data-equalizer-watch>
 				<blockquote data-width="100%" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="<?php echo get_field('theta_360_image_url'); ?>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
 				<script async src="https://theta360.com/widgets.js" charset="utf-8"></script>
+			</div>
+			<!--<div class="left-box-container" data-equalizer-watch>
+				<div class="left-box">
+					<article class="left-box-content">
+						<img class="aole-logo" src="<?php echo get_template_directory_uri()."/assets/images/aole_logo.png"; ?>" />
+						<h2><?php echo $what_is_aole_section["what_is_aole_title"]; ?></h2>
+						<?php echo $what_is_aole_section["what_is_aole_content"]; ?>
+					</article>
+				</div>
+			</div>-->
+		</div>
+	</div>
+	<div class="headline-container">
+		<div class="headline">
+			<div class="headline-content">
+				<h3><?php echo $what_is_aole_section["what_is_aole_content"]; ?></h3>
 			</div>
 		</div>
 	</div>
