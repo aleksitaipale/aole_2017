@@ -1,13 +1,16 @@
 
 .page-feed{
 
-
+	.right-header-content{
+		img {
+			background-image:url("../images/patterns/horizontal-single-pattern-white.png");
+		}
+	}
 
 	.feed-article-container{
 		@include grid-column(12);
 		padding-top:2%;
 		padding-bottom:2%;
-		border-bottom:1px solid $dark-bg;
 
 		.feed-article{
 			@include grid-row();
