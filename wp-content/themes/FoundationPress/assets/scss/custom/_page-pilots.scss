@@ -48,11 +48,9 @@
 				font-size:0.8em;
 				color: $dark-secondary-heading;
 				.quote-content{
-					font-style: italic;
-					font-weight:bold;
 					font-size:1.2em;
 					color: $colored-primary-heading;
-					font-family: $serif-body;
+		
 				}
 
 				.quote-author-name {
@@ -81,9 +79,7 @@
 
 			.pilot-listing-item{
 				h4 {
-					font-family:$serif-heading;
 					margin-top:10px;
-					font-size:1.2em;
 
 					@include breakpoint(small) {
 						font-size:1em;

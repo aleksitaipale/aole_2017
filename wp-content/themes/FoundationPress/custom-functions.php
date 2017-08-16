@@ -79,5 +79,17 @@ function get_custom_pattern_class(){
 
 	return $patterns[array_rand($patterns)];
 }
+
+function format_event_date($start_date, $end_date){
+
+	$start_date = date_create($start_date);
+	$end_date = date_create($end_date);
+	if ($start_date != $end_date){
+		return date_format($start_date, "D d F")."-".date_format($end_date, "D d F");
+	} else {
+		return date_format($start_date, "D d F");
+	}
+	
+}
 ?>
 

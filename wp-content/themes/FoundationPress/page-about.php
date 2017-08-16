@@ -49,7 +49,7 @@ get_header(); ?>
 			<section class="team-members-container right-header-container" data-equalizer-watch>
 				<div class="right-header">
 					<div class="team-members right-header-content">
-						<h2>Core team</h2>
+						<h3>Core team</h3>
 
 						<?php
 

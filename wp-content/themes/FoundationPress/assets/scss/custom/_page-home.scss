@@ -68,10 +68,8 @@
 			@include breakpoint(large) { @include grid-column(7); @include grid-column-position(center); }
 			text-align:center;
 			h3 {
-				font-family: $serif-heading;
 				color: $colored-primary-heading;
-				font-style:italic;
-				font-weight:normal;
+
 				background-color:$light-bg;
 				padding:3%;
 
@@ -96,8 +94,6 @@
 		h3{
 			text-align:center;
 
-			font-family: $serif-heading;
-			font-style:italic;
 		}
 		text-align:center;
 		p {text-align:justify;}
@@ -212,8 +208,7 @@
 
 	h3{
 		border-bottom:1px solid $dark-bg;
-		font-family: $serif-heading;
-		font-style:italic;
+
 	}
 
 
@@ -256,7 +251,7 @@
 					@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center);}
 					@include breakpoint(large) {  @include grid-column(3); }
 					@include breakpoint(xlarge) {  @include grid-column(3); }
-					
+
 					.aole-feed-content-container {
 						
 						border-radius:5px;
@@ -451,8 +446,6 @@
 			margin-top:3%;
 			h2{
 				color:$colored-primary-heading;
-				font-family:$serif-heading;
-				font-style:italic;
 			}
 			@include breakpoint(small) {
 				@include grid-column(12); @include grid-column-unposition;
@@ -513,8 +506,7 @@
 
 		h2{
 			color: $light-primary-heading;
-			font-family:$serif-heading;
-			font-style:italic;
+
 		}
 
 		.aole-pilots-listing{

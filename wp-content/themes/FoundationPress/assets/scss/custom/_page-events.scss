@@ -127,7 +127,7 @@
 			@include breakpoint(small) {  @include grid-column(12);   }
 			@include breakpoint(medium) {  @include grid-column(12); }
 			@include breakpoint(large) {  @include grid-column(12);  }
-			padding-left:0;margin-left:0;
+
 		}
 
 
@@ -194,13 +194,17 @@
 }
 .event{
 	@include grid-row();
-	border-bottom:1px solid $grey-border;
+	@include breakpoint(medium) { border-bottom:1px solid $grey-border; }
 	padding-bottom:2%;
 	padding-top:2%;
 
 
-
-
+	.event-date-full-width{
+		@include show-for-only(small);
+	}
+	.event-image-container{
+		text-align:center;
+	}
 	.event-title-container{
 		@include breakpoint(small) { 
 			h3{
@@ -211,27 +215,42 @@
 
 	}
 
+	.event-date-full-width{
+		@include grid-column(12);
+		width:100%;
+		@extend .label;
+		@extend .primary;
+	}
+
 	.event-date{
 		font-weight:700; 
+		margin-bottom:7px;
+
+		@extend .label;
+		@extend .primary;
+
 	}
 	.event-time{
 
 	}
-	.event-location{ font-style: italic; }
-	.event-for-pilots{ color: $colored-primary-heading; font-weight:700; }
+	.event-location, .event-for-pilots, .event-time, .export-event-to-ical {
+		font-size:0.8em;
+	}
+	//.event-location{ font-style: italic; }
+	//.event-for-pilots{ color: $colored-primary-heading; font-weight:700; }
 	.event-thumbnail{
 		width:250px;
 		max-width:100%;
 	}
 	.event-category-list{
 		list-style-type:none;
-		padding:0;margin:0;
+		margin-left:0;
+		padding-bottom:0; margin-bottom:0;
+		font-size:0.8em;
 		li{
 			font-weight:700;
-			font-size:0.9em;
-			color: $colored-primary-heading;
-			padding-left:0; margin-left:0;
-			list-style-type: none;
+			list-style-type:none;
+			margin-right:4px;
 		}
 	}
 	ul.event-facilitator-list{
@@ -241,8 +260,7 @@
 		li{
 			padding-left:0; margin-left:0; padding-bottom:0;
 			list-style-type: none;
-			
-			font-weight:500;
+			font-size:0.8em;
 		}
 	}
 	.event-title{
@@ -255,6 +273,12 @@
 .events-page .past-event {
 
 	@include event-box-sizes(4,1,7);
+	.event-image-container{
+		@include breakpoint(small only) {  @include grid-column(4); @include grid-column-unposition;  }
+	}
+	.event-information-container{
+		@include breakpoint(small only) { @include grid-column(8); @include grid-column-unposition; }
+	}
 	
 
 }
