@@ -32,14 +32,14 @@
 
 // Vertical align hack
 
-.valign-parent{
-	display:table;
 
-}
 
-.valign-child{
-	display:table-cell;
-	vertical-align:middle;
+.valign{
+
+	@include breakpoint(large) { position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
 }
 
 
@@ -99,9 +99,9 @@ body {
 	
 	.left-header{		
 		@include grid-row();
-			
-		
 
+
+		@extend .valign;
 		.left-header-content {
 			padding:2%;
 			
@@ -133,13 +133,14 @@ body {
 		@include grid-row();
 
 		text-align:center;
-
+		
+		@extend .valign;
 		.right-header-content{
-			position: relative;
 			@include breakpoint(small) {  @include grid-column(12); @include grid-column-position(center); }
 			@include breakpoint(medium) {  @include grid-column(12); @include grid-column-position(center);}
 			@include breakpoint(large) {  @include grid-column(11); @include grid-column-unposition; }
 			@include breakpoint(xlarge) {  @include grid-column(11);   }
+
 
 			img {
 				padding:10%;

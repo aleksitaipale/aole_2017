@@ -13,27 +13,7 @@
 		background-color:$light-bg;
 
 
-		.left-box-container{
 
-			@include breakpoint(small) { @include grid-column(12); }
-			@include breakpoint(medium) { @include grid-column(12); }
-			@extend .valign-parent;
-			.left-box{
-				@include grid-row();
-				@extend .valign-child;
-
-
-				.aole-logo{
-					max-height:300px;
-
-				}
-				.left-box-content{
-					text-align:center;
-					@include breakpoint(small) { @include grid-column(12); }
-				}
-			}
-
-		}
 		.vr-box{
 			@include breakpoint(small only) { @include grid-column(12); @include grid-column-position(center); }
 			@include breakpoint(medium) { @include grid-column(12); }

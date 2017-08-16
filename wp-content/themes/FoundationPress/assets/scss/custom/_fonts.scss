@@ -4,7 +4,8 @@ The fonts are defined here. Also, each of them has a default color, but those ar
 
 $serif-body: "Sentinel", Georgia, serif;
 $serif-heading: "Sentinel", Georgia, serif;
-$sans-heading: "Nimbus Sans Bold", "Arial", sans-serif;
+$sans-heading: "Nimbus Sans", "Arial", sans-serif;
+
 
 
 a.post-edit-link{
@@ -48,6 +49,16 @@ h5{
 
 
 body {
+
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+
 	font-family: $serif-body;
 
 	article p {
