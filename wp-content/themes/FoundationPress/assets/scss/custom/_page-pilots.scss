@@ -10,6 +10,7 @@
 
 .theme-group-section{
 	@include grid-column(12);
+	border-bottom:1px solid $light-grey;
 
 
 
@@ -39,27 +40,43 @@
 			// The quote associated with a theme group
 
 			.theme-quote{
-				background-color:lighten($dark-bg,45%);
-				border:1px solid $dark-bg;
-				padding:10px;
-				border-radius:5px;
+				@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition;}
+				@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition;}
+				@include breakpoint(large) {  @include grid-column(5,0); @include grid-column-position(6); @include grid-column-offset(1);}
+
+				.theme-quote-underline{
+					background-image:url("../images/patterns/horizontal-single-line.png");
+					background-repeat:repeat-x;
+
+					background-position:10% 0%;
+					background-size:10em;
+					height:30px;
+					width:100%;
+				}
+				
+
+
 				display:inline-block;
 				vertical-align:middle;
 				font-size:0.8em;
 				color: $dark-secondary-heading;
+				padding-bottom:50px;
+				//padding-right:0 !important;padding-left:0 !important;
+				.theme-quote-content{
+					background-color:$light-bg;
+					padding:0 3% 3% 3%;
+				}
 				.quote-content{
 					font-size:1.2em;
+					
 					color: $colored-primary-heading;
-		
+
 				}
 
 				.quote-author-name {
 					font-weight:bold;
 				}
 				@if ($debug) {background-color:green;}
-				@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition;}
-				@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition;}
-				@include breakpoint(large) {  @include grid-column(5); @include grid-column-position(6); @include grid-column-offset(1);}
 			}
 			
 			
@@ -75,7 +92,7 @@
 			@include breakpoint(large) {  @include grid-layout(4, '.pilot-listing-item', $grid-column-gutter); }
 			@include breakpoint(xlarge) {  @include grid-layout(5, '.pilot-listing-item', $grid-column-gutter); }
 
-	
+
 
 			.pilot-listing-item{
 				h4 {
