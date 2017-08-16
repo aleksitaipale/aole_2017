@@ -192,6 +192,18 @@
 .events-page .upcoming-event, .single-event .event{
 	@include event-box-sizes(4,3,5);
 }
+.event-date-full-width{
+	@include show-for-only(small);
+
+	margin-bottom:5px;
+}
+
+.event-container{
+	@include breakpoint(small) {
+		margin-top:20px;
+	}
+}
+
 .event{
 	@include grid-row();
 
@@ -200,16 +212,11 @@
 	padding-top:2%;
 	@include breakpoint(small only) { 
 		border-left: 1px solid $dark-bg; 
-		margin-top:20px;
 		padding-top:0;
 	}
 
 
-	.event-date-full-width{
-		@include show-for-only(small);
-
-		margin-bottom:5px;
-	}
+	
 	.event-image-container{
 		text-align:center;
 	}

@@ -240,6 +240,7 @@
 				margin-bottom:2%;
 				background-color:$light-bg;
 				@include grid-column(12, 0);
+				clear:both;
 			}
 
 
@@ -342,12 +343,17 @@
 
 					.event {
 
-
 						padding-top:0;
 						border-bottom:0;
 
 						.event-information-container{
 							@include grid-column(6);
+
+							.event-date{
+								padding:0; margin:0;
+								background:none;
+								color: $colored-primary-heading;
+							}
 						}
 
 						.event-title-container{
@@ -377,9 +383,9 @@
 							width:250px;
 							max-width:100%;
 						}
-					
-					
-					
+
+
+
 
 					}
 

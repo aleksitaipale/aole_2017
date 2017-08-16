@@ -147,8 +147,18 @@ $target_groups_section = get_field('target_groups_section');
 							?>
 
 							<div class="aole-feed-content event">
-
+								<div class="event-date-full-width">
+									<?php 
+									echo format_event_date($event["event"]->event_start_date,$event["event"]->event_end_date);
+									?>
+								</div>
 								<div class="event-title-container">
+									<!-- Date -->
+									<span class="event-date">
+										<?php 
+										echo format_event_date($event["event"]->event_start_date,$event["event"]->event_end_date);
+										?>
+									</span>
 									<!-- Facilitator(s) -->
 									<ul class="event-facilitator-list">
 										<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
@@ -161,18 +171,19 @@ $target_groups_section = get_field('target_groups_section');
 									<img class="event-thumbnail" src="<?php echo get_the_post_thumbnail_url($event["event"]->post_id, 'square-large'); ?>" />
 								</div>
 								<div class="event-information-container">
+
+									<!-- Event categories -->
+									<ul class="event-category-list">
+										<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
+									</ul>
 									<!-- Date -->
 									<span class="event-date">
 										<?php 
 										echo format_event_date($event["event"]->event_start_date,$event["event"]->event_end_date);
 										?>
 									</span>
-									<!-- Event categories -->
-									<ul class="event-category-list">
-										<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
-									</ul>
 									<!-- Time -->
-									<div class="event-time"><?php echo $event["event"]->event_start_time."-".$event["event"]->event_end_time; ?></div>
+									<div class="event-time"><?php echo substr($event["event"]->event_start_time, 0, -3)."-".substr($event["event"]->event_end_time, 0, -3); ?></div>
 									<!-- Location -->
 									<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
 									<!-- Only for pilots? -->
