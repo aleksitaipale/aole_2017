@@ -1,5 +1,18 @@
 
 
+// hover.scss effects
+
+.top-bar li a {
+	@include bounce-to-bottom();
+}
+
+.image-link {
+	@include shrink();
+}
+
+.single-carousel-pilot h4{
+
+}
 //custom section divider
 
 .patterned-divider-container{

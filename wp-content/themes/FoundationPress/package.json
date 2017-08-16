@@ -70,5 +70,6 @@
     "postinstall": "bower install && gulp build",
     "production": "gulp --production",
     "watch": "gulp"
-  }
+  },
+  "dependencies": {}
 }

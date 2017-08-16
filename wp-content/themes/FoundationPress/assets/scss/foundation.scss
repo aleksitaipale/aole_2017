@@ -98,10 +98,13 @@
 $debug: false;
 $grid-column-align-edge: false;	
 
+//IMPORT SLICK LIBRARY
 
 @import "slick/slick";
 @import "slick/slick-theme";
 
+//IMPORT HOVER.CSS LIBRARY
+@import "hover/hover";
 @import "custom/colors";  // OK
 @import "custom/general"; // OK
 @import "custom/fonts";

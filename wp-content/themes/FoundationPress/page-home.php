@@ -147,7 +147,7 @@ $target_groups_section = get_field('target_groups_section');
 							?>
 
 							<div class="aole-feed-content event">
-					
+
 								<div class="event-title-container">
 									<!-- Date -->
 									<span class="event-date">
@@ -224,7 +224,7 @@ $target_groups_section = get_field('target_groups_section');
 					<div class="pilots-carousel">
 						<?php foreach ($pilots_showcase_section["showcased_pilots"] as $showcase_pilot): ?>
 							<div class="single-carousel-pilot">
-								<a href="<?php echo get_the_permalink($showcase_pilot->ID); ?>"><img src="<?php echo get_the_post_thumbnail_url($showcase_pilot->ID, 'pilot-showcase'); ?>" /></a>
+								<a class="image-link" href="<?php echo get_the_permalink($showcase_pilot->ID); ?>"><img src="<?php echo get_the_post_thumbnail_url($showcase_pilot->ID, 'pilot-showcase'); ?>" /></a>
 								<h4>
 									<a href="<?php echo get_the_permalink($showcase_pilot->ID); ?>">
 										<?php echo $showcase_pilot->post_title; ?>

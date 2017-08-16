@@ -15,4 +15,3 @@ jQuery(".event-calendar").on( "click", ".eventful button", function(){
 	}
 
 });
-

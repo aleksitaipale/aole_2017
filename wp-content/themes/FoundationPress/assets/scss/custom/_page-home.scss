@@ -22,9 +22,9 @@
 				@include show-for-only(small);
 			}
 			&.vr-box-medium{
-				@include show-for(medium);
+				@include show-for-only(medium);
 				
-				@include hide-for(xxlarge);
+				
 			}
 
 			&.vr-box-large{
