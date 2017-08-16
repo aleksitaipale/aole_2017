@@ -1,3 +1,5 @@
+
+
 //custom section divider
 
 .patterned-divider-container{
@@ -90,15 +92,14 @@ body {
 		color: $light-body-text;
 	}
 	@if ($debug) {background-color:red;}
-	@include breakpoint(small) {  @include grid-column(12); }
-	@include breakpoint(medium) {  @include grid-column(12); }
-	@include breakpoint(large) {  @include grid-column(6); }
-	@extend .valign-parent;
+	@include breakpoint(small) {  @include grid-column(12);@include grid-column-unposition; }
+	@include breakpoint(medium) {  @include grid-column(12);@include grid-column-unposition; }
+	@include breakpoint(large) {  @include grid-column(6); @include grid-column-position(-6); }
+
 	
 	.left-header{		
 		@include grid-row();
-		@extend .valign-child;
-		
+			
 		
 
 		.left-header-content {
@@ -122,16 +123,15 @@ body {
 .right-header-container{
 	background-color:$dark-bg;
 	@if ($debug) {background-color:blue;}
-	@include breakpoint(small) {  @include grid-column(12); }
-	@include breakpoint(medium) {  @include grid-column(12); }
-	@include breakpoint(large) {  @include grid-column(6); }
+	@include breakpoint(small) {  @include grid-column(12);@include grid-column-unposition; }
+	@include breakpoint(medium) {  @include grid-column(12); @include grid-column-unposition; }
+	@include breakpoint(large) {  @include grid-column(6); @include grid-column-position(6);}
 	border-bottom: 2px solid $dark-bg;
 	border-top: 2px solid $dark-bg;
-	@extend .valign-parent;
+
 	.right-header{
 		@include grid-row();
 
-		@extend .valign-child;
 		text-align:center;
 
 		.right-header-content{

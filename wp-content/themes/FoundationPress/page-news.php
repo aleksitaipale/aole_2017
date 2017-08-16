@@ -16,7 +16,18 @@ get_header(); ?>
 <div class="main-wrap page-feed full-width" role="main">
 
 	<div data-equalizer>
-		<div class=" left-header-container" data-equalizer-watch>
+
+		<section class="right-header-container" data-equalizer-watch>
+			<div class="right-header">
+				<div class="right-header-content">
+					
+					<?php the_post_thumbnail(); ?>
+
+				</div>
+
+			</div>
+		</section>
+		<div class="left-header-container" data-equalizer-watch>
 			<?php do_action( 'foundationpress_before_content' ); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
 				<article <?php post_class('left-header') ?> id="post-<?php the_ID(); ?>">
@@ -47,17 +58,6 @@ get_header(); ?>
 					</article>
 				</div>
 			<?php endwhile;?>
-
-			<section class="right-header-container" data-equalizer-watch>
-				<div class="right-header">
-					<div class="right-header-content">
-						
-						<?php the_post_thumbnail(); ?>
-
-					</div>
-
-				</div>
-			</section>
 		</div>
 
 		<?php 

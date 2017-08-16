@@ -14,6 +14,15 @@ get_header(); ?>
 
 <div class="main-wrap guide-page full-width" role="main">
 	<div data-equalizer>
+		
+		<section class="right-header-container" data-equalizer-watch>
+			<div class="right-header">
+				<div class="right-header-content">
+					<?php the_post_thumbnail(); ?>
+				</div>
+
+			</div>
+		</section>
 		<div class="guide-description-container left-header-container" data-equalizer-watch>
 			<?php do_action( 'foundationpress_before_content' ); ?>
 			<?php while ( have_posts() ) : the_post(); ?>
@@ -45,17 +54,6 @@ get_header(); ?>
 					</article>
 				</div>
 			<?php endwhile;?>
-
-			<section class="right-header-container" data-equalizer-watch>
-				<div class="right-header">
-					<div class="right-header-content">
-						
-						<?php the_post_thumbnail(); ?>
-
-					</div>
-
-				</div>
-			</section>
 		</div>
 
 		<?php do_action( 'foundationpress_after_content' ); ?>
