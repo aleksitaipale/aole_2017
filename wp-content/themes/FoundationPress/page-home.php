@@ -147,11 +147,7 @@ $target_groups_section = get_field('target_groups_section');
 							?>
 
 							<div class="aole-feed-content event">
-								<div class="event-date-full-width">
-									<?php 
-									echo format_event_date($event["event"]->event_start_date,$event["event"]->event_end_date);
-									?>
-								</div>
+					
 								<div class="event-title-container">
 									<!-- Date -->
 									<span class="event-date">
