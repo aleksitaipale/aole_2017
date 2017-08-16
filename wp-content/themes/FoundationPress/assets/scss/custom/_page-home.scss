@@ -487,9 +487,12 @@
 		.aole-pilots-listing{
 			@include breakpoint(small) {  @include grid-column(12); }
 			@include breakpoint(medium) {  @include grid-column(12); }
-
 		}
 	}
+}
+
+.single-carousel-pilot h4 a {
+	color: $light-primary-heading;
 }
 
 .slick-prev, .slick-next{

@@ -227,7 +227,14 @@ $target_groups_section = get_field('target_groups_section');
 					<h2><?php echo $pilots_showcase_section["title_for_aole_pilots_showcase_section"]; ?></h2>
 					<div class="pilots-carousel">
 						<?php foreach ($pilots_showcase_section["showcased_pilots"] as $showcase_pilot): ?>
-							<a href="<?php echo get_the_permalink($showcase_pilot->ID); ?>"><div class="single-carousel-pilot"><img src="<?php echo get_the_post_thumbnail_url($showcase_pilot->ID, 'pilot-showcase'); ?>" /></div></a>
+							<div class="single-carousel-pilot">
+								<a href="<?php echo get_the_permalink($showcase_pilot->ID); ?>"><img src="<?php echo get_the_post_thumbnail_url($showcase_pilot->ID, 'pilot-showcase'); ?>" /></a>
+								<h4>
+									<a href="<?php echo get_the_permalink($showcase_pilot->ID); ?>">
+										<?php echo $showcase_pilot->post_title; ?>
+									</a>
+								</h4>
+							</div>
 						<?php endforeach; ?>
 					</div>
 
