@@ -37,62 +37,62 @@ $target_groups_section = get_field('target_groups_section');
 				<h3><?php echo $what_is_aole_section["what_is_aole_content"]; ?></h3>
 				<?php echo $what_is_aole_section["email_form_introduction"]; ?>
 				<!-- Begin MailChimp Signup Form -->
-<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
-<style type="text/css">
-	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+				<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+				<style type="text/css">
+					#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
 	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+	We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
 </style>
 <div id="mc_embed_signup">
-<form action="//aalto.us16.list-manage.com/subscribe/post?u=18b81c9c3228260654c214afb&amp;id=2aaa357741" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-    <div id="mc_embed_signup_scroll">
-	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-    <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_18b81c9c3228260654c214afb_2aaa357741" tabindex="-1" value=""></div>
-    <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-    </div>
-</form>
+	<form action="//aalto.us16.list-manage.com/subscribe/post?u=18b81c9c3228260654c214afb&amp;id=2aaa357741" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+		<div id="mc_embed_signup_scroll">
+			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+			<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+			<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_18b81c9c3228260654c214afb_2aaa357741" tabindex="-1" value=""></div>
+			<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+		</div>
+	</form>
 </div>
 
 <!--End mc_embed_signup-->
 
+</div>
+</div>
+</div>
+<div class="patterned-divider-container"><div class="patterned-divider pattern1"></div></div>
+
+<div class="target-group-container">
+	<div class="target-groups" data-equalizer>
+		<div class="teachers">
+			<div data-equalizer-watch>
+				<img src="<?php echo $target_groups_section["for_teachers_image"]; ?>" />
+				<h3><?php echo $target_groups_section["for_teachers_title"]; ?></h3>
+				<?php echo $target_groups_section["for_teachers_content"]; ?>
+			</div>
+		</div>
+		<div class="students" >
+			<div data-equalizer-watch>
+				<img src="<?php echo $target_groups_section["for_students_image"]; ?>" />
+				<h3><?php echo $target_groups_section["for_students_title"]; ?></h3>
+				<?php echo $target_groups_section["for_students_content"]; ?>
+			</div>
+		</div>
+		<div class="others" >
+			<div data-equalizer-watch>
+				<img src="<?php echo $target_groups_section["for_all_image"]; ?>" />
+				<h3><?php echo $target_groups_section["for_all_title"]; ?></h3>
+				<?php echo $target_groups_section["for_all_content"]; ?>
 			</div>
 		</div>
 	</div>
-	<div class="patterned-divider-container"><div class="patterned-divider pattern1"></div></div>
+</div>
 
-	<div class="target-group-container">
-		<div class="target-groups" data-equalizer>
-			<div class="teachers">
-				<div data-equalizer-watch>
-					<img src="<?php echo $target_groups_section["for_teachers_image"]; ?>" />
-					<h3><?php echo $target_groups_section["for_teachers_title"]; ?></h3>
-					<?php echo $target_groups_section["for_teachers_content"]; ?>
-				</div>
-			</div>
-			<div class="students" >
-				<div data-equalizer-watch>
-					<img src="<?php echo $target_groups_section["for_students_image"]; ?>" />
-					<h3><?php echo $target_groups_section["for_students_title"]; ?></h3>
-					<?php echo $target_groups_section["for_students_content"]; ?>
-				</div>
-			</div>
-			<div class="others" >
-				<div data-equalizer-watch>
-					<img src="<?php echo $target_groups_section["for_all_image"]; ?>" />
-					<h3><?php echo $target_groups_section["for_all_title"]; ?></h3>
-					<?php echo $target_groups_section["for_all_content"]; ?>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<div class="patterned-divider-container"><div class="patterned-divider <?php echo get_custom_pattern_class(); ?>"></div></div>
+<div class="patterned-divider-container"><div class="patterned-divider <?php echo get_custom_pattern_class(); ?>"></div></div>
 
 
-	<section class="aole-feed-container">
-		<div class="aole-feeds" data-equalizer>
-			<?php
+<section class="aole-feed-container">
+	<div class="aole-feeds" data-equalizer>
+		<?php
 
 					$blog_news_title = get_field("blog_news_title"); // this field has to be retrieved before the "loop inside a loop" to be able to be shown
 
@@ -201,8 +201,10 @@ $target_groups_section = get_field('target_groups_section');
 
 					<div class="aole-feed twitter-feed" data-equalizer-watch>
 						<div class="aole-feed-content-container">
+							<div class="aole-feed-title">
+								<h3>Twitter</h3>
+							</div>
 							<div class="twitter-feed-content">
-								<i class="fa fa-2x fa-twitter" aria-hidden="true"></i>
 								<?php echo do_shortcode("[twitter_profile screen_name='aaltoole' height='400']"); ?>
 							</div>
 						</div>
@@ -214,50 +216,50 @@ $target_groups_section = get_field('target_groups_section');
 
 
 
-		<?php $pilots_showcase_section = get_field("pilots_showcase_section"); ?>
-		<section class="pilots-showcase-container front-section">
-			<div class="aole-pilots-showcase">
-				<h2><?php echo $pilots_showcase_section["title_for_aole_pilots_showcase_section"]; ?></h2>
-				<div class="pilots-carousel">
-					<?php foreach ($pilots_showcase_section["showcased_pilots"] as $showcase_pilot): ?>
-						<a href="<?php echo get_the_permalink($showcase_pilot->ID); ?>"><div class="single-carousel-pilot"><img src="<?php echo get_the_post_thumbnail_url($showcase_pilot->ID, 'pilot-showcase'); ?>" /></div></a>
-					<?php endforeach; ?>
+			<?php $pilots_showcase_section = get_field("pilots_showcase_section"); ?>
+			<section class="pilots-showcase-container front-section">
+				<div class="aole-pilots-showcase">
+					<h2><?php echo $pilots_showcase_section["title_for_aole_pilots_showcase_section"]; ?></h2>
+					<div class="pilots-carousel">
+						<?php foreach ($pilots_showcase_section["showcased_pilots"] as $showcase_pilot): ?>
+							<a href="<?php echo get_the_permalink($showcase_pilot->ID); ?>"><div class="single-carousel-pilot"><img src="<?php echo get_the_post_thumbnail_url($showcase_pilot->ID, 'pilot-showcase'); ?>" /></div></a>
+						<?php endforeach; ?>
+					</div>
+
 				</div>
+			</section>
 
-			</div>
-		</section>
-
-		<?php $why_online_section = get_field("why_online_section"); ?>
-		<section class="why-online-container">
-			<div class="why-online" data-equalizer>
-				<div class="content" data-equalizer-watch>
-					<h2><?php echo $why_online_section["why_online_title"]; ?></h2>
-					<?php echo $why_online_section["why_online_content"]; ?>
+			<?php $why_online_section = get_field("why_online_section"); ?>
+			<section class="why-online-container">
+				<div class="why-online" data-equalizer>
+					<div class="content" data-equalizer-watch>
+						<h2><?php echo $why_online_section["why_online_title"]; ?></h2>
+						<?php echo $why_online_section["why_online_content"]; ?>
+					</div>
+					<div class="home-image" data-equalizer-watch>
+						<img src="<?php echo $why_online_section["why_online_featured_image"]; ?>" />
+					</div>
 				</div>
-				<div class="home-image" data-equalizer-watch>
-					<img src="<?php echo $why_online_section["why_online_featured_image"]; ?>" />
+			</section>
+
+			<?php $why_aole_section = get_field("why_aole_section"); ?>
+			<section class="why-aole-container" >
+				<div class="why-aole" data-equalizer>
+					<div class="content" data-equalizer-watch>
+						<h2><?php echo $why_aole_section["why_aole_title"]; ?></h2>
+						<?php echo $why_aole_section["why_aole_content"]; ?>
+					</div>
+					<div class="home-image" data-equalizer-watch>
+						<img src="<?php echo $why_aole_section["why_aole_featured_image"]; ?>" />
+					</div>
 				</div>
-			</div>
-		</section>
-
-		<?php $why_aole_section = get_field("why_aole_section"); ?>
-		<section class="why-aole-container" >
-			<div class="why-aole" data-equalizer>
-				<div class="content" data-equalizer-watch>
-					<h2><?php echo $why_aole_section["why_aole_title"]; ?></h2>
-					<?php echo $why_aole_section["why_aole_content"]; ?>
-				</div>
-				<div class="home-image" data-equalizer-watch>
-					<img src="<?php echo $why_aole_section["why_aole_featured_image"]; ?>" />
-				</div>
-			</div>
-		</section>
+			</section>
 
 
-		<?php do_action( 'foundationpress_after_content' ); ?>
+			<?php do_action( 'foundationpress_after_content' ); ?>
 
 
 
 
 
-		<?php get_footer();
+			<?php get_footer();

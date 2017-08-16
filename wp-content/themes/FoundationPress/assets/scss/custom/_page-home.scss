@@ -256,8 +256,7 @@
 					@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center);}
 					@include breakpoint(large) {  @include grid-column(3); }
 					@include breakpoint(xlarge) {  @include grid-column(3); }
-					background-color: $dark-bg;
-					border-radius:5px;
+					
 					.aole-feed-content-container {
 						
 						border-radius:5px;
