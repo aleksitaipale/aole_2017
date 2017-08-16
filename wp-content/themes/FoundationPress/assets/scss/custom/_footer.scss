@@ -1,7 +1,7 @@
 .footer-container{
 
 	margin-top:0;
-	padding-top:3%;
+	padding-top:1%;
 	padding-bottom:3%;
 	background-color:$dark-bg;
 	text-align:center;
@@ -13,5 +13,32 @@
 
 	.footer {
 		@include grid-row();
+
+
+		.footer-logos{
+			@include grid-column(4);
+			img {
+				height:120px;
+				padding:10px;
+			}
+
+			
+		}
+		.footer-text{
+			color:white;
+			a {
+				color: white;
+				text-decoration: underline;
+			}
+			@include grid-column(4);
+			text-align:left;
+			//background-color:blue;
+		}
+
+		.footer-links {
+			@include grid-column(4);
+			background-color:red,
+		}
+
 	}
 }

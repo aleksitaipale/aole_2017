@@ -213,7 +213,6 @@ $target_groups_section = get_field('target_groups_section');
 
 
 
-		</div>
 
 		<?php $pilots_showcase_section = get_field("pilots_showcase_section"); ?>
 		<section class="pilots-showcase-container front-section">

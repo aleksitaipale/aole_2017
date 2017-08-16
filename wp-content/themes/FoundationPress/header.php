@@ -29,7 +29,7 @@ require_once("custom-functions.php"); // For logic needed on multiple pages (e.g
 
 		<header class="site-header" role="banner">
 			<div class="aalto-header">
-				<a href="http://www.aalto.fi/en/"><img class="aalto-logo" src="<?php echo get_template_directory_uri()."/assets/images/aalto_small_white_logo.png"; ?>" /></a>
+				<a href="http://www.aalto.fi/en/"><img class="aalto-logo" src="<?php echo get_field('aalto_logo_small_white', 'option');?>" /></a>
 			</div>
 			<div class="site-title-bar title-bar" <?php foundationpress_title_bar_responsive_toggle() ?>>
 				<div class="title-bar-left">
@@ -42,7 +42,7 @@ require_once("custom-functions.php"); // For logic needed on multiple pages (e.g
 			<nav class="site-navigation top-bar" role="navigation">
 				<div class="top-bar-left">					
 					<div class="site-desktop-title top-bar-title">
-						<img class="aole-logo" src="<?php echo get_template_directory_uri()."/assets/images/aole_logo_notext.png"; ?>" />
+						<img class="aole-logo" src="<?php echo get_field('aole_logo_without_text', 'option');?>" />
 						<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					</div>
 				</div>
