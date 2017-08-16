@@ -149,9 +149,6 @@ $target_groups_section = get_field('target_groups_section');
 							<div class="aole-feed-content event">
 
 								<div class="event-title-container">
-									<ul class="event-category-list">
-										<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
-									</ul>
 									<!-- Facilitator(s) -->
 									<ul class="event-facilitator-list">
 										<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
@@ -167,16 +164,13 @@ $target_groups_section = get_field('target_groups_section');
 									<!-- Date -->
 									<span class="event-date">
 										<?php 
-										$start_date = date_create($event["event"]->event_start_date);
-										$end_date = date_create($event["event"]->event_end_date);
-										if ($event->event_start_date != $event->event_end_date){
-											echo date_format($start_date, "D d F")."-".date_format($end_date, "D d F");
-										} else {
-											echo date_format($start_date, "D d F");
-										}
+										echo format_event_date($event["event"]->event_start_date,$event["event"]->event_end_date);
 										?>
-
 									</span>
+									<!-- Event categories -->
+									<ul class="event-category-list">
+										<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
+									</ul>
 									<!-- Time -->
 									<div class="event-time"><?php echo $event["event"]->event_start_time."-".$event["event"]->event_end_time; ?></div>
 									<!-- Location -->

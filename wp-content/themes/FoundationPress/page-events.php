@@ -105,18 +105,12 @@ get_header(); ?>
 								<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
 							</ul>
 							<!-- Event title -->
-							<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
+							<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h4><?php echo $event["event"]->event_name; ?></h4></a>	
 						</div>
 						<div class="event-information-container" data-equalizer-watch>
 							<!-- Date -->
 							<span class="event-date"><?php 
-								$start_date = date_create($event["event"]->event_start_date);
-								$end_date = date_create($event["event"]->event_end_date);
-								if ($event->event_start_date != $event->event_end_date){
-									echo date_format($start_date, "D d F")."-".date_format($end_date, "D d F");
-								} else {
-									echo date_format($start_date, "D d F");
-								}
+								echo format_event_date($event["event"]->event_start_date,$event["event"]->event_end_date);
 								?></span>
 								<!-- Time -->
 								<div class="event-time"><?php echo substr($event["event"]->event_start_time, 0, -3)."-".substr($event["event"]->event_end_time, 0, -3); ?></div>
@@ -163,7 +157,7 @@ get_header(); ?>
 									echo format_event_date($event["event"]->event_start_date,$event["event"]->event_end_date);
 									?>
 								</div>
-								
+
 								<div class="event-title-container" data-equalizer-watch>
 									<!-- Facilitator(s) -->
 									<ul class="event-facilitator-list">

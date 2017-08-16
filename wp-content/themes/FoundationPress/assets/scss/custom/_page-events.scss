@@ -194,24 +194,34 @@
 }
 .event{
 	@include grid-row();
+
 	@include breakpoint(medium) { border-bottom:1px solid $grey-border; }
 	padding-bottom:2%;
 	padding-top:2%;
+	@include breakpoint(small only) { 
+		border-left: 1px solid $dark-bg; 
+		margin-top:20px;
+		padding-top:0;
+	}
 
 
 	.event-date-full-width{
 		@include show-for-only(small);
+
+		margin-bottom:5px;
 	}
 	.event-image-container{
 		text-align:center;
 	}
 	.event-title-container{
 		@include breakpoint(small) { 
-			h3{
+			h4{
 				font-size:2em;	 	
 			}
 		}
-
+		h4 {
+			color: $colored-primary-heading;
+		}
 
 	}
 
@@ -226,8 +236,18 @@
 		font-weight:700; 
 		margin-bottom:7px;
 
+
+
 		@extend .label;
 		@extend .primary;
+		
+		@include breakpoint(small only) {
+			padding:0; margin:0;
+			background:none;
+			color: $colored-primary-heading;
+
+		}
+
 
 	}
 	.event-time{
