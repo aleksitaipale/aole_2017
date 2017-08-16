@@ -75,14 +75,14 @@ if (!function_exists('write_log')) {
 function update_custom_terms($post_id) {
 
     // only update terms if it's a theme group post
-   if ( 'theme_group' != get_post_type($post_id)) {
-      return;
-  }
+ if ( 'theme_group' != get_post_type($post_id)) {
+  return;
+}
 
     // don't create or update terms for system generated posts
-  if (get_post_status($post_id) == 'auto-draft') {
-      return;
-  }
+if (get_post_status($post_id) == 'auto-draft') {
+  return;
+}
 
     /*
     * Grab the post title and slug to use as the new 
@@ -239,6 +239,8 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
     return $event_information;
 }
 
+// Get the event image URL
+
 function get_event_image_url($event_id, $image_size){
 // use default picture if event doesn't have a featured image
     $thumb_url = "";
@@ -250,4 +252,18 @@ function get_event_image_url($event_id, $image_size){
 
     return $thumb_url;
 
+}
+
+// Add a custom ACF menu to edit the footer
+
+if( function_exists('acf_add_options_page') ) {
+    
+    acf_add_options_page(array(
+        'page_title'    => 'Theme General Settings',
+        'menu_title'    => 'Theme Settings',
+        'menu_slug'     => 'theme-general-settings',
+        'capability'    => 'edit_posts',
+        'redirect'      => false
+        ));
+    
 }

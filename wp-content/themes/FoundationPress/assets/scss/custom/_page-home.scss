@@ -76,14 +76,18 @@
 				padding:3%;
 
 			}
-			
-			
+			padding-bottom:40px;
+
+			border-bottom:1px solid ligten($dark-bg, 20%);
 		}
 	}
+
+
 
 }
 .target-group-container{
 	@include grid-column(12);
+	padding-top:3%;
 
 	.target-groups{
 		@include grid-row();

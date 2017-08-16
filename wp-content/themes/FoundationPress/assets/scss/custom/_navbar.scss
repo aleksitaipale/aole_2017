@@ -55,3 +55,17 @@
 .top-bar-title, .site-mobile-title.title-bar-title{
 	font-family:$sans-heading;
 }
+
+$aalto-header-height: 40px;
+
+.aalto-header{
+	height:$aalto-header-height;
+	width:100%;
+	background-color:$aalto-bg;
+	text-align:left;
+	.aalto-logo{
+		padding-top:10px;
+		padding-left:10px;
+		max-height:$aalto-header-height - 10px;
+	}
+}

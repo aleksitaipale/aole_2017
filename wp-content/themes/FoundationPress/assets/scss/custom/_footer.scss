@@ -10,4 +10,8 @@
 		@include grid-column-position(center);
 		h6{display:none;}
 	}
+
+	.footer {
+		@include grid-row();
+	}
 }

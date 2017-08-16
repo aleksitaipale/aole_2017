@@ -28,6 +28,9 @@ require_once("custom-functions.php"); // For logic needed on multiple pages (e.g
 		<?php do_action( 'foundationpress_layout_start' ); ?>
 
 		<header class="site-header" role="banner">
+			<div class="aalto-header">
+				<a href="http://www.aalto.fi/en/"><img class="aalto-logo" src="<?php echo get_template_directory_uri()."/assets/images/aalto_small_white_logo.png"; ?>" /></a>
+			</div>
 			<div class="site-title-bar title-bar" <?php foundationpress_title_bar_responsive_toggle() ?>>
 				<div class="title-bar-left">
 					<button class="menu-icon" type="button" data-toggle="<?php foundationpress_mobile_menu_id(); ?>"></button>
