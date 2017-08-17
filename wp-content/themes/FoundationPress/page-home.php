@@ -53,7 +53,27 @@ $target_groups_section = get_field('target_groups_section');
 		
 	</div>
 </div>
+<div class="target-group-container">
+	<div class="target-groups" data-equalizer>
+		<div class="teachers">
+			<div data-equalizer-watch>
+				<img src="<?php echo $target_groups_section["for_teachers_image"]; ?>" />
+				<h3><?php echo $target_groups_section["for_teachers_title"]; ?></h3>
+				<?php echo $target_groups_section["for_teachers_content"]; ?>
+			</div>
+		</div>
 
+		<div class="others" >
+			<div data-equalizer-watch>
+				<img src="<?php echo $target_groups_section["for_all_image"]; ?>" />
+				<h3><?php echo $target_groups_section["for_all_title"]; ?></h3>
+				<?php echo $target_groups_section["for_all_content"]; ?>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="patterned-divider-container"><div class="patterned-divider pattern1"></div></div>
 <section class="aole-feed-container">
 	<div class="aole-feeds" data-equalizer>
 		<?php
@@ -169,27 +189,6 @@ $target_groups_section = get_field('target_groups_section');
 
 				</div>
 			</section>
-			<div class="patterned-divider-container"><div class="patterned-divider pattern1"></div></div>
-
-			<div class="target-group-container">
-				<div class="target-groups" data-equalizer>
-					<div class="teachers">
-						<div data-equalizer-watch>
-							<img src="<?php echo $target_groups_section["for_teachers_image"]; ?>" />
-							<h3><?php echo $target_groups_section["for_teachers_title"]; ?></h3>
-							<?php echo $target_groups_section["for_teachers_content"]; ?>
-						</div>
-					</div>
-
-					<div class="others" >
-						<div data-equalizer-watch>
-							<img src="<?php echo $target_groups_section["for_all_image"]; ?>" />
-							<h3><?php echo $target_groups_section["for_all_title"]; ?></h3>
-							<?php echo $target_groups_section["for_all_content"]; ?>
-						</div>
-					</div>
-				</div>
-			</div>
 
 
 

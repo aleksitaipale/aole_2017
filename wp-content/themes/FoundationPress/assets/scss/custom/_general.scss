@@ -207,6 +207,7 @@ a:hover{
 // Aole buttons
 
 .aole-button { 
+
 	border:1px solid $dark-bg; 
 	padding:5px;
 	border-radius:5px;
@@ -220,11 +221,11 @@ a:hover{
 		font-family:FontAwesome;
 		padding-left:10px;
 	}
+
+
+	display:inline-block;	
 }
 
-button {
-	@extend .aole-button;
-}
 
 section:not(.left-header-container):not(.right-header-container){
 	padding-top:3%;
