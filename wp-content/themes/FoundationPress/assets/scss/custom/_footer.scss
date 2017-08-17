@@ -13,10 +13,16 @@
 
 	.footer {
 		@include grid-row();
-
+		font-size:0.8em;
 
 		.footer-logos{
-			@include grid-column(4);
+			@include breakpoint(small) {
+				@include grid-column(12);
+			}
+			@include breakpoint(medium) {
+				@include grid-column(4);
+			}
+
 			img {
 				height:120px;
 				padding:10px;
@@ -25,20 +31,56 @@
 			
 		}
 		.footer-text{
+			@include breakpoint(small only) {
+				@include grid-column(10); @include grid-column-position(center);
+				padding-top:10px;padding-bottom:10px;
+			}
+			@include breakpoint(medium) {
+				@include grid-column(4); @include grid-column-unposition;
+			}
 			color:white;
 			a {
 				color: white;
 				text-decoration: underline;
 			}
-			@include grid-column(4);
+			
 			text-align:left;
 			//background-color:blue;
 		}
 
 		.footer-links {
-			@include grid-column(4);
-			background-color:red,
+			@include breakpoint(small only) {
+				@include grid-column(10); @include grid-column-position(center);
+			}
+			@include breakpoint(medium) {
+				@include grid-column(4); @include grid-column-unposition;
+			}
+			.fa { 
+				color:white; 
+				padding-right:15px;
+			}
+			p {
+				margin-bottom:5px;
+			}
+			color:white;
+			.footer-links-container{
+				@include grid-row();
+				text-align:left;
+				.aole-some{
+					border-bottom:1px solid $white;
+					margin-bottom:10px;
+					padding-bottom: 10px;
+					@include grid-column(12);
+				}
+
+				.aalto-some{
+					@include grid-column(12);
+				}
+			}
+			
 		}
+
+
 
 	}
 }
