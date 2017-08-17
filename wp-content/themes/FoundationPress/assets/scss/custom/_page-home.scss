@@ -50,7 +50,7 @@
 				margin-bottom:40px;
 			}
 			@include breakpoint(medium) { @include grid-column(10); @include grid-column-position(center); }
-			@include breakpoint(large) { @include grid-column(7); @include grid-column-position(center); }
+			@include breakpoint(large) { @include grid-column(6); @include grid-column-position(center); }
 			border:1px solid $dark-bg;
 			border-radius:5px;
 			text-align:center;
@@ -63,12 +63,11 @@
 
 				font-weight:normal;
 
-				
 
 			}
 			padding-bottom:40px;
 
-			border-bottom:1px solid ligten($dark-bg, 20%);
+			border-bottom:1px solid lighten($dark-bg, 20%);
 		}
 	}
 
@@ -102,7 +101,7 @@
 		}
 		.teachers{
 			@include breakpoint(small) { @include grid-column(12); }
-			@include breakpoint(large) { @include grid-column(4); }
+			@include breakpoint(large) { @include grid-column(6); }
 
 			
 		}
@@ -116,8 +115,9 @@
 
 		}
 		.others{
+
 			@include breakpoint(small) { @include grid-column(12); }
-			@include breakpoint(large) { @include grid-column(4); }
+			@include breakpoint(large) { @include grid-column(6);	border-left: 1px solid $dark-bg; }
 		}
 	}
 }
@@ -206,21 +206,32 @@
 
 	.aole-feeds{
 
-		.event-container{
-			@include breakpoint(small only) {  @include grid-column(12); @include grid-column-position(center);  }
-			@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center);}
-			@include breakpoint(large) {  @include grid-column(5); }
-			@include breakpoint(xlarge) {  @include grid-column(5); }
-		}
 		@include grid-row();
 		.aole-feed{
 			
+			.event-title-container, .aole-news-content{
+				padding-top:20px;
+			}
 
 			background-color: $light-bg;
 			@if ($debug) {background-color:orange;}
 
+			.aole-feed-featured-image{
+				text-align:center;
+				min-height:200px;
+				background-size:cover;
+				@include grid-column(12);
+
+				.event-date{
+					width:100%;
+
+				}
+
+			}
+
 			.aole-feed-content-container{
 				@include grid-row();
+
 			}
 
 			.aole-feed-title{
@@ -279,41 +290,30 @@
 				&.news-feed{
 					@include breakpoint(small only) {  @include grid-column(12); @include grid-column-position(center);  }
 					@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center);}
-					@include breakpoint(large) {  @include grid-column(4); }
+					@include breakpoint(large) {  @include grid-column(4); @include grid-column-unposition;}
 					@include breakpoint(xlarge) {  @include grid-column(4); }
 
 
 
 					.aole-news-content{
 						@include breakpoint(small only) {  
-							@include grid-column(12); 
+							@include grid-column(12,0); 
 							@include grid-column-position(center); 
 						}
 						@include breakpoint(medium only) {  
-							@include grid-column(12); 
+							@include grid-column(12,0); 
 							@include grid-column-position(center);
 						}
-						@include breakpoint(large) {  @include grid-column(12); }
-						@include breakpoint(xlarge) {  @include grid-column(12); }
+						@include breakpoint(large) {  @include grid-column(12,0); }
+						@include breakpoint(xlarge) {  @include grid-column(12,0); }
 
 
 					}
 
-					.aole-news-image{
-						@include breakpoint(small only) {  
-							@include grid-column(12); 
-							@include grid-column-position(center); 
-						}
-						@include breakpoint(medium only) { 
-							@include grid-column(12);
-							@include grid-column-position(center);
-						}
-						@include breakpoint(large only) {  @include grid-column(12); @include grid-column-position(center); }
-						@include breakpoint(xlarge) {  @include grid-column(12); }
-					}
+
 
 					.aole-news-button{
-						@include grid-column(12);
+						@include grid-column(12,0);
 						a { width:100%; }
 						margin-top:10px;
 					}
@@ -325,8 +325,8 @@
 
 					@include breakpoint(small only) {  @include grid-column(12); @include grid-column-position(center);  }
 					@include breakpoint(medium only) {  @include grid-column(10); @include grid-column-position(center);}
-					@include breakpoint(large) {  @include grid-column(5); }
-					@include breakpoint(xlarge) {  @include grid-column(5); }
+					@include breakpoint(large) {  @include grid-column(4); @include grid-column-unposition; }
+					@include breakpoint(xlarge) {  @include grid-column(4); }
 
 					.see-more-events{
 						margin-top:10px;
@@ -338,7 +338,7 @@
 						border-bottom:0;
 
 						.event-information-container{
-							@include grid-column(6);
+							@include grid-column(12);
 
 							.event-date{
 
@@ -424,6 +424,7 @@
 		}
 
 		.event-information-container{
+			font-size:0.8em;
 			@include breakpoint(small) {  @include grid-column(6); text-align:left; @include grid-column-unposition;   }
 			@include breakpoint(medium) {  @include grid-column(6); text-align:right;  }
 			@include breakpoint(large) {  @include grid-column(6); text-align:right; }

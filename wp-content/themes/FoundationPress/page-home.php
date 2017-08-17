@@ -26,59 +26,33 @@ $target_groups_section = get_field('target_groups_section');
 			<div class="headline-content">
 				<h3><?php echo $what_is_aole_section["what_is_aole_content"]; ?></h3>
 				<?php echo $what_is_aole_section["email_form_introduction"]; ?>
+
 				<!-- Begin MailChimp Signup Form -->
 				<link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
 				<style type="text/css">
 					#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
-	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
-	We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
-</style>
-<div id="mc_embed_signup">
-	<form action="//aalto.us16.list-manage.com/subscribe/post?u=18b81c9c3228260654c214afb&amp;id=2aaa357741" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
-		<div id="mc_embed_signup_scroll">
-			<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-			<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
-			<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_18b81c9c3228260654c214afb_2aaa357741" tabindex="-1" value=""></div>
-			<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
-		</div>
-	</form>
-</div>
-
-<!--End mc_embed_signup-->
-
-</div>
-</div>
-</div>
-<div class="patterned-divider-container"><div class="patterned-divider pattern1"></div></div>
-
-<div class="target-group-container">
-	<div class="target-groups" data-equalizer>
-		<div class="teachers">
-			<div data-equalizer-watch>
-				<img src="<?php echo $target_groups_section["for_teachers_image"]; ?>" />
-				<h3><?php echo $target_groups_section["for_teachers_title"]; ?></h3>
-				<?php echo $target_groups_section["for_teachers_content"]; ?>
+				/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+				We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+			</style>
+			<div id="mc_embed_signup">
+				<form action="//aalto.us16.list-manage.com/subscribe/post?u=18b81c9c3228260654c214afb&amp;id=2aaa357741" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+					<div id="mc_embed_signup_scroll">
+						<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+						<!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+						<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_18b81c9c3228260654c214afb_2aaa357741" tabindex="-1" value=""></div>
+						<div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+					</div>
+				</form>
 			</div>
+
+			<!--End mc_embed_signup-->
+
+
+
 		</div>
-		<div class="students" >
-			<div data-equalizer-watch>
-				<img src="<?php echo $target_groups_section["for_students_image"]; ?>" />
-				<h3><?php echo $target_groups_section["for_students_title"]; ?></h3>
-				<?php echo $target_groups_section["for_students_content"]; ?>
-			</div>
-		</div>
-		<div class="others" >
-			<div data-equalizer-watch>
-				<img src="<?php echo $target_groups_section["for_all_image"]; ?>" />
-				<h3><?php echo $target_groups_section["for_all_title"]; ?></h3>
-				<?php echo $target_groups_section["for_all_content"]; ?>
-			</div>
-		</div>
+		
 	</div>
 </div>
-
-<div class="patterned-divider-container"><div class="patterned-divider <?php echo get_custom_pattern_class(); ?>"></div></div>
-
 
 <section class="aole-feed-container">
 	<div class="aole-feeds" data-equalizer>
@@ -100,15 +74,14 @@ $target_groups_section = get_field('target_groups_section');
 							<div class="aole-feed news-feed" data-equalizer-watch>
 								<div class="aole-feed-content-container">
 									<div class="aole-feed-title">
-										<h2><?php echo $blog_news_title; ?></h2>
+										<h2><a href="<?php echo get_page_link(252);  ?>"><?php echo $blog_news_title; ?></a></h2>
+									</div>
+									<div class="aole-feed-featured-image" style="background-image:url('<?php echo get_the_post_thumbnail_url(get_the_ID(), 'feed-thumbnail'); ?>')">
 									</div>
 									<div class="aole-news-content">
 										<h4><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>
 									</div>
 
-									<div class="aole-news-image">
-										<?php the_post_thumbnail(); ?>
-									</div>
 									<div class="aole-news-button">
 										<a class="button" href="<?php echo get_page_link(252);  ?>">See more blog posts...</a>
 									</div>
@@ -120,65 +93,65 @@ $target_groups_section = get_field('target_groups_section');
 					}?>
 
 					<div class="aole-feed next-event-feed" data-equalizer-watch>
-						<div class="aole-feed-content-container">
+						<div class="aole-feed-content-container event">
 							<div class="aole-feed-title">
-								<h2>Next event</h2>
+								<h2><a href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
+									Next event
+								</a></h2>
 							</div>
+
 							<?php
 							$next_event = EM_Events::get(array("scope"=>"future", "limit"=>1, "orderby" => "event_start_date"))[0];
 							$event = get_all_event_info($next_event);
 							?>
-
-							<div class="aole-feed-content event">
-
-								<div class="event-title-container">
-									<!-- Date -->
-									<span class="event-date">
-										<?php 
-										echo format_event_date($event["event"]->event_start_date,$event["event"]->event_end_date);
-										?>
-									</span>
-									<!-- Facilitator(s) -->
-									<ul class="event-facilitator-list">
-										<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
-									</ul>
-									<!-- Event title -->
-									<h4><a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><?php echo $event["event"]->event_name; ?></a>	</h4>
-								</div>
-								<!-- Picture -->
-								<div class="event-image-container">
-									<img class="event-thumbnail" src="<?php echo get_the_post_thumbnail_url($event["event"]->post_id, 'square-large'); ?>" />
-								</div>
-								<div class="event-information-container">
-
-									<!-- Event categories -->
-									<ul class="event-category-list">
-										<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
-									</ul>
-									<!-- Date -->
-									<span class="event-date">
-										<?php 
-										echo format_event_date($event["event"]->event_start_date,$event["event"]->event_end_date);
-										?>
-									</span>
-									<!-- Time -->
-									<div class="event-time"><?php echo substr($event["event"]->event_start_time, 0, -3)."-".substr($event["event"]->event_end_time, 0, -3); ?></div>
-									<!-- Location -->
-									<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
-									<!-- Only for pilots? -->
-									<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
-								</div>
-								
-
-								<div class="see-more-events">
-									<p>
-										<a class="button" href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
-											See more events...
-										</a>
-									</p>
-								</div>
+							<div class="aole-feed-featured-image" style="background-image:url('<?php echo get_the_post_thumbnail_url($event["event"]->post_id, 'feed-thumbnail'); ?>')">
 
 							</div>
+							
+
+							<div class="event-title-container">
+
+								<!-- Facilitator(s) -->
+								<ul class="event-facilitator-list">
+									<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
+								</ul>
+								<!-- Event title -->
+								<h4><a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><?php echo $event["event"]->event_name; ?></a>	</h4>
+							</div>
+
+							<div class="event-information-container">
+
+								<!-- Event categories -->
+								<ul class="event-category-list">
+									<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
+								</ul>
+								<!-- Date -->
+								<p>
+									<b>Date:</b>
+									<span class="event-date">
+										<?php 
+										echo format_event_date($event["event"]->event_start_date,$event["event"]->event_end_date);
+										?>
+									</span>
+								</p>
+								<!-- Time -->
+								<div class="event-time"><?php echo substr($event["event"]->event_start_time, 0, -3)."-".substr($event["event"]->event_end_time, 0, -3); ?></div>
+								<!-- Location -->
+								<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
+								<!-- Only for pilots? -->
+								<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
+							</div>
+
+
+							<div class="see-more-events">
+								<p>
+									<a class="button" href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
+										See more events...
+									</a>
+								</p>
+							</div>
+
+
 
 						</div>
 					</div>
@@ -186,7 +159,7 @@ $target_groups_section = get_field('target_groups_section');
 					<div class="aole-feed twitter-feed" data-equalizer-watch>
 						<div class="aole-feed-content-container">
 							<div class="aole-feed-title">
-								<h2>Twitter</h2>
+								<h2><a href="<?php echo get_field("aole_social_media_links", "option")["twitter"]; ?>">Twitter</a></h2>
 							</div>
 							<div class="twitter-feed-content">
 								<?php echo do_shortcode("[twitter_profile screen_name='aaltoole' height='400']"); ?>
@@ -196,7 +169,27 @@ $target_groups_section = get_field('target_groups_section');
 
 				</div>
 			</section>
+			<div class="patterned-divider-container"><div class="patterned-divider pattern1"></div></div>
 
+			<div class="target-group-container">
+				<div class="target-groups" data-equalizer>
+					<div class="teachers">
+						<div data-equalizer-watch>
+							<img src="<?php echo $target_groups_section["for_teachers_image"]; ?>" />
+							<h3><?php echo $target_groups_section["for_teachers_title"]; ?></h3>
+							<?php echo $target_groups_section["for_teachers_content"]; ?>
+						</div>
+					</div>
+
+					<div class="others" >
+						<div data-equalizer-watch>
+							<img src="<?php echo $target_groups_section["for_all_image"]; ?>" />
+							<h3><?php echo $target_groups_section["for_all_title"]; ?></h3>
+							<?php echo $target_groups_section["for_all_content"]; ?>
+						</div>
+					</div>
+				</div>
+			</div>
 
 
 

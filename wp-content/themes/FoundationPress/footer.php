@@ -9,7 +9,7 @@
  */
 
 ?>
-
+</div>
 </section>
 <div class="footer-container" data-sticky-footer>
 <span id="responsive-flag"></span>

@@ -214,6 +214,9 @@
 		color: $colored-primary-heading;
 
 	}
+
+	@extend .label;
+		@extend .primary;
 }
 
 
@@ -253,8 +256,7 @@
 	.event-date{
 		font-weight:700; 
 		margin-bottom:7px;
-		@extend .label;
-		@extend .primary;
+		
 		
 	}
 	.event-time{
