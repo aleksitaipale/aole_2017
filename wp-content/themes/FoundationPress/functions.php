@@ -267,3 +267,13 @@ if( function_exists('acf_add_options_page') ) {
         ));
     
 }
+
+// MAINTENANCE MODE
+
+// Activate WordPress Maintenance Mode
+function wp_maintenance_mode(){
+    if(!current_user_can('edit_themes') || !is_user_logged_in()){
+        wp_die('<h1 style="font-family:Georgia, serif; font-style:italic; font-weight:bold; color:#338FD4;">Website under maintenance</h1><br />We are performing scheduled maintenance. We will be back online shortly!');
+    }
+}
+add_action('get_header', 'wp_maintenance_mode');
