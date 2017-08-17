@@ -318,13 +318,21 @@
 
 					.event {
 
+						
+
 						padding-top:0;
 						border-bottom:0;
 
 						.event-information-container{
 							@include grid-column(12);
 
+							.event-info-label{
+								color:$grey;
+								font-weight:bold;
+							}
+
 							.event-date{
+								font-weight:bold;
 
 								padding:0; margin:0;
 								background:none;
@@ -346,7 +354,7 @@
 						}
 
 						.event-title-container{
-							@include breakpoint(small) { 
+							@include breakpoint(small only) { 
 								h4{
 									font-size:2em;	 	
 								}
@@ -379,71 +387,6 @@
 	}
 
 
-	.next-event.front-event{
-
-		.event{border-bottom:0;}
-
-		background-color: $light-bg;
-		@if ($debug) {background-color:blue;}
-		@include breakpoint(small only) {  @include grid-column(12); padding-top:4%;}
-		@include breakpoint(medium only) { 
-			@include grid-column(10);
-			@include grid-column-position(center);
-			border-left:1px solid $dark-bg;
-		}
-		@include breakpoint(large) {  @include grid-column(12); }
-		@include breakpoint(xlarge) {  @include grid-column(12); }
-
-		.next-event-heading{
-			margin-top:3%;
-			h4{
-				color:$colored-primary-heading;
-			}
-			@include breakpoint(small) {
-				@include grid-column(12); @include grid-column-unposition;
-			}
-			@include breakpoint(large) {
-				@include grid-column(12);
-			}
-		}
-
-		.event-information-container{
-			font-size:0.8em;
-			@include breakpoint(small) {  @include grid-column(6); text-align:left; @include grid-column-unposition;   }
-			@include breakpoint(medium) {  @include grid-column(6); text-align:right;  }
-			@include breakpoint(large) {  @include grid-column(6); text-align:right; }
-
-
-		}
-
-		.event-image-container{
-			@include breakpoint(small) {  @include grid-column(6); @include grid-column-unposition;  }
-			@include breakpoint(medium) {  @include grid-column(6);}
-			@include breakpoint(large) {  @include grid-column(6); }
-
-		}
-
-		.event-title-container{
-			@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition; }
-			@include breakpoint(medium) {  @include grid-column(12); }
-			@include breakpoint(large) {  @include grid-column(12); }
-			text-align:left;
-		}
-
-		.see-more-events{
-			@include grid-row();
-
-			p {
-				@include grid-column(4); @include grid-column-position(center);
-
-				a {
-					margin-top:3%;
-				}
-
-			}
-		}
-
-	}
 
 // "Pilots showcase" section, i.e. showcasing some of the most interesting pilots
 

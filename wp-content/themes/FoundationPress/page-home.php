@@ -116,7 +116,7 @@ $target_groups_section = get_field('target_groups_section');
 						<div class="aole-feed-content-container event">
 							<div class="aole-feed-title">
 								<h2><a href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
-									Next event
+									Events
 								</a></h2>
 							</div>
 
@@ -146,103 +146,111 @@ $target_groups_section = get_field('target_groups_section');
 									<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
 								</ul>
 								<!-- Date -->
-								<p>
-									<b>Date:</b>
+								<div>
+									<span class="event-info-label">Date: </span>
 									<span class="event-date">
 										<?php 
 										echo format_event_date($event["event"]->event_start_date,$event["event"]->event_end_date);
 										?>
 									</span>
-								</p>
+								</div>
 								<!-- Time -->
-								<div class="event-time"><?php echo substr($event["event"]->event_start_time, 0, -3)."-".substr($event["event"]->event_end_time, 0, -3); ?></div>
-								<!-- Location -->
-								<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
-								<!-- Only for pilots? -->
-								<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
+								<div class="event-time">
+									<span class="event-info-label">Time: </span>
+									<?php echo substr($event["event"]->event_start_time, 0, -3)."-".substr($event["event"]->event_end_time, 0, -3); ?></div>
+									<!-- Location -->
+									<div class="event-location">
+										<span class="event-info-label">Place: </span>
+										<?php echo $event["event"]->location->location_name; ?>
+										
+									</div>
+									<!-- Only for pilots? -->
+									<div class="event-for-pilots">
+										<span class="event-info-label">Type: </span>
+										<?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
+									</div>
+
+
+									<div class="see-more-events see-more">
+										<p>
+											<a href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
+												See more events...
+											</a>
+										</p>
+									</div>
+
+
+
+								</div>
 							</div>
 
-
-							<div class="see-more-events see-more">
-								<p>
-									<a href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
-										See more events...
-									</a>
-								</p>
+							<div class="aole-feed twitter-feed" data-equalizer-watch>
+								<div class="aole-feed-content-container">
+									<div class="aole-feed-title">
+										<h2><a href="<?php echo get_field("aole_social_media_links", "option")["twitter"]; ?>">Twitter</a></h2>
+									</div>
+									<div class="twitter-feed-content">
+										<?php echo do_shortcode("[twitter_profile screen_name='aaltoole' height='400']"); ?>
+									</div>
+								</div>
 							</div>
-
-
 
 						</div>
-					</div>
+					</section>
 
-					<div class="aole-feed twitter-feed" data-equalizer-watch>
-						<div class="aole-feed-content-container">
-							<div class="aole-feed-title">
-								<h2><a href="<?php echo get_field("aole_social_media_links", "option")["twitter"]; ?>">Twitter</a></h2>
+
+
+					<?php $pilots_showcase_section = get_field("pilots_showcase_section"); ?>
+					<section class="pilots-showcase-container front-section">
+						<div class="aole-pilots-showcase">
+							<h2><?php echo $pilots_showcase_section["title_for_aole_pilots_showcase_section"]; ?></h2>
+							<div class="pilots-carousel">
+								<?php foreach ($pilots_showcase_section["showcased_pilots"] as $showcase_pilot): ?>
+									<div class="single-carousel-pilot">
+										<a class="image-link" href="<?php echo get_the_permalink($showcase_pilot->ID); ?>"><img src="<?php echo get_the_post_thumbnail_url($showcase_pilot->ID, 'pilot-showcase'); ?>" /></a>
+										<h4>
+											<a href="<?php echo get_the_permalink($showcase_pilot->ID); ?>">
+												<?php echo $showcase_pilot->post_title; ?>
+											</a>
+										</h4>
+									</div>
+								<?php endforeach; ?>
 							</div>
-							<div class="twitter-feed-content">
-								<?php echo do_shortcode("[twitter_profile screen_name='aaltoole' height='400']"); ?>
+
+						</div>
+					</section>
+
+					<?php $why_online_section = get_field("why_online_section"); ?>
+					<section class="why-online-container">
+						<div class="why-online" data-equalizer>
+							<div class="content" data-equalizer-watch>
+								<h2><?php echo $why_online_section["why_online_title"]; ?></h2>
+								<?php echo $why_online_section["why_online_content"]; ?>
+							</div>
+							<div class="home-image" data-equalizer-watch>
+								<img src="<?php echo $why_online_section["why_online_featured_image"]; ?>" />
 							</div>
 						</div>
-					</div>
+					</section>
 
-				</div>
-			</section>
-
-
-
-			<?php $pilots_showcase_section = get_field("pilots_showcase_section"); ?>
-			<section class="pilots-showcase-container front-section">
-				<div class="aole-pilots-showcase">
-					<h2><?php echo $pilots_showcase_section["title_for_aole_pilots_showcase_section"]; ?></h2>
-					<div class="pilots-carousel">
-						<?php foreach ($pilots_showcase_section["showcased_pilots"] as $showcase_pilot): ?>
-							<div class="single-carousel-pilot">
-								<a class="image-link" href="<?php echo get_the_permalink($showcase_pilot->ID); ?>"><img src="<?php echo get_the_post_thumbnail_url($showcase_pilot->ID, 'pilot-showcase'); ?>" /></a>
-								<h4>
-									<a href="<?php echo get_the_permalink($showcase_pilot->ID); ?>">
-										<?php echo $showcase_pilot->post_title; ?>
-									</a>
-								</h4>
+					<?php $why_aole_section = get_field("why_aole_section"); ?>
+					<section class="why-aole-container" >
+						<div class="why-aole" data-equalizer>
+							<div class="content" data-equalizer-watch>
+								<h2><?php echo $why_aole_section["why_aole_title"]; ?></h2>
+								<?php echo $why_aole_section["why_aole_content"]; ?>
 							</div>
-						<?php endforeach; ?>
-					</div>
-
-				</div>
-			</section>
-
-			<?php $why_online_section = get_field("why_online_section"); ?>
-			<section class="why-online-container">
-				<div class="why-online" data-equalizer>
-					<div class="content" data-equalizer-watch>
-						<h2><?php echo $why_online_section["why_online_title"]; ?></h2>
-						<?php echo $why_online_section["why_online_content"]; ?>
-					</div>
-					<div class="home-image" data-equalizer-watch>
-						<img src="<?php echo $why_online_section["why_online_featured_image"]; ?>" />
-					</div>
-				</div>
-			</section>
-
-			<?php $why_aole_section = get_field("why_aole_section"); ?>
-			<section class="why-aole-container" >
-				<div class="why-aole" data-equalizer>
-					<div class="content" data-equalizer-watch>
-						<h2><?php echo $why_aole_section["why_aole_title"]; ?></h2>
-						<?php echo $why_aole_section["why_aole_content"]; ?>
-					</div>
-					<div class="home-image" data-equalizer-watch>
-						<img src="<?php echo $why_aole_section["why_aole_featured_image"]; ?>" />
-					</div>
-				</div>
-			</section>
+							<div class="home-image" data-equalizer-watch>
+								<img src="<?php echo $why_aole_section["why_aole_featured_image"]; ?>" />
+							</div>
+						</div>
+					</section>
 
 
-			<?php do_action( 'foundationpress_after_content' ); ?>
+					<?php do_action( 'foundationpress_after_content' ); ?>
 
 
 
 
 
-			<?php get_footer();
+					<?php get_footer();
