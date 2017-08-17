@@ -82,8 +82,8 @@ $target_groups_section = get_field('target_groups_section');
 										<h4><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>
 									</div>
 
-									<div class="aole-news-button">
-										<a class="button" href="<?php echo get_page_link(252);  ?>">See more blog posts...</a>
+									<div class="aole-news-button see-more">
+										<a href="<?php echo get_page_link(252);  ?>">See more blog posts...</a>
 									</div>
 								</div>
 							</div>
@@ -143,9 +143,9 @@ $target_groups_section = get_field('target_groups_section');
 							</div>
 
 
-							<div class="see-more-events">
+							<div class="see-more-events see-more">
 								<p>
-									<a class="button" href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
+									<a href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
 										See more events...
 									</a>
 								</p>

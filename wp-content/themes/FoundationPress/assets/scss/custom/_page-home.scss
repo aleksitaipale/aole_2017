@@ -206,9 +206,17 @@
 
 	.aole-feeds{
 
+
 		@include grid-row();
 		.aole-feed{
 			
+			.see-more{
+				text-align:right;
+				a {
+					@extend .aole-button;
+				}
+
+			}
 			.event-title-container, .aole-news-content{
 				padding-top:20px;
 			}

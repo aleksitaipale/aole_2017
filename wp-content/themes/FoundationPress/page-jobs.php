@@ -98,7 +98,9 @@ get_header(); ?>
 							the_field("short_description");
 						}?>
 
-
+						<div class="see-more">
+							<a class="aole-button" href="<?php echo get_permalink(); ?>">Read more about this job...</a>
+						</div>
 					</article>
 
 

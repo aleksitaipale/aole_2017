@@ -204,16 +204,38 @@ a:hover{
 		}
 	}
 
+// Aole buttons
 
-	section:not(.left-header-container):not(.right-header-container){
-		padding-top:3%;
-		padding-bottom:3%;
-
-		&.container{
-			padding-top:0;
-		}
-
+.aole-button { 
+	border:1px solid $dark-bg; 
+	padding:5px;
+	border-radius:5px;
+	&:hover{
+		background-color: $dark-bg;
+		color:white;
 	}
+	&:after{
+		content: "\f08e"; 
+		font-size:10px;
+		font-family:FontAwesome;
+		padding-left:10px;
+	}
+}
+
+button {
+	@extend .aole-button;
+}
+
+section:not(.left-header-container):not(.right-header-container){
+	padding-top:3%;
+	padding-bottom:3%;
+
+	&.container{
+		padding-top:0;
+	}
+
+}
+
 
 
 
