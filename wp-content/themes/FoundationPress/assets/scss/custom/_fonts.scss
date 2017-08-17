@@ -21,9 +21,9 @@ h2 {
 	font-weight:bold;
 	color: $dark-primary-heading; 
 
-@include breakpoint(small only) {
-	font-size:1.6em;
-}
+	@include breakpoint(small only) {
+		font-size:3em;
+	}
 }
 
 h3{
@@ -32,6 +32,9 @@ h3{
 	font-style:italic;
 
 	color: $dark-secondary-heading;
+	@include breakpoint(small only) {
+		font-size:1.6em;
+	}
 }
 
 h4{

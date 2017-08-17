@@ -80,6 +80,6 @@ $aalto-header-height: 40px;
 .top-bar ul{
 	@include breakpoint(small only) {
 		background-color: $white;
-		border-left:10px solid $dark-bg;
+		border-left:10px solid $lightest-grey;
 	}
 }

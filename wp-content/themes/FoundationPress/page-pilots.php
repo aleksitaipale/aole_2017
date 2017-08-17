@@ -84,7 +84,7 @@ get_header(); ?>
 						</div>
 					</div>
 					<article class="theme-group-info">
-						<h2><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h2>
+						<h3><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h3>
 						<p><?php echo $theme_groups[$idx]["theme_group_info"]->description; ?></p>
 					</article>
 					

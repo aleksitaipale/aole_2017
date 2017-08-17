@@ -97,8 +97,8 @@ get_header(); ?>
 						if( get_field("short_description")) {
 							the_field("short_description");
 						}?>
-						
-						
+
+
 					</article>
 
 
