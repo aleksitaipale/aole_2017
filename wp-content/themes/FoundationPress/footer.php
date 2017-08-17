@@ -12,6 +12,7 @@
 
 </section>
 <div class="footer-container" data-sticky-footer>
+<span id="responsive-flag"></span>
 	<footer class="footer">
 		<div class="footer-logos">
 			<a href="http://www.aalto.fi/en/"><img src="<?php echo get_field("aalto_logo_large_white", "option"); ?>" /></a>
@@ -61,7 +62,7 @@
 					<a href="<?php echo $aalto_some["twitter"]; ?>"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
 				<?php endif;?>
 
-						<?php if ($aalto_some["youtube"]): ?>
+				<?php if ($aalto_some["youtube"]): ?>
 					<a href="<?php echo $aalto_some["youtube"]; ?>"><i class="fa fa-youtube-square fa-3x" aria-hidden="true"></i></a>
 				<?php endif;?>
 

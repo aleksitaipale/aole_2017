@@ -14,18 +14,8 @@ $target_groups_section = get_field('target_groups_section');
 	<div class="front-top-header-container">
 		<div class="front-top-header">
 
-			<div class="vr-box vr-box-large">
-				<blockquote data-height="600" data-width="100%" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="<?php echo get_field('theta_360_image_url'); ?>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
-				<script async src="https://theta360.com/widgets.js" charset="utf-8"></script>
-			</div>
-
-			<div class="vr-box vr-box-medium">
-				<blockquote data-height="300" data-width="100%" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="<?php echo get_field('theta_360_image_url'); ?>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
-				<script async src="https://theta360.com/widgets.js" charset="utf-8"></script>
-			</div>
-
-			<div class="vr-box vr-box-small">
-				<blockquote data-height="400" data-width="100%" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="<?php echo get_field('theta_360_image_url'); ?>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
+			<div class="vr-box">
+				<blockquote data-width="100%" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="<?php echo get_field('theta_360_image_url'); ?>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
 				<script async src="https://theta360.com/widgets.js" charset="utf-8"></script>
 			</div>
 
@@ -110,17 +100,10 @@ $target_groups_section = get_field('target_groups_section');
 							<div class="aole-feed news-feed" data-equalizer-watch>
 								<div class="aole-feed-content-container">
 									<div class="aole-feed-title">
-										<h3><?php echo $blog_news_title; ?></h3>
+										<h2><?php echo $blog_news_title; ?></h2>
 									</div>
 									<div class="aole-news-content">
 										<h4><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>
-										<p>
-
-											<?php
-											if( has_excerpt() ) {
-												the_excerpt();
-											}?>
-										</p>
 									</div>
 
 									<div class="aole-news-image">
@@ -139,7 +122,7 @@ $target_groups_section = get_field('target_groups_section');
 					<div class="aole-feed next-event-feed" data-equalizer-watch>
 						<div class="aole-feed-content-container">
 							<div class="aole-feed-title">
-								<h3>Next event</h3>
+								<h2>Next event</h2>
 							</div>
 							<?php
 							$next_event = EM_Events::get(array("scope"=>"future", "limit"=>1, "orderby" => "event_start_date"))[0];
@@ -203,7 +186,7 @@ $target_groups_section = get_field('target_groups_section');
 					<div class="aole-feed twitter-feed" data-equalizer-watch>
 						<div class="aole-feed-content-container">
 							<div class="aole-feed-title">
-								<h3>Twitter</h3>
+								<h2>Twitter</h2>
 							</div>
 							<div class="twitter-feed-content">
 								<?php echo do_shortcode("[twitter_profile screen_name='aaltoole' height='400']"); ?>

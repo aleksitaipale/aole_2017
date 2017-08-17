@@ -1,3 +1,21 @@
+// for jquery to know what size we have
+
+#responsive-flag {
+	display:none;
+	visibility:none;
+	@include breakpoint(small) {
+		font-size:1px !important;
+	}
+
+	@include breakpoint(medium) {
+		font-size:2px !important;
+	}
+
+	@include breakpoint(large) {
+		font-size:3px !important;
+	}
+
+}
 
 
 // hover.scss effects

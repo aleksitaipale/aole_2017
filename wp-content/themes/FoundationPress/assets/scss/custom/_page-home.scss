@@ -18,18 +18,18 @@
 			@include breakpoint(small only) { @include grid-column(12); @include grid-column-position(center); }
 			@include breakpoint(medium) { @include grid-column(12); }
 
-			&.vr-box-small{
+		/*	&.vr-box-small{
 				@include show-for-only(small);
 			}
 			&.vr-box-medium{
-				@include show-for-only(medium);
+				@include show-for(medium);
 				
-				
+				@include hide-for(xxlarge);
 			}
 
 			&.vr-box-large{
 				@include show-for-only(xxlarge);
-			}
+			}*/
 		}
 
 	}
@@ -43,15 +43,27 @@
 		@include grid-row();
 
 		.headline-content{
-			@include breakpoint(small) { @include grid-column(11); @include grid-column-position(center); }
+
+			@include breakpoint(small) { 
+				@include grid-column(11); @include grid-column-position(center); 
+				padding:5%;
+				margin-bottom:40px;
+			}
 			@include breakpoint(medium) { @include grid-column(10); @include grid-column-position(center); }
 			@include breakpoint(large) { @include grid-column(7); @include grid-column-position(center); }
+			border:1px solid $dark-bg;
+			border-radius:5px;
 			text-align:center;
+			margin-top:4%;
 			h3 {
 				color: $colored-primary-heading;
+				
 
 				background-color:$light-bg;
-				padding:3%;
+
+				font-weight:normal;
+
+				
 
 			}
 			padding-bottom:40px;
@@ -186,7 +198,7 @@
 	@include breakpoint(small) {  @include grid-column(12); }
 	@include breakpoint(medium) {  @include grid-column(12); }
 
-	h3{
+	h2{
 		border-bottom:1px solid $dark-bg;
 
 	}
@@ -274,20 +286,17 @@
 
 					.aole-news-content{
 						@include breakpoint(small only) {  
-							@include grid-column(12,0); 
+							@include grid-column(12); 
 							@include grid-column-position(center); 
 						}
 						@include breakpoint(medium only) {  
-							@include grid-column(12,0); 
+							@include grid-column(12); 
 							@include grid-column-position(center);
 						}
 						@include breakpoint(large) {  @include grid-column(12); }
 						@include breakpoint(xlarge) {  @include grid-column(12); }
 
-						h4 {
-							font-size:20px;
-							@include grid-column(12);
-						}
+
 					}
 
 					.aole-news-image{
@@ -403,7 +412,7 @@
 
 		.next-event-heading{
 			margin-top:3%;
-			h2{
+			h4{
 				color:$colored-primary-heading;
 			}
 			@include breakpoint(small) {
