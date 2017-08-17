@@ -33,6 +33,7 @@ get_header(); ?>
 					
 					<?php do_action( 'foundationpress_page_before_entry_content' ); ?>
 					<div class="entry-content left-header-content">
+
 						<header>
 							<h2 class="entry-title"><?php the_title(); ?></h2>
 						</header>
@@ -70,40 +71,51 @@ get_header(); ?>
 
 
 			<div class="jobs-article">
-				<article class="jobs-article-content">
-					<h2><?php the_title(); ?></h2>
-
-					<?php
-					if( strpos( $post->post_content, '<!--more-->' ) ) {
-						the_content("Read more...");
-					}
-					else {
-						the_excerpt();
-					}?>
-					
-					
-				</article>
-
 				<div class="jobs-article-images">
 					<div class="jobs-article-image">
 						<?php the_post_thumbnail(); ?>
 					</div>
 
 				</div>
+				<article class="jobs-article-content">
+					<?php 
+					$related_pilots = get_field("related_pilot");
+
+					if ($related_pilots):
+						foreach ($related_pilots as $pilot):	
+							?>
+						<span class="the-author">	
+							<i>Related pilot(s):</i><br>					
+							<a href="<?php echo get_permalink($pilot->ID); ?>"><?php echo $pilot->post_title; ?></a>
+						</span>
+						<?php 
+						endforeach;
+						endif; ?>
+						<h3><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h3>
+
+						<?php
+						if( get_field("short_description")) {
+							the_field("short_description");
+						}?>
+						
+						
+					</article>
 
 
 
 
-			</div>
 
-		<?php endforeach; 
-		wp_reset_postdata();
-		?>
 
-		<?php do_action( 'foundationpress_after_content' ); ?>
-		<?php get_sidebar(); ?>
+				</div>
 
+			<?php endforeach; 
+			wp_reset_postdata();
+			?>
+
+			<?php do_action( 'foundationpress_after_content' ); ?>
+			<?php get_sidebar(); ?>
+
+		</div>
 	</div>
-</div>
 
-<?php get_footer();
+	<?php get_footer();

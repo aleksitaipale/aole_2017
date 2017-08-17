@@ -71,7 +71,7 @@ get_header(); ?>
 			<div class="feed-article">
 				<div class="feed-article-content">
 					<span class="the-author"><?php the_author(); ?></span>
-					<a href="<?php echo get_permalink(); ?>"><h3><?php the_title(); ?></h2></a>
+					<h3><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h3>
 					<p><?php
 						if( has_excerpt() ) {
 							the_excerpt();

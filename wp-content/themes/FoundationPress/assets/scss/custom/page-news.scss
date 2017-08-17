@@ -1,6 +1,9 @@
 
 .page-feed{
 
+	.the-author{
+		color: $light-grey;
+	}
 	.right-header-content{
 		img {
 			background-image:url("../images/patterns/horizontal-single-pattern-white.png");
@@ -8,7 +11,22 @@
 	}
 
 	.feed-article-container{
-		@include grid-column(12);
+		@include breakpoint(small) {
+			@include grid-column(12) @include grid-column-position(center);
+		}
+
+		@include breakpoint(xlarge) {
+			@include grid-column(9) @include grid-column-position(center);
+		}
+
+		@include breakpoint(xlarge) {
+			@include grid-column(8) @include grid-column-position(center);
+		}
+
+		@include breakpoint(xxlarge) {
+			@include grid-column(7) @include grid-column-position(center);
+		}
+
 		padding-top:2%;
 		padding-bottom:2%;
 
