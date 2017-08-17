@@ -17,7 +17,7 @@ get_header(); ?>
 
 
 
-<div class="main-wrap single-event-page" role="main">
+<div class="main-wrap full-width single-event-page" role="main">
 	<?php do_action( 'foundationpress_before_content' ); ?>
 	<?php while ( have_posts() ) : the_post(); ?>
 		<?php
@@ -27,12 +27,17 @@ get_header(); ?>
 
 		?>
 
+		<div class="event-featured-image-full">
+			<img src="<?php echo get_event_image_url($event["event"]->post_id, 'single-pilot-banner'); ?>"></img>
+		</div>
+
+
 		<div class="event-container">
-			<div class="event upcoming-event" data-equalizer>
+			<div class="event">
+
 				<?php do_action( 'foundationpress_before_content' ); ?>
 				<!-- Event categories -->
-				<!-- Event categories -->
-				<div class="event-title-container" data-equalizer-watch>
+				<div class="event-title-container">
 					<ul class="event-category-list">
 						<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
 					</ul>
@@ -41,9 +46,9 @@ get_header(); ?>
 						<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
 					</ul>
 					<!-- Event title -->
-					<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h3><?php echo $event["event"]->event_name; ?></h3></a>	
+					<a class="event-title" href="<?php echo $event["event"]->the_permalink; ?>"><h2><?php echo $event["event"]->event_name; ?></h2></a>	
 				</div>
-				<div class="event-information-container" data-equalizer-watch>
+				<div class="event-information-container">
 					<!-- Date -->
 					<span class="event-date"><?php 
 						$start_date = date_create($event["event"]->event_start_date);
@@ -64,14 +69,14 @@ get_header(); ?>
 						<div class="export-event-to-ical">
 							<a href="<?php echo do_shortcode("[event post_id='".$event["post"]->ID."']#_EVENTICALURL[/event]");?>">Export to iCal</a>
 						</div>
+						<?php if ($event["event"]->custom_fields["registration_link"]): ?>
+							<div class="registration-link">
+								<a class="button secondary" href="<?php echo $event["event"]->custom_fields["registration_link"]; ?>">Register here</a>
+							</div>
+						<?php endif; ?>
 					</div>
-					<!-- Picture -->
-					<div class="event-image-container" data-equalizer-watch>
-						<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'square-large'); ?>"></img>
-						<div class="registration-link">
-							<a class="button" href="<?php echo $event["event"]->custom_fields["registration_link"]; ?>">Register here</a>
-						</div>
-					</div>
+
+
 
 					<article class="event-description">
 						<?php the_content(); ?>
@@ -83,6 +88,7 @@ get_header(); ?>
 						<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
 
 					</article>
+
 				</div>
 			</div>
 

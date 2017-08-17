@@ -189,7 +189,7 @@
 
 }
 
-.events-page .upcoming-event, .single-event .event{
+.events-page .upcoming-event{
 	@include event-box-sizes(4,3,5);
 }
 
@@ -215,6 +215,8 @@
 
 	}
 }
+
+
 .event{
 	@include grid-row();
 
@@ -251,7 +253,6 @@
 	.event-date{
 		font-weight:700; 
 		margin-bottom:7px;
-
 		@extend .label;
 		@extend .primary;
 		
@@ -287,6 +288,7 @@
 			padding-left:0; margin-left:0; padding-bottom:0;
 			list-style-type: none;
 			font-size:0.8em;
+			color:$gray;
 		}
 	}
 	.event-title{

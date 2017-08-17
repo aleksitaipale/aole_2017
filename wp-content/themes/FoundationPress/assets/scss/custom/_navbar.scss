@@ -72,3 +72,14 @@ $aalto-header-height: 40px;
 		max-height:$aalto-header-height - 10px;
 	}
 }
+
+.title-bar{
+	background-color:white;
+}
+
+.top-bar ul{
+	@include breakpoint(small) {
+		background-color: $white;
+		border-left:10px solid $dark-bg;
+	}
+}

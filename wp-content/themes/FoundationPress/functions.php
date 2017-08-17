@@ -75,14 +75,14 @@ if (!function_exists('write_log')) {
 function update_custom_terms($post_id) {
 
     // only update terms if it's a theme group post
- if ( 'theme_group' != get_post_type($post_id)) {
-  return;
-}
+   if ( 'theme_group' != get_post_type($post_id)) {
+      return;
+  }
 
     // don't create or update terms for system generated posts
-if (get_post_status($post_id) == 'auto-draft') {
-  return;
-}
+  if (get_post_status($post_id) == 'auto-draft') {
+      return;
+  }
 
     /*
     * Grab the post title and slug to use as the new 
@@ -130,6 +130,8 @@ add_action('save_post', 'update_custom_terms');
 add_image_size( 'square-large', 300, 300, true); // name, width, height, crop 
 
 add_image_size( 'pilot-showcase', 430, 190, true); // name, width, height, crop 
+
+add_image_size( 'single-pilot-banner', 1200, 500, true); // name, width, height, crop 
 
 
 // Custom excerpt for feed posts on front page //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -257,7 +259,7 @@ function get_event_image_url($event_id, $image_size){
 // Add a custom ACF menu to edit the footer
 
 if( function_exists('acf_add_options_page') ) {
-    
+
     acf_add_options_page(array(
         'page_title'    => 'Theme General Settings',
         'menu_title'    => 'Theme Settings',

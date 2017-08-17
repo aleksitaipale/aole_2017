@@ -1,20 +1,49 @@
 .single-event-page{
-	@include grid-row();
+	@include grid-row(null, null, "expand", true, $grid-column-gutter);
+	
+	.event-featured-image-full{
+		@include grid-column(12);
+		background-image: url("../images/patterns/horizontal-single-pattern.png");	
+
+
+		text-align:center;
+
+	}
+
 	.event-container {
 		list-style-type: none;			
-		@include breakpoint(small) {  @include grid-column(12);@include grid-column-unposition;   }
-		@include breakpoint(medium) {  @include grid-column(10);@include grid-column-position(center); }
-		@include breakpoint(large) {  @include grid-column(8); @include grid-column-position(center);}
-		padding-left:0;margin-left:0;
+		@include breakpoint(small) {  @include grid-column(12);@include grid-column-position(center);   }
+		@include breakpoint(medium) {  @include grid-column(12);@include grid-column-position(center); }
+		@include breakpoint(large) {  @include grid-column(12); @include grid-column-position(center);}
+		@include breakpoint(xlarge) {  @include grid-column(10); @include grid-column-position(center);}
+		@include breakpoint(xxlarge) {  @include grid-column(8); @include grid-column-position(center);}
+
+	}
+
+	.event-title-container{
+		@include breakpoint(small) { @include grid-column(12); } 
+		@include breakpoint(medium) { @include grid-column(8);} 
+		
+	}
+	.event-information-container{
+		@include breakpoint(small) { @include grid-column(12); } 
+		@include breakpoint(medium) { @include grid-column(4);} 
+		background-color: $lightest-grey;
+		padding:10px;
+		border-radius:5px;
+
 	}
 
 	.event-description{
-		@include breakpoint(small) {  @include grid-column(12);}
+		@include grid-column(12); 
+
 		
 		border-top: 1px solid $dark-bg;
-		padding-top:2%;
+		padding-top:30px;
 		margin-top:2%;
 	}
+
+
 
 	.registration-link{
 
@@ -25,3 +54,4 @@
 		}
 	}
 }
+//<img src="<?php echo get_event_image_url($event["event"]->post_id, 'single-pilot-banner'); ?>"></img>
