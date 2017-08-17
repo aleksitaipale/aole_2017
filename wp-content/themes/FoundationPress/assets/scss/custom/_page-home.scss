@@ -4,9 +4,13 @@
 // "What is Aalto Online Learning?" section, i.e. explaining shortly what A!OLE is as well as showcasing some core team members (most likely founders of A!OLE)
 
 
+.featured-header {
+	display:none;
+}
 .front-top-header-container{
+	text-align:center;
 	@include grid-column(12);
-	background-image: url("../images/patterns/horizontal-single-pattern.png");	
+	background-image: url(	"../images/patterns/horizontal-single-pattern.png");	
 	border-bottom:1px solid $dark-bg;
 	.front-top-header{
 		@include grid-row();
@@ -318,7 +322,7 @@
 
 					.event {
 
-						
+
 
 						padding-top:0;
 						border-bottom:0;
@@ -405,9 +409,8 @@
 
 		}
 
-		.aole-pilots-listing{
-			@include breakpoint(small) {  @include grid-column(12); }
-			@include breakpoint(medium) {  @include grid-column(12); }
+		.pilots-carousel{
+		@include grid-layout(3, '.single-carousel-pilot');
 		}
 	}
 }

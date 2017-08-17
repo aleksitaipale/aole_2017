@@ -16,6 +16,42 @@ require_once("custom-functions.php"); // For logic needed on multiple pages (e.g
 	<meta charset="<?php bloginfo( 'charset' ); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<?php wp_head(); ?>
+	<noscript><style>
+		
+		* {
+			/*CSS transitions*/
+			-o-transition-property: none !important;
+			-moz-transition-property: none !important;
+			-ms-transition-property: none !important;
+			-webkit-transition-property: none !important;
+			transition-property: none !important;
+			/*CSS transforms*/
+			-o-transform: none !important;
+			-moz-transform: none !important;
+			-ms-transform: none !important;
+			-webkit-transform: none !important;
+			transform: none !important;
+			/*CSS animations*/
+			-webkit-animation: none !important;
+			-moz-animation: none !important;
+			-o-animation: none !important;
+			-ms-animation: none !important;
+			animation: none !important;
+		}
+		
+		.vr-box { 
+			display: none 
+		} 
+
+		.front-top-header{
+			background:none !important;
+		}
+		.featured-header{
+			display:block !important;
+		}
+	</style>
+
+</noscript>
 </head>
 <body <?php body_class(); ?>>
 	<?php do_action( 'foundationpress_after_body' ); ?>

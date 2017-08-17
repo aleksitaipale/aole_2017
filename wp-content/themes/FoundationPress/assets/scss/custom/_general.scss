@@ -67,7 +67,8 @@
 
 .valign{
 
-	@include breakpoint(large) { position: relative;
+	@include breakpoint(large) {
+		position: relative;
 		top: 50%;
 		transform: translateY(-50%);
 	}
