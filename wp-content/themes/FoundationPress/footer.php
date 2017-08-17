@@ -14,7 +14,7 @@
 <div class="footer-container" data-sticky-footer>
 	<footer class="footer">
 		<div class="footer-logos">
-			<img src="<?php echo get_field("aalto_logo_large_white", "option"); ?>" />
+			<a href="http://www.aalto.fi/en/"><img src="<?php echo get_field("aalto_logo_large_white", "option"); ?>" /></a>
 			<img src="<?php echo get_field("aole_logo_white", "option"); ?>" />
 		</div>
 		<div class="footer-text">
