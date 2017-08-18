@@ -55,7 +55,13 @@
 			@include grid-row();
 
 			.toolbox-title{
-				@include grid-column(12);
+				@include breakpoint(small) {
+					@include grid-column(12);
+				}
+				@include breakpoint(medium) {
+					@include grid-column(7);
+				}
+				
 
 				
 			}
@@ -77,7 +83,7 @@
 						h4 a {
 
 							@extend .aole-button;
-							
+
 						}
 
 					}
