@@ -59,6 +59,40 @@ get_header(); ?>
 		<?php do_action( 'foundationpress_after_content' ); ?>
 		<?php get_sidebar(); ?>
 
+		<div class="about-opit-container">
+			<div class="about-opit">
+				<div class="about-opit-content">
+					<h3>About Aalto Learning IT</h3>
+					<p>	
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rhoncus, felis eget semper feugiat, tellus dui tincidunt felis, ut posuere ipsum augue vel est. Nulla quis risus et purus lacinia lobortis. Ut malesuada libero quis magna convallis, eget dapibus metus mattis. Fusce convallis eros porta, ultricies quam eget, vehicula nisi. Fusce scelerisque tristique metus quis eleifend. Cras non ante a metus accumsan feugiat. Nulla sed est in nisi pellentesque posuere vel sed enim. Maecenas porttitor mattis est vitae faucibus. Nulla elementum maximus tincidunt. Aliquam placerat iaculis scelerisque. Nam et eros nec sapien luctus sagittis vel eget nisi. Ut a condimentum neque, vitae pellentesque sapien. Aenean finibus libero sed felis pharetra, at feugiat magna dapibus. Aliquam varius tortor ac ligula interdum imperdiet.
+
+
+					</p>
+				</div>
+				<div class="about-opit-quote quote">
+
+					<?php 
+
+					// Select a random quote from the quotes associated with this theme group to be shown.
+					//$theme_quote = $theme_groups[$idx]["quotes"][array_rand($theme_groups[$idx]["quotes"])];
+
+					//$custom_fields = get_fields($theme_quote->ID);
+
+					?>
+					<div class="theme-quote-content quote-content">
+						<div class="theme-quote-underline quote-underline"></div>
+						<div class="quote-text"><?php echo "Onhan tässä aika hyvä olla Learning IT:N huostassa hei."; ?></div>
+
+						<div class="quote-author-name"><?php echo "Jaakko Virtanen"; ?></div>
+						<div class="quote-author-info"><?php echo "D. Sc, Aalto University"; ?></div>
+
+					</div>
+					
+
+				</div>
+			</div>
+		</div>
+
 	</div>
 
 	<?php get_footer();

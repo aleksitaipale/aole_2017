@@ -65,7 +65,13 @@ get_header(); ?>
 			?>
 			<section class="theme-group-section">
 				<div class="theme-group-box">
-					<div class="theme-quote">
+					
+					<article class="theme-group-info">
+						<h3><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h3>
+						<p><?php echo $theme_groups[$idx]["theme_group_info"]->description; ?></p>
+					</article>
+
+					<div class="theme-quote quote">
 						<?php 
 
 					// Select a random quote from the quotes associated with this theme group to be shown.
@@ -74,19 +80,15 @@ get_header(); ?>
 						$custom_fields = get_fields($theme_quote->ID);
 
 						?>
-						<div class="theme-quote-content">
-							<div class="theme-quote-underline"></div>
-							<div class="quote-content"><?php echo $custom_fields["quote"]; ?></div>
+						<div class="theme-quote-content quote-content">
+							<div class="theme-quote-underline quote-underline"></div>
+							<div class="quote-text"><?php echo $custom_fields["quote"]; ?></div>
 							
 							<div class="quote-author-name"><?php echo $custom_fields["author"]; ?></div>
 							<div class="quote-author-info"><?php echo $custom_fields["author_info"]; ?></div>
 
 						</div>
 					</div>
-					<article class="theme-group-info">
-						<h3><?php echo $theme_groups[$idx]["theme_group_info"]->name?></h3>
-						<p><?php echo $theme_groups[$idx]["theme_group_info"]->description; ?></p>
-					</article>
 					
 
 					

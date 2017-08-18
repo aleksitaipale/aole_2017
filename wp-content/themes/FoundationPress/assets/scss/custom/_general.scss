@@ -237,5 +237,44 @@ section:not(.left-header-container):not(.right-header-container){
 }
 
 
+/// Quote styling
+
+.quote{
+
+	display:inline-block;
+	vertical-align:middle;
+	font-size:0.8em;
+	color: $dark-secondary-heading;
+	padding-bottom:50px;
+
+	@include breakpoint(small) { padding-top:40px; }
+}
+
+.quote-underline{
+	background-image:url("../images/patterns/horizontal-single-line.png");
+	background-repeat:repeat-x;
+
+	background-position:10% 0%;
+	background-size:10em;
+	height:30px;
+	width:100%;
+}
+
+.quote-content{
+	background-color:$light-bg;
+	padding:0 3% 3% 3%;
+}
+
+.quote-text{
+	font-size:1.2em;
+
+	color: $colored-primary-heading;
+
+}
+
+.quote-author-name {
+	font-weight:bold;
+}
+
 
 
