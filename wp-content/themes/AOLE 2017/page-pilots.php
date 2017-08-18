@@ -77,7 +77,9 @@ get_header(); ?>
 					// Select a random quote from the quotes associated with this theme group to be shown.
 						$theme_quote = $theme_groups[$idx]["quotes"][array_rand($theme_groups[$idx]["quotes"])];
 						
-						$custom_fields = get_fields($theme_quote->ID);
+
+						if ($theme_quote):
+							$custom_fields = get_fields($theme_quote->ID);
 
 						?>
 						<div class="theme-quote-content quote-content">
@@ -88,39 +90,41 @@ get_header(); ?>
 							<div class="quote-author-info"><?php echo $custom_fields["author_info"]; ?></div>
 
 						</div>
-					</div>
-					
 
-					
+					<?php endif; ?>
 				</div>
+				
 
-				<div class="pilots-listing">
-					<?php 
-					foreach ($theme_groups[$idx]["pilots"] as $pilot):
-						?>
-					<div class='pilot-listing-item'>
-						
-						<a href="<?php echo get_the_permalink($pilot->ID);?>">
-							<img src="<?php echo get_the_post_thumbnail_url($pilot->ID, 'medium'); ?>" />
-						</a>
-						<h4>
-							<a href="<?php echo get_the_permalink($pilot->ID); ?>">
-								<?php echo $pilot->post_title; ?>
-								
-							</a>
-						</h4>
-						
-					</div>
-					
-				<?php endforeach; ?>
+				
 			</div>
 
-		</section>
+			<div class="pilots-listing">
+				<?php 
+				foreach ($theme_groups[$idx]["pilots"] as $pilot):
+					?>
+				<div class='pilot-listing-item'>
+					
+					<a href="<?php echo get_the_permalink($pilot->ID);?>">
+						<img src="<?php echo get_the_post_thumbnail_url($pilot->ID, 'medium'); ?>" />
+					</a>
+					<h4>
+						<a href="<?php echo get_the_permalink($pilot->ID); ?>">
+							<?php echo $pilot->post_title; ?>
+							
+						</a>
+					</h4>
+					
+				</div>
+				
+			<?php endforeach; ?>
+		</div>
 
-		<?php } // this ends the theme groups foreach ?> 
+	</section>
+
+	<?php } // this ends the theme groups foreach ?> 
 
 
 
-	</div>
+</div>
 
-	<?php get_footer();
+<?php get_footer();

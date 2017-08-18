@@ -719,6 +719,9 @@ add_action( 'init', 'cptui_register_my_taxes' );
 
 ////// Custom post types end
 
+
+
+
 // from https://gist.github.com/brenna/7377802
 // Idea being: whenever a new Theme Group post is added, it also adds it to the Theme Group taxonomy (so that they'll stay in sync)
 
@@ -930,7 +933,7 @@ function wp_maintenance_mode(){
         wp_die('<h1 style="font-family:Georgia, serif; font-style:italic; font-weight:bold; color:#338FD4;">Website under maintenance</h1><br />We are performing scheduled maintenance. We will be back online shortly!');
     }
 }
-add_action('get_header', 'wp_maintenance_mode');
+//add_action('get_header', 'wp_maintenance_mode');
 
 
 

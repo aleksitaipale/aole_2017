@@ -95,7 +95,7 @@ get_header(); ?>
 		<div class="aole-article-container">
 			<?php 
 global $post; // required
-$args = array('category' => 8); // include category 8 (About)
+$args = array('category' => get_cat_ID( "About" )); // include category 8 (About)
 $custom_posts = get_posts($args);
 foreach($custom_posts as $post) { 
 	setup_postdata($post);

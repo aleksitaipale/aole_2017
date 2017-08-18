@@ -13,9 +13,9 @@ $target_groups_section = get_field('target_groups_section');
 <div class="main-wrap front-page full-width" role="main">
 	<div class="front-top-header-container">
 		<div class="front-top-header">
-<div class="featured-header">
-<?php the_post_thumbnail(); ?>
-</div>
+			<div class="featured-header">
+				<?php the_post_thumbnail(); ?>
+			</div>
 			<div class="vr-box">
 				<blockquote data-width="100%" class="ricoh-theta-spherical-image" >Post from RICOH THETA. #theta360 - <a href="<?php echo get_field('theta_360_image_url'); ?>" target="_blank">Spherical Image - RICOH THETA</a></blockquote>
 				<script async src="https://theta360.com/widgets.js" charset="utf-8"></script>
@@ -124,7 +124,14 @@ $target_groups_section = get_field('target_groups_section');
 
 							<?php
 							$next_event = EM_Events::get(array("scope"=>"future", "limit"=>1, "orderby" => "event_start_date"))[0];
-							$event = get_all_event_info($next_event);
+							if ($next_event){
+								$event = get_all_event_info($next_event);
+							} else {
+								$next_event = EM_Events::get(array("scope"=>"past", "limit"=>1, "orderby" => "event_start_date"))[0];
+								$event = get_all_event_info($next_event);
+							}
+
+							
 							?>
 							<div class="aole-feed-featured-image" style="background-image:url('<?php echo get_the_post_thumbnail_url($event["event"]->post_id, 'feed-thumbnail'); ?>')">
 

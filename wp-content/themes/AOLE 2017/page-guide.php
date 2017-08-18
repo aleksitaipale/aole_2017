@@ -62,7 +62,7 @@ get_header(); ?>
 		<div class="about-opit-container">
 			<div class="about-opit">
 				<div class="about-opit-image">
-					<img src="https://static.pexels.com/photos/46710/pexels-photo-46710.jpeg"></img>
+					<img src="http://static.pexels.com/photos/46710/pexels-photo-46710.jpeg"></img>
 				</div>
 				<div class="about-opit-content">
 					<h2><?php the_field("what_is_aalto_learning_it_title"); ?></h2>
@@ -99,7 +99,7 @@ get_header(); ?>
 				<div class="toolbox">
 					<div class="toolbox-title">
 						<h2><?php echo $category["online_tool_group_title"];?></h2>
-						<?phpecho $category["online_tool_group_description"]; ?>
+						<?php echo $category["online_tool_group_description"]; ?>
 					</div>
 					<div class="toolbox-content">
 						<h3>Aalto-supported tools</h3>
@@ -135,7 +135,7 @@ get_header(); ?>
 						</div>
 					</div>
 
-					<?php
+					<?
 					endforeach;
 
 					endif;
