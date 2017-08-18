@@ -61,8 +61,11 @@ get_header(); ?>
 
 		<div class="about-opit-container">
 			<div class="about-opit">
+				<div class="about-opit-image">
+					<img src="https://static.pexels.com/photos/46710/pexels-photo-46710.jpeg"></img>
+				</div>
 				<div class="about-opit-content">
-					<h3>About Aalto Learning IT</h3>
+					<h2>About Aalto Learning IT</h2>
 					<p>	
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rhoncus, felis eget semper feugiat, tellus dui tincidunt felis, ut posuere ipsum augue vel est. Nulla quis risus et purus lacinia lobortis. Ut malesuada libero quis magna convallis, eget dapibus metus mattis. Fusce convallis eros porta, ultricies quam eget, vehicula nisi. Fusce scelerisque tristique metus quis eleifend. Cras non ante a metus accumsan feugiat. Nulla sed est in nisi pellentesque posuere vel sed enim. Maecenas porttitor mattis est vitae faucibus. Nulla elementum maximus tincidunt. Aliquam placerat iaculis scelerisque. Nam et eros nec sapien luctus sagittis vel eget nisi. Ut a condimentum neque, vitae pellentesque sapien. Aenean finibus libero sed felis pharetra, at feugiat magna dapibus. Aliquam varius tortor ac ligula interdum imperdiet.
 
@@ -92,6 +95,48 @@ get_header(); ?>
 				</div>
 			</div>
 		</div>
+
+		<?php for ($x = 0; $x <= 10; $x++): ?>
+			<div class="patterned-divider-container"><div class="patterned-divider <?php echo get_custom_pattern_class(); ?>"></div>
+
+			<div class="toolbox-container">
+				<div class="toolbox">
+					<div class="tool-box-title">
+						<h2>Online quizzes</h2>
+					</div>
+					<div class="toolbox-content">
+						<h3>Aalto-supported tools</h3>
+						<div class="single-tool">
+							<div class="single-tool-text">
+								<h4><a href="#">MyCourses</a></h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rhoncus, felis eget semper feugiat, tellus dui tincidunt felis, ut posuere ipsum augue vel est. Nulla quis risus et purus lacinia lobortis. Ut malesuada libero quis magna convallis, eget dapibus metus mattis. Fusce convallis eros porta, ultricies quam eget, vehicula nisi.</p>
+							</div>
+							<div class="single-tool-image">
+								<img src="https://static.pexels.com/photos/46710/pexels-photo-46710.jpeg"></img>
+							</div>
+						</div>
+						<div class="single-tool">
+							<div class="single-tool-text">
+								<h4>MyCourses</h4>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam rhoncus, felis eget semper feugiat, tellus dui tincidunt felis, ut posuere ipsum augue vel est. Nulla quis risus et purus lacinia lobortis. Ut malesuada libero quis magna convallis, eget dapibus metus mattis. Fusce convallis eros porta, ultricies quam eget, vehicula nisi.</p>
+							</div>
+							<div class="single-tool-image">
+								<img src="https://static.pexels.com/photos/46710/pexels-photo-46710.jpeg"></img>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="other-tools">
+						<h3>Other tools</h3>
+						<h5><a href="http://kahoot.it">Kahoot.it</a></h5>
+						<p>dolor sit amet, consectetur adipiscing elit. Aliquam rhoncus, felis eget semper feugiat, tellus dui tincidunt felis, ut posuere ipsum augue vel est. Nulla quis risus et purus lacinia lobortis. Ut malesuada libero qu</p>
+						<h5><a href="http://kahoot.it">Some other tool</a></h5>
+						<p>dolor sit amet, consectetur adipiscing elit. Aliquam rhoncus, felis eget semper feugiat, tellus dui tincidunt felis, ut posuere ipsum augue vel est. Nulla quis risus et purus lacinia lobortis. Ut malesuada libero qu</p>
+					</div>
+				</div>
+			</div>
+		<?php endfor; ?> 
 
 	</div>
 
