@@ -35,24 +35,27 @@ get_header(); ?>
 					<h2>Description</h2>
 					<?php the_field("description"); ?>
 				</section>
-				<section class="pilot-info">
-					<div>
-						<h2>People</h2>
-						<p><?php the_field( 'people' ); ?></p>
-					</div>
-					<div>
-						<h2>Tools used</h2>
-						<p><?php the_field( 'tools_used' ); ?></p>
-					</div>
-					<div>
-						<h2>Links and materials</h2>
-						<p><?php the_field( 'links_materials' ); ?></p>
-					</div>
+				<?php if (get_field( 'reflection' )): ?>
+					<section class="pilot-reflection matched-height2">
+						<h2>Reflection</h2>
+						<p><?php the_field( 'reflection' ); ?></p>
+					</section>
+				<?php endif; ?>
+
+				<section class="pilot-people">
+					<h3>People</h3>
+					<p><?php the_field( 'people' ); ?></p>
 				</section>
-				<section class="pilot-reflection matched-height2">
-					<h2>Reflection</h2>
-					<p><?php the_field( 'reflection' ); ?></p>
+				<section class="pilot-tools">
+					<h3>Tools used</h3>
+					<p><?php the_field( 'tools_used' ); ?></p>
 				</section>
+				<section class="pilot-links">
+					<h3>Links and materials</h3>
+					<p><?php the_field( 'links_materials' ); ?></p>
+				</section>
+
+
 			</article>
 
 			<footer>

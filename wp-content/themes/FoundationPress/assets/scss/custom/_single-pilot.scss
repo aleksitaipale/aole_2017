@@ -10,6 +10,7 @@
 		color: $light-body-text;
 		h2 {
 			color: $light-primary-heading;
+
 		}
 
 		@if ($debug) {background-color:red;}
@@ -59,7 +60,9 @@
 	
 	.content-container{
 		@if ($debug) {background-color:pink;}
-		@include breakpoint(small) {  @include grid-column(12);  }
+		@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition;  }
+		@include breakpoint(medium) {  @include grid-column(8); @include grid-column-position(center);  }
+		@include breakpoint(xlarge) {  @include grid-column(6); @include grid-column-position(center);  }
 
 		.entry-content{
 			@include grid-row();
@@ -67,24 +70,19 @@
 			.pilot-description{
 				@include breakpoint(small) {  @include grid-column(12);  }
 				@include breakpoint(medium) {  @include grid-column(12);  }
-				@include breakpoint(large) {  @include grid-column(8) @include grid-column-position(center); }
+				@include breakpoint(large) {  @include grid-column(12); }
 
 
 			}
 
-			.pilot-info{
-				@if ($debug) {background-color:yellow;}
-				@include breakpoint(small) {  @include grid-column(12);  }
+			.pilot-people, .pilot-tools, .pilot-links{
+				@include breakpoint(small) {  @include grid-column(12); }
 				@include breakpoint(medium) {  @include grid-column(6);}
-				@include breakpoint(large) {  @include grid-column(6);}
-				@include breakpoint(xlarge) {  @include grid-column(4);@include grid-column-offset(2);}
 			}
 			.pilot-reflection{
 				@if ($debug) {background-color:green;}
 				@include breakpoint(small) {  @include grid-column(12); }
-				@include breakpoint(medium) {  @include grid-column(6);}
-				@include breakpoint(large) {  @include grid-column(6);}
-				@include breakpoint(xlarge ) {  @include grid-column(4);}
+
 			}
 		}
 	}

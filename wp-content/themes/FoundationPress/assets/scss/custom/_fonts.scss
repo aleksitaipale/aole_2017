@@ -22,7 +22,7 @@ h2 {
 	color: $dark-primary-heading; 
 
 	@include breakpoint(small only) {
-		font-size:3em;
+		font-size:2em;
 	}
 }
 
