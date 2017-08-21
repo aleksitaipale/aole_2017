@@ -20,6 +20,7 @@
 			@include grid-row();
 			@extend .valign;
 			.pilot-header-content {
+				text-align:center;
 
 				@include grid-column-position(center);
 				@include breakpoint(small) {  @include grid-column(12); }
