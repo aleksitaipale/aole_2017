@@ -41,6 +41,8 @@
 
 		@include grid-row();
 		height:100px;
+
+		background-size: auto 100%;
 		
 		&.pattern1 {
 			background-image:url("../images/patterns/horizontal-single-pattern.png");
@@ -176,7 +178,7 @@ body {
 
 			img {
 				padding:10%;
-
+				background-repeat:repeat;
 			}
 
 
@@ -252,6 +254,7 @@ section:not(.left-header-container):not(.right-header-container){
 
 .quote-underline{
 	background-image:url("../images/patterns/horizontal-single-line.png");
+
 	background-repeat:repeat-x;
 
 	background-position:10% 0%;

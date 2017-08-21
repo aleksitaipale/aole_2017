@@ -12,7 +12,7 @@
 </div>
 </section>
 <div class="footer-container" data-sticky-footer>
-<span id="responsive-flag"></span>
+	<span id="responsive-flag"></span>
 	<footer class="footer">
 		<div class="footer-logos">
 			<a href="http://www.aalto.fi/en/"><img src="<?php echo get_field("aalto_logo_large_white", "option"); ?>" /></a>
@@ -27,20 +27,21 @@
 					<p><b>Aalto Online Learning</b> in social media</p>
 					<?php 
 					$aole_some = get_field("aole_social_media_links", "option");
+			
 
 					if ($aole_some):
 						?>
 
-					<?php if ($aole_some["facebook"]): ?>
-						<a href="<?php echo $aole_some["facebook"]; ?>"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+					<?php if ($aole_some["aole_facebook"]): ?>
+						<a href="<?php echo $aole_some["aole_facebook"]; ?>"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
 					<?php endif;?>
 
-					<?php if ($aole_some["twitter"]): ?>
-						<a href="<?php echo $aole_some["twitter"]; ?>"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
+					<?php if ($aole_some["aole_twitter"]): ?>
+						<a href="<?php echo $aole_some["aole_twitter"]; ?>"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
 					<?php endif;?>
 
-					<?php if ($aole_some["instagram"]): ?>
-						<a href="<?php echo $aole_some["instagram"]; ?>"><i class="fa fa-instagram-square fa-3x" aria-hidden="true"></i></a>
+					<?php if ($aole_some["aole_instagram"]): ?>
+						<a href="<?php echo $aole_some["aole_instagram"]; ?>"><i class="fa fa-instagram-square fa-3x" aria-hidden="true"></i></a>
 					<?php endif;?>
 
 				<?php endif; ?>
@@ -54,20 +55,20 @@
 				if ($aalto_some):
 					?>
 
-				<?php if ($aalto_some["facebook"]): ?>
-					<a href="<?php echo $aalto_some["facebook"]; ?>"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
+				<?php if ($aalto_some["aalto_facebook"]): ?>
+					<a href="<?php echo $aalto_some["aalto_facebook"]; ?>"><i class="fa fa-facebook-square fa-3x" aria-hidden="true"></i></a>
 				<?php endif;?>
 
-				<?php if ($aalto_some["twitter"]): ?>
-					<a href="<?php echo $aalto_some["twitter"]; ?>"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
+				<?php if ($aalto_some["aalto_twitter"]): ?>
+					<a href="<?php echo $aalto_some["aalto_twitter"]; ?>"><i class="fa fa-twitter-square fa-3x" aria-hidden="true"></i></a>
 				<?php endif;?>
 
-				<?php if ($aalto_some["youtube"]): ?>
-					<a href="<?php echo $aalto_some["youtube"]; ?>"><i class="fa fa-youtube-square fa-3x" aria-hidden="true"></i></a>
+				<?php if ($aalto_some["aalto_youtube"]): ?>
+					<a href="<?php echo $aalto_some["aalto_youtube"]; ?>"><i class="fa fa-youtube-square fa-3x" aria-hidden="true"></i></a>
 				<?php endif;?>
 
-				<?php if ($aalto_some["instagram"]): ?>
-					<a href="<?php echo $aalto_some["instagram"]; ?>"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
+				<?php if ($aalto_some["aalto_instagram"]): ?>
+					<a href="<?php echo $aalto_some["aalto_instagram"]; ?>"><i class="fa fa-instagram fa-3x" aria-hidden="true"></i></a>
 				<?php endif;?>
 
 			<?php endif; ?>
