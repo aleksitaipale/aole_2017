@@ -88,6 +88,7 @@ get_header(); ?>
 		<?php
 		$categories = get_field("online_tool_categories");
 
+
 		if ($categories):
 
 			foreach ($categories as $category):
@@ -99,7 +100,7 @@ get_header(); ?>
 				<div class="toolbox">
 					<div class="toolbox-title">
 						<h2><?php echo $category["online_tool_group_title"];?></h2>
-						<?phpecho $category["online_tool_group_description"]; ?>
+						<?php echo $category["online_tool_group_description"]; ?>
 					</div>
 					<div class="toolbox-content">
 						<h3>Aalto-supported tools</h3>
