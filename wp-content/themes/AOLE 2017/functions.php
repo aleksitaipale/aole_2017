@@ -788,6 +788,8 @@ add_image_size( 'single-pilot-banner', 1200, 500, true); // name, width, height,
 
 add_image_size( 'feed-thumbnail', 500, 180, true); // name, width, height, crop 
 
+add_image_size( 'event-thumbnail', 790, 270, true); // name, width, height, crop 
+
 
 // Custom excerpt for feed posts on front page //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Source: https://stackoverflow.com/a/24160854

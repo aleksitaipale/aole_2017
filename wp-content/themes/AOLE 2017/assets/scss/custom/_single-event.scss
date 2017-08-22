@@ -2,6 +2,7 @@
 	@include grid-row(null, null, "expand", true, $grid-column-gutter);
 	
 	.event-featured-image-full{
+		margin-top:20px;
 		@include grid-column(12);
 		background-image: url("../images/patterns/horizontal-single-pattern.png");	
 		img {

@@ -40,7 +40,9 @@
 	.patterned-divider{
 
 		@include grid-row();
-		height:100px;
+		@include breakpoint(small) {height: 40px; }
+		@include breakpoint(medium) {height: 60px; }
+		@include breakpoint(large) { height:80px; }
 
 		background-size: auto 100%;
 		
