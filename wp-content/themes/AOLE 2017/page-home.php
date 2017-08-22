@@ -128,7 +128,7 @@ $target_groups_section = get_field('target_groups_section');
 							if ($next_event){
 								$event = get_all_event_info($next_event);
 							} else {
-								$next_event = EM_Events::get(array("scope"=>"past", "limit"=>1, "orderby" => "event_start_date"))[0];
+								$next_event = EM_Events::get(array("scope"=>"past", "limit"=>1, "orderby" => "event_start_date", "order" => "DESC"))[0];
 								$event = get_all_event_info($next_event);
 							}
 
