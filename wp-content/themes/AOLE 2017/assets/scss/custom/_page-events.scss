@@ -145,19 +145,12 @@
 	// A list of events
 	
 	.events {
-		@include grid-row();	
+		@include grid-column(12);
 		@if ($debug) {background-color:blue;}
 
 
 
-		.event-container {
-			list-style-type: none;			
-			@include breakpoint(small) {  @include grid-column(12);   }
-			@include breakpoint(medium) {  @include grid-column(12); }
-			@include breakpoint(large) {  @include grid-column(12);  }
-
-		}
-
+		list-style-type: none;
 
 
 
@@ -216,7 +209,7 @@
 
 
 .events-section-title-container{
-
+	padding-top:15px;
 	@include breakpoint(small) {  @include grid-column(12);   }
 	@include breakpoint(medium) {  @include grid-column(12);  }
 	@include breakpoint(large) {  @include grid-column(12); }
@@ -245,17 +238,14 @@
 }
 
 
-.event-container{
-	@include breakpoint(small) {
-		margin-top:20px;
-	}
-}
-
 
 .event{
 	@include grid-row();
 
 	@include breakpoint(medium) { border-bottom:1px solid $grey-border; }
+	@include breakpoint(small) {
+		margin-top:20px;
+	}
 	padding-bottom:2%;
 	padding-top:2%;
 
