@@ -68,7 +68,7 @@ get_header(); ?>
 		<?php
 		// Fetch all the A!OLE events
 		$future_events = EM_Events::get(array("scope"=>"future"));
-		$past_events = EM_Events::get(array("scope"=>"past"));
+		$past_events = EM_Events::get(array("scope"=>"past", "order"=>"DESC"));
 
 		function create_event_array($em_events){
 			$events_array = [];
