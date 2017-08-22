@@ -50,57 +50,53 @@ get_header(); ?>
 				</div>
 				<div class="event-information-container">
 					<!-- Date -->
-					<span class="event-date"><?php 
-						$start_date = date_create($event["event"]->event_start_date);
-						$end_date = date_create($event["event"]->event_end_date);
-						if ($event->event_start_date != $event->event_end_date){
-							echo date_format($start_date, "D d F")."-".date_format($end_date, "D d F");
-						} else {
-							echo date_format($start_date, "D d F");
-						}
-						?></span>
-						<!-- Time -->
-						<div class="event-time"><?php echo substr($event["event"]->event_start_time, 0, -3)."-".substr($event["event"]->event_end_time, 0, -3); ?></div>
-						<!-- Location -->
-						<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
-						<!-- Only for pilots? -->
-						<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
-						<!-- Export event to iCal -->
-						<div class="export-event-to-ical">
-							<a href="<?php echo do_shortcode("[event post_id='".$event["post"]->ID."']#_EVENTICALURL[/event]");?>">Export to iCal</a>
-						</div>
-						<?php if ($event["event"]->custom_fields["registration_link"]): ?>
-							<div class="registration-link">
-								<a class="button secondary" href="<?php echo $event["event"]->custom_fields["registration_link"]; ?>">Register here</a>
-							</div>
-						<?php endif; ?>
+					<span class="event-date">	
+						<?php 
+						echo format_event_date($event["event"]->event_start_date,$event["event"]->event_end_date);
+						?>
+					</span>
+					<!-- Time -->
+					<div class="event-time"><?php echo substr($event["event"]->event_start_time, 0, -3)."-".substr($event["event"]->event_end_time, 0, -3); ?></div>
+					<!-- Location -->
+					<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
+					<!-- Only for pilots? -->
+					<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
+					<!-- Export event to iCal -->
+					<div class="export-event-to-ical">
+						<a href="<?php echo do_shortcode("[event post_id='".$event["post"]->ID."']#_EVENTICALURL[/event]");?>">Export to iCal</a>
 					</div>
-
-
-
-					<article class="event-description">
-						<?php the_content(); ?>
-						<?php if ($event["event"]->custom_fields["registration_link"]): ?>
-							<div class="registration-link">
-								<a class="button" href="<?php echo $event["event"]->custom_fields["registration_link"]; ?>">Register here!</a>
-							</div>
-						<?php endif; ?>
-						<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
-
-					</article>
-
+					<?php if ($event["event"]->custom_fields["registration_link"]): ?>
+						<div class="registration-link">
+							<a class="button secondary" href="<?php echo $event["event"]->custom_fields["registration_link"]; ?>">Register here</a>
+						</div>
+					<?php endif; ?>
 				</div>
+
+
+
+				<article class="event-description">
+					<?php the_content(); ?>
+					<?php if ($event["event"]->custom_fields["registration_link"]): ?>
+						<div class="registration-link">
+							<a class="button" href="<?php echo $event["event"]->custom_fields["registration_link"]; ?>">Register here!</a>
+						</div>
+					<?php endif; ?>
+					<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
+
+				</article>
+
 			</div>
+		</div>
 
 
 
-			
-		<?php endwhile;?>
 
-		<?php do_action( 'foundationpress_after_content' ); ?>
-		<?php get_sidebar(); ?>
+	<?php endwhile;?>
 
-	</div>
+	<?php do_action( 'foundationpress_after_content' ); ?>
+	<?php get_sidebar(); ?>
+
+</div>
 
 
-	<?php get_footer();
+<?php get_footer();
