@@ -670,7 +670,7 @@ function cptui_register_my_taxes() {
         "label" => __( "Theme Groups", "" ),
         "labels" => $labels,
         "public" => true,
-        "hierarchical" => false,
+        "hierarchical" => true,
         "label" => "Theme Groups",
         "show_ui" => true,
         "show_in_menu" => true,
