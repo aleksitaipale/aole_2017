@@ -4,7 +4,9 @@
 	.event-featured-image-full{
 		@include grid-column(12);
 		background-image: url("../images/patterns/horizontal-single-pattern.png");	
-
+		img {
+			max-height:450px;
+		}
 
 		text-align:center;
 

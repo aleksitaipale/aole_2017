@@ -28,7 +28,7 @@ get_header(); ?>
 		?>
 
 		<div class="event-featured-image-full">
-			<img src="<?php echo get_event_image_url($event["event"]->post_id, 'single-pilot-banner'); ?>"></img>
+			<img src="<?php echo get_event_image_url($event["event"]->post_id, 'full'); ?>"></img>
 		</div>
 
 
