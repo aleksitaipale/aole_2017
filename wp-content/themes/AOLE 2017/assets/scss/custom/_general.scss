@@ -32,6 +32,18 @@
 
 }
 //custom section divider
+.pattern1 {
+	background-image:url("../images/patterns/horizontal-single-pattern.png");
+}
+.pattern2 {
+	background-image:url("../images/patterns/vertical-single-pattern.png");
+}
+.pattern3 {
+	background-image:url("../images/patterns/horizontal-double-pattern.png");
+}
+.pattern4 {
+	background-image:url("../images/patterns/vertical-double-pattern.png");
+}
 
 .patterned-divider-container{
 
@@ -46,18 +58,7 @@
 
 		background-size: auto 100%;
 		
-		&.pattern1 {
-			background-image:url("../images/patterns/horizontal-single-pattern.png");
-		}
-		&.pattern2 {
-			background-image:url("../images/patterns/vertical-single-pattern.png");
-		}
-		&.pattern3 {
-			background-image:url("../images/patterns/horizontal-double-pattern.png");
-		}
-		&.pattern4 {
-			background-image:url("../images/patterns/vertical-double-pattern.png");
-		}
+
 
 
 
@@ -181,6 +182,7 @@ body {
 			img {
 				padding:10%;
 				background-repeat:repeat;
+				border:1px solid $white;
 			}
 
 

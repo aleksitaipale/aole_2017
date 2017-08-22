@@ -256,6 +256,10 @@
 	.event-image-container{
 
 		text-align:center;
+		padding:20px;
+		border: 1px solid $dark-bg;
+		@extend .pattern1;
+		margin-bottom:10px;
 		
 	}
 	.event-title-container{

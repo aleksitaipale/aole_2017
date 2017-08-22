@@ -98,7 +98,8 @@ $target_groups_section = get_field('target_groups_section');
 									<div class="aole-feed-title">
 										<h2><a href="<?php echo get_page_link(252);  ?>"><?php echo $blog_news_title; ?></a></h2>
 									</div>
-									<div class="aole-feed-featured-image" style="background-image:url('<?php echo get_the_post_thumbnail_url(get_the_ID(), 'feed-thumbnail'); ?>')">
+									<div class="aole-feed-featured-image">
+										<img src="<?php echo get_the_post_thumbnail_url(get_the_ID(), 'feed-thumbnail'); ?>" />
 									</div>
 									<div class="aole-news-content">
 										<h4><a href="<?php echo get_permalink(); ?>"><?php the_title(); ?></a></h4>
@@ -133,8 +134,8 @@ $target_groups_section = get_field('target_groups_section');
 
 							
 							?>
-							<div class="aole-feed-featured-image" style="background-image:url('<?php echo get_the_post_thumbnail_url($event["event"]->post_id, 'feed-thumbnail'); ?>')">
-
+							<div class="aole-feed-featured-image">
+								<img src="<?php echo get_event_image_url($event["event"]->post_id, 'feed-thumbnail'); ?>" />
 							</div>
 							
 

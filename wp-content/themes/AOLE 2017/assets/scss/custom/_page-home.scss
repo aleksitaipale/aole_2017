@@ -208,14 +208,17 @@
 
 			.aole-feed-featured-image{
 				text-align:center;
-				min-height:200px;
-				background-size:cover;
+				@include breakpoint(large) { height:200px; }
+				background-image: url("../images/patterns/horizontal-single-pattern.png");	
 				@include grid-column(12);
+				border: 1px solid $dark-bg;
+				padding:20px;
 
-				.event-date{
-					width:100%;
-
+				img {
+					@extend .valign;
 				}
+
+				
 
 			}
 
@@ -321,7 +324,7 @@
 					}
 
 					.event {
-
+						margin-top:0;
 
 
 						padding-top:0;
@@ -410,7 +413,7 @@
 		}
 
 		.pilots-carousel{
-		@include grid-layout(3, '.single-carousel-pilot');
+			@include grid-layout(3, '.single-carousel-pilot');
 		}
 	}
 }
