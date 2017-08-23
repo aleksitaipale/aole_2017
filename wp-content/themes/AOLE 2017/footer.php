@@ -20,6 +20,7 @@
 		</div>
 		<div class="footer-text">
 			<?php the_field("footer_text", "option"); ?>
+					<div class="footer-feedback"><a href="<?php the_permalink(get_page_by_title('Feedback')); ?>">Give feedback to Aalto Online Learning</a></div>
 		</div>
 		<div class="footer-links">
 			<div class="footer-links-container">
@@ -73,6 +74,8 @@
 
 			<?php endif; ?>
 		</div>
+
+
 
 	</div>
 

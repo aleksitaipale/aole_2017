@@ -30,6 +30,9 @@
 
 			
 		}
+
+
+
 		.footer-text{
 			div {
 				margin-top:10px;
@@ -49,6 +52,26 @@
 			
 			text-align:left;
 			//background-color:blue;
+		}
+
+		.footer-feedback {
+			@include grid-row();
+
+			a {
+				@include grid-column(12);
+				padding:10px;
+				border-radius:5px;
+				&:before {
+					content: "\f003";
+					font-family:FontAwesome;
+					padding-right:10px;
+				}
+				text-decoration: none;
+				font-weight:bold;
+
+				color:$colored-primary-heading;
+				background-color:$light-bg;
+			}
 		}
 
 		.footer-links {
