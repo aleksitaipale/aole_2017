@@ -87,15 +87,6 @@
 
 	}
 
-	form label {
-		font-size:inherit;
-		color: $white;
-	}
-
-	form input[type=submit]{
-		@extend .button;
-		background-color:$light-bg;
-		color: $dark-bg;
-	}
+	
 }
 

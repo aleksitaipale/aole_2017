@@ -3,6 +3,9 @@ p a {
 	text-decoration: underline;
 }
 
+article {
+	padding-top:3%;
+}
 // for jquery to know what size we have
 
 #responsive-flag {
@@ -60,12 +63,7 @@ p a {
 		@include breakpoint(small) {height: 40px; }
 		@include breakpoint(medium) {height: 60px; }
 		@include breakpoint(large) { height:80px; }
-
 		background-size: auto 100%;
-		
-
-
-
 
 	}
 

@@ -1,0 +1,8 @@
+form label {
+	font-size:inherit;
+
+}
+
+form input[type=submit]{
+	@extend .button;
+}
