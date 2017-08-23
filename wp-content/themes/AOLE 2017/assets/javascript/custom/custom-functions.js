@@ -1,9 +1,15 @@
 // Add a listing of a certain days events to the events header
 
 jQuery(".event-calendar").on( "click", ".eventful button", function(){
-	alert("it all works.");
-	/*
+	
+
 	var events = $.parseJSON($(this).attr('data-events'));
+
+	console.log(events);
+	var siteurl = window.WPURLS.siteurl;
+
+
+	
 	var date = $(this).attr('data-date');
 
 	// Clear the div first
@@ -15,7 +21,7 @@ jQuery(".event-calendar").on( "click", ".eventful button", function(){
 		$("#day-event-list").append(eventTitle);
 		console.log(events[i]);
 	}
-	*/
+	
 
 });
 

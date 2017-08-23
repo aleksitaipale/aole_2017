@@ -43,12 +43,13 @@
 							$eventsList[$event->post_id]->permalink = get_permalink($event->post_id);;
 							$eventsList[$event->post_id]->event = $event;
 							$eventsList[$event->post_id]->facilitators = get_field("facilitators", $event->post_id);
+
 						}
 
 						
 						?>
-				
-						<button type="button" class="button" data-events='<?php echo json_encode($eventsList); ?>' data-date="<?php echo date('l jS \of F Y', $cell_data['date']); ?>">
+
+						<button type="button" class="button" data-events='<?php echo json_encode($eventsList, JSON_HEX_QUOT|JSON_HEX_TAG|JSON_HEX_AMP|JSON_HEX_APOS); ?>' data-date="<?php echo date('l jS \of F Y', $cell_data['date']); ?>">
 							<?php echo esc_html(date('j',$cell_data['date'])); ?></button>
 						<?php else:?>
 							<?php echo esc_html(date('j',$cell_data['date'])); ?>
