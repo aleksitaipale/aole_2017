@@ -31,6 +31,9 @@
 			
 		}
 		.footer-text{
+			div {
+				margin-top:10px;
+			}
 			@include breakpoint(small only) {
 				@include grid-column(10); @include grid-column-position(center);
 				padding-top:10px;padding-bottom:10px;
@@ -87,6 +90,12 @@
 	form label {
 		font-size:inherit;
 		color: $white;
+	}
+
+	form input[type=submit]{
+		@extend .button;
+		background-color:$light-bg;
+		color: $dark-bg;
 	}
 }
 
