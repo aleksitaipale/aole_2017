@@ -46,8 +46,10 @@
 			@include grid-row();
 			@extend .valign;
 
+			img { border: 1px solid white; }
 			div{
 				text-align:center;
+				
 				@include breakpoint(small) {  @include grid-column(12);   }
 				@include breakpoint(medium) {  @include grid-column(12); }
 				@include breakpoint(large) {  @include grid-column(12);  }
