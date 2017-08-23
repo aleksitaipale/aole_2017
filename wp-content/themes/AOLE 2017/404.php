@@ -8,10 +8,10 @@
 
 get_header(); ?>
 
- <div class="main-wrap" role="main">
+<div class="main-wrap" role="main">
 	<article <?php post_class('main-content') ?> id="post-<?php the_ID(); ?>">
 		<header>
-			<h1 class="entry-title"><?php _e( 'File Not Found', 'foundationpress' ); ?></h1>
+			<h2 class="entry-title"><?php _e( 'Yikes! No such page exists. :(', 'foundationpress' ); ?></h2>
 		</header>
 		<div class="entry-content">
 			<div class="error">
@@ -22,19 +22,18 @@ get_header(); ?>
 				<li><?php _e( 'Check your spelling', 'foundationpress' ); ?></li>
 				<li>
 					<?php
-						/* translators: %s: home page url */
-						printf( __(
-							'Return to the <a href="%s">home page</a>', 'foundationpress' ),
-							home_url()
-						);
+					/* translators: %s: home page url */
+					printf( __(
+						'Return to the <a href="%s">home page</a>', 'foundationpress' ),
+					home_url()
+					);
 					?>
 				</li>
 				<li><?php _e( 'Click the <a href="javascript:history.back()">Back</a> button', 'foundationpress' ); ?></li>
 			</ul>
 		</div>
 	</article>
-
- <?php get_sidebar(); ?>
+	<?php get_sidebar(); ?>
 
 </div>
 

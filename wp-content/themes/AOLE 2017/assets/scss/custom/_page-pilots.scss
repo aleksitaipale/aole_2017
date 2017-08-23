@@ -44,7 +44,7 @@
 				@include breakpoint(small) {  @include grid-column(12); @include grid-column-unposition;}
 				@include breakpoint(large) {  @include grid-column(5,0); @include grid-column-offset(1);}
 
-			
+
 				
 				
 
@@ -55,27 +55,6 @@
 
 		}
 
-		// The pilot listing in a grid
-		
-		.pilots-listing{
-			
-			@include breakpoint(small) {   @include grid-layout(2, '.pilot-listing-item', $grid-column-gutter);  }
-			@include breakpoint(medium) {   @include grid-layout(3, '.pilot-listing-item', $grid-column-gutter); padding-top:2.5em; }
-			@include breakpoint(large) {  @include grid-layout(4, '.pilot-listing-item', $grid-column-gutter); }
-			@include breakpoint(xlarge) {  @include grid-layout(5, '.pilot-listing-item', $grid-column-gutter); }
-
-
-
-			.pilot-listing-item{
-				h4 {
-					margin-top:10px;
-
-					@include breakpoint(small) {
-						font-size:1em;
-					}
-				}
-			}
-		}
 		
 
 
@@ -84,5 +63,27 @@
 
 }
 
+
+// The pilot listing in a grid
+
+.pilots-listing{
+	
+	@include breakpoint(small) {   @include grid-layout(2, '.pilot-listing-item', $grid-column-gutter);  }
+	@include breakpoint(medium) {   @include grid-layout(3, '.pilot-listing-item', $grid-column-gutter); padding-top:2.5em; }
+	@include breakpoint(large) {  @include grid-layout(4, '.pilot-listing-item', $grid-column-gutter); }
+	@include breakpoint(xlarge) {  @include grid-layout(5, '.pilot-listing-item', $grid-column-gutter); }
+
+
+
+	.pilot-listing-item{
+		h4 {
+			margin-top:10px;
+
+			@include breakpoint(small) {
+				font-size:1em;
+			}
+		}
+	}
+}
 
 
