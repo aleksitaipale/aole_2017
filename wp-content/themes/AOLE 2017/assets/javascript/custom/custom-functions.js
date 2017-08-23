@@ -5,10 +5,6 @@ jQuery(".event-calendar").on( "click", ".eventful button", function(){
 
 	var events = $.parseJSON($(this).attr('data-events'));
 
-	console.log(events);
-	var siteurl = window.WPURLS.siteurl;
-
-
 	
 	var date = $(this).attr('data-date');
 
