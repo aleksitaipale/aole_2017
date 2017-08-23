@@ -65,10 +65,10 @@ $aalto-header-height: 40px;
 	height:$aalto-header-height;
 	width:100%;
 	background-color:$aalto-bg;
-	text-align:left;
+	text-align:right;
 	.aalto-logo{
 		padding-top:10px;
-		padding-left:10px;
+		padding-right:10px;
 		max-height:$aalto-header-height - 10px;
 	}
 }
