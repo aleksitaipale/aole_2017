@@ -47,6 +47,7 @@
 
 						
 						?>
+				
 						<button type="button" class="button" data-events='<?php echo json_encode($eventsList); ?>' data-date="<?php echo date('l jS \of F Y', $cell_data['date']); ?>">
 							<?php echo esc_html(date('j',$cell_data['date'])); ?></button>
 						<?php else:?>
@@ -63,3 +64,5 @@
 			</tr>
 		</tbody>
 	</table>
+
+<!--	https://wpshout.com/building-a-magical-golden-bridge-from-php-to-javascript-with-wp_localize_script/ -->
