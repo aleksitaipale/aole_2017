@@ -182,11 +182,11 @@ $target_groups_section = get_field('target_groups_section');
 
 
 									<div class="see-more-events see-more">
-										<p>
-											<a href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
-												See more events...
-											</a>
-										</p>
+										
+										<a href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
+											See more events...
+										</a>
+										
 									</div>
 
 
