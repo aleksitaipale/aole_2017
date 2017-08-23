@@ -11,13 +11,16 @@ get_header(); ?>
 
 <div class="main-wrap single-pilot-page full-width" role="main">
 	<div data-equalizer>
-		<div class="pilot-image-container" data-equalizer-watch>
-			<div class="pilot-image">
-				<div><?php the_post_thumbnail();?></div>
-			</div>
-		</div>
-		<?php do_action( 'foundationpress_before_content' ); ?>
 		<?php while ( have_posts() ) : the_post(); ?>
+			<div class="pilot-image-container" data-equalizer-watch>
+				<div class="pilot-image">
+					<div>
+						<img src="<?php echo get_pilot_image_url(get_the_ID(), 'full'); ?>" />
+					</div>
+				</div>
+			</div>
+			<?php do_action( 'foundationpress_before_content' ); ?>
+
 			<article data-equalizer-watch <?php post_class('pilot-header-container') ?> id="post-<?php the_ID(); ?>">
 				<div class="pilot-header">
 					<div class="pilot-header-content">

@@ -182,7 +182,7 @@ $target_groups_section = get_field('target_groups_section');
 
 
 									<div class="see-more-events see-more">
-										
+
 										<a href="<?php echo get_page_link( get_page_by_title( "Events" )->ID );?>">
 											See more events...
 										</a>
@@ -217,7 +217,7 @@ $target_groups_section = get_field('target_groups_section');
 							<div class="pilots-carousel">
 								<?php foreach ($pilots_showcase_section["showcased_pilots"] as $showcase_pilot): ?>
 									<div class="single-carousel-pilot">
-										<a class="image-link" href="<?php echo get_the_permalink($showcase_pilot->ID); ?>"><img src="<?php echo get_the_post_thumbnail_url($showcase_pilot->ID, 'pilot-showcase'); ?>" /></a>
+										<a class="image-link" href="<?php echo get_the_permalink($showcase_pilot->ID); ?>"><img src="<?php echo get_pilot_image_url($showcase_pilot->ID, 'pilot-showcase'); ?>" /></a>
 										<h4>
 											<a href="<?php echo get_the_permalink($showcase_pilot->ID); ?>">
 												<?php echo $showcase_pilot->post_title; ?>

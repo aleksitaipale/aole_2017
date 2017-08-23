@@ -906,11 +906,21 @@ function get_event_image_url($event_id, $image_size){
     if (has_post_thumbnail($event_id)){
         $thumb_url = get_the_post_thumbnail_url($event_id, $image_size);
     } else {
-        $thumb_url = get_template_directory_uri()."/assets/images/default_event.png";
+        $thumb_url = get_stylesheet_directory_uri()."/assets/images/default_event.png";
     }
 
     return $thumb_url;
 
+}
+
+function get_pilot_image_url($pilot_id, $image_size){
+    $thumb_url = "";
+    if (has_post_thumbnail($pilot_id)){
+        $thumb_url = get_the_post_thumbnail_url($pilot_id, $image_size);
+    } else {
+        $thumb_url = get_stylesheet_directory_uri()."/assets/images/default_pilot.png";
+    }
+    return $thumb_url;
 }
 
 // Add a custom ACF menu to edit the footer

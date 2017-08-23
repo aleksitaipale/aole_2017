@@ -21,6 +21,7 @@ get_header(); ?>
 			<div class="right-header-container" data-equalizer-watch>
 				<div class="right-header">
 					<div class="right-header-content">
+
 						<?php the_post_thumbnail(); ?>
 					</div>
 				</div>
@@ -105,7 +106,7 @@ get_header(); ?>
 				<div class='pilot-listing-item'>
 					
 					<a href="<?php echo get_the_permalink($pilot->ID);?>">
-						<img src="<?php echo get_the_post_thumbnail_url($pilot->ID, 'medium'); ?>" />
+						<img src="<?php echo get_pilot_image_url($pilot->ID, 'medium'); ?>" />
 					</a>
 					<h4>
 						<a href="<?php echo get_the_permalink($pilot->ID); ?>">
