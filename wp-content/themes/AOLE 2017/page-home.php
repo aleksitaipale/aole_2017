@@ -28,7 +28,7 @@ $target_groups_section = get_field('target_groups_section');
 			<div class="headline-content">
 				<h3><?php echo $what_is_aole_section["what_is_aole_content"]; ?></h3>
 			</div>
-			
+
 		</div>
 	</div>
 	<div class="target-group-container">
@@ -82,7 +82,7 @@ $target_groups_section = get_field('target_groups_section');
 									</div>
 
 									<div class="aole-news-button see-more">
-										<a href="<?php echo get_page_link(252);  ?>">See more blog posts...</a>
+										<a href="<?php echo get_page_link(252);  ?>">See more news...</a>
 									</div>
 								</div>
 							</div>
