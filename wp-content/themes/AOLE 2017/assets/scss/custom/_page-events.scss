@@ -192,17 +192,7 @@
 	@extend .primary;
 }
 
-.events-page .past-event {
 
-	.event-image-container{
-		@include breakpoint(small only) {  @include grid-column(4); @include grid-column-unposition;  }
-	}
-	.event-information-container{
-		@include breakpoint(small only) { @include grid-column(8); @include grid-column-unposition; }
-	}
-	
-
-}
 
 
 .events-section-title-container{
