@@ -1,6 +1,6 @@
 // Add a listing of a certain days events to the events header
 
-jQuery(".event-calendar").on( "click", ".eventful button, .eventful-pre button", function(){
+jQuery(".event-calendar").on( "click", ".eventful button, .eventful-pre button, .eventful-post button", function(){
 	
 
 	var events = $.parseJSON($(this).attr('data-events'));
