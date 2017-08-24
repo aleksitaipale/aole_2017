@@ -25,7 +25,8 @@ get_header(); ?>
 				<div class="pilot-header">
 					<div class="pilot-header-content">
 						<h2 class="entry-title"><?php the_title(); ?></h2>
-						<?php the_field( 'subtitle' ); ?>
+
+						<?php if (get_field('subtitle')){the_field( 'subtitle' ); }?>
 						<?php edit_post_link( __( 'Edit', 'foundationpress' ), '<span class="edit-link">', '</span>' ); ?>
 					</div>
 				</div>
