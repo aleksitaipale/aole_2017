@@ -21,19 +21,6 @@
 		.vr-box{
 			@include breakpoint(small only) { @include grid-column(12); @include grid-column-position(center); }
 			@include breakpoint(medium) { @include grid-column(12); }
-
-		/*	&.vr-box-small{
-				@include show-for-only(small);
-			}
-			&.vr-box-medium{
-				@include show-for(medium);
-				
-				@include hide-for(xxlarge);
-			}
-
-			&.vr-box-large{
-				@include show-for-only(xxlarge);
-			}*/
 		}
 
 	}
@@ -215,6 +202,7 @@
 				padding:20px;
 
 				img {
+					border:1px solid $dark-bg;
 					@extend .valign;
 				}
 
