@@ -1,20 +1,28 @@
+//////////////////////////////////////////////////////////////////////////////
+// TITLE: 
+// A!OLE2017 colors
+//
+// DESCRIPTION:
+// This partial defines the colors used on throughout the site.
+//////////////////////////////////////////////////////////////////////////////
+
+// Background colors
 $dark-bg: #338FD4;
 $light-bg: #ffffff;
 $aalto-bg: $dark-bg;
 
+// Text colors
 $light-primary-heading: #ffffff;
 $light-secondary-heading: red;
 $dark-primary-heading: black;
 $dark-secondary-heading: lighten($dark-primary-heading, 30%);
 $dark-body-text: black;
 $light-body-text: #ffffff;
-
 $colored-primary-heading: $dark-bg;
 
+// 50 (minus 46) shades of grey
 $grey-border: lighten(black,50%);
-
 $grey: lighten(black, 30%);
-
 $light-grey: lighten(black, 50%);
 $lighter-grey: lighten(black, 75%);
 $lightest-grey: #efefef;

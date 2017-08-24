@@ -1,6 +1,14 @@
-/*
-The fonts are defined here. Also, each of them has a default color, but those are mostly overridden in the respective SCSS files for each page.
-*/
+//////////////////////////////////////////////////////////////////////////////
+// TITLE: 
+// A!OLE2017 fonts
+//
+// DESCRIPTION:
+// The fonts are defined here. Each of them has a default color, but those are mostly overridden in the respective SCSS files for each page.
+// For the fonts, it is preferred to use the default sizes and instead of adjusting the text size, changing the specification
+// Example: if a <h2> element is too big, you should either consider changing from <h2> to <h3> or change the size of <h2> globally
+// Note: <h1> is not used on the A!OLE 2017 website
+//
+//////////////////////////////////////////////////////////////////////////////
 
 $serif-body: "Sentinel Book", Georgia, serif;
 $serif-heading: "Sentinel Book", Georgia, serif;

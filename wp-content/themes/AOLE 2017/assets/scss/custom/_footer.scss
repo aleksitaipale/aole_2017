@@ -1,3 +1,38 @@
+//////////////////////////////////////////////////////////////////////////////
+// TITLE: 
+// A!OLE2017 Feedback
+//
+// DESCRIPTION:
+// This partial styles the A!OLE2017 footer
+//////////////////////////////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////// FONTS ////////////////
+//////////////////////////////////
+
+.footer-container .footer { font-size: 0.8em; }
+.footer-text { color:white; }
+.footer-text a { color:white; text-decoration: underline; }
+.footer-feedback a {
+	&:before {
+		content: "\f003";
+		font-family:FontAwesome;
+		padding-right:10px;
+	}
+	text-decoration: none;
+	font-weight:bold;
+
+	color:$colored-primary-heading;
+}
+
+.footer-links { color: white; }
+.footer-links .fa { color:white; }
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////// STYLING //////////////
+//////////////////////////////////
+
 .footer-container{
 
 	margin-top:0;
@@ -12,23 +47,11 @@
 	}
 
 	.footer {
-		@include grid-row();
-		font-size:0.8em;
-
 		.footer-logos{
-			@include breakpoint(small) {
-				@include grid-column(12);
-			}
-			@include breakpoint(medium) {
-				@include grid-column(4);
-			}
-
 			img {
 				height:120px;
 				padding:10px;
-			}
-
-			
+			}			
 		}
 
 
@@ -38,41 +61,97 @@
 				margin-top:10px;
 			}
 			@include breakpoint(small only) {
-				@include grid-column(10); @include grid-column-position(center);
 				padding-top:10px;padding-bottom:10px;
+			}
+			text-align:left;
+		}
+
+		.footer-feedback {
+
+			a {
+				padding:10px;
+				border-radius:5px;
+
+				background-color:$light-bg;
+			}
+		}
+
+
+		.footer-links {
+			.fa { 
+				padding-right:15px;
+			}
+			p {
+				margin-bottom:5px;
+			}
+
+			.footer-links-container{
+				text-align:left;
+				.aole-some{
+					border-bottom:1px solid $white;
+					margin-bottom:10px;
+					padding-bottom: 10px;
+				}
+
+			}
+			
+		}
+
+
+
+	}
+
+	
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////// POSITIONING //////////
+//////////////////////////////////
+
+
+.footer-container{
+
+	.widget_media_image{
+		@include grid-column-position(center);
+	}
+
+	.footer {
+		@include grid-row();
+
+
+
+		.footer-logos{
+			@include breakpoint(small) {
+				@include grid-column(12);
+			}
+			@include breakpoint(medium) {
+				@include grid-column(4);
+			}
+			
+		}
+
+
+
+		.footer-text{
+			@include breakpoint(small only) {
+				@include grid-column(10); @include grid-column-position(center);
 			}
 			@include breakpoint(medium) {
 				@include grid-column(4); @include grid-column-unposition;
 			}
-			color:white;
-			a {
-				color: white;
-				text-decoration: underline;
-			}
-			
-			text-align:left;
-			//background-color:blue;
+
 		}
 
+		// This refers to the feedback button on the footer.
 		.footer-feedback {
 			@include grid-row();
 
 			a {
 				@include grid-column(12);
-				padding:10px;
-				border-radius:5px;
-				&:before {
-					content: "\f003";
-					font-family:FontAwesome;
-					padding-right:10px;
-				}
-				text-decoration: none;
-				font-weight:bold;
-
-				color:$colored-primary-heading;
-				background-color:$light-bg;
 			}
 		}
+
+		// Social media links in the footer.
 
 		.footer-links {
 			@include breakpoint(small only) {
@@ -81,21 +160,10 @@
 			@include breakpoint(medium) {
 				@include grid-column(4); @include grid-column-unposition;
 			}
-			.fa { 
-				color:white; 
-				padding-right:15px;
-			}
-			p {
-				margin-bottom:5px;
-			}
-			color:white;
+
 			.footer-links-container{
 				@include grid-row();
-				text-align:left;
 				.aole-some{
-					border-bottom:1px solid $white;
-					margin-bottom:10px;
-					padding-bottom: 10px;
 					@include grid-column(12);
 				}
 
@@ -106,10 +174,6 @@
 			
 		}
 
-
-
-	}
-
-	
+	}	
 }
 
