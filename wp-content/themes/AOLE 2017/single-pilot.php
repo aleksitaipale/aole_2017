@@ -36,12 +36,12 @@ get_header(); ?>
 			<?php do_action( 'foundationpress_post_before_entry_content' ); ?>
 			<article class="entry-content">
 				<section class="pilot-description">
-					<h2>Description</h2>
+					<h3>Description</h3>
 					<?php the_field("description"); ?>
 				</section>
 				<?php if (get_field( 'reflection_is_shown' )): ?>
 					<section class="pilot-reflection">
-						<h2>Reflection</h2>
+						<h3>Reflection</h3>
 						<p><?php the_field( 'reflection' ); ?></p>
 					</section>
 				<?php endif; ?>
