@@ -39,8 +39,8 @@
 
 }
 
-.event .event-date, .event .event-info-label { font-weight: bold; color: $grey; }
-
+.event .event-date { font-weight: bold; }
+.aole-feed .event-info-label, .aole-feed .event-date, .single-event .event-date { color: $grey; }
 .twitter-feed-content{
 	.fa {
 		color:white;

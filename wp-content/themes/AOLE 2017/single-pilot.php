@@ -40,24 +40,30 @@ get_header(); ?>
 					<?php the_field("description"); ?>
 				</section>
 				<?php if (get_field( 'reflection_is_shown' )): ?>
-					<section class="pilot-reflection matched-height2">
+					<section class="pilot-reflection">
 						<h2>Reflection</h2>
 						<p><?php the_field( 'reflection' ); ?></p>
 					</section>
 				<?php endif; ?>
 
-				<section class="pilot-people">
+				<section class="pilot-people content-section">
 					<h3>People</h3>
 					<p><?php the_field( 'people' ); ?></p>
 				</section>
+				<?php if (get_field( 'pedagogical_methods_used_is_shown' )): ?>
+					<section class="pedagogical-methods content-section">
+						<h3>Pedagogical methods used</h3>
+						<p><?php the_field( 'pedagogical_methods_used' ); ?></p>
+					</section>
+				<?php endif; ?>
 				<?php if (get_field( 'tools_used_section_is_shown' )): ?>
-					<section class="pilot-tools">
+					<section class="pilot-tools content-section">
 						<h3>Tools used</h3>
 						<p><?php the_field( 'tools_used' ); ?></p>
 					</section>
 				<?php endif; ?>
 				<?php if (get_field( 'links_materials_is_shown' )): ?>
-					<section class="pilot-links">
+					<section class="pilot-links content-section">
 						<h3>Links and materials</h3>
 						<p><?php the_field( 'links_materials' ); ?></p>
 					</section>

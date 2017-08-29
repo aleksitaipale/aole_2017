@@ -129,7 +129,7 @@
 
 			}
 
-			.pilot-people, .pilot-tools, .pilot-links{
+			.content-section{
 				@include breakpoint(small) {  @include grid-column(12); }
 				@include breakpoint(medium) {  @include grid-column(6);}
 			}

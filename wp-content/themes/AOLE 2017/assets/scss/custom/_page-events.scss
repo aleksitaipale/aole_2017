@@ -36,7 +36,9 @@ table, thead, tbody, tr, td{
 	color: $dark-primary-heading;
 
 }
-
+.event-date {
+	color:white;
+}
 .event-date-full-width { color: $colored-primary-heading; }	
 .event-information-container { font-size:0.8em; }
 .event-facilitator-list li { color: $grey; font-size:0.8em; }

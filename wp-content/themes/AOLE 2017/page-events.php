@@ -103,15 +103,22 @@ get_header(); ?>
 						echo " | ";
 						echo substr($event["event"]->event_start_time, 0, -3)."-".substr($event["event"]->event_end_time, 0, -3);
 						echo "<br><br>";
-						echo $event["event"]->location->location_name; 
+						echo $event["event"]->location->name;
+						if ($event["event"]->location->name != $event["event"]->location->location_address) {
+							echo "<br><br>".$event["event"]->location->location_address;  
+						}
+						echo ", ".$event["event"]->location->location_town; 
 						?>
 					</div>
 
 					<!-- Picture -->
-					<div class="event-image-container" data-equalizer-watch>
-						<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'event-thumbnail'); ?>" />
-					</div>
+					<a href="<?php echo $event["event"]->the_permalink; ?>">
+						<div class="event-image-container" data-equalizer-watch>
+							<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'event-thumbnail'); ?>" />
+						</div>
+					</a>
 					<div class="event-title-container" data-equalizer-watch>
+						<?php //print_r($event["event"]->location); ?>
 						<!-- Facilitator(s) -->
 						<ul class="event-facilitator-list">
 							<?php foreach($event["event"]->custom_fields["facilitators"] as $field){ echo "<li>".$field["facilitator"]."</li>"; } ?>
@@ -132,7 +139,13 @@ get_header(); ?>
 							<?php foreach($event["event"]->event_categories as $cat){ echo "<li>".$cat->name."</li>"; } ?>
 						</ul>
 						<!-- Location -->
-						<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
+						<div class="event-location">
+							<?php echo $event["event"]->location->name;
+							if ($event["event"]->location->name != $event["event"]->location->location_address) {
+								echo "<br>".$event["event"]->location->location_address;  
+							}
+							echo ", ".$event["event"]->location->location_town; ?>
+						</div>
 						<!-- Only for pilots? -->
 						<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
 						<!-- Export event to iCal -->
@@ -155,7 +168,7 @@ get_header(); ?>
 				<div class="events-section-title-container">
 					<div class="events-section-title">
 						<h2>Past events</h2>
-						
+
 						<div class="patterned-divider-container"><div class="patterned-divider pattern1"></div></div>
 					</div>
 				</div>
@@ -174,13 +187,11 @@ get_header(); ?>
 							?>
 						</div>
 						<!-- Picture -->
-						<div class="event-image-container" data-equalizer-watch>
-							<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'event-thumbnail'); ?>" />
-						</div>
-
-
-
-
+						<a href="<?php echo $event["event"]->the_permalink; ?>">
+							<div class="event-image-container" data-equalizer-watch>
+								<img class="event-thumbnail" src="<?php echo get_event_image_url($event["event"]->post_id, 'event-thumbnail'); ?>" />
+							</div>
+						</a>
 						<div class="event-title-container" data-equalizer-watch>
 							<!-- Facilitator(s) -->
 							<ul class="event-facilitator-list">
@@ -200,7 +211,15 @@ get_header(); ?>
 								</ul>
 
 								<!-- Location -->
-								<div class="event-location"><?php echo $event["event"]->location->location_name; ?></div>
+								<div class="event-location">
+									<?php
+									echo $event["event"]->location->name;
+									if ($event["event"]->location->name != $event["event"]->location->location_address) {
+										echo "<br>".$event["event"]->location->location_address;  
+									}
+									echo ", ".$event["event"]->location->location_town; 
+									?>
+								</div>
 								<!-- Only for pilots? -->
 								<div class="event-for-pilots"><?php if ($event["event"]->custom_fields["only_for_pilots"] == 1) { echo "Event for pilots"; } else { echo "Public event"; }; ?> </div>
 
