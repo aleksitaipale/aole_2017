@@ -62,7 +62,7 @@ get_header(); ?>
 		<div class="about-opit-container">
 			<div class="about-opit">
 				<div class="about-opit-image">
-					<img src="https://static.pexels.com/photos/46710/pexels-photo-46710.jpeg"></img>
+					<img src="<?php echo get_field('opit_image')['sizes']['large']; ?>" />
 				</div>
 				<div class="about-opit-content">
 					<h2><?php the_field("what_is_aalto_learning_it_title"); ?></h2>
