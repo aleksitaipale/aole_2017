@@ -71,6 +71,7 @@ if (!function_exists('write_log')) {
 
 ///////Custom post types start
 
+
 function cptui_register_my_cpts() {
 
     /**
@@ -104,7 +105,7 @@ function cptui_register_my_cpts() {
         "items_list" => __( "Pilots list", "" ),
         "attributes" => __( "Pilots attributes", "" ),
         "parent_item_colon" => __( "Parent Pilot:", "" ),
-        );
+    );
 
     $args = array(
         "label" => __( "Pilots", "" ),
@@ -118,13 +119,13 @@ function cptui_register_my_cpts() {
         "has_archive" => false,
         "show_in_menu" => true,
         "exclude_from_search" => false,
-        "capability_type" => "post",
+        "capability_type" => "pilot",
         "map_meta_cap" => true,
         "hierarchical" => false,
         "rewrite" => array( "slug" => "pilot", "with_front" => true ),
         "query_var" => true,
         "supports" => array( "title", "thumbnail" ),
-        );
+    );
 
     register_post_type( "pilot", $args );
 
@@ -157,27 +158,27 @@ function cptui_register_my_cpts() {
         "items_list_navigation" => __( "Team Members list navigation", "" ),
         "items_list" => __( "Team Members list", "" ),
         "attributes" => __( "Team Members attributes", "" ),
-        );
+    );
 
     $args = array(
         "label" => __( "Team Members", "" ),
         "labels" => $labels,
         "description" => "",
         "public" => true,
-        "publicly_queryable" => false,
+        "publicly_queryable" => true,
         "show_ui" => true,
         "show_in_rest" => false,
         "rest_base" => "",
         "has_archive" => false,
         "show_in_menu" => true,
         "exclude_from_search" => false,
-        "capability_type" => "post",
+        "capability_type" => "team_member",
         "map_meta_cap" => true,
         "hierarchical" => false,
         "rewrite" => array( "slug" => "team_members", "with_front" => true ),
         "query_var" => true,
         "supports" => array( "title", "thumbnail" ),
-        );
+    );
 
     register_post_type( "team_members", $args );
 
@@ -212,28 +213,28 @@ function cptui_register_my_cpts() {
         "items_list" => __( "Quotes list", "" ),
         "attributes" => __( "Quotes Attributes", "" ),
         "parent_item_colon" => __( "Parent Quote:", "" ),
-        );
+    );
 
     $args = array(
         "label" => __( "Quotes", "" ),
         "labels" => $labels,
         "description" => "Quotes said by other people.",
         "public" => true,
-        "publicly_queryable" => false,
+        "publicly_queryable" => true,
         "show_ui" => true,
         "show_in_rest" => false,
         "rest_base" => "",
         "has_archive" => false,
         "show_in_menu" => true,
         "exclude_from_search" => true,
-        "capability_type" => "post",
+        "capability_type" => "quote",
         "map_meta_cap" => true,
         "hierarchical" => false,
         "rewrite" => array( "slug" => "quotes", "with_front" => true ),
         "query_var" => true,
         "supports" => array( "title" ),
         "taxonomies" => array( "theme_group" ),
-        );
+    );
 
     register_post_type( "quotes", $args );
 
@@ -268,7 +269,7 @@ function cptui_register_my_cpts() {
         "items_list" => __( "Jobs list", "" ),
         "attributes" => __( "Jobs attributes", "" ),
         "parent_item_colon" => __( "Parent Job", "" ),
-        );
+    );
 
     $args = array(
         "label" => __( "Jobs", "" ),
@@ -282,13 +283,13 @@ function cptui_register_my_cpts() {
         "has_archive" => false,
         "show_in_menu" => true,
         "exclude_from_search" => false,
-        "capability_type" => "post",
+        "capability_type" => "job",
         "map_meta_cap" => true,
         "hierarchical" => false,
         "rewrite" => array( "slug" => "jobs", "with_front" => true ),
         "query_var" => true,
         "supports" => array( "title", "editor", "thumbnail" ),
-        );
+    );
 
     register_post_type( "jobs", $args );
 
@@ -323,397 +324,32 @@ function cptui_register_my_cpts() {
         "items_list" => __( "Online Learning Tools list", "" ),
         "attributes" => __( "Online Learning Tools attributes", "" ),
         "parent_item_colon" => __( "Parent Online Learning Tool:", "" ),
-        );
+    );
 
     $args = array(
         "label" => __( "Online Learning Tools", "" ),
         "labels" => $labels,
         "description" => "",
         "public" => true,
-        "publicly_queryable" => false,
+        "publicly_queryable" => true,
         "show_ui" => true,
         "show_in_rest" => false,
         "rest_base" => "",
         "has_archive" => false,
         "show_in_menu" => true,
         "exclude_from_search" => false,
-        "capability_type" => "post",
+        "capability_type" => "online_learning_tool",
         "map_meta_cap" => true,
         "hierarchical" => false,
         "rewrite" => array( "slug" => "online_learning_tool", "with_front" => true ),
         "query_var" => true,
         "supports" => array( "title", "editor", "thumbnail" ),
-        );
+    );
 
     register_post_type( "online_learning_tool", $args );
 }
 
 add_action( 'init', 'cptui_register_my_cpts' );
-
-
-function cptui_register_my_cpts_pilot() {
-
-    /**
-     * Post Type: Pilots.
-     */
-
-    $labels = array(
-        "name" => __( "Pilots", "" ),
-        "singular_name" => __( "Pilot", "" ),
-        "menu_name" => __( "Pilots", "" ),
-        "all_items" => __( "All pilots", "" ),
-        "add_new" => __( "Add new", "" ),
-        "add_new_item" => __( "Add new Pilot", "" ),
-        "edit_item" => __( "Edit Pilot", "" ),
-        "new_item" => __( "New Pilot", "" ),
-        "view_item" => __( "View Pilot", "" ),
-        "view_items" => __( "View Pilots", "" ),
-        "search_items" => __( "Search Pilot", "" ),
-        "not_found" => __( "No Pilots found", "" ),
-        "not_found_in_trash" => __( "No Pilots found in Trash", "" ),
-        "parent_item_colon" => __( "Parent Pilot:", "" ),
-        "featured_image" => __( "Featured image for this Pilot", "" ),
-        "set_featured_image" => __( "Set featured image for this Pilot", "" ),
-        "remove_featured_image" => __( "Remove featured image for this Pilot", "" ),
-        "use_featured_image" => __( "Use as featured image for this Pilot", "" ),
-        "archives" => __( "Pilot archives", "" ),
-        "insert_into_item" => __( "Insert into Pilot", "" ),
-        "uploaded_to_this_item" => __( "Uploaded to this Pilot", "" ),
-        "filter_items_list" => __( "Filter Pilots list", "" ),
-        "items_list_navigation" => __( "Pilots list navigation", "" ),
-        "items_list" => __( "Pilots list", "" ),
-        "attributes" => __( "Pilots attributes", "" ),
-        "parent_item_colon" => __( "Parent Pilot:", "" ),
-        );
-
-    $args = array(
-        "label" => __( "Pilots", "" ),
-        "labels" => $labels,
-        "description" => "Aalto Online Learning pilot project.",
-        "public" => true,
-        "publicly_queryable" => true,
-        "show_ui" => true,
-        "show_in_rest" => false,
-        "rest_base" => "",
-        "has_archive" => false,
-        "show_in_menu" => true,
-        "exclude_from_search" => false,
-        "capability_type" => "post",
-        "map_meta_cap" => true,
-        "hierarchical" => false,
-        "rewrite" => array( "slug" => "pilot", "with_front" => true ),
-        "query_var" => true,
-        "supports" => array( "title", "thumbnail" ),
-        );
-
-    register_post_type( "pilot", $args );
-}
-
-add_action( 'init', 'cptui_register_my_cpts_pilot' );
-
-
-function cptui_register_my_cpts_team_members() {
-
-    /**
-     * Post Type: Team Members.
-     */
-
-    $labels = array(
-        "name" => __( "Team Members", "" ),
-        "singular_name" => __( "Team Member", "" ),
-        "menu_name" => __( "Team Members", "" ),
-        "all_items" => __( "All Team Members", "" ),
-        "add_new" => __( "Add new", "" ),
-        "add_new_item" => __( "Add new Team Member", "" ),
-        "edit_item" => __( "Edit Team Member", "" ),
-        "new_item" => __( "New Team Member", "" ),
-        "view_item" => __( "View Team Member", "" ),
-        "view_items" => __( "View Team Members", "" ),
-        "search_items" => __( "Search Team Member", "" ),
-        "not_found" => __( "No Team Members found", "" ),
-        "not_found_in_trash" => __( "No Team Members found in Trash", "" ),
-        "featured_image" => __( "Featured image for this Team Member", "" ),
-        "set_featured_image" => __( "Set featured image for this Team Member", "" ),
-        "remove_featured_image" => __( "Remove featured image for this Team Member", "" ),
-        "use_featured_image" => __( "Use as featured image for this Team Member", "" ),
-        "archives" => __( "Team Member archives", "" ),
-        "insert_into_item" => __( "Insert into Team Member", "" ),
-        "uploaded_to_this_item" => __( "Uploaded to this Team Member", "" ),
-        "filter_items_list" => __( "Filter Team Members list", "" ),
-        "items_list_navigation" => __( "Team Members list navigation", "" ),
-        "items_list" => __( "Team Members list", "" ),
-        "attributes" => __( "Team Members attributes", "" ),
-        );
-
-    $args = array(
-        "label" => __( "Team Members", "" ),
-        "labels" => $labels,
-        "description" => "",
-        "public" => true,
-        "publicly_queryable" => true,
-        "show_ui" => true,
-        "show_in_rest" => false,
-        "rest_base" => "",
-        "has_archive" => false,
-        "show_in_menu" => true,
-        "exclude_from_search" => false,
-        "capability_type" => "post",
-        "map_meta_cap" => true,
-        "hierarchical" => false,
-        "rewrite" => array( "slug" => "team_members", "with_front" => true ),
-        "query_var" => true,
-        "supports" => array( "title", "thumbnail" ),
-        );
-
-    register_post_type( "team_members", $args );
-}
-
-add_action( 'init', 'cptui_register_my_cpts_team_members' );
-
-
-function cptui_register_my_cpts_quotes() {
-
-    /**
-     * Post Type: Quotes.
-     */
-
-    $labels = array(
-        "name" => __( "Quotes", "" ),
-        "singular_name" => __( "Quote", "" ),
-        "menu_name" => __( "Quotes", "" ),
-        "all_items" => __( "All Quotes", "" ),
-        "add_new" => __( "Add new", "" ),
-        "add_new_item" => __( "Add new Quote", "" ),
-        "edit_item" => __( "Edit Quote", "" ),
-        "new_item" => __( "New Quote", "" ),
-        "view_item" => __( "View Quote", "" ),
-        "view_items" => __( "View Quotes", "" ),
-        "search_items" => __( "Search Quote", "" ),
-        "not_found" => __( "No Quotes found", "" ),
-        "not_found_in_trash" => __( "No Quotes found in Trash", "" ),
-        "parent_item_colon" => __( "Parent Quote:", "" ),
-        "featured_image" => __( "Featured image for this Quote", "" ),
-        "set_featured_image" => __( "Set featured image for this Quote", "" ),
-        "remove_featured_image" => __( "Remove featured image for this Quote", "" ),
-        "use_featured_image" => __( "Use as featured image for this Quote", "" ),
-        "archives" => __( "Quote archives", "" ),
-        "insert_into_item" => __( "Insert into Quote", "" ),
-        "uploaded_to_this_item" => __( "Uplaaded to this Quote", "" ),
-        "filter_items_list" => __( "Filter Quotes list", "" ),
-        "items_list_navigation" => __( "Quotes list navigation", "" ),
-        "items_list" => __( "Quotes list", "" ),
-        "attributes" => __( "Quotes Attributes", "" ),
-        "parent_item_colon" => __( "Parent Quote:", "" ),
-        );
-
-    $args = array(
-        "label" => __( "Quotes", "" ),
-        "labels" => $labels,
-        "description" => "Quotes said by other people.",
-        "public" => true,
-        "publicly_queryable" => true,
-        "show_ui" => true,
-        "show_in_rest" => false,
-        "rest_base" => "",
-        "has_archive" => false,
-        "show_in_menu" => true,
-        "exclude_from_search" => true,
-        "capability_type" => "post",
-        "map_meta_cap" => true,
-        "hierarchical" => false,
-        "rewrite" => array( "slug" => "quotes", "with_front" => true ),
-        "query_var" => true,
-        "supports" => array( "title" ),
-        "taxonomies" => array( "theme_group" ),
-        );
-
-    register_post_type( "quotes", $args );
-}
-
-add_action( 'init', 'cptui_register_my_cpts_quotes' );
-
-
-function cptui_register_my_cpts_jobs() {
-
-    /**
-     * Post Type: Jobs.
-     */
-
-    $labels = array(
-        "name" => __( "Jobs", "" ),
-        "singular_name" => __( "Job", "" ),
-        "menu_name" => __( "Jobs", "" ),
-        "all_items" => __( "All Jobs", "" ),
-        "add_new" => __( "Add new", "" ),
-        "add_new_item" => __( "Add new Job", "" ),
-        "edit_item" => __( "Edit Job", "" ),
-        "new_item" => __( "New Job", "" ),
-        "view_item" => __( "View Job", "" ),
-        "view_items" => __( "View Jobs", "" ),
-        "search_items" => __( "Search Job", "" ),
-        "not_found" => __( "No Jobs Found", "" ),
-        "not_found_in_trash" => __( "No Jobs found in Trash", "" ),
-        "parent_item_colon" => __( "Parent Job", "" ),
-        "featured_image" => __( "Featured image for this Job", "" ),
-        "set_featured_image" => __( "Set featured image for this Job", "" ),
-        "remove_featured_image" => __( "Remove featured image for this Job", "" ),
-        "use_featured_image" => __( "Use as featured image for this Job", "" ),
-        "archives" => __( "Job archives", "" ),
-        "insert_into_item" => __( "Insert into Job", "" ),
-        "uploaded_to_this_item" => __( "Uploaded to this Job", "" ),
-        "filter_items_list" => __( "Filter Jobs list", "" ),
-        "items_list_navigation" => __( "Jobs list navigation", "" ),
-        "items_list" => __( "Jobs list", "" ),
-        "attributes" => __( "Jobs attributes", "" ),
-        "parent_item_colon" => __( "Parent Job", "" ),
-        );
-
-    $args = array(
-        "label" => __( "Jobs", "" ),
-        "labels" => $labels,
-        "description" => "Pilots sometimes have open positions for jobs, this is for those.",
-        "public" => true,
-        "publicly_queryable" => true,
-        "show_ui" => true,
-        "show_in_rest" => false,
-        "rest_base" => "",
-        "has_archive" => false,
-        "show_in_menu" => true,
-        "exclude_from_search" => false,
-        "capability_type" => "post",
-        "map_meta_cap" => true,
-        "hierarchical" => false,
-        "rewrite" => array( "slug" => "jobs", "with_front" => true ),
-        "query_var" => true,
-        "supports" => array( "title", "editor", "thumbnail" ),
-        );
-
-    register_post_type( "jobs", $args );
-}
-
-add_action( 'init', 'cptui_register_my_cpts_jobs' );
-
-
-function cptui_register_my_cpts_online_learning_tool() {
-
-    /**
-     * Post Type: Online Learning Tools.
-     */
-
-    $labels = array(
-        "name" => __( "Online Learning Tools", "" ),
-        "singular_name" => __( "Online Learning Tool", "" ),
-        "menu_name" => __( "Online Learning Tools", "" ),
-        "all_items" => __( "All Online Learning Tools", "" ),
-        "add_new" => __( "Add new", "" ),
-        "add_new_item" => __( "Add new Online Learning Tool", "" ),
-        "edit_item" => __( "Edit Online Learning Tool", "" ),
-        "new_item" => __( "New Online Learning Tool", "" ),
-        "view_item" => __( "View Online Learning Tool", "" ),
-        "view_items" => __( "View Online Learning Tools", "" ),
-        "search_items" => __( "Search Online Learning Tool", "" ),
-        "not_found" => __( "No Online Learning Tools found", "" ),
-        "not_found_in_trash" => __( "No Online Learning Tools found in Trash", "" ),
-        "parent_item_colon" => __( "Parent Online Learning Tool:", "" ),
-        "featured_image" => __( "Featured image for this Online Learning Tool", "" ),
-        "set_featured_image" => __( "Set featured image for this Online Learning Tool", "" ),
-        "remove_featured_image" => __( "Remove featured image for this Online Learning Tool", "" ),
-        "use_featured_image" => __( "Use as featured image for this Online Learning Tool", "" ),
-        "archives" => __( "Online Learning Tool archives", "" ),
-        "insert_into_item" => __( "Insert into Online Learning Tool", "" ),
-        "uploaded_to_this_item" => __( "Uploaded to this Online Learning Tool", "" ),
-        "filter_items_list" => __( "Filter Online Learning Tools list", "" ),
-        "items_list_navigation" => __( "Online Learning Tools list navigation", "" ),
-        "items_list" => __( "Online Learning Tools list", "" ),
-        "attributes" => __( "Online Learning Tools attributes", "" ),
-        "parent_item_colon" => __( "Parent Online Learning Tool:", "" ),
-        );
-
-    $args = array(
-        "label" => __( "Online Learning Tools", "" ),
-        "labels" => $labels,
-        "description" => "",
-        "public" => true,
-        "publicly_queryable" => true,
-        "show_ui" => true,
-        "show_in_rest" => false,
-        "rest_base" => "",
-        "has_archive" => false,
-        "show_in_menu" => true,
-        "exclude_from_search" => false,
-        "capability_type" => "post",
-        "map_meta_cap" => true,
-        "hierarchical" => false,
-        "rewrite" => array( "slug" => "online_learning_tool", "with_front" => true ),
-        "query_var" => true,
-        "supports" => array( "title", "editor", "thumbnail" ),
-        );
-
-    register_post_type( "online_learning_tool", $args );
-}
-
-add_action( 'init', 'cptui_register_my_cpts_online_learning_tool' );
-
-
-function cptui_register_my_taxes() {
-
-    /**
-     * Taxonomy: Theme Groups.
-     */
-
-    $labels = array(
-        "name" => __( "Theme Groups", "" ),
-        "singular_name" => __( "Theme Group", "" ),
-        );
-
-    $args = array(
-        "label" => __( "Theme Groups", "" ),
-        "labels" => $labels,
-        "public" => true,
-        "hierarchical" => true,
-        "label" => "Theme Groups",
-        "show_ui" => true,
-        "show_in_menu" => true,
-        "show_in_nav_menus" => true,
-        "query_var" => true,
-        "rewrite" => array( 'slug' => 'theme_group', 'with_front' => true, ),
-        "show_admin_column" => false,
-        "show_in_rest" => false,
-        "rest_base" => "",
-        "show_in_quick_edit" => false,
-        );
-    register_taxonomy( "theme_group", array( "pilot" ), $args );
-
-    /**
-     * Taxonomy: Quote Categories.
-     */
-
-    $labels = array(
-        "name" => __( "Quote Categories", "" ),
-        "singular_name" => __( "Quote Category", "" ),
-        );
-
-    $args = array(
-        "label" => __( "Quote Categories", "" ),
-        "labels" => $labels,
-        "public" => true,
-        "hierarchical" => false,
-        "label" => "Quote Categories",
-        "show_ui" => true,
-        "show_in_menu" => true,
-        "show_in_nav_menus" => true,
-        "query_var" => true,
-        "rewrite" => array( 'slug' => 'quote_category', 'with_front' => true, ),
-        "show_admin_column" => false,
-        "show_in_rest" => false,
-        "rest_base" => "",
-        "show_in_quick_edit" => false,
-        );
-    register_taxonomy( "quote_category", array( "quotes" ), $args );
-}
-
-add_action( 'init', 'cptui_register_my_taxes' );
-
 
 
 
@@ -931,7 +567,7 @@ if( function_exists('acf_add_options_page') ) {
         'page_title'    => 'Theme General Settings',
         'menu_title'    => 'Theme Settings',
         'menu_slug'     => 'theme-general-settings',
-        'capability'    => 'edit_posts',
+        'capability'    => 'edit_theme_settings',
         'redirect'      => false
         ));
     
