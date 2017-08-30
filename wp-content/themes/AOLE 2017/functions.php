@@ -124,7 +124,7 @@ function cptui_register_my_cpts() {
         "hierarchical" => false,
         "rewrite" => array( "slug" => "pilot", "with_front" => true ),
         "query_var" => true,
-        "supports" => array( "title", "thumbnail" ),
+        "supports" => array( "title", "thumbnail", "author"),
     );
 
     register_post_type( "pilot", $args );
@@ -350,6 +350,66 @@ function cptui_register_my_cpts() {
 }
 
 add_action( 'init', 'cptui_register_my_cpts' );
+
+function cptui_register_my_taxes() {
+
+    /**
+     * Taxonomy: Theme Groups.
+     */
+
+    $labels = array(
+        "name" => __( "Theme Groups", "" ),
+        "singular_name" => __( "Theme Group", "" ),
+    );
+
+    $args = array(
+        "label" => __( "Theme Groups", "" ),
+        "labels" => $labels,
+        "public" => true,
+        "hierarchical" => false,
+        "label" => "Theme Groups",
+        "show_ui" => true,
+        "show_in_menu" => true,
+        "show_in_nav_menus" => true,
+        "query_var" => true,
+        "rewrite" => array( 'slug' => 'theme_group', 'with_front' => true, ),
+        "show_admin_column" => false,
+        "show_in_rest" => false,
+        "rest_base" => "",
+        "show_in_quick_edit" => false,
+    );
+    register_taxonomy( "theme_group", array( "pilot" ), $args );
+
+    /**
+     * Taxonomy: Quote Categories.
+     */
+
+    $labels = array(
+        "name" => __( "Quote Categories", "" ),
+        "singular_name" => __( "Quote Category", "" ),
+    );
+
+    $args = array(
+        "label" => __( "Quote Categories", "" ),
+        "labels" => $labels,
+        "public" => true,
+        "hierarchical" => false,
+        "label" => "Quote Categories",
+        "show_ui" => true,
+        "show_in_menu" => true,
+        "show_in_nav_menus" => true,
+        "query_var" => true,
+        "rewrite" => array( 'slug' => 'quote_category', 'with_front' => true, ),
+        "show_admin_column" => false,
+        "show_in_rest" => false,
+        "rest_base" => "",
+        "show_in_quick_edit" => false,
+    );
+    register_taxonomy( "quote_category", array( "quotes" ), $args );
+}
+
+add_action( 'init', 'cptui_register_my_taxes' );
+
 
 
 
