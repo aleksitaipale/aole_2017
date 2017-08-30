@@ -54,11 +54,7 @@ get_header(); ?>
 						<?php
 
 			//Get all team members
-						$team_members_array = get_posts(
-							array( 'showposts' => -1,
-								'post_type' => 'team_members'
-								)
-							);
+						$team_members_array = get_field('core_team_members');
 
 			//Display all team members
 						foreach ($team_members_array as $team_member){
@@ -94,42 +90,38 @@ get_header(); ?>
 		</div>
 		<div class="aole-article-container">
 			<?php 
-global $post; // required
-$args = array('category' => get_cat_ID( "About" )); // include category 8 (About)
-$custom_posts = get_posts($args);
-foreach($custom_posts as $post) { 
-	setup_postdata($post);
+			$custom_posts = get_field("about_articles_shown");
+			foreach($custom_posts as $post) { 
+				?>
 
-	?>
+				<div class="aole-article">
+					<article class="aole-article-content">
+						<h3><?php echo $post->post_title; ?></h3>
+						<p><?php echo $post->post_content; ?></p>
+					</article>
+					<?php 
+					$post_gallery = get_field("post_gallery", $post->ID); 
+					if( $post_gallery ):
+						?>
+					<div class="aole-article-images">
+						<?php foreach( $post_gallery as $image ): ?>
+							<div class="aole-article-image">
+								<img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>"></img>
+							</div>
+						<?php endforeach; ?>
+					</div>
+				<?php endif; ?>
 
-	<div class="aole-article">
-		<article class="aole-article-content">
-			<h3><?php the_title(); ?></h3>
-			<p><?php the_content(); ?></p>
-		</article>
-		<?php 
-		$post_gallery = get_field("post_gallery"); 
-		if( $post_gallery ):
-			?>
-		<div class="aole-article-images">
-			<?php foreach( $post_gallery as $image ): ?>
-				<div class="aole-article-image">
-					<img src="<?php echo $image['sizes']['large']; ?>" alt="<?php echo $image['alt']; ?>"></img>
-				</div>
-			<?php endforeach; ?>
+
+
+			</div>
+
+			<?php } // end foreach ?>
+
+			<?php do_action( 'foundationpress_after_content' ); ?>
+			<?php get_sidebar(); ?>
+
 		</div>
-	<?php endif; ?>
+	</div>
 
-
-
-</div>
-
-<?php } // end foreach ?>
-
-<?php do_action( 'foundationpress_after_content' ); ?>
-<?php get_sidebar(); ?>
-
-</div>
-</div>
-
-<?php get_footer();
+	<?php get_footer();
