@@ -584,6 +584,31 @@ function wpsd_add_cpt_args() {
 }
 add_action( 'init', 'wpsd_add_cpt_args', 30 );
 
+// Add message to Dashboard
+
+add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
+  
+function my_custom_dashboard_widgets() {
+global $wp_meta_boxes;
+ 
+wp_add_dashboard_widget('custom_help_widget', 'How to use this theme?', 'custom_dashboard_help');
+}
+ 
+function custom_dashboard_help() {
+echo '<p>Welcome to the Aalto Online Learning 2017 theme! Need help? Check out the documentation on how to use this WordPress theme at:
+<br><br>
+<a href="https://aalto-online-learning.github.io/aole2017-wordpress-documentation/">https://aalto-online-learning.github.io/aole2017-wordpress-documentation/</a>
+<br><br>
+You\'ll find answer to questions such as:
+<ul>
+<li>- How do I change the content of the front page?</li>
+<li>- How do I change the core team members on the about page?</li>
+<li>- How do I add a picture on this page/post?</li>
+</ul>
+Have fun with the site!
+';
+}
+
 // MAINTENANCE MODE
 
 // Activate WordPress Maintenance Mode
@@ -593,6 +618,8 @@ function wp_maintenance_mode(){
     }
 }
 //add_action('get_header', 'wp_maintenance_mode');
+
+
 
 
 
