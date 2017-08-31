@@ -69,81 +69,103 @@ get_header(); ?>
 					<?php the_field("what_is_aalto_learning_it_content"); ?>
 				</div>
 				
-				<!-- <div class="about-opit-quote quote">
+				<?php
+				$theme_quote = "lol";
+
+				$opit_quotes = get_posts(
+					array( 'showposts' => -1,
+						'post_type' => 'quotes',
+						'tax_query' => array(
+							array(
+								'taxonomy' => 'quote_category',
+								'field' => 'term_id',
+								'terms' => get_term_by('name', 'Learning IT', 'quote_category'),
+								)
+							)
+						)
+					);
+
+				
+				$opit_quote = $opit_quotes[array_rand($opit_quotes)];
+				if ($opit_quote): 
+					$custom_fields = get_fields($opit_quote->ID);
+				?>
+				<div class="about-opit-quote quote">
 
 					<div class="theme-quote-content quote-content">
 						<div class="theme-quote-underline quote-underline"></div>
-						<div class="quote-text"></div>
+						<div class="quote-text"><?php echo $custom_fields["quote"]; ?></div>
 
-						<div class="quote-author-name"></div>
-						<div class="quote-author-info"></div>
+						<div class="quote-author-name"><?php echo $custom_fields["author"]; ?></div>
+						<div class="quote-author-info"><?php echo $custom_fields["author_info"]; ?></div>
 
 					</div>
-
-
-				</div> -->
-			</div>
-		</div>
-
-		<?php
-		$categories = get_field("online_tool_categories");
-
-
-		if ($categories):
-
-			foreach ($categories as $category):
-				?>
-
-			<div class="patterned-divider-container"><div class="patterned-divider <?php echo get_custom_pattern_class(); ?>"></div>
-
-			<div class="toolbox-container">
-				<div class="toolbox">
-					<div class="toolbox-title">
-						<h2><?php echo $category["online_tool_group_title"];?></h2>
-						<?php echo $category["online_tool_group_description"]; ?>
-					</div>
-					<div class="toolbox-content">
-						<h3>Aalto-supported tools</h3>
-						<?php foreach($category["aalto_supported_tools_listing"] as $aalto_tool):?>
-							<div class="single-tool">
-								<div class="single-tool-text">
-
-									<h4><a href="<?php echo get_field("online_learning_tool_link", $aalto_tool->ID); ?>"><?php echo $aalto_tool->post_title; ?></a></h4>
-									<?php echo $aalto_tool->post_content; ?>
-								</div>
-								<div class="single-tool-image">
-									<img src="https://static.pexels.com/photos/46710/pexels-photo-46710.jpeg"></img>
-								</div>
-							</div>
-
-							<?php
-							endforeach;
-							?>
-						</div>
-
-						<?php if ($category["other_tools_listing"]): ?>
-							<div class="other-tools">
-								<h3>Other tools</h3>
-								<?php foreach($category["other_tools_listing"] as $other_tool):?>
-									<h5><a href="<?php echo get_field("online_learning_tool_link", $other_tool->ID); ?>"><?php echo $other_tool->post_title; ?></a></h5>
-									<?php echo $other_tool->post_content; ?>
-									<?php
-									endforeach;
-									?>
-
-								</div>
-							<?php endif; ?>
-						</div>
-					</div>
-
-					<?php
-					endforeach;
-
-					endif;
-					?>
-
 
 
 				</div>
+			<?php endif; ?>
+		</div>
+	</div>
 
-				<?php get_footer();
+	<?php
+	$categories = get_field("online_tool_categories");
+
+
+	if ($categories):
+
+		foreach ($categories as $category):
+			?>
+
+		<div class="patterned-divider-container"><div class="patterned-divider <?php echo get_custom_pattern_class(); ?>"></div>
+
+		<div class="toolbox-container">
+			<div class="toolbox">
+				<div class="toolbox-title">
+					<h2><?php echo $category["online_tool_group_title"];?></h2>
+					<?php echo $category["online_tool_group_description"]; ?>
+				</div>
+				<div class="toolbox-content">
+					<h3>Aalto-supported tools</h3>
+					<?php foreach($category["aalto_supported_tools_listing"] as $aalto_tool):?>
+						<div class="single-tool">
+							<div class="single-tool-text">
+
+								<h4><a href="<?php echo get_field("online_learning_tool_link", $aalto_tool->ID); ?>"><?php echo $aalto_tool->post_title; ?></a></h4>
+								<?php echo $aalto_tool->post_content; ?>
+							</div>
+							<div class="single-tool-image">
+								<img src="https://static.pexels.com/photos/46710/pexels-photo-46710.jpeg"></img>
+							</div>
+						</div>
+
+						<?php
+						endforeach;
+						?>
+					</div>
+
+					<?php if ($category["other_tools_listing"]): ?>
+						<div class="other-tools">
+							<h3>Other tools</h3>
+							<?php foreach($category["other_tools_listing"] as $other_tool):?>
+								<h5><a href="<?php echo get_field("online_learning_tool_link", $other_tool->ID); ?>"><?php echo $other_tool->post_title; ?></a></h5>
+								<?php echo $other_tool->post_content; ?>
+								<?php
+								endforeach;
+								?>
+
+							</div>
+						<?php endif; ?>
+					</div>
+				</div>
+
+				<?php
+				endforeach;
+
+				endif;
+				?>
+
+
+
+			</div>
+
+			<?php get_footer();
