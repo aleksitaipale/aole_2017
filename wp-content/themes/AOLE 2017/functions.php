@@ -642,6 +642,18 @@ function add_theme_settings_page(){
 }
 
 
+// Enable ACF PRO even in the WP-signup page
+add_action ('activate_header', 'load_site_specific_plugin') ;
+
+function load_site_specific_plugin ()
+{
+    if (wp_installing ()) {
+        require_once (WP_PLUGIN_DIR . 'advanced-custom-fields-pro') ;
+        }
+
+    return ;
+}
+
 
 add_action( 'init', 'add_theme_settings_page' );
 
