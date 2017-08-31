@@ -56,6 +56,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 		.featured-header{
 			display:block !important;
 		}
+
+		.aole-feed-container .aole-feed-featured-image img {
+			position: static !important;
+		}
 	</style>
 
 </noscript>
