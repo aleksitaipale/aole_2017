@@ -105,7 +105,7 @@ function cptui_register_my_cpts() {
         "items_list" => __( "Pilots list", "" ),
         "attributes" => __( "Pilots attributes", "" ),
         "parent_item_colon" => __( "Parent Pilot:", "" ),
-    );
+        );
 
     $args = array(
         "label" => __( "Pilots", "" ),
@@ -125,7 +125,7 @@ function cptui_register_my_cpts() {
         "rewrite" => array( "slug" => "pilot", "with_front" => true ),
         "query_var" => true,
         "supports" => array( "title", "thumbnail", "author"),
-    );
+        );
 
     register_post_type( "pilot", $args );
 
@@ -158,7 +158,7 @@ function cptui_register_my_cpts() {
         "items_list_navigation" => __( "Team Members list navigation", "" ),
         "items_list" => __( "Team Members list", "" ),
         "attributes" => __( "Team Members attributes", "" ),
-    );
+        );
 
     $args = array(
         "label" => __( "Team Members", "" ),
@@ -178,7 +178,7 @@ function cptui_register_my_cpts() {
         "rewrite" => array( "slug" => "team_members", "with_front" => true ),
         "query_var" => true,
         "supports" => array( "title", "thumbnail" ),
-    );
+        );
 
     register_post_type( "team_members", $args );
 
@@ -213,7 +213,7 @@ function cptui_register_my_cpts() {
         "items_list" => __( "Quotes list", "" ),
         "attributes" => __( "Quotes Attributes", "" ),
         "parent_item_colon" => __( "Parent Quote:", "" ),
-    );
+        );
 
     $args = array(
         "label" => __( "Quotes", "" ),
@@ -234,7 +234,7 @@ function cptui_register_my_cpts() {
         "query_var" => true,
         "supports" => array( "title" ),
         "taxonomies" => array( "theme_group" ),
-    );
+        );
 
     register_post_type( "quotes", $args );
 
@@ -269,7 +269,7 @@ function cptui_register_my_cpts() {
         "items_list" => __( "Jobs list", "" ),
         "attributes" => __( "Jobs attributes", "" ),
         "parent_item_colon" => __( "Parent Job", "" ),
-    );
+        );
 
     $args = array(
         "label" => __( "Jobs", "" ),
@@ -289,7 +289,7 @@ function cptui_register_my_cpts() {
         "rewrite" => array( "slug" => "jobs", "with_front" => true ),
         "query_var" => true,
         "supports" => array( "title", "editor", "thumbnail" ),
-    );
+        );
 
     register_post_type( "jobs", $args );
 
@@ -324,7 +324,7 @@ function cptui_register_my_cpts() {
         "items_list" => __( "Online Learning Tools list", "" ),
         "attributes" => __( "Online Learning Tools attributes", "" ),
         "parent_item_colon" => __( "Parent Online Learning Tool:", "" ),
-    );
+        );
 
     $args = array(
         "label" => __( "Online Learning Tools", "" ),
@@ -344,7 +344,7 @@ function cptui_register_my_cpts() {
         "rewrite" => array( "slug" => "online_learning_tool", "with_front" => true ),
         "query_var" => true,
         "supports" => array( "title", "editor", "thumbnail" ),
-    );
+        );
 
     register_post_type( "online_learning_tool", $args );
 }
@@ -360,7 +360,7 @@ function cptui_register_my_taxes() {
     $labels = array(
         "name" => __( "Theme Groups", "" ),
         "singular_name" => __( "Theme Group", "" ),
-    );
+        );
 
     $args = array(
         "label" => __( "Theme Groups", "" ),
@@ -377,7 +377,13 @@ function cptui_register_my_taxes() {
         "show_in_rest" => false,
         "rest_base" => "",
         "show_in_quick_edit" => false,
-    );
+        'capabilities' => array(
+            'manage_terms' => 'manage_theme_group',
+            'edit_terms' => 'edit_theme_group',
+            'delete_terms' => 'delete_theme_group',
+            'assign_terms' => 'assign_theme_group',
+            )
+        );
     register_taxonomy( "theme_group", array( "pilot" ), $args );
 
     /**
@@ -387,7 +393,7 @@ function cptui_register_my_taxes() {
     $labels = array(
         "name" => __( "Quote Categories", "" ),
         "singular_name" => __( "Quote Category", "" ),
-    );
+        );
 
     $args = array(
         "label" => __( "Quote Categories", "" ),
@@ -404,7 +410,7 @@ function cptui_register_my_taxes() {
         "show_in_rest" => false,
         "rest_base" => "",
         "show_in_quick_edit" => false,
-    );
+        );
     register_taxonomy( "quote_category", array( "quotes" ), $args );
 }
 
@@ -424,14 +430,14 @@ add_action( 'init', 'cptui_register_my_taxes' );
 function update_custom_terms($post_id) {
 
     // only update terms if it's a theme group post
- if ( 'theme_group' != get_post_type($post_id)) {
-  return;
-}
+   if ( 'theme_group' != get_post_type($post_id)) {
+      return;
+  }
 
     // don't create or update terms for system generated posts
-if (get_post_status($post_id) == 'auto-draft') {
-  return;
-}
+  if (get_post_status($post_id) == 'auto-draft') {
+      return;
+  }
 
     /*
     * Grab the post title and slug to use as the new 
@@ -647,26 +653,26 @@ add_action( 'init', 'wpsd_add_cpt_args', 30 );
 // Add message to Dashboard
 
 add_action('wp_dashboard_setup', 'my_custom_dashboard_widgets');
-  
+
 function my_custom_dashboard_widgets() {
-global $wp_meta_boxes;
- 
-wp_add_dashboard_widget('custom_help_widget', 'How to use this theme?', 'custom_dashboard_help');
+    global $wp_meta_boxes;
+
+    wp_add_dashboard_widget('custom_help_widget', 'How to use this theme?', 'custom_dashboard_help');
 }
- 
+
 function custom_dashboard_help() {
-echo '<p>Welcome to the Aalto Online Learning 2017 theme! Need help? Check out the documentation on how to use this WordPress theme at:
-<br><br>
-<a href="https://aalto-online-learning.github.io/aole2017-wordpress-documentation/">https://aalto-online-learning.github.io/aole2017-wordpress-documentation/</a>
-<br><br>
-You\'ll find answer to questions such as:
-<ul>
-<li>- How do I change the content of the front page?</li>
-<li>- How do I change the core team members on the about page?</li>
-<li>- How do I add a picture on this page/post?</li>
-</ul>
-Have fun with the site!
-';
+    echo '<p>Welcome to the Aalto Online Learning 2017 theme! Need help? Check out the documentation on how to use this WordPress theme at:
+    <br><br>
+    <a href="https://aalto-online-learning.github.io/aole2017-wordpress-documentation/">https://aalto-online-learning.github.io/aole2017-wordpress-documentation/</a>
+    <br><br>
+    You\'ll find answer to questions such as:
+    <ul>
+        <li>- How do I change the content of the front page?</li>
+        <li>- How do I change the core team members on the about page?</li>
+        <li>- How do I add a picture on this page/post?</li>
+    </ul>
+    Have fun with the site!
+    ';
 }
 
 // MAINTENANCE MODE
