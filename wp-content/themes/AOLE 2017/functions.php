@@ -627,7 +627,8 @@ function get_pilot_image_url($pilot_id, $image_size){
 
 // Add a custom ACF menu to edit the footer
 
-if( function_exists('acf_add_options_page') ) {
+function add_theme_settings_page(){
+  if( function_exists('acf_add_options_page') ) {
 
     acf_add_options_page(array(
         'page_title'    => 'Theme General Settings',
@@ -637,7 +638,12 @@ if( function_exists('acf_add_options_page') ) {
         'redirect'      => false
         ));
     
+}  
 }
+
+
+
+add_action( 'init', 'add_theme_settings_page' );
 
 // Add rest api support to events
 
